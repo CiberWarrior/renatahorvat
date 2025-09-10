@@ -1,6 +1,38 @@
-<footer class="mt-24 border-t">
-  <div class="mx-auto max-w-6xl px-6 py-10 text-sm text-gray-600 flex flex-wrap gap-4 justify-between">
-    <p>© {new Date().getFullYear()} Renata Horvat</p>
-    <p>Built with Astro • Deployed on Vercel</p>
+<footer class="bg-gray-50 border-t border-gray-200">
+  <div class="max-w-6xl mx-auto px-6 py-12">
+    <div class="grid md:grid-cols-3 gap-8">
+      <div>
+        <h3 class="text-lg font-semibold text-gray-900 mb-4">Renata Horvat</h3>
+        <p class="text-gray-600 mb-4">
+          Designer koji govori jezikom znanosti. Kombiniram dizajn s dubokim razumijevanjem edukacije i znanosti.
+        </p>
+      </div>
+      
+      <div>
+        <h4 class="text-sm font-semibold text-gray-900 mb-4">Usluge</h4>
+        <ul class="space-y-2 text-sm text-gray-600">
+          <li><a href="/services" class="hover:text-blue-600 transition-colors">Digital learning materials</a></li>
+          <li><a href="/services" class="hover:text-blue-600 transition-colors">Conference websites</a></li>
+          <li><a href="/services" class="hover:text-blue-600 transition-colors">Educational visuals</a></li>
+          <li><a href="/services" class="hover:text-blue-600 transition-colors">Business automation</a></li>
+        </ul>
+      </div>
+      
+      <div>
+        <h4 class="text-sm font-semibold text-gray-900 mb-4">Kontakt</h4>
+        <p class="text-sm text-gray-600 mb-2">
+          <a href="/contact" class="hover:text-blue-600 transition-colors">Get in touch</a>
+        </p>
+        <p class="text-xs text-gray-500">
+          Built with Astro • Deployed on Vercel
+        </p>
+      </div>
+    </div>
+    
+    <div class="border-t border-gray-200 mt-8 pt-8 text-center">
+      <p class="text-sm text-gray-500">
+        © {new Date().getFullYear()} Renata Horvat. All rights reserved.
+      </p>
+    </div>
   </div>
 </footer>

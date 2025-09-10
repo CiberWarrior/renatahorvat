@@ -1,0 +1,64 @@
+---
+const testimonials = [
+  {
+    text: "Working with Renata was an absolute pleasure – she understood our content and audience better than we did. The final website was not only functional, but truly beautiful.",
+    author: "Marko V.",
+    role: "Conference Organizer"
+  },
+  {
+    text: "We needed someone who speaks both 'design' and 'science' – and she delivered perfectly. The e-learning modules are now not only informative, but truly engaging.",
+    author: "Ivana M.",
+    role: "Educational Content Lead"
+  },
+  {
+    text: "Not only did she deliver a stunning visual concept, but she also helped us rethink how we present our materials. A rare mix of creativity and precision.",
+    author: "Jelena D.",
+    role: "Editor of Scientific Materials"
+  },
+  {
+    text: "She brought clarity and structure to our online textbook project. Every step of the process was smooth, and the end result exceeded our expectations.",
+    author: "Prof. Ana K.",
+    role: "University Educator"
+  },
+  {
+    text: "Her ability to turn complex content into a clean, intuitive digital experience is impressive. She was responsive, thoughtful, and always one step ahead.",
+    author: "Luka P.",
+    role: "Project Coordinator"
+  },
+  {
+    text: "From the first draft to the final delivery, everything felt easy and well-organized. She just gets how educators think – and what learners need.",
+    author: "Sandra T.",
+    role: "Digital Learning Consultant"
+  }
+];
+---
+
+<section class="py-20 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold text-gray-900 mb-4">What Clients Say</h2>
+      <p class="text-xl text-gray-600">
+        Real feedback from real projects
+      </p>
+    </div>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {testimonials.map((testimonial) => (
+        <div class="bg-gray-50 rounded-2xl p-6 hover:shadow-lg transition-shadow">
+          <div class="mb-4">
+            <svg class="w-8 h-8 text-blue-600 mb-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+            </svg>
+          </div>
+          <blockquote class="text-gray-700 mb-4 leading-relaxed">
+            "{testimonial.text}"
+          </blockquote>
+          <div class="border-t border-gray-200 pt-4">
+            <p class="font-semibold text-gray-900">{testimonial.author}</p>
+            <p class="text-sm text-gray-600">{testimonial.role}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
