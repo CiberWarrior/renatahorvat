@@ -1,6 +1,19 @@
-<form method="post" action="/api/contact" class="grid gap-4 max-w-xl">
+<form id="contact-form" class="grid gap-4 max-w-xl">
   <input class="border rounded-lg p-3" name="name" placeholder="Your name" required />
   <input class="border rounded-lg p-3" type="email" name="email" placeholder="Your email" required />
   <textarea class="border rounded-lg p-3" name="message" rows="6" placeholder="Tell me about your project" required></textarea>
-  <button class="rounded-xl bg-emerald-600 text-white px-5 py-3">Send</button>
+  <button type="submit" class="rounded-xl bg-emerald-600 text-white px-5 py-3">Send</button>
 </form>
+
+<script>
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const message = formData.get('message');
+    
+    const mailtoLink = `mailto:renata@example.com?subject=New inquiry from ${encodeURIComponent(name)}&body=${encodeURIComponent(message + '\n\nFrom: ' + name + ' <' + email + '>')}`;
+    window.location.href = mailtoLink;
+  });
+</script>
