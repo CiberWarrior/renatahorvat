@@ -1,127 +1,88 @@
 ---
+import Card from './ui/Card.astro';
+import CardContent from './ui/CardContent.astro';
+import Badge from './ui/Badge.astro';
+
 const testimonials = [
   {
-    text: "Working with Renata was an absolute pleasure – she understood our content and audience better than we did. The final website was not only functional, but truly beautiful.",
+    text: "She understood our content and audience better than we did. The final website was not only functional, but truly beautiful.",
     author: "Marko V.",
-    role: "Conference Organizer"
+    role: "Conference Organizer",
+    avatar: "MV"
   },
   {
-    text: "We needed someone who speaks both 'design' and 'science' – and she delivered perfectly. The e-learning modules are now not only informative, but truly engaging.",
+    text: "We needed someone who speaks both 'design' and 'science' – and she delivered perfectly.",
     author: "Ivana M.",
-    role: "Educational Content Lead"
+    role: "Educational Content Lead",
+    avatar: "IM"
   },
   {
-    text: "Not only did she deliver a stunning visual concept, but she also helped us rethink how we present our materials. A rare mix of creativity and precision.",
+    text: "A rare mix of creativity and precision. She helped us rethink how we present our materials.",
     author: "Jelena D.",
-    role: "Editor of Scientific Materials"
-  },
-  {
-    text: "She brought clarity and structure to our online textbook project. Every step of the process was smooth, and the end result exceeded our expectations.",
-    author: "Prof. Ana K.",
-    role: "University Educator"
-  },
-  {
-    text: "Her ability to turn complex content into a clean, intuitive digital experience is impressive. She was responsive, thoughtful, and always one step ahead.",
-    author: "Luka P.",
-    role: "Project Coordinator"
-  },
-  {
-    text: "From the first draft to the final delivery, everything felt easy and well-organized. She just gets how educators think – and what learners need.",
-    author: "Sandra T.",
-    role: "Digital Learning Consultant"
+    role: "Editor of Scientific Materials",
+    avatar: "JD"
   }
 ];
 ---
 
-<section class="py-32 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
-  <!-- Background elements -->
-  <div class="absolute inset-0">
-    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
-  </div>
+<section class="py-20 bg-transparent">
   
-  <div class="relative max-w-7xl mx-auto px-6">
-    <div class="text-center mb-20">
-      <div class="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/90 text-sm font-medium mb-6">
-        <span class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
+  <div class="relative max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <Badge variant="default" class="gap-2 mb-6">
+        <span class="w-2 h-2 bg-green-500 rounded-full"></span>
         Client Testimonials
-      </div>
-      <h2 class="text-5xl lg:text-6xl font-black text-white mb-6">
+      </Badge>
+      <h2 class="text-4xl lg:text-6xl font-black text-white mb-4">
         What Clients
-        <span class="block bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+        <span class="block bg-gradient-to-r from-blue-400 via-teal-400 to-blue-400 bg-clip-text text-transparent">
           Say
         </span>
       </h2>
-      <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+      <p class="text-lg text-gray-300 max-w-2xl mx-auto">
         Real feedback from real projects that made a difference
       </p>
     </div>
     
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" data-reveal-stagger>
+    <div class="grid md:grid-cols-3 gap-8">
       {testimonials.map((testimonial, index) => (
-        <div class="group relative" data-reveal-item>
-          <!-- Main testimonial card -->
-          <div class="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 hover:bg-white/15 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/20">
-            <!-- Gradient overlay -->
-            <div class="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            
-            <div class="relative z-10">
-              <!-- Quote icon -->
-              <div class="mb-6">
-                <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-2xl flex items-center justify-center">
-                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
-                  </svg>
-                </div>
-              </div>
-              
-              <!-- Testimonial text -->
-              <blockquote class="text-white/90 mb-6 leading-relaxed text-lg">
-                "{testimonial.text}"
-              </blockquote>
-              
-              <!-- Author info -->
-              <div class="border-t border-white/20 pt-6">
-                <div class="flex items-center space-x-4">
-                  <!-- Avatar placeholder -->
-                  <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
-                    {testimonial.author.charAt(0)}
-                  </div>
-                  <div>
-                    <p class="font-semibold text-white text-lg">{testimonial.author}</p>
-                    <p class="text-white/70 text-sm">{testimonial.role}</p>
-                  </div>
-                </div>
-              </div>
+        <Card class="bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500 shadow-2xl">
+          <CardContent class="p-6 text-center">
+            <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-teal-500 rounded-full flex items-center justify-center text-white font-bold mx-auto mb-4">
+              {testimonial.avatar}
             </div>
-          </div>
-          
-          <!-- Floating decoration -->
-          <div class="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
-        </div>
+            <blockquote class="text-lg text-white/90 mb-6 leading-relaxed font-medium">
+              "{testimonial.text}"
+            </blockquote>
+            <div class="border-t border-white/20 pt-4">
+              <p class="font-semibold text-white">{testimonial.author}</p>
+              <p class="text-white/70 text-sm">{testimonial.role}</p>
+            </div>
+          </CardContent>
+        </Card>
       ))}
     </div>
     
     <!-- Bottom stats -->
-    <div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-      <div class="group">
-        <div class="text-4xl lg:text-5xl font-black text-white mb-2 group-hover:text-purple-400 transition-colors duration-300">
-          100%
-        </div>
-        <div class="text-white/70 text-lg">Client Satisfaction</div>
-      </div>
-      <div class="group">
-        <div class="text-4xl lg:text-5xl font-black text-white mb-2 group-hover:text-blue-400 transition-colors duration-300">
-          50+
-        </div>
-        <div class="text-white/70 text-lg">Projects Completed</div>
-      </div>
-      <div class="group">
-        <div class="text-4xl lg:text-5xl font-black text-white mb-2 group-hover:text-pink-400 transition-colors duration-300">
-          5★
-        </div>
-        <div class="text-white/70 text-lg">Average Rating</div>
-      </div>
+    <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+      <Card class="bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500 shadow-2xl">
+        <CardContent class="p-6 text-center">
+          <div class="text-3xl font-black text-blue-400 mb-2">100%</div>
+          <div class="text-white/70">Client Satisfaction</div>
+        </CardContent>
+      </Card>
+      <Card class="bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500 shadow-2xl">
+        <CardContent class="p-6 text-center">
+          <div class="text-3xl font-black text-teal-400 mb-2">50+</div>
+          <div class="text-white/70">Projects Completed</div>
+        </CardContent>
+      </Card>
+      <Card class="bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500 shadow-2xl">
+        <CardContent class="p-6 text-center">
+          <div class="text-3xl font-black text-blue-400 mb-2">5★</div>
+          <div class="text-white/70">Average Rating</div>
+        </CardContent>
+      </Card>
     </div>
   </div>
 </section>

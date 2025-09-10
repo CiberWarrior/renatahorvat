@@ -1,46 +1,249 @@
 ---
-import DefaultLayout from "../layouts/DefaultLayout.astro";
-import Navbar from "../components/Navbar.astro";
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import ContactForm from "../components/ContactForm.astro";
+import Badge from "../components/ui/Badge.astro";
+import Card from "../components/ui/Card.astro";
+import CardContent from "../components/ui/CardContent.astro";
+import Button from "../components/ui/Button.astro";
 ---
-<DefaultLayout title="Contact — Renata Horvat" description="Get in touch with Renata Horvat.">
-  <Fragment slot="nav"><Navbar /></Fragment>
 
-  <section class="py-16">
-    <h1 class="text-3xl font-bold">Get in touch</h1>
-    <p class="mt-3 text-gray-600 max-w-2xl">Tell me about your goals and timeline.</p>
-
-    <div class="mt-10 grid gap-10 md:grid-cols-[220px_minmax(0,1fr)] items-start">
-      <!-- Small profile image card (upload later into /public/images/) -->
-      <aside class="md:sticky md:top-6">
-        <div class="inline-flex flex-col items-center gap-4 rounded-2xl border p-5">
-          <picture>
-            <!-- WebP first (optional); JPEG fallback -->
-            <!-- Upload files later: /public/images/renata-128.(webp|jpg), -160, -200 -->
-            <img
-              src="/images/renata-200.jpg"
-              srcset="/images/renata-128.jpg 128w, /images/renata-160.jpg 160w, /images/renata-200.jpg 200w"
-              sizes="(min-width: 1024px) 180px, (min-width: 640px) 160px, 128px"
-              alt="Portrait of Renata Horvat"
-              width="200" height="200"
-              loading="lazy" decoding="async"
-              class="h-auto w-[128px] sm:w-[160px] lg:w-[180px] rounded-2xl object-cover ring-1 ring-black/10 shadow-sm"
-            />
-          </picture>
-          <div class="text-center">
-            <h2 class="font-semibold">Renata Horvat</h2>
-            <p class="text-sm text-gray-600">AI-first Web Artisan</p>
+<Layout title="Contact — Renata Horvat" description="Get in touch with Renata Horvat for your next project">
+  <Header />
+  
+  <main class="relative">
+    <!-- Space Background -->
+    <div class="fixed inset-0 space-background">
+      <!-- Stars -->
+      <div class="absolute inset-0 space-stars-bg">
+        <!-- Star 1 -->
+        <svg class="absolute w-2 h-2 text-white/60 top-[10%] left-[20%] animate-twinkle" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+        <!-- Star 2 -->
+        <svg class="absolute w-3 h-3 text-white/80 top-[20%] right-[20%] animate-twinkle" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+        <!-- Star 3 -->
+        <svg class="absolute w-1 h-1 text-white/40 top-[30%] left-[40%] animate-twinkle" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+        <!-- Star 4 -->
+        <svg class="absolute w-4 h-4 text-white/90 top-[40%] left-[10%] animate-twinkle" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+        <!-- Star 5 -->
+        <svg class="absolute w-2 h-2 text-white/70 top-[50%] right-[30%] animate-twinkle" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+        <!-- Star 6 -->
+        <svg class="absolute w-3 h-3 text-white/50 top-[60%] left-[30%] animate-twinkle" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+        <!-- Star 7 -->
+        <svg class="absolute w-1 h-1 text-white/60 top-[70%] right-[10%] animate-twinkle" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+        <!-- Star 8 -->
+        <svg class="absolute w-2 h-2 text-white/80 top-[80%] left-[50%] animate-twinkle" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+      </div>
+      
+      <!-- Nebula effect -->
+      <div class="absolute inset-0 nebula-1"></div>
+      <div class="absolute inset-0 nebula-2"></div>
+      
+      <!-- Rocket silhouette -->
+      <div class="absolute top-1/4 right-1/4 rocket-silhouette">
+        <svg class="w-16 h-16 text-white/5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 2L13.5 8.5L20 9L13.5 9.5L12 16L10.5 9.5L4 9L10.5 8.5L12 2Z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M10 16L8 20L12 18L16 20L14 16"/>
+        </svg>
+      </div>
+      
+      <!-- Second rocket silhouette -->
+      <div class="absolute bottom-1/3 left-1/4 rocket-silhouette-2">
+        <svg class="w-12 h-12 text-white/3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 2L13.5 8.5L20 9L13.5 9.5L12 16L10.5 9.5L4 9L10.5 8.5L12 2Z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M10 16L8 20L12 18L16 20L14 16"/>
+        </svg>
+      </div>
+    </div>
+    
+    <!-- Hero Section -->
+    <section class="py-20 bg-transparent relative z-10">
+      <div class="relative max-w-6xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <Badge variant="default" class="gap-2 mb-6">
+            <span class="w-2 h-2 bg-primary rounded-full"></span>
+            Let's Connect
+          </Badge>
+          
+          <h1 class="text-4xl lg:text-6xl font-black text-white mb-8">
+            <span class="bg-gradient-to-r from-blue-400 via-teal-400 to-blue-400 bg-clip-text text-transparent">
+              Hi, I'm Renata
+            </span>
+          </h1>
+          
+          <!-- Profile Image with Wow Border -->
+          <div class="flex justify-center mb-8">
+            <div class="relative group">
+              <!-- Animated gradient border -->
+              <div class="absolute -inset-2 rounded-full bg-gradient-to-r from-blue-400 via-teal-400 via-purple-400 to-blue-400 opacity-75 group-hover:opacity-100 transition-opacity duration-500 animate-gradient-x"></div>
+              
+              <!-- Glow effect -->
+              <div class="absolute -inset-4 rounded-full bg-gradient-to-r from-blue-400/30 via-teal-400/30 via-purple-400/30 to-blue-400/30 blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+              
+              <!-- Inner border -->
+              <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-white/20 via-white/10 to-white/20 backdrop-blur-sm"></div>
+              
+              <img
+                src="/images/renatahorvat.jpg"
+                alt="Renata Horvat - Designer & Digital Creator"
+                width="200" height="200"
+                class="relative w-32 h-32 lg:w-40 lg:h-40 rounded-full object-cover border-2 border-white/30 shadow-2xl group-hover:scale-105 transition-transform duration-500 z-10"
+              />
+            </div>
           </div>
+          <p class="text-xl text-white/80 font-semibold max-w-3xl mx-auto mb-8">
+            A designer and digital creator who turns knowledge into engaging visual stories.
+          </p>
+          <p class="text-lg text-white font-medium max-w-2xl mx-auto mb-4">
+            Tell me about your goals and timeline.
+          </p>
+          <p class="text-xl text-white font-bold max-w-2xl mx-auto bg-blue-400/10 px-6 py-3 rounded-lg border border-blue-400/50">
+            Let's create something amazing together.
+          </p>
         </div>
-      </aside>
+      </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="py-20 bg-transparent relative z-10">
+      <div class="relative max-w-4xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-6 items-start">
+          <!-- Contact Info -->
+          <div class="space-y-8">
+            <Card class="bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500 shadow-2xl">
+              <CardContent class="p-8">
+                <div class="flex items-center mb-6">
+                  <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mr-4 shadow-lg shadow-blue-400/30">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"></path>
+                    </svg>
+                  </div>
+                  <h3 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Email</h3>
+                </div>
+                <p class="text-white/80 text-lg mb-4">Ready to start your project?</p>
+                <p class="text-white/70">Send me an email and I'll get back to you within 24 hours.</p>
+              </CardContent>
+            </Card>
+
+            <Card class="bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500 shadow-2xl">
+              <CardContent class="p-8">
+                <div class="flex items-center mb-6">
+                  <div class="w-12 h-12 bg-gradient-to-br from-teal-400 to-teal-600 rounded-full flex items-center justify-center mr-4 shadow-lg shadow-teal-400/30">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                  </div>
+                  <h3 class="text-2xl font-bold bg-gradient-to-r from-teal-400 to-teal-600 bg-clip-text text-transparent">Response Time</h3>
+                </div>
+                <p class="text-white/80 text-lg mb-4">Quick turnaround</p>
+                <p class="text-white/70">I typically respond within 24 hours, often much sooner.</p>
+              </CardContent>
+            </Card>
+
+            <Card class="bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500 shadow-2xl">
+              <CardContent class="p-8">
+                <div class="flex items-center mb-6">
+                  <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mr-4 shadow-lg shadow-blue-400/30">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                  </div>
+                  <h3 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Free Consultation</h3>
+                </div>
+                <p class="text-white/80 text-lg mb-4">Let's discuss your project</p>
+                <p class="text-white/70">Initial consultation is always free. No strings attached.</p>
+              </CardContent>
+            </Card>
+          </div>
+
+          <!-- Contact Form -->
+          <div>
+            <Card class="bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500 shadow-2xl">
+              <CardContent class="p-8">
+                <h2 class="text-3xl font-bold text-white mb-6">Send a Message</h2>
+                
+                <form class="space-y-6" action="/api/contact" method="POST">
+                  <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <label for="name" class="block text-white/80 font-medium mb-2">Name</label>
+                      <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        required
+                        class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-blue-400 focus:bg-white/10 transition-all duration-300"
+                        placeholder="Your name"
+                      />
+                    </div>
+                    <div>
+                      <label for="email" class="block text-white/80 font-medium mb-2">Email</label>
+                      <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        required
+                        class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-blue-400 focus:bg-white/10 transition-all duration-300"
+                        placeholder="your@email.com"
+                      />
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <label for="subject" class="block text-white/80 font-medium mb-2">Subject</label>
+                    <input 
+                      type="text" 
+                      id="subject" 
+                      name="subject" 
+                      required
+                      class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-blue-400 focus:bg-white/10 transition-all duration-300"
+                      placeholder="What's this about?"
+                    />
+                  </div>
 
       <div>
-        <ContactForm />
-        {Astro.url.searchParams.get("sent") ? <p class="mt-4 text-emerald-700">Thanks — I'll reply soon.</p> : null}
+                    <label for="message" class="block text-white/80 font-medium mb-2">Message</label>
+                    <textarea 
+                      id="message" 
+                      name="message" 
+                      rows="6" 
+                      required
+                      class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-blue-400 focus:bg-white/10 transition-all duration-300 resize-none"
+                      placeholder="Tell me about your project, goals, and timeline..."
+                    ></textarea>
+                  </div>
+                  
+                  <Button type="submit" class="w-full">
+                    Send Message
+                  </Button>
+                </form>
+                
+                {Astro.url.searchParams.get("sent") ? (
+                  <div class="mt-6 p-4 bg-green-500/10 border border-green-500/20 rounded-lg">
+                    <p class="text-green-400 font-medium">Thanks! I'll reply soon.</p>
+                  </div>
+                ) : null}
+              </CardContent>
+            </Card>
+          </div>
       </div>
     </div>
   </section>
+  </main>
 
-  <Fragment slot="footer"><Footer /></Fragment>
-</DefaultLayout>
+  <Footer />
+</Layout>

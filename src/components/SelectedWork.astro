@@ -1,0 +1,93 @@
+---
+import ProjectCard from './ProjectCard.astro';
+import { projects } from '../lib/projects.ts';
+import Card from './ui/Card.astro';
+import CardContent from './ui/CardContent.astro';
+import Badge from './ui/Badge.astro';
+import Button from './ui/Button.astro';
+
+// Get first 4 projects for the home page
+const selectedProjects = projects.slice(0, 4);
+---
+
+<section class="py-20 bg-slate-800 dark:bg-slate-900">
+  <!-- Simple background -->
+  <div class="absolute inset-0">
+    <div class="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-blue-500/5"></div>
+  </div>
+  
+  <div class="relative max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <Badge variant="default" class="gap-2 mb-6">
+        <span class="w-2 h-2 bg-primary rounded-full"></span>
+        Featured Work
+      </Badge>
+      <h2 class="text-4xl lg:text-5xl font-black text-white mb-4">
+        <span class="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
+          Selected Work
+        </span>
+      </h2>
+      <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+        A showcase of projects that demonstrate my approach to design and development
+      </p>
+    </div>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+      {selectedProjects.map((project, index) => (
+        <Card class="bg-slate-700/50 border-slate-600 hover:bg-slate-700/70 transition-colors duration-300">
+          <CardContent class="p-6">
+            <div class="flex items-start space-x-4">
+              <!-- Simple icon -->
+              <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5a2 2 0 012-2h4a2 2 0 012 2v2H8V5z"></path>
+                </svg>
+              </div>
+              
+              <div class="flex-1">
+                <h3 class="text-xl font-bold text-white mb-2">
+                  {project.title}
+                </h3>
+                <p class="text-gray-300 mb-4 leading-relaxed">
+                  {project.summary}
+                </p>
+                
+                <!-- Tags -->
+                {project.tags && project.tags.length > 0 && (
+                  <div class="mb-4">
+                    <div class="flex flex-wrap gap-2">
+                      {project.tags.map((tag) => (
+                        <Badge variant="secondary" class="text-xs">{tag}</Badge>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                
+                <!-- CTA link -->
+                <div class="flex justify-end">
+                  <Button href={project.href} variant="ghost" size="sm" class="text-purple-400 hover:text-purple-300">
+                    View Project
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      ))}
+    </div>
+    
+    <!-- Bottom CTA -->
+    <div class="text-center mt-12">
+      <Button href="/work" size="default" class="gap-2">
+        <span>View All Projects</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
+      </Button>
+    </div>
+  </div>
+</section>
