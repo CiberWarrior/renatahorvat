@@ -1,32 +1,32 @@
 ---
 const services = [
   {
-    title: "Digital learning material",
-    description: "Interaktivni sadržaj koji učenike drži angažiranima",
+    title: "Digital Learning Materials",
+    description: "Interactive content that keeps learners engaged",
     details: "Interactive learning content, including digital textbooks and multimedia modules – tailored for modern e-learning platforms.",
     icon: "📚",
     results: "+40% engagement, -60% loading time"
   },
   {
     title: "Websites for Conferences",
-    description: "Struktura i jasnoća za znanstvene događaje",
+    description: "Structure and clarity for scientific events",
     details: "Custom-designed websites for academic and scientific events, focused on structure, clarity, and seamless user experience.",
     icon: "🌐",
-    results: "+200% registracija, 95% zadovoljstvo"
+    results: "+200% registrations, 95% satisfaction"
   },
   {
     title: "Educational Visuals",
-    description: "Kompleksne ideje u jasnim, vizualnim formatima",
+    description: "Complex ideas in clear, visual formats",
     details: "Smart digital tools and custom automations that streamline workflows, reduce manual tasks, and support productivity.",
     icon: "🎨",
-    results: "+80% razumijevanja, -50% support tickets"
+    results: "+80% comprehension, -50% support tickets"
   },
   {
     title: "Business Automation",
-    description: "Pametni alati koji pojednostavljuju radne procese",
+    description: "Smart tools that simplify work processes",
     details: "Smart digital tools and custom automations that streamline workflows, reduce manual tasks, and support productivity.",
     icon: "⚡",
-    results: "-70% manualnih zadataka, +300% produktivnost"
+    results: "-70% manual tasks, +300% productivity"
   }
 ];
 ---
@@ -48,13 +48,13 @@ const services = [
         </span>
       </h2>
       <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-        Transformiram kompleksne ideje u intuitivne, vizualno privlačne iskustva
+        Transforming complex ideas into intuitive, visually appealing experiences
       </p>
     </div>
     
-    <div class="grid lg:grid-cols-2 gap-8">
+    <div class="grid lg:grid-cols-2 gap-8" data-reveal-stagger>
       {services.map((service, index) => (
-        <div class="group relative">
+        <div class="group relative" data-reveal-item>
           <!-- Main card -->
           <div class="relative bg-white/80 backdrop-blur-xl border border-white/50 rounded-3xl p-8 hover:bg-white/90 transition-all duration-500 transform hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/10">
             <!-- Gradient border effect -->

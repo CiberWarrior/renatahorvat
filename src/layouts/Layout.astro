@@ -7,13 +7,13 @@ interface Props {
 }
 
 const {
-  title = "Renata Horvat — Designer koji govori jezikom znanosti",
-  description = "TURNING KNOWLEDGE INTO VISUAL EXPERIENCES. Kombiniram dizajn s dubokim razumijevanjem znanosti i edukacije."
+  title = "Renata Horvat — Designer who speaks the language of science",
+  description = "TURNING KNOWLEDGE INTO VISUAL EXPERIENCES. I combine design with deep understanding of science and education."
 } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="hr">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
@@ -21,6 +21,11 @@ const {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
@@ -34,5 +39,18 @@ const {
   </head>
   <body class="min-h-screen bg-white text-gray-900 antialiased">
     <slot />
+    
+    <!-- Scripts -->
+    <script type="module">
+      import { initLenis } from '/src/scripts/lenis.ts';
+      import { revealOnView, revealOnViewStagger } from '/src/scripts/reveal.ts';
+      
+      // Initialize smooth scroll
+      initLenis();
+      
+      // Initialize reveal animations
+      revealOnView();
+      revealOnViewStagger();
+    </script>
   </body>
 </html>
