@@ -1,0 +1,25 @@
+---
+import '../styles/global.css';
+interface Props { title?: string; description?: string; }
+const {
+  title = "Renata Horvat — AI-first Web Artisan",
+  description = "I design & build fast, elegant websites with Astro. AI integrations, education sites, and migrations from WordPress."
+} = Astro.props;
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/og-image.jpg" />
+    <link rel="icon" href="/favicon.ico" />
+  </head>
+  <body class="min-h-dvh bg-white text-gray-900 antialiased [background-image:radial-gradient(#0000000d_1px,transparent_1px)] [background-size:8px_8px]">
+    <slot name="nav" />
+    <main class="mx-auto max-w-6xl px-6"><slot /></main>
+    <slot name="footer" />
+  </body>
+</html>
