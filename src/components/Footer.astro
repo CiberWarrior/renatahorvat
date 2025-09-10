@@ -1,38 +1,84 @@
-<footer class="bg-gray-50 border-t border-gray-200">
-  <div class="max-w-6xl mx-auto px-6 py-12">
-    <div class="grid md:grid-cols-3 gap-8">
-      <div>
-        <h3 class="text-lg font-semibold text-gray-900 mb-4">Renata Horvat</h3>
-        <p class="text-gray-600 mb-4">
+<footer class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
+  <!-- Background decoration -->
+  <div class="absolute inset-0">
+    <div class="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
+  </div>
+  
+  <div class="relative max-w-7xl mx-auto px-6 py-20">
+    <div class="grid lg:grid-cols-4 gap-12">
+      <!-- Brand -->
+      <div class="lg:col-span-2">
+        <div class="flex items-center space-x-3 mb-6">
+          <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-500 rounded-2xl flex items-center justify-center">
+            <span class="text-white font-bold text-xl">R</span>
+          </div>
+          <span class="text-2xl font-bold text-white">Renata Horvat</span>
+        </div>
+        <p class="text-gray-300 mb-8 text-lg leading-relaxed max-w-md">
           Designer koji govori jezikom znanosti. Kombiniram dizajn s dubokim razumijevanjem edukacije i znanosti.
         </p>
+        
+        <!-- CTA -->
+        <a 
+          href="/contact" 
+          class="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-2xl hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25"
+        >
+          <span>Start Your Project</span>
+          <svg class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
       </div>
       
+      <!-- Services -->
       <div>
-        <h4 class="text-sm font-semibold text-gray-900 mb-4">Usluge</h4>
-        <ul class="space-y-2 text-sm text-gray-600">
-          <li><a href="/services" class="hover:text-blue-600 transition-colors">Digital learning materials</a></li>
-          <li><a href="/services" class="hover:text-blue-600 transition-colors">Conference websites</a></li>
-          <li><a href="/services" class="hover:text-blue-600 transition-colors">Educational visuals</a></li>
-          <li><a href="/services" class="hover:text-blue-600 transition-colors">Business automation</a></li>
+        <h4 class="text-lg font-semibold text-white mb-6">Services</h4>
+        <ul class="space-y-3">
+          <li><a href="/services" class="text-gray-300 hover:text-purple-300 transition-colors duration-300">Digital learning materials</a></li>
+          <li><a href="/services" class="text-gray-300 hover:text-purple-300 transition-colors duration-300">Conference websites</a></li>
+          <li><a href="/services" class="text-gray-300 hover:text-purple-300 transition-colors duration-300">Educational visuals</a></li>
+          <li><a href="/services" class="text-gray-300 hover:text-purple-300 transition-colors duration-300">Business automation</a></li>
         </ul>
       </div>
       
+      <!-- Contact -->
       <div>
-        <h4 class="text-sm font-semibold text-gray-900 mb-4">Kontakt</h4>
-        <p class="text-sm text-gray-600 mb-2">
-          <a href="/contact" class="hover:text-blue-600 transition-colors">Get in touch</a>
-        </p>
-        <p class="text-xs text-gray-500">
-          Built with Astro • Deployed on Vercel
-        </p>
+        <h4 class="text-lg font-semibold text-white mb-6">Connect</h4>
+        <ul class="space-y-3">
+          <li><a href="/contact" class="text-gray-300 hover:text-purple-300 transition-colors duration-300">Get in touch</a></li>
+          <li><a href="/work" class="text-gray-300 hover:text-purple-300 transition-colors duration-300">View portfolio</a></li>
+          <li><a href="/services" class="text-gray-300 hover:text-purple-300 transition-colors duration-300">Services</a></li>
+        </ul>
+        
+        <div class="mt-8">
+          <p class="text-xs text-gray-500">
+            Built with Astro • Deployed on Vercel
+          </p>
+        </div>
       </div>
     </div>
     
-    <div class="border-t border-gray-200 mt-8 pt-8 text-center">
-      <p class="text-sm text-gray-500">
-        © {new Date().getFullYear()} Renata Horvat. All rights reserved.
-      </p>
+    <!-- Bottom bar -->
+    <div class="border-t border-white/10 mt-16 pt-8">
+      <div class="flex flex-col md:flex-row items-center justify-between">
+        <p class="text-gray-400 text-sm">
+          © {new Date().getFullYear()} Renata Horvat. All rights reserved.
+        </p>
+        
+        <!-- Social links placeholder -->
+        <div class="flex items-center space-x-4 mt-4 md:mt-0">
+          <div class="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center hover:bg-white/20 transition-colors duration-300">
+            <span class="text-white text-sm">L</span>
+          </div>
+          <div class="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center hover:bg-white/20 transition-colors duration-300">
+            <span class="text-white text-sm">T</span>
+          </div>
+          <div class="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center hover:bg-white/20 transition-colors duration-300">
+            <span class="text-white text-sm">G</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </footer>
