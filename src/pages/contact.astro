@@ -114,17 +114,21 @@ import CardContent from "../components/ui/CardContent.astro";
     <section class="py-20 pb-8 bg-transparent relative z-10">
       <div class="relative max-w-6xl mx-auto px-6">
         <div class="mb-16">
-          <Badge variant="default" class="gap-2 mb-6 text-center">
-            <span class="w-2 h-2 bg-primary rounded-full"></span>
-            Let's Connect
-          </Badge>
+          <!-- Badge with neon glow -->
+          <div class="relative inline-block mb-6">
+            <div class="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-full blur opacity-25"></div>
+            <Badge variant="default" class="relative bg-gray-900/80 border border-cyan-400/30 text-cyan-400 gap-2">
+              <span class="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
+              Let's Connect
+            </Badge>
+          </div>
           
           <!-- Horizontal Layout: Text and Image -->
           <div class="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20 mb-12">
             <!-- Text Section -->
             <div class="text-center lg:text-left">
               <h1 class="text-4xl lg:text-6xl font-black text-white mb-4">
-                <span class="bg-gradient-to-r from-blue-400 via-teal-400 to-blue-400 bg-clip-text text-transparent">
+                <span class="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
                   Hi, I'm Renata
                 </span>
               </h1>
@@ -134,14 +138,14 @@ import CardContent from "../components/ui/CardContent.astro";
             <div class="relative group">
               <!-- Orbital Path (pulsing border) -->
               <div class="absolute inset-0 w-48 h-48 lg:w-56 lg:h-56 -m-8 lg:-m-8">
-                <div class="absolute inset-0 rounded-full border border-blue-400/30 animate-pulse"></div>
+                <div class="absolute inset-0 rounded-full border border-cyan-400/30 animate-pulse"></div>
               </div>
               
               <!-- Animated gradient border -->
-              <div class="absolute -inset-2 rounded-full bg-gradient-to-r from-blue-400 via-teal-400 via-purple-400 to-blue-400 opacity-75 group-hover:opacity-100 transition-opacity duration-500 animate-gradient-x"></div>
+              <div class="absolute -inset-2 rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 via-purple-600 to-cyan-400 opacity-75 group-hover:opacity-100 transition-opacity duration-500 animate-gradient-x"></div>
               
               <!-- Glow effect -->
-              <div class="absolute -inset-4 rounded-full bg-gradient-to-r from-blue-400/30 via-teal-400/30 via-purple-400/30 to-blue-400/30 blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+              <div class="absolute -inset-4 rounded-full bg-gradient-to-r from-cyan-400/30 via-blue-500/30 via-purple-600/30 to-cyan-400/30 blur-xl group-hover:blur-2xl transition-all duration-500"></div>
               
               <!-- Inner border -->
               <div class="absolute -inset-1 rounded-full bg-gradient-to-r from-white/20 via-white/10 to-white/20 backdrop-blur-sm"></div>
@@ -150,25 +154,28 @@ import CardContent from "../components/ui/CardContent.astro";
                 src="/images/renatahorvat.jpg"
                 alt="Renata Horvat - Designer & Digital Creator"
                 width="200" height="200"
-                class="relative w-32 h-32 lg:w-40 lg:h-40 rounded-full object-cover border-2 border-white/30 shadow-2xl group-hover:scale-105 transition-transform duration-500 z-10"
+                class="relative w-32 h-32 lg:w-40 lg:h-40 rounded-full object-cover border-2 border-cyan-400/30 shadow-2xl group-hover:scale-105 transition-transform duration-500 z-10"
               />
             </div>
           </div>
           
           <!-- Stylized Text Section -->
           <div class="text-center space-y-6 max-w-4xl mx-auto">
-            <p class="text-2xl lg:text-3xl text-white/90 font-medium leading-relaxed">
+            <p class="text-2xl lg:text-3xl text-gray-100 font-medium leading-relaxed">
               A designer and digital creator who turns knowledge into engaging visual stories.
             </p>
             
-            <p class="text-xl lg:text-2xl text-white/80 font-semibold">
+            <p class="text-xl lg:text-2xl text-gray-200 font-semibold">
               Tell me about your goals and timeline.
             </p>
             
             <div class="mt-8">
-              <p class="text-xl lg:text-2xl text-white font-bold bg-gradient-to-r from-blue-400/20 via-teal-400/20 to-blue-400/20 px-8 py-4 rounded-2xl border border-blue-400/30 backdrop-blur-sm shadow-lg">
-                Let's create something amazing together.
-              </p>
+              <div class="relative inline-block">
+                <div class="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-2xl blur opacity-25"></div>
+                <p class="relative text-xl lg:text-2xl text-white font-bold bg-gradient-to-r from-cyan-400/20 via-blue-500/20 to-purple-600/20 px-8 py-4 rounded-2xl border border-cyan-400/30 backdrop-blur-sm shadow-lg">
+                  Let's create something amazing together.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -182,59 +189,130 @@ import CardContent from "../components/ui/CardContent.astro";
           <!-- Top Row: Response Time and Free Consultation -->
           <div class="grid lg:grid-cols-2 gap-6">
             <!-- Response Time Card -->
-            <Card class="bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500 shadow-2xl">
-              <CardContent class="p-8 text-center">
-                <div class="flex items-center justify-center mb-6">
-                  <div class="w-12 h-12 bg-gradient-to-br from-teal-400 to-teal-600 rounded-full flex items-center justify-center mr-4 shadow-lg shadow-teal-400/30">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
+            <div class="relative group h-full">
+              <div class="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+              <Card class="relative bg-gray-900/80 backdrop-blur-xl border border-cyan-400/30 rounded-2xl overflow-hidden h-full">
+                <CardContent class="p-6 h-full flex flex-col">
+                  <div class="flex items-start space-x-4 flex-grow">
+                    <!-- Icon -->
+                    <div class="relative">
+                      <div class="w-12 h-12 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-xl flex items-center justify-center text-white shadow-lg shadow-cyan-400/30">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                      </div>
+                      <!-- Icon glow -->
+                      <div class="absolute inset-0 w-12 h-12 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-xl blur opacity-30"></div>
+                    </div>
+                    
+                    <div class="flex-1">
+                      <h3 class="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-2">
+                        Response Time
+                      </h3>
+                      <p class="text-gray-100 mb-2 leading-relaxed">
+                        Quick turnaround
+                      </p>
+                      <p class="text-gray-300 text-sm">
+                        I typically respond within 24 hours, often much sooner.
+                      </p>
+                    </div>
                   </div>
-                  <h3 class="text-2xl font-bold bg-gradient-to-r from-teal-400 to-teal-600 bg-clip-text text-transparent">Response Time</h3>
-                </div>
-                <p class="text-white/80 text-lg mb-4">Quick turnaround</p>
-                <p class="text-white/70">I typically respond within 24 hours, often much sooner.</p>
-              </CardContent>
-            </Card>
+                  
+                  <!-- Decorative elements -->
+                  <div class="absolute top-4 right-4 w-6 h-6 border-t-2 border-r-2 border-cyan-400/30 rounded-tr-lg"></div>
+                  <div class="absolute bottom-4 left-4 w-6 h-6 border-b-2 border-l-2 border-cyan-400/30 rounded-bl-lg"></div>
+                </CardContent>
+              </Card>
+            </div>
 
             <!-- Free Consultation Card -->
-            <Card class="bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500 shadow-2xl">
-              <CardContent class="p-8 text-center">
-                <div class="flex items-center justify-center mb-6">
-                  <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mr-4 shadow-lg shadow-blue-400/30">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
+            <div class="relative group h-full">
+              <div class="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+              <Card class="relative bg-gray-900/80 backdrop-blur-xl border border-cyan-400/30 rounded-2xl overflow-hidden h-full">
+                <CardContent class="p-6 h-full flex flex-col">
+                  <div class="flex items-start space-x-4 flex-grow">
+                    <!-- Icon -->
+                    <div class="relative">
+                      <div class="w-12 h-12 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-xl flex items-center justify-center text-white shadow-lg shadow-cyan-400/30">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                      </div>
+                      <!-- Icon glow -->
+                      <div class="absolute inset-0 w-12 h-12 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-xl blur opacity-30"></div>
+                    </div>
+                    
+                    <div class="flex-1">
+                      <h3 class="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-2">
+                        Free Consultation
+                      </h3>
+                      <p class="text-gray-100 mb-2 leading-relaxed">
+                        Let's discuss your project
+                      </p>
+                      <p class="text-gray-300 text-sm">
+                        Initial consultation is always free. No strings attached.
+                      </p>
+                    </div>
                   </div>
-                  <h3 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Free Consultation</h3>
-                </div>
-                <p class="text-white/80 text-lg mb-4">Let's discuss your project</p>
-                <p class="text-white/70">Initial consultation is always free. No strings attached.</p>
-              </CardContent>
-            </Card>
+                  
+                  <!-- Decorative elements -->
+                  <div class="absolute top-4 right-4 w-6 h-6 border-t-2 border-r-2 border-cyan-400/30 rounded-tr-lg"></div>
+                  <div class="absolute bottom-4 left-4 w-6 h-6 border-b-2 border-l-2 border-cyan-400/30 rounded-bl-lg"></div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
 
           <!-- Bottom Row: Email Card -->
           <div class="flex justify-center">
-            <Card class="bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500 shadow-2xl max-w-md">
-              <CardContent class="p-8 text-center">
-                <div class="flex items-center justify-center mb-6">
-                  <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mr-4 shadow-lg shadow-blue-400/30">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"></path>
-                    </svg>
+            <div class="relative group h-full max-w-md">
+              <div class="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+              <Card class="relative bg-gray-900/80 backdrop-blur-xl border border-cyan-400/30 rounded-2xl overflow-hidden h-full">
+                <CardContent class="p-6 h-full flex flex-col">
+                  <div class="flex items-start space-x-4 flex-grow">
+                    <!-- Icon -->
+                    <div class="relative">
+                      <div class="w-12 h-12 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-xl flex items-center justify-center text-white shadow-lg shadow-cyan-400/30">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"></path>
+                        </svg>
+                      </div>
+                      <!-- Icon glow -->
+                      <div class="absolute inset-0 w-12 h-12 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-xl blur opacity-30"></div>
+                    </div>
+                    
+                    <div class="flex-1">
+                      <h3 class="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-2">
+                        Email
+                      </h3>
+                      <p class="text-gray-100 mb-2 leading-relaxed">
+                        Ready to start your project?
+                      </p>
+                      <p class="text-gray-300 text-sm mb-4">
+                        Get in touch and let's discuss your ideas.
+                      </p>
+                    </div>
                   </div>
-                  <h3 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Email</h3>
-                </div>
-                <p class="text-white/80 text-lg mb-4">Ready to start your project?</p>
-                <a 
-                  href="mailto:nemglan@gmail.com" 
-                  class="text-xl font-bold text-white hover:text-blue-400 transition-colors duration-300"
-                >
-                  nemglan@gmail.com
-                </a>
-              </CardContent>
-            </Card>
+                  
+                  <!-- CTA link -->
+                  <div class="flex justify-end mt-auto">
+                    <a 
+                      href="mailto:screatives.info@gmail.com" 
+                      class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-cyan-400/20 to-blue-500/20 border border-cyan-400/30 text-cyan-400 font-medium rounded-lg hover:from-cyan-400/30 hover:to-blue-500/30 transition-all duration-300"
+                    >
+                      Contact Me
+                      <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                      </svg>
+                    </a>
+                  </div>
+                  
+                  <!-- Decorative elements -->
+                  <div class="absolute top-4 right-4 w-6 h-6 border-t-2 border-r-2 border-cyan-400/30 rounded-tr-lg"></div>
+                  <div class="absolute bottom-4 left-4 w-6 h-6 border-b-2 border-l-2 border-cyan-400/30 rounded-bl-lg"></div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </div>

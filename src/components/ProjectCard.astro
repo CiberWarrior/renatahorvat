@@ -8,46 +8,62 @@ interface Props { title: string; summary: string; href: string; tags?: string[];
 const { title, summary, href, tags = [] } = Astro.props as Props;
 ---
 
-<Card class="bg-slate-700/50 border-slate-600 hover:bg-slate-700/70 transition-colors duration-300 group">
-  <CardContent class="p-6">
-    <div class="flex items-start space-x-4">
-      <!-- Project icon -->
-      <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center text-white">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5a2 2 0 012-2h4a2 2 0 012 2v2H8V5z"></path>
-        </svg>
-      </div>
-      
-      <div class="flex-1">
-        <h3 class="text-xl font-bold text-white mb-2 group-hover:text-purple-300 transition-colors duration-300">
-          {title}
-        </h3>
-        <p class="text-gray-300 mb-4 leading-relaxed">
-          {summary}
-        </p>
-        
-        <!-- Tags -->
-        {tags.length > 0 && (
-          <div class="mb-4">
-            <div class="flex flex-wrap gap-2">
-              {tags.map((tag) => (
-                <Badge variant="secondary" class="text-xs">{tag}</Badge>
-              ))}
-            </div>
-          </div>
-        )}
-        
-        <!-- CTA link -->
-        <div class="flex justify-end">
-          <Button href={href} variant="ghost" size="sm" class="text-purple-400 hover:text-purple-300">
-            View Project
-            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+<div class="relative group h-full">
+  <!-- Neon glow effect -->
+  <div class="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+  
+  <!-- Main card -->
+  <Card class="relative bg-gray-900/80 backdrop-blur-xl border border-cyan-400/30 rounded-2xl overflow-hidden h-full">
+    <CardContent class="p-6 h-full flex flex-col">
+      <div class="flex items-start space-x-4 flex-grow">
+        <!-- Project icon -->
+        <div class="relative">
+          <div class="w-12 h-12 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-xl flex items-center justify-center text-white shadow-lg shadow-cyan-400/30">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5a2 2 0 012-2h4a2 2 0 012 2v2H8V5z"></path>
             </svg>
-          </Button>
+          </div>
+          <!-- Icon glow -->
+          <div class="absolute inset-0 w-12 h-12 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-xl blur opacity-30"></div>
+        </div>
+        
+        <div class="flex-1">
+          <h3 class="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-2">
+            {title}
+          </h3>
+          <p class="text-gray-100 mb-4 leading-relaxed">
+            {summary}
+          </p>
+          
+          <!-- Tags -->
+          {tags.length > 0 && (
+            <div class="mb-4">
+              <div class="flex flex-wrap gap-2">
+                {tags.map((tag) => (
+                  <span class="px-2 py-1 bg-gradient-to-r from-cyan-400/20 to-blue-500/20 border border-cyan-400/30 rounded-full text-cyan-400 text-xs font-medium">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
-    </div>
-  </CardContent>
-</Card>
+      
+      <!-- CTA link -->
+      <div class="flex justify-end mt-auto">
+        <a href={href} class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-cyan-400/20 to-blue-500/20 border border-cyan-400/30 text-cyan-400 font-medium rounded-lg hover:from-cyan-400/30 hover:to-blue-500/30 transition-all duration-300">
+          View Project
+          <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+      </div>
+      
+      <!-- Decorative elements -->
+      <div class="absolute top-4 right-4 w-6 h-6 border-t-2 border-r-2 border-cyan-400/30 rounded-tr-lg"></div>
+      <div class="absolute bottom-4 left-4 w-6 h-6 border-b-2 border-l-2 border-cyan-400/30 rounded-bl-lg"></div>
+    </CardContent>
+  </Card>
+</div>

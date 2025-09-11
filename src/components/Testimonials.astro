@@ -46,43 +46,78 @@ const testimonials = [
     
     <div class="grid md:grid-cols-3 gap-8">
       {testimonials.map((testimonial, index) => (
-        <Card class="bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500 shadow-2xl">
-          <CardContent class="p-6 text-center">
-            <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-teal-500 rounded-full flex items-center justify-center text-white font-bold mx-auto mb-4">
-              {testimonial.avatar}
-            </div>
-            <blockquote class="text-lg text-white/90 mb-6 leading-relaxed font-medium">
-              "{testimonial.text}"
-            </blockquote>
-            <div class="border-t border-white/20 pt-4">
-              <p class="font-semibold text-white">{testimonial.author}</p>
-              <p class="text-white/70 text-sm">{testimonial.role}</p>
-            </div>
-          </CardContent>
-        </Card>
+        <div class="relative group h-full">
+          <!-- Neon glow effect -->
+          <div class="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+          
+          <!-- Main card -->
+          <Card class="relative bg-gray-900/80 backdrop-blur-xl border border-cyan-400/30 rounded-2xl overflow-hidden h-full">
+            <CardContent class="p-8 h-full flex flex-col">
+              <!-- Quote icon -->
+              <div class="flex justify-center mb-6">
+                <div class="w-12 h-12 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full flex items-center justify-center">
+                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                  </svg>
+                </div>
+              </div>
+              
+              <!-- Testimonial text -->
+              <blockquote class="text-lg text-gray-100 mb-8 leading-relaxed font-medium text-center flex-grow">
+                "{testimonial.text}"
+              </blockquote>
+              
+              <!-- Author info -->
+              <div class="flex items-center justify-center space-x-4">
+                <div class="w-12 h-12 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                  {testimonial.avatar}
+                </div>
+                <div class="text-left">
+                  <p class="font-semibold text-white text-lg">{testimonial.author}</p>
+                  <p class="text-cyan-400 text-sm font-medium">{testimonial.role}</p>
+                </div>
+              </div>
+              
+              <!-- Decorative elements -->
+              <div class="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-cyan-400/30 rounded-tr-lg"></div>
+              <div class="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-cyan-400/30 rounded-bl-lg"></div>
+            </CardContent>
+          </Card>
+        </div>
       ))}
     </div>
     
     <!-- Bottom stats -->
     <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
-      <Card class="bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500 shadow-2xl">
-        <CardContent class="p-6 text-center">
-          <div class="text-3xl font-black text-blue-400 mb-2">100%</div>
-          <div class="text-white/70">Client Satisfaction</div>
-        </CardContent>
-      </Card>
-      <Card class="bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500 shadow-2xl">
-        <CardContent class="p-6 text-center">
-          <div class="text-3xl font-black text-teal-400 mb-2">50+</div>
-          <div class="text-white/70">Projects Completed</div>
-        </CardContent>
-      </Card>
-      <Card class="bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-500 shadow-2xl">
-        <CardContent class="p-6 text-center">
-          <div class="text-3xl font-black text-blue-400 mb-2">5★</div>
-          <div class="text-white/70">Average Rating</div>
-        </CardContent>
-      </Card>
+      <div class="relative group">
+        <div class="absolute -inset-1 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-xl blur opacity-20 group-hover:opacity-30 transition duration-500"></div>
+        <Card class="relative bg-gray-900/60 backdrop-blur-xl border border-cyan-400/20 rounded-xl">
+          <CardContent class="p-6 text-center">
+            <div class="text-4xl font-black bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-2">100%</div>
+            <div class="text-gray-300 font-medium">Client Satisfaction</div>
+          </CardContent>
+        </Card>
+      </div>
+      
+      <div class="relative group">
+        <div class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl blur opacity-20 group-hover:opacity-30 transition duration-500"></div>
+        <Card class="relative bg-gray-900/60 backdrop-blur-xl border border-blue-500/20 rounded-xl">
+          <CardContent class="p-6 text-center">
+            <div class="text-4xl font-black bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent mb-2">50+</div>
+            <div class="text-gray-300 font-medium">Projects Completed</div>
+          </CardContent>
+        </Card>
+      </div>
+      
+      <div class="relative group">
+        <div class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-cyan-400 rounded-xl blur opacity-20 group-hover:opacity-30 transition duration-500"></div>
+        <Card class="relative bg-gray-900/60 backdrop-blur-xl border border-purple-600/20 rounded-xl">
+          <CardContent class="p-6 text-center">
+            <div class="text-4xl font-black bg-gradient-to-r from-purple-600 to-cyan-400 bg-clip-text text-transparent mb-2">5★</div>
+            <div class="text-gray-300 font-medium">Average Rating</div>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   </div>
 </section>

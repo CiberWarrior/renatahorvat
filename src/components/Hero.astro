@@ -3,50 +3,65 @@ import Button from './ui/Button.astro';
 import Badge from './ui/Badge.astro';
 ---
 
-<section class="relative py-16 bg-transparent">
-  <!-- Simple, clean background -->
+<section class="relative py-20 bg-transparent overflow-hidden">
+  <!-- Futuristic background -->
   <div class="absolute inset-0">
-    <div class="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-blue-500/5"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-gray-900/50 via-gray-800/30 to-gray-900/50"></div>
+    <!-- Animated grid pattern -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(6, 182, 212, 0.3) 1px, transparent 0); background-size: 20px 20px;"></div>
+    </div>
+    <!-- Floating particles -->
+    <div class="absolute top-1/4 left-1/4 w-2 h-2 bg-cyan-400 rounded-full animate-pulse opacity-60"></div>
+    <div class="absolute top-1/3 right-1/3 w-1 h-1 bg-blue-500 rounded-full animate-pulse opacity-40" style="animation-delay: 1s;"></div>
+    <div class="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-purple-600 rounded-full animate-pulse opacity-50" style="animation-delay: 2s;"></div>
   </div>
   
   <div class="relative max-w-7xl mx-auto px-6">
     <div class="max-w-4xl mx-auto text-center">
       <div class="space-y-6">
-        <!-- Simple Badge -->
-        <Badge variant="default" class="gap-2">
-          <span class="w-2 h-2 bg-green-500 rounded-full"></span>
-          Available for new projects
-        </Badge>
+        <!-- Futuristic Badge -->
+        <div class="relative inline-block">
+          <div class="absolute -inset-1 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full blur opacity-30"></div>
+          <Badge variant="default" class="relative bg-gray-900/80 border border-cyan-400/30 text-cyan-400 gap-2">
+            <span class="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
+            Available for new projects
+          </Badge>
+        </div>
         
         <!-- Enhanced main heading -->
         <h1 class="text-5xl lg:text-7xl font-black leading-tight mb-8">
-          <span class="block text-white mb-6 tracking-tight">
+          <span class="block text-gray-100 mb-6 tracking-tight">
             I transform complex ideas into
           </span>
-          <span class="block bg-gradient-to-r from-blue-400 via-teal-400 to-blue-400 bg-clip-text text-transparent tracking-tight">
+          <span class="block bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent tracking-tight">
             intuitive, visually captivating experiences
           </span>
         </h1>
         
         <!-- Subtitle -->
-        <p class="text-xl lg:text-2xl text-white/80 font-medium max-w-3xl mx-auto leading-relaxed">
+        <p class="text-xl lg:text-2xl text-gray-300 font-medium max-w-3xl mx-auto leading-relaxed">
           Turning your knowledge into visual stories that engage, educate, and inspire your audience.
         </p>
         
-        
-        
         <!-- Enhanced CTA Buttons -->
-        <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-          <a href="/services" class="group px-8 py-4 bg-gradient-to-r from-blue-600 to-teal-600 text-white font-bold rounded-2xl hover:from-blue-700 hover:to-teal-700 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/25 flex items-center gap-3">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
-            </svg>
-            <span>Explore My Work</span>
-            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-            </svg>
-          </a>
-          <a href="/contact" class="px-8 py-4 border-2 border-white/20 text-white font-bold rounded-2xl hover:bg-white/10 hover:border-white/40 transition-all duration-300 flex items-center gap-3">
+        <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mt-12">
+          <!-- Primary CTA -->
+          <div class="relative group">
+            <div class="absolute -inset-1 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-2xl blur opacity-30 group-hover:opacity-50 transition duration-300"></div>
+            <a href="/services" class="relative px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold rounded-2xl hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 flex items-center gap-3">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+              </svg>
+              <span>Explore My Work</span>
+              <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </a>
+          </div>
+          
+          <!-- Secondary CTA -->
+          <a href="/contact" class="px-8 py-4 border-2 border-cyan-400/30 text-cyan-400 font-bold rounded-2xl hover:bg-cyan-400/10 hover:border-cyan-400/50 transition-all duration-300 flex items-center gap-3">
             <span>Let's Work Together</span>
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
