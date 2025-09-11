@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEO Test - Renata Horvat Portfolio</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+        .test-section { background: white; margin: 20px 0; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .pass { color: green; font-weight: bold; }
+        .fail { color: red; font-weight: bold; }
+        .warning { color: orange; font-weight: bold; }
+        .info { color: blue; }
+        h1 { color: #333; }
+        h2 { color: #666; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .test-item { margin: 10px 0; padding: 10px; background: #f9f9f9; border-radius: 4px; }
+        .url-input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px; }
+        .test-button { background: #007cba; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
+        .test-button:hover { background: #005a87; }
+    </style>
+</head>
+<body>
+    <h1>🔍 SEO Test Suite - Renata Horvat Portfolio</h1>
+    
+    <div class="test-section">
+        <h2>📋 Test Configuration</h2>
+        <input type="text" id="testUrl" class="url-input" placeholder="Enter your website URL (e.g., http://localhost:4321)" value="http://localhost:4321">
+        <button class="test-button" onclick="runAllTests()">🚀 Run All SEO Tests</button>
+    </div>
+
+    <div class="test-section">
+        <h2>📊 Test Results</h2>
+        <div id="testResults">
+            <p class="info">Click "Run All SEO Tests" to start testing...</p>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>📝 SEO Checklist</h2>
+        <div class="test-item">
+            <h3>✅ Meta Tags</h3>
+            <ul>
+                <li>Title tag (50-60 characters)</li>
+                <li>Meta description (150-160 characters)</li>
+                <li>Meta keywords</li>
+                <li>Meta author</li>
+                <li>Meta robots</li>
+                <li>Canonical URL</li>
+            </ul>
+        </div>
+        
+        <div class="test-item">
+            <h3>✅ Open Graph & Social Media</h3>
+            <ul>
+                <li>og:title</li>
+                <li>og:description</li>
+                <li>og:image</li>
+                <li>og:type</li>
+                <li>og:url</li>
+                <li>Twitter Card tags</li>
+            </ul>
+        </div>
+        
+        <div class="test-item">
+            <h3>✅ Technical SEO</h3>
+            <ul>
+                <li>Structured Data (JSON-LD)</li>
+                <li>Sitemap.xml</li>
+                <li>Robots.txt</li>
+                <li>Alt text for images</li>
+                <li>Semantic HTML structure</li>
+                <li>Mobile responsive</li>
+            </ul>
+        </div>
+        
+        <div class="test-item">
+            <h3>✅ Performance</h3>
+            <ul>
+                <li>Page load speed</li>
+                <li>Resource hints (preconnect, dns-prefetch)</li>
+                <li>Image optimization</li>
+                <li>Font loading optimization</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        async function runAllTests() {
+            const url = document.getElementById('testUrl').value;
+            const resultsDiv = document.getElementById('testResults');
+            
+            if (!url) {
+                resultsDiv.innerHTML = '<p class="fail">Please enter a valid URL</p>';
+                return;
+            }
+            
+            resultsDiv.innerHTML = '<p class="info">🔄 Running SEO tests...</p>';
+            
+            try {
+                const response = await fetch(url);
+                const html = await response.text();
+                
+                const results = analyzeSEO(html, url);
+                displayResults(results);
+                
+            } catch (error) {
+                resultsDiv.innerHTML = `<p class="fail">❌ Error testing URL: ${error.message}</p>`;
+            }
+        }
+        
+        function analyzeSEO(html, url) {
+            const results = {
+                metaTags: {},
+                openGraph: {},
+                technical: {},
+                performance: {},
+                score: 0,
+                totalTests: 0
+            };
+            
+            // Parse HTML
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            
+            // Test Meta Tags
+            results.metaTags.title = doc.querySelector('title')?.textContent || '';
+            results.metaTags.description = doc.querySelector('meta[name="description"]')?.getAttribute('content') || '';
+            results.metaTags.keywords = doc.querySelector('meta[name="keywords"]')?.getAttribute('content') || '';
+            results.metaTags.author = doc.querySelector('meta[name="author"]')?.getAttribute('content') || '';
+            results.metaTags.robots = doc.querySelector('meta[name="robots"]')?.getAttribute('content') || '';
+            results.metaTags.canonical = doc.querySelector('link[rel="canonical"]')?.getAttribute('href') || '';
+            
+            // Test Open Graph
+            results.openGraph.title = doc.querySelector('meta[property="og:title"]')?.getAttribute('content') || '';
+            results.openGraph.description = doc.querySelector('meta[property="og:description"]')?.getAttribute('content') || '';
+            results.openGraph.image = doc.querySelector('meta[property="og:image"]')?.getAttribute('content') || '';
+            results.openGraph.type = doc.querySelector('meta[property="og:type"]')?.getAttribute('content') || '';
+            results.openGraph.url = doc.querySelector('meta[property="og:url"]')?.getAttribute('content') || '';
+            
+            // Test Twitter Cards
+            results.openGraph.twitterCard = doc.querySelector('meta[name="twitter:card"]')?.getAttribute('content') || '';
+            results.openGraph.twitterTitle = doc.querySelector('meta[name="twitter:title"]')?.getAttribute('content') || '';
+            
+            // Test Technical SEO
+            results.technical.structuredData = html.includes('application/ld+json') ? 'Found' : 'Missing';
+            results.technical.sitemap = doc.querySelector('link[rel="sitemap"]')?.getAttribute('href') || '';
+            results.technical.altTexts = doc.querySelectorAll('img:not([alt])').length === 0;
+            results.technical.viewport = doc.querySelector('meta[name="viewport"]')?.getAttribute('content') || '';
+            results.technical.charset = doc.querySelector('meta[charset]')?.getAttribute('charset') || '';
+            
+            // Test Performance
+            results.performance.preconnect = doc.querySelectorAll('link[rel="preconnect"]').length;
+            results.performance.dnsPrefetch = doc.querySelectorAll('link[rel="dns-prefetch"]').length;
+            results.performance.preload = doc.querySelectorAll('link[rel="preload"]').length;
+            
+            // Calculate score
+            let score = 0;
+            let totalTests = 0;
+            
+            // Meta tags scoring
+            if (results.metaTags.title) { score++; }
+            totalTests++;
+            if (results.metaTags.description) { score++; }
+            totalTests++;
+            if (results.metaTags.keywords) { score++; }
+            totalTests++;
+            if (results.metaTags.author) { score++; }
+            totalTests++;
+            if (results.metaTags.robots) { score++; }
+            totalTests++;
+            if (results.metaTags.canonical) { score++; }
+            totalTests++;
+            
+            // Open Graph scoring
+            if (results.openGraph.title) { score++; }
+            totalTests++;
+            if (results.openGraph.description) { score++; }
+            totalTests++;
+            if (results.openGraph.image) { score++; }
+            totalTests++;
+            if (results.openGraph.type) { score++; }
+            totalTests++;
+            if (results.openGraph.url) { score++; }
+            totalTests++;
+            if (results.openGraph.twitterCard) { score++; }
+            totalTests++;
+            
+            // Technical SEO scoring
+            if (results.technical.structuredData === 'Found') { score++; }
+            totalTests++;
+            if (results.technical.sitemap) { score++; }
+            totalTests++;
+            if (results.technical.altTexts) { score++; }
+            totalTests++;
+            if (results.technical.viewport) { score++; }
+            totalTests++;
+            if (results.technical.charset) { score++; }
+            totalTests++;
+            
+            // Performance scoring
+            if (results.performance.preconnect > 0) { score++; }
+            totalTests++;
+            if (results.performance.dnsPrefetch > 0) { score++; }
+            totalTests++;
+            if (results.performance.preload > 0) { score++; }
+            totalTests++;
+            
+            results.score = score;
+            results.totalTests = totalTests;
+            
+            return results;
+        }
+        
+        function displayResults(results) {
+            const resultsDiv = document.getElementById('testResults');
+            const percentage = Math.round((results.score / results.totalTests) * 100);
+            
+            let html = `
+                <div class="test-item">
+                    <h3>📊 Overall SEO Score: ${results.score}/${results.totalTests} (${percentage}%)</h3>
+                    <div style="background: #f0f0f0; height: 20px; border-radius: 10px; overflow: hidden;">
+                        <div style="background: ${percentage >= 80 ? 'green' : percentage >= 60 ? 'orange' : 'red'}; height: 100%; width: ${percentage}%; transition: width 0.3s;"></div>
+                    </div>
+                </div>
+            `;
+            
+            // Meta Tags Results
+            html += '<div class="test-item"><h3>📋 Meta Tags</h3>';
+            html += `<p>Title: ${results.metaTags.title ? '<span class="pass">✅</span>' : '<span class="fail">❌</span>'} ${results.metaTags.title || 'Missing'}</p>`;
+            html += `<p>Description: ${results.metaTags.description ? '<span class="pass">✅</span>' : '<span class="fail">❌</span>'} ${results.metaTags.description || 'Missing'}</p>`;
+            html += `<p>Keywords: ${results.metaTags.keywords ? '<span class="pass">✅</span>' : '<span class="fail">❌</span>'} ${results.metaTags.keywords || 'Missing'}</p>`;
+            html += `<p>Author: ${results.metaTags.author ? '<span class="pass">✅</span>' : '<span class="fail">❌</span>'} ${results.metaTags.author || 'Missing'}</p>`;
+            html += `<p>Robots: ${results.metaTags.robots ? '<span class="pass">✅</span>' : '<span class="fail">❌</span>'} ${results.metaTags.robots || 'Missing'}</p>`;
+            html += `<p>Canonical: ${results.metaTags.canonical ? '<span class="pass">✅</span>' : '<span class="fail">❌</span>'} ${results.metaTags.canonical || 'Missing'}</p>`;
+            html += '</div>';
+            
+            // Open Graph Results
+            html += '<div class="test-item"><h3>📱 Social Media (Open Graph & Twitter)</h3>';
+            html += `<p>OG Title: ${results.openGraph.title ? '<span class="pass">✅</span>' : '<span class="fail">❌</span>'} ${results.openGraph.title || 'Missing'}</p>`;
+            html += `<p>OG Description: ${results.openGraph.description ? '<span class="pass">✅</span>' : '<span class="fail">❌</span>'} ${results.openGraph.description || 'Missing'}</p>`;
+            html += `<p>OG Image: ${results.openGraph.image ? '<span class="pass">✅</span>' : '<span class="fail">❌</span>'} ${results.openGraph.image || 'Missing'}</p>`;
+            html += `<p>OG Type: ${results.openGraph.type ? '<span class="pass">✅</span>' : '<span class="fail">❌</span>'} ${results.openGraph.type || 'Missing'}</p>`;
+            html += `<p>OG URL: ${results.openGraph.url ? '<span class="pass">✅</span>' : '<span class="fail">❌</span>'} ${results.openGraph.url || 'Missing'}</p>`;
+            html += `<p>Twitter Card: ${results.openGraph.twitterCard ? '<span class="pass">✅</span>' : '<span class="fail">❌</span>'} ${results.openGraph.twitterCard || 'Missing'}</p>`;
+            html += '</div>';
+            
+            // Technical SEO Results
+            html += '<div class="test-item"><h3>🔧 Technical SEO</h3>';
+            html += `<p>Structured Data: ${results.technical.structuredData === 'Found' ? '<span class="pass">✅</span>' : '<span class="fail">❌</span>'} ${results.technical.structuredData}</p>`;
+            html += `<p>Sitemap: ${results.technical.sitemap ? '<span class="pass">✅</span>' : '<span class="fail">❌</span>'} ${results.technical.sitemap || 'Missing'}</p>`;
+            html += `<p>Alt Texts: ${results.technical.altTexts ? '<span class="pass">✅</span>' : '<span class="fail">❌</span>'} All images have alt text</p>`;
+            html += `<p>Viewport: ${results.technical.viewport ? '<span class="pass">✅</span>' : '<span class="fail">❌</span>'} ${results.technical.viewport || 'Missing'}</p>`;
+            html += `<p>Charset: ${results.technical.charset ? '<span class="pass">✅</span>' : '<span class="fail">❌</span>'} ${results.technical.charset || 'Missing'}</p>`;
+            html += '</div>';
+            
+            // Performance Results
+            html += '<div class="test-item"><h3>⚡ Performance</h3>';
+            html += `<p>Preconnect: ${results.performance.preconnect > 0 ? '<span class="pass">✅</span>' : '<span class="fail">❌</span>'} ${results.performance.preconnect} found</p>`;
+            html += `<p>DNS Prefetch: ${results.performance.dnsPrefetch > 0 ? '<span class="pass">✅</span>' : '<span class="fail">❌</span>'} ${results.performance.dnsPrefetch} found</p>`;
+            html += `<p>Preload: ${results.performance.preload > 0 ? '<span class="pass">✅</span>' : '<span class="fail">❌</span>'} ${results.performance.preload} found</p>`;
+            html += '</div>';
+            
+            // Recommendations
+            html += '<div class="test-item"><h3>💡 Recommendations</h3>';
+            if (percentage >= 80) {
+                html += '<p class="pass">🎉 Excellent SEO! Your site is well optimized.</p>';
+            } else if (percentage >= 60) {
+                html += '<p class="warning">⚠️ Good SEO, but there are some areas for improvement.</p>';
+            } else {
+                html += '<p class="fail">❌ SEO needs significant improvement.</p>';
+            }
+            
+            if (!results.metaTags.title) html += '<p class="fail">• Add a title tag</p>';
+            if (!results.metaTags.description) html += '<p class="fail">• Add a meta description</p>';
+            if (!results.metaTags.keywords) html += '<p class="fail">• Add meta keywords</p>';
+            if (results.technical.structuredData === 'Missing') html += '<p class="fail">• Add structured data (JSON-LD)</p>';
+            if (!results.technical.sitemap) html += '<p class="fail">• Add sitemap.xml</p>';
+            if (results.performance.preconnect === 0) html += '<p class="warning">• Add preconnect hints for external resources</p>';
+            
+            html += '</div>';
+            
+            resultsDiv.innerHTML = html;
+        }
+    </script>
+</body>
+</html>

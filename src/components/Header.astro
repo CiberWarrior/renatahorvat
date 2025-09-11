@@ -12,7 +12,7 @@ const navItems = [
   <nav class="max-w-7xl mx-auto px-6 py-4">
     <div class="flex items-center justify-between">
       <!-- Logo -->
-      <a href="/" class="flex items-center">
+      <a href="/" class="flex items-center" onclick="gtag('event', 'logo_click', { logo_location: 'header' })">
         <img 
           src="/images/icon.png" 
           alt="Renata Horvat Logo" 
@@ -29,6 +29,7 @@ const navItems = [
             <a 
               href={item.href} 
               class="relative text-white/90 hover:text-white transition-colors duration-300 font-medium text-sm uppercase tracking-wider group"
+              onclick="gtag('event', 'navigation_click', { nav_item: '{item.label}', nav_location: 'desktop_header' })"
             >
               {item.label}
               <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-blue-400 group-hover:w-full transition-all duration-300"></span>
@@ -54,6 +55,7 @@ const navItems = [
               <a 
                 href={item.href} 
                 class="block py-3 text-white/90 hover:text-white transition-colors font-medium text-sm uppercase tracking-wider"
+                onclick="gtag('event', 'navigation_click', { nav_item: '{item.label}', nav_location: 'mobile_header' })"
               >
                 {item.label}
               </a>

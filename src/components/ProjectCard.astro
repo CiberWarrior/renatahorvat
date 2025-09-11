@@ -54,7 +54,11 @@ const { title, summary, href, tags = [] } = Astro.props as Props;
       <!-- CTA link -->
       {href && href.trim() !== "" && (
         <div class="flex justify-end mt-auto">
-          <a href={href} class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-cyan-400/20 to-blue-500/20 border border-cyan-400/30 text-cyan-400 font-medium rounded-lg hover:from-cyan-400/30 hover:to-blue-500/30 transition-all duration-300">
+          <a 
+            href={href} 
+            class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-cyan-400/20 to-blue-500/20 border border-cyan-400/30 text-cyan-400 font-medium rounded-lg hover:from-cyan-400/30 hover:to-blue-500/30 transition-all duration-300"
+            onclick="gtag('event', 'project_view', { project_title: '{title}', project_url: '{href}' })"
+          >
             View Project
             <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>

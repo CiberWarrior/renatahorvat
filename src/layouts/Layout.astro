@@ -4,11 +4,19 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  keywords?: string;
+  canonical?: string;
+  ogImage?: string;
+  gaId?: string;
 }
 
 const {
   title = "Renata Horvat — Designer who speaks the language of science",
-  description = "TURNING KNOWLEDGE INTO VISUAL EXPERIENCES. I combine design with deep understanding of science and education."
+  description = "TURNING KNOWLEDGE INTO VISUAL EXPERIENCES. I combine design with deep understanding of science and education.",
+  keywords = "designer, digital creator, science communication, visual design, web design, educational design, infographics, scientific visualization, portfolio, Croatia",
+  canonical = Astro.url.href,
+  ogImage = "/og-image.jpg",
+  gaId = import.meta.env.PUBLIC_GA_ID || "G-XXXXXXXXXX"
 } = Astro.props;
 ---
 
@@ -16,26 +24,137 @@ const {
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    
+    <!-- Primary Meta Tags -->
     <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="Renata Horvat" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonical} />
+    
+    <!-- Performance -->
+    <meta name="theme-color" content="#15293f" />
+    <meta name="color-scheme" content="dark" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    
+    <!-- Sitemap -->
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Bungee&display=swap" rel="stylesheet">
     
-    <!-- Open Graph -->
+    <!-- Resource Hints -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link rel="preload" href="/images/renatahorvat.jpg" as="image" type="image/jpeg">
+    <link rel="preload" href="/images/icon.png" as="image" type="image/png">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Renata Horvat Portfolio" />
+    <meta property="og:locale" content="en_US" />
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonical} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:creator" content="@renatahorvat" />
+    
+    <!-- Additional SEO -->
+    <meta name="geo.region" content="HR" />
+    <meta name="geo.country" content="Croatia" />
+    <meta name="language" content="English" />
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CY6VB6BVJL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-CY6VB6BVJL', {
+        page_title: '{title}',
+        page_location: '{canonical}',
+        custom_map: {
+          'custom_parameter_1': 'portfolio_visitor'
+        }
+      });
+
+      // Track scroll depth
+      let maxScroll = 0;
+      window.addEventListener('scroll', function() {
+        const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+        if (scrollPercent > maxScroll && scrollPercent % 25 === 0) {
+          maxScroll = scrollPercent;
+          gtag('event', 'scroll_depth', {
+            scroll_percentage: scrollPercent,
+            page_title: '{title}'
+          });
+        }
+      });
+
+      // Track time on page
+      let startTime = Date.now();
+      window.addEventListener('beforeunload', function() {
+        const timeOnPage = Math.round((Date.now() - startTime) / 1000);
+        gtag('event', 'time_on_page', {
+          time_seconds: timeOnPage,
+          page_title: '{title}'
+        });
+      });
+    </script>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Renata Horvat",
+      "jobTitle": "Designer & Digital Creator",
+      "description": "Designer who speaks the language of science. I transform complex ideas into intuitive, visually captivating experiences.",
+      "url": "https://renatahorvat.com",
+      "image": "https://renatahorvat.com/images/renatahorvat.jpg",
+      "sameAs": [
+        "https://linkedin.com/in/renatahorvat",
+        "https://twitter.com/renatahorvat"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "HR",
+        "addressRegion": "Croatia"
+      },
+      "knowsAbout": [
+        "Visual Design",
+        "Science Communication", 
+        "Educational Design",
+        "Web Design",
+        "Infographics",
+        "Scientific Visualization"
+      ],
+      "offers": {
+        "@type": "Service",
+        "name": "Design Services",
+        "description": "Visual design and digital creation services for educational and scientific content"
+      }
+    }
+    </script>
   </head>
   <body class="min-h-screen text-white antialiased" style="background-color: #15293f;">
     
