@@ -10,6 +10,7 @@ const services = [
     description: "I create interactive learning content – from digital textbooks to multimedia modules – tailored for modern e-learning platforms.",
     details: "Creating engaging educational experiences that make learning accessible and effective for all audiences.",
     icon: "book",
+    iconBg: "cyan-blue",
     results: "+40% engagement, -60% loading time"
   },
   {
@@ -17,6 +18,7 @@ const services = [
     description: "I design custom websites for academic and scientific events, combining clarity, structure, and seamless user experience.",
     details: "Professional event websites that showcase information clearly and facilitate smooth user interactions.",
     icon: "globe",
+    iconBg: "blue-purple",
     results: "+200% registrations, 95% satisfaction"
   },
   {
@@ -24,6 +26,7 @@ const services = [
     description: "Infographics, diagrams, and visuals that make complex topics simple, structured, and easy to understand.",
     details: "Transforming complex information into clear, visually appealing content that enhances comprehension.",
     icon: "palette",
+    iconBg: "purple-pink",
     results: "+80% comprehension, -50% support tickets"
   },
   {
@@ -31,16 +34,62 @@ const services = [
     description: "I build smart digital tools and automations that reduce manual work and support productivity, so you can focus on what really matters.",
     details: "Implementing intelligent solutions that optimize business processes and enhance operational efficiency.",
     icon: "zap",
+    iconBg: "pink-red",
     results: "-70% manual tasks, +300% productivity"
   }
 ];
 
 // SVG icon components
-const icons = {
+const icons: { [key: string]: string } = {
   book: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>`,
   globe: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>`,
   palette: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM7 3H5a2 2 0 00-2 2v12a4 4 0 004 4h2M7 3h10a2 2 0 012 2v12a4 4 0 01-4 4H7M7 3v18"></path></svg>`,
   zap: `<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>`
+};
+
+// Background color definitions
+const getIconBg = (bgName: string) => {
+  const backgrounds: { [key: string]: string } = {
+    "cyan-blue": "bg-gradient-to-r from-cyan-400 to-blue-500",
+    "blue-purple": "bg-gradient-to-r from-blue-500 to-purple-600",
+    "purple-pink": "bg-gradient-to-r from-purple-600 to-pink-500",
+    "pink-red": "bg-gradient-to-r from-pink-500 to-red-500",
+    "red-orange": "bg-gradient-to-r from-red-500 to-orange-500",
+    "orange-yellow": "bg-gradient-to-r from-orange-500 to-yellow-500",
+    "yellow-green": "bg-gradient-to-r from-yellow-500 to-green-500",
+    "green-teal": "bg-gradient-to-r from-green-500 to-teal-500",
+    "teal-cyan": "bg-gradient-to-r from-teal-500 to-cyan-500",
+    "indigo-purple": "bg-gradient-to-r from-indigo-500 to-purple-500",
+    "emerald-green": "bg-gradient-to-r from-emerald-500 to-green-500",
+    "rose-pink": "bg-gradient-to-r from-rose-500 to-pink-500",
+    "violet-purple": "bg-gradient-to-r from-violet-500 to-purple-500",
+    "amber-yellow": "bg-gradient-to-r from-amber-500 to-yellow-500",
+    "lime-green": "bg-gradient-to-r from-lime-500 to-green-500",
+    "sky-blue": "bg-gradient-to-r from-sky-500 to-blue-500"
+  };
+  return backgrounds[bgName] || backgrounds["cyan-blue"];
+};
+
+const getIconGlow = (bgName: string) => {
+  const glows: { [key: string]: string } = {
+    "cyan-blue": "from-cyan-400 to-blue-500",
+    "blue-purple": "from-blue-500 to-purple-600",
+    "purple-pink": "from-purple-600 to-pink-500",
+    "pink-red": "from-pink-500 to-red-500",
+    "red-orange": "from-red-500 to-orange-500",
+    "orange-yellow": "from-orange-500 to-yellow-500",
+    "yellow-green": "from-yellow-500 to-green-500",
+    "green-teal": "from-green-500 to-teal-500",
+    "teal-cyan": "from-teal-500 to-cyan-500",
+    "indigo-purple": "from-indigo-500 to-purple-500",
+    "emerald-green": "from-emerald-500 to-green-500",
+    "rose-pink": "from-rose-500 to-pink-500",
+    "violet-purple": "from-violet-500 to-purple-500",
+    "amber-yellow": "from-amber-500 to-yellow-500",
+    "lime-green": "from-lime-500 to-green-500",
+    "sky-blue": "from-sky-500 to-blue-500"
+  };
+  return glows[bgName] || glows["cyan-blue"];
 };
 ---
 
@@ -74,11 +123,11 @@ const icons = {
               <div class="text-center flex-grow">
                 <!-- Icon with neon effect -->
                 <div class="relative mb-6">
-                  <div class="w-20 h-20 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-2xl flex items-center justify-center text-white mx-auto shadow-lg shadow-cyan-400/30">
+                  <div class={`w-20 h-20 ${getIconBg(service.iconBg)} rounded-2xl flex items-center justify-center text-white mx-auto shadow-lg shadow-cyan-400/30`}>
                     <Fragment set:html={icons[service.icon]} />
                   </div>
                   <!-- Icon glow -->
-                  <div class="absolute inset-0 w-20 h-20 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-2xl blur opacity-30 mx-auto"></div>
+                  <div class={`absolute inset-0 w-20 h-20 bg-gradient-to-r ${getIconGlow(service.iconBg)} rounded-2xl blur opacity-30 mx-auto`}></div>
                 </div>
                 
                 <!-- Title -->

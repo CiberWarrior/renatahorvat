@@ -4,8 +4,91 @@ import CardContent from './ui/CardContent.astro';
 import Badge from './ui/Badge.astro';
 import Button from './ui/Button.astro';
 
-interface Props { title: string; summary: string; href: string; tags?: string[]; }
-const { title, summary, href, tags = [] } = Astro.props as Props;
+interface Props { title: string; summary: string; href: string; tags?: string[]; icon?: string; iconBg?: string; }
+const { title, summary, href, tags = [], icon = "default", iconBg = "cyan-blue" } = Astro.props as Props;
+
+// Icon definitions
+const getIcon = (iconName: string) => {
+  const icons: { [key: string]: string } = {
+    book: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+    </svg>`,
+    globe: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9m0 9c-5 0-9-4-9-9s4-9 9-9"></path>
+    </svg>`,
+    leaf: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z"></path>
+    </svg>`,
+    users: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
+    </svg>`,
+    microscope: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+    </svg>`,
+    database: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"></path>
+    </svg>`,
+    trophy: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+    </svg>`,
+    beaker: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+    </svg>`,
+    bicycle: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+    </svg>`,
+    default: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5a2 2 0 012-2h4a2 2 0 012 2v2H8V5z"></path>
+    </svg>`
+  };
+  return icons[iconName] || icons.default;
+};
+
+// Background color definitions
+const getIconBg = (bgName: string) => {
+  const backgrounds: { [key: string]: string } = {
+    "cyan-blue": "bg-gradient-to-r from-cyan-400 to-blue-500",
+    "blue-purple": "bg-gradient-to-r from-blue-500 to-purple-600",
+    "purple-pink": "bg-gradient-to-r from-purple-600 to-pink-500",
+    "pink-red": "bg-gradient-to-r from-pink-500 to-red-500",
+    "red-orange": "bg-gradient-to-r from-red-500 to-orange-500",
+    "orange-yellow": "bg-gradient-to-r from-orange-500 to-yellow-500",
+    "yellow-green": "bg-gradient-to-r from-yellow-500 to-green-500",
+    "green-teal": "bg-gradient-to-r from-green-500 to-teal-500",
+    "teal-cyan": "bg-gradient-to-r from-teal-500 to-cyan-500",
+    "indigo-purple": "bg-gradient-to-r from-indigo-500 to-purple-500",
+    "emerald-green": "bg-gradient-to-r from-emerald-500 to-green-500",
+    "rose-pink": "bg-gradient-to-r from-rose-500 to-pink-500",
+    "violet-purple": "bg-gradient-to-r from-violet-500 to-purple-500",
+    "amber-yellow": "bg-gradient-to-r from-amber-500 to-yellow-500",
+    "lime-green": "bg-gradient-to-r from-lime-500 to-green-500",
+    "sky-blue": "bg-gradient-to-r from-sky-500 to-blue-500"
+  };
+  return backgrounds[bgName] || backgrounds["cyan-blue"];
+};
+
+const getIconGlow = (bgName: string) => {
+  const glows: { [key: string]: string } = {
+    "cyan-blue": "from-cyan-400 to-blue-500",
+    "blue-purple": "from-blue-500 to-purple-600",
+    "purple-pink": "from-purple-600 to-pink-500",
+    "pink-red": "from-pink-500 to-red-500",
+    "red-orange": "from-red-500 to-orange-500",
+    "orange-yellow": "from-orange-500 to-yellow-500",
+    "yellow-green": "from-yellow-500 to-green-500",
+    "green-teal": "from-green-500 to-teal-500",
+    "teal-cyan": "from-teal-500 to-cyan-500",
+    "indigo-purple": "from-indigo-500 to-purple-500",
+    "emerald-green": "from-emerald-500 to-green-500",
+    "rose-pink": "from-rose-500 to-pink-500",
+    "violet-purple": "from-violet-500 to-purple-500",
+    "amber-yellow": "from-amber-500 to-yellow-500",
+    "lime-green": "from-lime-500 to-green-500",
+    "sky-blue": "from-sky-500 to-blue-500"
+  };
+  return glows[bgName] || glows["cyan-blue"];
+};
 ---
 
 <div class="relative group h-full">
@@ -18,14 +101,11 @@ const { title, summary, href, tags = [] } = Astro.props as Props;
       <div class="flex items-start space-x-4 flex-grow">
         <!-- Project icon -->
         <div class="relative">
-          <div class="w-12 h-12 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-xl flex items-center justify-center text-white shadow-lg shadow-cyan-400/30">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5a2 2 0 012-2h4a2 2 0 012 2v2H8V5z"></path>
-            </svg>
+          <div class={`w-12 h-12 ${getIconBg(iconBg)} rounded-xl flex items-center justify-center text-white shadow-lg shadow-cyan-400/30`}>
+            <Fragment set:html={getIcon(icon)} />
           </div>
           <!-- Icon glow -->
-          <div class="absolute inset-0 w-12 h-12 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-xl blur opacity-30"></div>
+          <div class={`absolute inset-0 w-12 h-12 bg-gradient-to-r ${getIconGlow(iconBg)} rounded-xl blur opacity-30`}></div>
         </div>
         
         <div class="flex-1">
