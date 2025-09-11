@@ -63,78 +63,6 @@
 }
 
 @layer utilities {
-  /* Advanced animations */
-  .animate-float-3d {
-    animation: float3d 6s ease-in-out infinite;
-  }
-  
-  .animate-rotate-3d {
-    animation: rotate3d 20s linear infinite;
-  }
-  
-  .animate-morph-gradient {
-    animation: morphGradient 8s ease-in-out infinite;
-  }
-  
-  .animate-particle {
-    animation: particle 15s linear infinite;
-  }
-  
-  .animate-reveal-up {
-    animation: revealUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-  }
-  
-  .animate-reveal-scale {
-    animation: revealScale 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-  }
-  
-  .animate-float {
-    animation: float 4s ease-in-out infinite;
-  }
-  
-  .animate-spin-slow {
-    animation: spin-slow 8s linear infinite;
-  }
-  
-  .animate-spin-slow-reverse {
-    animation: spin-slow-reverse 6s linear infinite;
-  }
-  
-  .animate-twinkle {
-    animation: twinkle 2s ease-in-out infinite;
-  }
-  
-  .animate-twinkle-slow {
-    animation: twinkle-slow 4s ease-in-out infinite;
-  }
-  
-  .animate-twinkle-fast {
-    animation: twinkle-fast 1.5s ease-in-out infinite;
-  }
-  
-  .animate-float-star {
-    animation: float-star 3s ease-in-out infinite;
-  }
-  
-  .animate-orbit {
-    animation: orbit 8s linear infinite;
-  }
-  
-  .animate-rocket-trail {
-    animation: rocket-trail 0.5s ease-in-out infinite;
-  }
-  
-  .animate-float-space {
-    animation: float-space 6s ease-in-out infinite;
-  }
-  
-  .animate-orbit-simple {
-    animation: orbit-simple 4s linear infinite;
-  }
-  
-  .animate-gradient-x {
-    animation: gradient-x 3s ease infinite;
-  }
   
   /* Glassmorphism 2.0 */
   .glass-advanced {
@@ -186,7 +114,7 @@
   }
 }
 
-@keyframes float3d {
+ float3d {
   0%, 100% {
     transform: translateY(0px) rotateX(0deg) rotateY(0deg);
   }
@@ -198,7 +126,7 @@
   }
 }
 
-@keyframes rotate3d {
+ rotate3d {
   0% {
     transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
   }
@@ -207,7 +135,7 @@
   }
 }
 
-@keyframes morphGradient {
+ morphGradient {
   0%, 100% {
     background-position: 0% 50%;
   }
@@ -216,7 +144,7 @@
   }
 }
 
-@keyframes particle {
+ particle {
   0% {
     transform: translateY(0px) translateX(0px) scale(1);
     opacity: 1;
@@ -231,7 +159,7 @@
   }
 }
 
-@keyframes revealUp {
+ revealUp {
   0% {
     transform: translateY(100px);
     opacity: 0;
@@ -242,7 +170,7 @@
   }
 }
 
-@keyframes revealScale {
+ revealScale {
   0% {
     transform: scale(0.8);
     opacity: 0;
@@ -253,7 +181,7 @@
   }
 }
 
-@keyframes float {
+ float {
   0%, 100% {
     transform: translateY(0px);
   }
@@ -262,7 +190,7 @@
   }
 }
 
-@keyframes spin-slow {
+ spin-slow {
   0% {
     transform: rotate(0deg);
   }
@@ -271,7 +199,7 @@
   }
 }
 
-@keyframes spin-slow-reverse {
+ spin-slow-reverse {
   0% {
     transform: rotate(360deg);
   }
@@ -280,7 +208,7 @@
   }
 }
 
-@keyframes twinkle {
+ twinkle {
   0%, 100% {
     opacity: 0.3;
     transform: scale(1);
@@ -291,7 +219,7 @@
   }
 }
 
-@keyframes twinkle-slow {
+ twinkle-slow {
   0%, 100% {
     opacity: 0.2;
     transform: scale(1);
@@ -302,7 +230,7 @@
   }
 }
 
-@keyframes twinkle-fast {
+ twinkle-fast {
   0%, 100% {
     opacity: 0.4;
     transform: scale(1);
@@ -317,7 +245,7 @@
   }
 }
 
-@keyframes float-star {
+ float-star {
   0%, 100% {
     transform: translateY(0px) translateX(0px);
   }
@@ -351,7 +279,6 @@
   height: 2px;
   top: 20%;
   left: 15%;
-  animation: twinkle 2s ease-in-out infinite, float-star 4s ease-in-out infinite;
 }
 
 .star-2 {
@@ -359,7 +286,6 @@
   height: 1px;
   top: 30%;
   right: 20%;
-  animation: twinkle 2.5s ease-in-out infinite 0.5s, float-star 3.5s ease-in-out infinite;
 }
 
 .star-3 {
@@ -367,7 +293,6 @@
   height: 3px;
   bottom: 25%;
   left: 10%;
-  animation: twinkle 1.8s ease-in-out infinite 1s, float-star 4.5s ease-in-out infinite;
 }
 
 .star-4 {
@@ -375,7 +300,6 @@
   height: 1.5px;
   top: 60%;
   right: 15%;
-  animation: twinkle 2.2s ease-in-out infinite 0.3s, float-star 3.8s ease-in-out infinite;
 }
 
 .star-5 {
@@ -383,7 +307,6 @@
   height: 2.5px;
   top: 10%;
   left: 50%;
-  animation: twinkle 2.8s ease-in-out infinite 0.8s, float-star 4.2s ease-in-out infinite;
 }
 
 .star-6 {
@@ -391,7 +314,6 @@
   height: 1px;
   bottom: 15%;
   right: 30%;
-  animation: twinkle 1.5s ease-in-out infinite 1.2s, float-star 3.2s ease-in-out infinite;
 }
 
 .star-7 {
@@ -399,7 +321,6 @@
   height: 2px;
   top: 45%;
   left: 25%;
-  animation: twinkle 2.3s ease-in-out infinite 0.6s, float-star 4.8s ease-in-out infinite;
 }
 
 .star-8 {
@@ -407,7 +328,6 @@
   height: 1.5px;
   bottom: 40%;
   right: 10%;
-  animation: twinkle 1.9s ease-in-out infinite 0.9s, float-star 3.6s ease-in-out infinite;
 }
 
 .star-9 {
@@ -415,7 +335,6 @@
   height: 2px;
   top: 70%;
   left: 70%;
-  animation: twinkle 2.1s ease-in-out infinite 0.4s, float-star 4.1s ease-in-out infinite;
 }
 
 .star-10 {
@@ -423,7 +342,6 @@
   height: 1px;
   top: 15%;
   right: 45%;
-  animation: twinkle 1.7s ease-in-out infinite 1.1s, float-star 3.9s ease-in-out infinite;
 }
 
 /* Rocket orbit and styling */
@@ -443,7 +361,6 @@
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  animation: orbit 8s linear infinite;
   z-index: 15;
 }
 
@@ -456,10 +373,9 @@
   height: 20px;
   background: linear-gradient(to bottom, rgba(255, 165, 0, 0.8), transparent);
   border-radius: 2px;
-  animation: rocket-trail 0.5s ease-in-out infinite;
 }
 
-@keyframes orbit {
+ orbit {
   0% {
     transform: translateX(-50%) rotate(0deg) translateY(-100px) rotate(0deg);
   }
@@ -468,7 +384,7 @@
   }
 }
 
-@keyframes rocket-trail {
+ rocket-trail {
   0%, 100% {
     opacity: 0.6;
     height: 15px;
@@ -479,7 +395,7 @@
   }
 }
 
-@keyframes float-space {
+ float-space {
   0%, 100% {
     transform: translateY(0px) rotate(0deg) scale(1);
     filter: brightness(1) contrast(1);
@@ -498,7 +414,7 @@
   }
 }
 
-@keyframes orbit-simple {
+ orbit-simple {
   0% {
     transform: rotate(0deg) translateX(80px) rotate(0deg);
   }
@@ -520,7 +436,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  animation: orbit-simple 4s linear infinite;
   z-index: 10;
 }
 
@@ -530,11 +445,10 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  animation: orbit-rocket 6s linear infinite;
   z-index: 10;
 }
 
-@keyframes orbit-rocket {
+ orbit-rocket {
   0% {
     transform: translate(-50%, -50%) rotate(0deg) translateX(80px) rotate(0deg);
   }
@@ -543,7 +457,7 @@
   }
 }
 
-@keyframes gradient-x {
+ gradient-x {
   0%, 100% {
     background-size: 200% 200%;
     background-position: left center;
@@ -570,16 +484,14 @@
 .nebula-1 {
   background: radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
               radial-gradient(circle at 80% 70%, rgba(20, 184, 166, 0.1) 0%, transparent 50%);
-  animation: nebula-float 20s ease-in-out infinite;
 }
 
 .nebula-2 {
   background: radial-gradient(circle at 60% 20%, rgba(147, 51, 234, 0.08) 0%, transparent 50%),
               radial-gradient(circle at 30% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
-  animation: nebula-float 25s ease-in-out infinite reverse;
 }
 
-@keyframes nebula-float {
+ nebula-float {
   0%, 100% {
     transform: translate(0, 0) scale(1);
     opacity: 0.3;
@@ -596,17 +508,15 @@
 
 /* Rocket silhouettes */
 .rocket-silhouette {
-  animation: rocket-float 15s ease-in-out infinite;
   filter: blur(1px);
 }
 
 .rocket-silhouette-2 {
-  animation: rocket-float-2 18s ease-in-out infinite;
   filter: blur(1px);
 }
 
 
-@keyframes rocket-float {
+ rocket-float {
   0%, 100% {
     transform: translate(0, 0) rotate(0deg);
     opacity: 0.05;
@@ -625,7 +535,7 @@
   }
 }
 
-@keyframes rocket-float-2 {
+ rocket-float-2 {
   0%, 100% {
     transform: translate(0, 0) rotate(0deg);
     opacity: 0.03;
@@ -640,13 +550,8 @@
   }
 }
 
-/* Orbital Rocket Animation */
-.rocket-emoji {
-  filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.6));
-  animation: rocket-glow 2s ease-in-out infinite alternate;
-}
 
-@keyframes rocket-glow {
+ rocket-glow {
   0% {
     filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.6));
     transform: scale(1);

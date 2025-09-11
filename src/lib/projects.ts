@@ -20,7 +20,7 @@ export const projects = [
   { 
     title: "WP → Astro Migration", 
     summary: "Complete migration from WordPress to Astro, resulting in 80% faster load times and improved SEO performance.", 
-    href: "/work/wp-to-astro", 
+    href: "", 
     tags: ["Migration", "Tailwind", "Performance", "SEO"] 
   },
   { 
@@ -32,19 +32,19 @@ export const projects = [
   { 
     title: "Educational Visual Library", 
     summary: "Comprehensive library of scientific infographics and educational materials with search and filtering capabilities.", 
-    href: "/work/visual-library", 
+    href: "", 
     tags: ["Infographics", "Education", "Search", "Visual"] 
   },
   { 
     title: "AI-Powered Content Generator", 
     summary: "Custom tool for generating educational content using AI, with template system and quality control features.", 
-    href: "/work/ai-content-generator", 
+    href: "", 
     tags: ["AI", "Automation", "Content", "Templates"] 
   },
   { 
     title: "Research Data Visualization", 
     summary: "Interactive dashboard for displaying complex research data with charts, filters, and export functionality.", 
-    href: "/work/data-visualization", 
+    href: "", 
     tags: ["Data", "Visualization", "Dashboard", "Research"] 
   }
 ];
