@@ -104,6 +104,14 @@
     animation: twinkle 2s ease-in-out infinite;
   }
   
+  .animate-twinkle-slow {
+    animation: twinkle-slow 4s ease-in-out infinite;
+  }
+  
+  .animate-twinkle-fast {
+    animation: twinkle-fast 1.5s ease-in-out infinite;
+  }
+  
   .animate-float-star {
     animation: float-star 3s ease-in-out infinite;
   }
@@ -280,6 +288,32 @@
   50% {
     opacity: 1;
     transform: scale(1.2);
+  }
+}
+
+@keyframes twinkle-slow {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes twinkle-fast {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  25% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+  75% {
+    opacity: 0.6;
+    transform: scale(0.9);
   }
 }
 
