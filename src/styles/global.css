@@ -640,6 +640,23 @@
   }
 }
 
+/* Orbital Rocket Animation */
+.rocket-emoji {
+  filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.6));
+  animation: rocket-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes rocket-glow {
+  0% {
+    filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.6));
+    transform: scale(1);
+  }
+  100% {
+    filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.8));
+    transform: scale(1.05);
+  }
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
