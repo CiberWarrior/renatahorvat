@@ -25,5 +25,8 @@
     "tailwindcss": "^4.1.13",
     "tailwindcss-animate": "^1.0.7"
   },
-  "private": "true"
+  "private": "true",
+  "devDependencies": {
+    "@astrojs/sitemap": "^3.6.0"
+  }
 }
