@@ -85,6 +85,9 @@ const {
     <!-- Google Search Console Verification -->
     <meta name="google-site-verification" content="T1_sOgmyD20gtjDzmLD" />
     
+    <!-- Lenis Smooth Scroll -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+    
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CY6VB6BVJL"></script>
     <script>
@@ -180,16 +183,76 @@ const {
     <slot />
     
     <!-- Scripts -->
-    <script type="module">
-      import { initLenis } from '/scripts/lenis.ts';
-      import { revealOnView, revealOnViewStagger } from '/scripts/reveal.ts';
-      
-      // Initialize smooth scroll
-      initLenis();
-      
-      // Initialize reveal animations
-      revealOnView();
-      revealOnViewStagger();
+    <script>
+      // Smooth scroll initialization
+      document.addEventListener('DOMContentLoaded', function() {
+        // Lenis smooth scroll
+        if (typeof Lenis !== 'undefined') {
+          const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            mouseMultiplier: 1,
+            smoothTouch: false,
+            touchMultiplier: 2,
+            infinite: false,
+          });
+
+          function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+          }
+          requestAnimationFrame(raf);
+        }
+
+        // Reveal animations
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = '1';
+              entry.target.style.transform = 'translateY(0)';
+            }
+          });
+        }, observerOptions);
+
+        // Observe all elements with reveal class
+        document.querySelectorAll('.reveal').forEach(el => {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(30px)';
+          el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+          observer.observe(el);
+        });
+
+        // Staggered reveal animations
+        document.querySelectorAll('.reveal-stagger').forEach((container, index) => {
+          const children = container.children;
+          Array.from(children).forEach((child, childIndex) => {
+            child.style.opacity = '0';
+            child.style.transform = 'translateY(30px)';
+            child.style.transition = `opacity 0.6s ease ${childIndex * 0.1}s, transform 0.6s ease ${childIndex * 0.1}s`;
+          });
+          
+          const staggerObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                Array.from(entry.target.children).forEach(child => {
+                  child.style.opacity = '1';
+                  child.style.transform = 'translateY(0)';
+                });
+              }
+            });
+          }, observerOptions);
+          
+          staggerObserver.observe(container);
+        });
+      });
     </script>
   </body>
 </html>
