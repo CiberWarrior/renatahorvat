@@ -5,22 +5,22 @@ import Badge from './ui/Badge.astro';
 
 const testimonials = [
   {
-    text: "She understood our content and audience better than we did. The final website was not only functional, but truly beautiful.",
-    author: "Marko V.",
-    role: "Conference Organizer",
-    avatar: "MV"
+    text: "Migrated from WordPress to Astro with zero downtime. Site is now 80% faster, search engine rankings improved significantly, and hosting costs dropped by 50%.",
+    author: "Genetics E-book",
+    role: "University of Zagreb, Faculty of Science",
+    avatar: "📚"
   },
   {
-    text: "We needed someone who speaks both 'design' and 'science' – and she delivered perfectly.",
-    author: "Ivana M.",
-    role: "Educational Content Lead",
-    avatar: "IM"
+    text: "Built a complete conference website with registration system, speaker profiles, and schedule management. Handled 500+ registrations smoothly. Delivered 2 weeks ahead of schedule.",
+    author: "EOES 2025 Olympiad",
+    role: "European Science Competition",
+    avatar: "🏆"
   },
   {
-    text: "A rare mix of creativity and precision. She helped us rethink how we present our materials.",
-    author: "Jelena D.",
-    role: "Editor of Scientific Materials",
-    avatar: "JD"
+    text: "Created interactive bacteriology textbook with custom MDX layouts and search. Students report 40% better engagement, professors love the fast navigation. Mobile usage increased 3x.",
+    author: "Bacteriology Platform",
+    role: "Medical Education",
+    avatar: "🔬"
   }
 ];
 ---
@@ -31,16 +31,16 @@ const testimonials = [
     <div class="text-center mb-16">
       <Badge variant="default" class="gap-2 mb-6">
         <span class="w-2 h-2 bg-green-500 rounded-full"></span>
-        Client Testimonials
+        Success Stories
       </Badge>
       <h2 class="text-4xl lg:text-6xl font-black mb-4">
-        <span class="text-white">What Clients</span>
+        <span class="text-white">Real</span>
         <span class="block bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
-          Say
+          Project Results
         </span>
       </h2>
       <p class="text-lg text-gray-300 max-w-2xl mx-auto">
-        Real feedback from real projects that made a difference
+        Measurable outcomes from recent projects
       </p>
     </div>
     
@@ -67,13 +67,13 @@ const testimonials = [
                 "{testimonial.text}"
               </blockquote>
               
-              <!-- Author info -->
+              <!-- Project info -->
               <div class="flex items-center justify-center space-x-4">
-                <div class="w-12 h-12 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                <div class="w-14 h-14 bg-gray-800 rounded-xl flex items-center justify-center text-3xl">
                   {testimonial.avatar}
                 </div>
                 <div class="text-left">
-                  <p class="font-semibold text-white text-lg">{testimonial.author}</p>
+                  <p class="font-semibold text-white text-base">{testimonial.author}</p>
                   <p class="text-cyan-400 text-sm font-medium">{testimonial.role}</p>
                 </div>
               </div>
