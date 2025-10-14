@@ -85,14 +85,13 @@ const {
     <!-- Google Search Console Verification -->
     <meta name="google-site-verification" content="T1_sOgmyD20gtjDzmLD" />
     
-    <!-- Lenis Smooth Scroll -->
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
     
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CY6VB6BVJL"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      // @ts-ignore - Google Analytics global variables
+      (window as any).dataLayer = (window as any).dataLayer || [];
+      function gtag(...args: any[]){(window as any).dataLayer.push(args);}
       gtag('js', new Date());
 
       gtag('config', 'G-CY6VB6BVJL', {
@@ -103,17 +102,24 @@ const {
         }
       });
 
-      // Track scroll depth
+      // Track scroll depth - Optimized with throttling
       let maxScroll = 0;
+      let scrollTimeout: ReturnType<typeof setTimeout> | null = null;
       window.addEventListener('scroll', function() {
-        const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
-        if (scrollPercent > maxScroll && scrollPercent % 25 === 0) {
-          maxScroll = scrollPercent;
-          gtag('event', 'scroll_depth', {
-            scroll_percentage: scrollPercent,
-            page_title: '{title}'
-          });
-        }
+        // Throttle scroll events for better performance
+        if (scrollTimeout) return;
+        
+        scrollTimeout = setTimeout(() => {
+          const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+          if (scrollPercent > maxScroll && scrollPercent % 25 === 0) {
+            maxScroll = scrollPercent;
+            gtag('event', 'scroll_depth', {
+              scroll_percentage: scrollPercent,
+              page_title: '{title}'
+            });
+          }
+          scrollTimeout = null;
+        }, 100); // Throttle to 10fps max
       });
 
       // Track time on page
@@ -184,30 +190,9 @@ const {
     
     <!-- Scripts -->
     <script>
-      // Smooth scroll initialization
+      // Native scroll with reveal animations only
       document.addEventListener('DOMContentLoaded', function() {
-        // Lenis smooth scroll
-        if (typeof Lenis !== 'undefined') {
-          const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            direction: 'vertical',
-            gestureDirection: 'vertical',
-            smooth: true,
-            mouseMultiplier: 1,
-            smoothTouch: false,
-            touchMultiplier: 2,
-            infinite: false,
-          });
-
-          function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-          }
-          requestAnimationFrame(raf);
-        }
-
-        // Reveal animations
+        // Reveal animations - Optimized for performance
         const observerOptions = {
           threshold: 0.1,
           rootMargin: '0px 0px -50px 0px'
@@ -216,36 +201,46 @@ const {
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
-              entry.target.style.opacity = '1';
-              entry.target.style.transform = 'translateY(0)';
+              // Use transform3d for GPU acceleration
+              (entry.target as HTMLElement).style.opacity = '1';
+              (entry.target as HTMLElement).style.transform = 'translate3d(0, 0, 0)';
+              // Unobserve after animation to improve performance
+              observer.unobserve(entry.target);
             }
           });
         }, observerOptions);
 
         // Observe all elements with reveal class
         document.querySelectorAll('.reveal').forEach(el => {
-          el.style.opacity = '0';
-          el.style.transform = 'translateY(30px)';
-          el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+          const element = el as HTMLElement;
+          element.style.opacity = '0';
+          element.style.transform = 'translate3d(0, 30px, 0)'; // Use transform3d
+          element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+          element.style.willChange = 'opacity, transform'; // GPU acceleration hint
           observer.observe(el);
         });
 
-        // Staggered reveal animations
+        // Staggered reveal animations - Optimized for performance
         document.querySelectorAll('.reveal-stagger').forEach((container, index) => {
           const children = container.children;
           Array.from(children).forEach((child, childIndex) => {
-            child.style.opacity = '0';
-            child.style.transform = 'translateY(30px)';
-            child.style.transition = `opacity 0.6s ease ${childIndex * 0.1}s, transform 0.6s ease ${childIndex * 0.1}s`;
+            const childElement = child as HTMLElement;
+            childElement.style.opacity = '0';
+            childElement.style.transform = 'translate3d(0, 30px, 0)'; // Use transform3d
+            childElement.style.transition = `opacity 0.6s ease ${childIndex * 0.1}s, transform 0.6s ease ${childIndex * 0.1}s`;
+            childElement.style.willChange = 'opacity, transform'; // GPU acceleration hint
           });
           
           const staggerObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
               if (entry.isIntersecting) {
                 Array.from(entry.target.children).forEach(child => {
-                  child.style.opacity = '1';
-                  child.style.transform = 'translateY(0)';
+                  const childElement = child as HTMLElement;
+                  childElement.style.opacity = '1';
+                  childElement.style.transform = 'translate3d(0, 0, 0)'; // Use transform3d
                 });
+                // Unobserve after animation to improve performance
+                staggerObserver.unobserve(entry.target);
               }
             });
           }, observerOptions);
