@@ -82,6 +82,15 @@ const {
     <meta name="geo.country" content="Croatia" />
     <meta name="language" content="English" />
     
+    <!-- Local SEO - Enhanced -->
+    <meta name="geo.region" content="HR-21" />
+    <meta name="geo.placename" content="Zagreb" />
+    <meta name="geo.position" content="45.8150;15.9819" />
+    <meta name="ICBM" content="45.8150, 15.9819" />
+    <meta name="geo.region" content="HR" />
+    <meta name="geo.country" content="Croatia" />
+    <meta name="language" content="English" />
+    
     <!-- Google Search Console Verification -->
     <meta name="google-site-verification" content="T1_sOgmyD20gtjDzmLD" />
     
@@ -133,7 +142,7 @@ const {
       });
     </script>
     
-    <!-- Structured Data -->
+    <!-- Structured Data - Enhanced -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -150,7 +159,13 @@ const {
       "address": {
         "@type": "PostalAddress",
         "addressCountry": "HR",
-        "addressRegion": "Croatia"
+        "addressRegion": "Croatia",
+        "addressLocality": "Zagreb"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "45.8150",
+        "longitude": "15.9819"
       },
       "knowsAbout": [
         "Visual Design",
@@ -181,6 +196,49 @@ const {
         "name": "Design Services | Dizajn usluge",
         "description": "Visual design and digital creation services for educational and scientific content. Instructional design, e-learning, online textbooks, and e-book creation. Grafički dizajn, instrukski dizajn, e-učenje, online udžbenici i e-knjige."
       }
+    }
+    </script>
+
+    <!-- Website Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Renata Horvat Portfolio",
+      "url": "https://renatahorvat.com",
+      "author": {
+        "@type": "Person",
+        "name": "Renata Horvat"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://renatahorvat.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <!-- Local Business Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Renata Horvat Design Services",
+      "description": "Professional design services for academic and scientific content",
+      "url": "https://renatahorvat.com",
+      "email": "screatives.info@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Zagreb",
+        "addressCountry": "HR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "45.8150",
+        "longitude": "15.9819"
+      },
+      "openingHours": "Mo-Fr 09:00-17:00",
+      "priceRange": "$$"
     }
     </script>
   </head>

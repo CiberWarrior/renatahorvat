@@ -5,12 +5,23 @@ import Footer from "../components/Footer.astro";
 import Badge from "../components/ui/Badge.astro";
 import Card from "../components/ui/Card.astro";
 import CardContent from "../components/ui/CardContent.astro";
+
+// SEO optimized page data
+const pageTitle = "Contact Renata Horvat - Croatian Designer & Science Communication Expert";
+const pageDescription = "Get in touch with Renata Horvat for your next design project. Specializing in academic websites, e-learning platforms, and scientific visual content. Based in Zagreb, Croatia.";
+const pageKeywords = "contact Renata Horvat, Croatian designer, Zagreb designer, science communication expert, academic web design, e-learning consultant, instructional design services, research visualization, educational design Croatia";
 ---
 
-<Layout title="Contact — Renata Horvat" description="Get in touch with Renata Horvat for your next project">
+<Layout 
+  title={pageTitle} 
+  description={pageDescription}
+  keywords={pageKeywords}
+>
   <Header />
   
   <main class="relative">
+    <!-- SEO H1 tag for Contact page -->
+    <h1 class="sr-only">Contact Renata Horvat - Croatian Designer & Science Communication Expert</h1>
     <!-- Space Background -->
     <div class="fixed inset-0 space-background">
       <!-- Stars -->
