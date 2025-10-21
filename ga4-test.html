@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GA4 Test Page - Renata Horvat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #1a1a1a;
+            color: white;
+        }
+        .test-section {
+            background: #2a2a2a;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border: 1px solid #444;
+        }
+        button {
+            background: linear-gradient(to right, #06b6d4, #3b82f6);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 10px;
+            font-weight: bold;
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .success { background: #065f46; color: #10b981; }
+        .error { background: #7f1d1d; color: #ef4444; }
+        .info { background: #1e3a8a; color: #60a5fa; }
+        #console-output {
+            background: #000;
+            color: #0f0;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: monospace;
+            height: 200px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CY6VB6BVJL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-CY6VB6BVJL', {
+            page_title: document.title,
+            page_location: window.location.href,
+            custom_map: {
+                'custom_parameter_1': 'portfolio_visitor'
+            }
+        });
+
+        // Console logging for debugging
+        const originalLog = console.log;
+        const outputDiv = document.getElementById('console-output');
+        
+        function logToConsole(message) {
+            const timestamp = new Date().toLocaleTimeString();
+            const logMessage = `[${timestamp}] ${message}\n`;
+            if (outputDiv) {
+                outputDiv.textContent += logMessage;
+                outputDiv.scrollTop = outputDiv.scrollHeight;
+            }
+            originalLog(message);
+        }
+
+        // Override console.log after page loads
+        window.addEventListener('DOMContentLoaded', function() {
+            console.log = logToConsole;
+            logToConsole('GA4 Test Page loaded');
+            logToConsole('GA4 ID: G-CY6VB6BVJL');
+            logToConsole('Page title: ' + document.title);
+            logToConsole('Page URL: ' + window.location.href);
+        });
+    </script>
+
+    <h1>🔍 GA4 Tracking Test - Renata Horvat</h1>
+    
+    <div class="test-section">
+        <h2>📊 Google Analytics 4 Status</h2>
+        <div id="ga-status" class="status info">Checking GA4 connection...</div>
+        <p><strong>GA4 ID:</strong> G-CY6VB6BVJL</p>
+        <p><strong>Current Page:</strong> <span id="current-page"></span></p>
+        <p><strong>User Agent:</strong> <span id="user-agent"></span></p>
+    </div>
+
+    <div class="test-section">
+        <h2>🧪 Test Custom Events</h2>
+        <p>Kliknite gumbove za testiranje custom event-ova:</p>
+        
+        <button onclick="testProjectView()">Test Project View</button>
+        <button onclick="testContactClick()">Test Contact Click</button>
+        <button onclick="testCTAClick()">Test CTA Click</button>
+        <button onclick="testNavigationClick()">Test Navigation Click</button>
+        <button onclick="testScrollDepth()">Test Scroll Depth</button>
+    </div>
+
+    <div class="test-section">
+        <h2>📝 Console Output</h2>
+        <div id="console-output"></div>
+        <button onclick="clearConsole()">Clear Console</button>
+    </div>
+
+    <div class="test-section">
+        <h2>✅ Provjera u GA4</h2>
+        <ol>
+            <li>Idite na <a href="https://analytics.google.com/" target="_blank" style="color: #60a5fa;">Google Analytics</a></li>
+            <li>Odaberite svojstvo "Renata Horvat Portfolio"</li>
+            <li>Idite na Reports → Realtime</li>
+            <li>Trebali biste vidjeti aktivnost na ovoj stranici</li>
+            <li>U Events sekciji provjerite custom events</li>
+        </ol>
+    </div>
+
+    <div class="test-section">
+        <h2>🔧 Troubleshooting</h2>
+        <ul>
+            <li><strong>Nema podataka:</strong> Provjerite ad blockere i privacy extensions</li>
+            <li><strong>Nema real-time podataka:</strong> Čekajte 1-2 minute</li>
+            <li><strong>Nema historical podataka:</strong> Čekajte 24-48 sati</li>
+            <li><strong>Console greške:</strong> Provjerite Network tab u Developer Tools</li>
+        </ul>
+    </div>
+
+    <script>
+        // Update page info
+        document.getElementById('current-page').textContent = window.location.href;
+        document.getElementById('user-agent').textContent = navigator.userAgent;
+
+        // Check GA4 status
+        setTimeout(function() {
+            const gaStatus = document.getElementById('ga-status');
+            if (typeof gtag === 'function' && window.dataLayer) {
+                gaStatus.className = 'status success';
+                gaStatus.textContent = '✅ GA4 je uspješno učitan i konfiguriran!';
+                logToConsole('✅ GA4 successfully loaded');
+            } else {
+                gaStatus.className = 'status error';
+                gaStatus.textContent = '❌ GA4 nije pravilno učitan. Provjerite konzolu za greške.';
+                logToConsole('❌ GA4 failed to load');
+            }
+        }, 2000);
+
+        // Test functions
+        function testProjectView() {
+            gtag('event', 'project_view', {
+                project_title: 'Test Project',
+                project_url: 'https://example.com/test-project'
+            });
+            logToConsole('🎯 Project view event sent');
+        }
+
+        function testContactClick() {
+            gtag('event', 'contact_click', {
+                contact_method: 'email',
+                contact_type: 'portfolio_inquiry'
+            });
+            logToConsole('📧 Contact click event sent');
+        }
+
+        function testCTAClick() {
+            gtag('event', 'cta_click', {
+                cta_type: 'test_cta',
+                cta_location: 'test_page'
+            });
+            logToConsole('🎯 CTA click event sent');
+        }
+
+        function testNavigationClick() {
+            gtag('event', 'navigation_click', {
+                navigation_item: 'test_nav',
+                navigation_location: 'test_header'
+            });
+            logToConsole('🧭 Navigation click event sent');
+        }
+
+        function testScrollDepth() {
+            gtag('event', 'scroll_depth', {
+                scroll_percentage: 50,
+                page_title: document.title
+            });
+            logToConsole('📜 Scroll depth event sent (50%)');
+        }
+
+        function clearConsole() {
+            document.getElementById('console-output').textContent = '';
+        }
+
+        // Track page view
+        logToConsole('📄 Page view tracked automatically');
+        
+        // Add some content to test scrolling
+        for (let i = 0; i < 10; i++) {
+            const div = document.createElement('div');
+            div.style.height = '100px';
+            div.style.background = '#333';
+            div.style.margin = '10px 0';
+            div.style.borderRadius = '5px';
+            div.style.display = 'flex';
+            div.style.alignItems = 'center';
+            div.style.justifyContent = 'center';
+            div.textContent = `Scroll test section ${i + 1}`;
+            document.body.appendChild(div);
+        }
+    </script>
+</body>
+</html>

@@ -104,8 +104,8 @@ const {
       gtag('js', new Date());
 
       gtag('config', 'G-CY6VB6BVJL', {
-        page_title: '{title}',
-        page_location: '{canonical}',
+        page_title: document.title,
+        page_location: window.location.href,
         custom_map: {
           'custom_parameter_1': 'portfolio_visitor'
         }
@@ -124,7 +124,7 @@ const {
             maxScroll = scrollPercent;
             gtag('event', 'scroll_depth', {
               scroll_percentage: scrollPercent,
-              page_title: '{title}'
+              page_title: document.title
             });
           }
           scrollTimeout = null;
@@ -137,7 +137,7 @@ const {
         const timeOnPage = Math.round((Date.now() - startTime) / 1000);
         gtag('event', 'time_on_page', {
           time_seconds: timeOnPage,
-          page_title: '{title}'
+          page_title: document.title
         });
       });
     </script>
