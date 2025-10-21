@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import SpeedInsights from '@vercel/speed-insights/astro';
 
 interface Props {
   title?: string;
@@ -307,5 +308,8 @@ const {
         });
       });
     </script>
+    
+    <!-- Vercel Speed Insights -->
+    <SpeedInsights />
   </body>
 </html>
