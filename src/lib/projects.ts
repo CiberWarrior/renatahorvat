@@ -131,10 +131,10 @@ export const projects = [
   
   // Projects without links
   { 
-    title: "WP → Astro Migration", 
-    summary: "Complete migration from WordPress to Astro, resulting in 80% faster load times and improved SEO performance.", 
+    title: "WordPress Migration", 
+    summary: "Complete migration from WordPress to a modern platform, resulting in 80% faster load times and improved SEO performance.", 
     href: "", 
-    tags: ["Migration", "Tailwind", "Performance", "SEO"],
+    tags: ["Migration", "Performance", "SEO"],
     icon: "default",
     iconBg: "cyan-blue"
   },
