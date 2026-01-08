@@ -53,7 +53,7 @@ export default async function handler(req, res) {
 
     // Send email using Resend
     const { data, error } = await resend.emails.send({
-      from: 'Kontakt Forma <onboarding@resend.dev>',
+      from: 'Kontakt Forma <contact@renatahorvat.com>',
       to: 'screatives.info@gmail.com',
       replyTo: email,
       subject: `Nova poruka od ${name}`,
