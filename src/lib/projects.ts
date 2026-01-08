@@ -2,9 +2,9 @@ export const projects = [
   // Projects with links
   { 
     title: "Bacteriology e-book", 
-    summary: "Interactive e-learning platform with custom MDX layouts, fast navigation, and engaging visual content for medical students.", 
+    summary: "Interactive e-learning platform with fast navigation and engaging visual content for medical students.", 
     href: "https://praktikum-iz-bakteriologije.vercel.app/", 
-    tags: ["Astro", "MDX", "Education", "Medical"],
+    tags: ["Education", "Medical"],
     icon: "book",
     iconBg: "cyan-blue"
   },
