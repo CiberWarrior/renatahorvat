@@ -1,77 +1,60 @@
-import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
 
-export const POST: APIRoute = async ({ request }) => {
-  // Initialize Resend with API key from environment variables
-  const apiKey = import.meta.env.RESEND_API_KEY;
-  
-  if (!apiKey) {
-    return new Response(
-      JSON.stringify({
-        success: false,
-        message: 'Server configuration error. Please contact the administrator.',
-      }),
-      {
-        status: 500,
-        headers: { 'Content-Type': 'application/json' },
-      }
-    );
+export default async function handler(req, res) {
+  // Only allow POST requests
+  if (req.method !== 'POST') {
+    return res.status(405).json({
+      success: false,
+      message: 'Method not allowed'
+    });
   }
-  
-  const resend = new Resend(apiKey);
-  
+
   try {
-    // Parse the incoming JSON data
-    const body = await request.json();
-    const { name, email, message, gdprConsent } = body;
+    // Initialize Resend
+    const apiKey = process.env.RESEND_API_KEY;
+    
+    if (!apiKey) {
+      console.error('RESEND_API_KEY is not set');
+      return res.status(500).json({
+        success: false,
+        message: 'Server configuration error.'
+      });
+    }
+
+    const resend = new Resend(apiKey);
+
+    // Get form data
+    const { name, email, message, gdprConsent } = req.body;
 
     // Validate required fields
     if (!name || !email || !message) {
-      return new Response(
-        JSON.stringify({
-          success: false,
-          message: 'Molim popunite sva obavezna polja.',
-        }),
-        {
-          status: 400,
-          headers: { 'Content-Type': 'application/json' },
-        }
-      );
+      return res.status(400).json({
+        success: false,
+        message: 'Molim popunite sva obavezna polja.'
+      });
     }
 
     // Validate GDPR consent
     if (!gdprConsent) {
-      return new Response(
-        JSON.stringify({
-          success: false,
-          message: 'Morate prihvatiti politiku privatnosti.',
-        }),
-        {
-          status: 400,
-          headers: { 'Content-Type': 'application/json' },
-        }
-      );
+      return res.status(400).json({
+        success: false,
+        message: 'Morate prihvatiti politiku privatnosti.'
+      });
     }
 
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      return new Response(
-        JSON.stringify({
-          success: false,
-          message: 'Unesite ispravnu email adresu.',
-        }),
-        {
-          status: 400,
-          headers: { 'Content-Type': 'application/json' },
-        }
-      );
+      return res.status(400).json({
+        success: false,
+        message: 'Unesite ispravnu email adresu.'
+      });
     }
 
     // Send email using Resend
     const { data, error } = await resend.emails.send({
-      from: 'Kontakt Forma <onboarding@resend.dev>', // Replace with your verified domain
-      to: 'screatives.info@gmail.com', // Replace with your Gmail
+      from: 'Kontakt Forma <onboarding@resend.dev>',
+      to: 'screatives.info@gmail.com',
       replyTo: email,
       subject: `Nova poruka od ${name}`,
       html: `
@@ -182,47 +165,30 @@ ${message}
 
 ---
 Poslano s renatahorvat.com
-      `,
+      `
     });
 
     // Handle Resend errors
     if (error) {
       console.error('Resend Error:', error);
-      return new Response(
-        JSON.stringify({
-          success: false,
-          message: 'Došlo je do greške pri slanju poruke. Molim pokušajte ponovno.',
-        }),
-        {
-          status: 500,
-          headers: { 'Content-Type': 'application/json' },
-        }
-      );
+      return res.status(500).json({
+        success: false,
+        message: 'Došlo je do greške pri slanju poruke. Molim pokušajte ponovno.'
+      });
     }
 
     // Success response
-    return new Response(
-      JSON.stringify({
-        success: true,
-        message: 'Hvala vam! Vaša poruka je uspješno poslana.',
-        data,
-      }),
-      {
-        status: 200,
-        headers: { 'Content-Type': 'application/json' },
-      }
-    );
+    return res.status(200).json({
+      success: true,
+      message: 'Hvala vam! Vaša poruka je uspješno poslana.',
+      data
+    });
+
   } catch (error) {
     console.error('API Error:', error);
-    return new Response(
-      JSON.stringify({
-        success: false,
-        message: 'Došlo je do greške. Molim pokušajte ponovno kasnije.',
-      }),
-      {
-        status: 500,
-        headers: { 'Content-Type': 'application/json' },
-      }
-    );
+    return res.status(500).json({
+      success: false,
+      message: 'Došlo je do greške. Molim pokušajte ponovno kasnije.'
+    });
   }
-};
+}
