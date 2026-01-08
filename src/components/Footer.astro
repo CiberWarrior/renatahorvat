@@ -42,18 +42,56 @@
           <li><a href="/services" class="text-gray-300 hover:text-purple-300 transition-colors duration-300">View portfolio</a></li>
           <li><a href="/" class="text-gray-300 hover:text-purple-300 transition-colors duration-300">Home</a></li>
         </ul>
-        
       </div>
     </div>
     
     <!-- Bottom bar -->
     <div class="border-t border-white/10 mt-16 pt-8">
-      <div class="flex flex-col md:flex-row items-center justify-between">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
         <p class="text-gray-400 text-sm">
           © {new Date().getFullYear()} All rights reserved.
         </p>
         
+        <!-- Legal Links -->
+        <div class="flex flex-wrap items-center justify-center gap-4 text-sm">
+          <a 
+            href="/privacy-policy" 
+            class="text-gray-400 hover:text-cyan-400 transition-colors duration-300"
+          >
+            Privacy Policy
+          </a>
+          <span class="text-gray-600">•</span>
+          <button 
+            id="footer-cookie-settings"
+            class="text-gray-400 hover:text-cyan-400 transition-colors duration-300 cursor-pointer"
+          >
+            Cookie Settings
+          </button>
+        </div>
       </div>
     </div>
   </div>
 </footer>
+
+<script>
+  // Cookie Settings button in footer
+  document.addEventListener('DOMContentLoaded', function() {
+    const footerCookieBtn = document.getElementById('footer-cookie-settings');
+    
+    if (footerCookieBtn) {
+      footerCookieBtn.addEventListener('click', function() {
+        // Trigger the cookie settings banner
+        const cookieBanner = document.getElementById('cookie-consent-banner');
+        const settingsTrigger = document.getElementById('cookie-settings-trigger');
+        
+        if (cookieBanner && settingsTrigger) {
+          cookieBanner.classList.remove('hidden');
+          settingsTrigger.classList.add('hidden');
+          
+          // Scroll to top for better visibility
+          window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        }
+      });
+    }
+  });
+</script>

@@ -188,6 +188,279 @@ const pageKeywords = "contact Renata Horvat, Croatian designer, Zagreb designer,
       </div>
     </section>
 
+    <!-- Contact Form Section -->
+    <section class="py-12 bg-transparent relative z-10">
+      <div class="relative max-w-2xl mx-auto px-6">
+        <!-- Form Container -->
+        <div class="relative group">
+          <!-- Neon glow effect -->
+          <div class="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+          
+          <!-- Main form card -->
+          <div class="relative bg-gray-900/80 backdrop-blur-xl border border-cyan-400/30 rounded-2xl overflow-hidden">
+            <div class="p-8">
+              <!-- Form Header -->
+              <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-3">
+                  Send Me a Message
+                </h2>
+                <p class="text-gray-300">
+                  Fill out the form below and I'll get back to you within 24 hours.
+                </p>
+              </div>
+
+              <!-- Success Message (hidden by default) -->
+              <div id="success-message" class="hidden mb-6 p-4 bg-green-500/10 border border-green-500/30 rounded-xl">
+                <div class="flex items-start gap-3">
+                  <svg class="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  <div>
+                    <h3 class="text-green-400 font-semibold mb-1">Poruka uspješno poslana!</h3>
+                    <p class="text-green-300 text-sm">Hvala vam što ste me kontaktirali. Javit ću vam se uskoro!</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Error Message (hidden by default) -->
+              <div id="error-message" class="hidden mb-6 p-4 bg-red-500/10 border border-red-500/30 rounded-xl">
+                <div class="flex items-start gap-3">
+                  <svg class="w-6 h-6 text-red-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  <div>
+                    <h3 class="text-red-400 font-semibold mb-1">Ups! Nešto je pošlo po zlu</h3>
+                    <p class="text-red-300 text-sm" id="error-text">Molim pokušajte ponovno ili mi pošaljite email na screatives.info@gmail.com</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Contact Form -->
+              <form 
+                id="contact-form"
+                class="space-y-6"
+              >
+                <!-- Name Field -->
+                <div>
+                  <label for="name" class="block text-sm font-semibold text-gray-300 mb-2">
+                    Name <span class="text-red-400">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    class="w-full px-4 py-3 bg-gray-800/50 border border-gray-600/50 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/50 focus:border-cyan-400 transition-all duration-300"
+                    placeholder="Your name"
+                  />
+                </div>
+
+                <!-- Email Field -->
+                <div>
+                  <label for="email" class="block text-sm font-semibold text-gray-300 mb-2">
+                    Email <span class="text-red-400">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    class="w-full px-4 py-3 bg-gray-800/50 border border-gray-600/50 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/50 focus:border-cyan-400 transition-all duration-300"
+                    placeholder="your.email@example.com"
+                  />
+                </div>
+
+                <!-- Message Field -->
+                <div>
+                  <label for="message" class="block text-sm font-semibold text-gray-300 mb-2">
+                    Message <span class="text-red-400">*</span>
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    required
+                    rows="6"
+                    class="w-full px-4 py-3 bg-gray-800/50 border border-gray-600/50 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/50 focus:border-cyan-400 transition-all duration-300 resize-none"
+                    placeholder="Tell me about your project, timeline, and budget..."
+                  ></textarea>
+                </div>
+
+                <!-- GDPR Consent Checkbox -->
+                <div class="flex items-start gap-3 p-4 bg-purple-500/10 border border-purple-500/20 rounded-xl">
+                  <input
+                    type="checkbox"
+                    id="gdpr-consent"
+                    name="gdpr_consent"
+                    required
+                    class="mt-1 w-4 h-4 rounded border-gray-600 text-cyan-500 focus:ring-cyan-500 focus:ring-offset-gray-900"
+                  />
+                  <label for="gdpr-consent" class="text-sm text-gray-300 leading-relaxed">
+                    I agree to the processing of my personal data according to the 
+                    <a href="/privacy-policy" target="_blank" class="text-cyan-400 hover:text-cyan-300 underline">Privacy Policy</a>. 
+                    Your information will only be used to respond to your inquiry. <span class="text-red-400">*</span>
+                  </label>
+                </div>
+
+                <!-- Honeypot (spam protection - hidden field) -->
+                <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+                <!-- Submit Button -->
+                <button
+                  type="submit"
+                  id="submit-button"
+                  class="w-full px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-lg rounded-xl hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/25 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                >
+                  <span id="button-text">Send Message</span>
+                  <span id="button-loader" class="hidden">
+                    <svg class="animate-spin inline-block w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Sending...
+                  </span>
+                </button>
+
+                <p class="text-center text-sm text-gray-400 mt-4">
+                  Or email me directly at 
+                  <a href="mailto:screatives.info@gmail.com" class="text-cyan-400 hover:text-cyan-300 font-semibold">
+                    screatives.info@gmail.com
+                  </a>
+                </p>
+              </form>
+            </div>
+
+            <!-- Decorative elements -->
+            <div class="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-cyan-400/30 rounded-tr-lg"></div>
+            <div class="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-cyan-400/30 rounded-bl-lg"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Form Handling Script -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('contact-form') as HTMLFormElement | null;
+        const submitButton = document.getElementById('submit-button') as HTMLButtonElement | null;
+        const buttonText = document.getElementById('button-text');
+        const buttonLoader = document.getElementById('button-loader');
+        const successMessage = document.getElementById('success-message');
+        const errorMessage = document.getElementById('error-message');
+        const errorText = document.getElementById('error-text');
+
+        if (!form || !submitButton) return;
+
+        form.addEventListener('submit', async function(e) {
+          e.preventDefault();
+
+          // Get form data
+          const formData = new FormData(form);
+          
+          // Check honeypot (spam protection)
+          if (formData.get('_gotcha')) {
+            console.log('Spam detected');
+            return;
+          }
+
+          // Get form values
+          const name = formData.get('name') as string;
+          const email = formData.get('email') as string;
+          const message = formData.get('message') as string;
+          const gdprConsent = formData.get('gdpr_consent') === 'on';
+
+          // Disable button and show loader
+          submitButton.disabled = true;
+          if (buttonText) buttonText.classList.add('hidden');
+          if (buttonLoader) buttonLoader.classList.remove('hidden');
+
+          // Hide any previous messages
+          if (successMessage) successMessage.classList.add('hidden');
+          if (errorMessage) errorMessage.classList.add('hidden');
+
+          try {
+            const response = await fetch('/api/contact', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                name,
+                email,
+                message,
+                gdprConsent,
+              }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok && data.success) {
+              // Success
+              if (successMessage) {
+                successMessage.classList.remove('hidden');
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+              }
+              
+              // Reset form
+              form.reset();
+
+              // Track Analytics
+              if (typeof (window as any).gtag !== 'undefined') {
+                (window as any).gtag('event', 'form_submission', {
+                  form_type: 'contact',
+                  submission_status: 'success'
+                });
+              }
+
+              // Hide success message after 10 seconds
+              setTimeout(() => {
+                if (successMessage) successMessage.classList.add('hidden');
+              }, 10000);
+            } else {
+              // Error response from server
+              throw new Error(data.message || 'Greška pri slanju poruke');
+            }
+          } catch (error) {
+            // Error
+            console.error('Form submission error:', error);
+            const errorMsg = error instanceof Error ? error.message : 'Molim pokušajte ponovno ili mi pošaljite email direktno na screatives.info@gmail.com';
+            if (errorText) errorText.textContent = errorMsg;
+            if (errorMessage) {
+              errorMessage.classList.remove('hidden');
+              errorMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+
+            // Track Analytics
+            if (typeof (window as any).gtag !== 'undefined') {
+              (window as any).gtag('event', 'form_submission', {
+                form_type: 'contact',
+                submission_status: 'error'
+              });
+            }
+          } finally {
+            // Re-enable button and hide loader
+            submitButton.disabled = false;
+            if (buttonText) buttonText.classList.remove('hidden');
+            if (buttonLoader) buttonLoader.classList.add('hidden');
+          }
+        });
+
+        // Client-side validation feedback
+        const inputs = form.querySelectorAll('input[required], textarea[required]');
+        inputs.forEach((input) => {
+          const inputElement = input as HTMLInputElement | HTMLTextAreaElement;
+          inputElement.addEventListener('invalid', function() {
+            inputElement.classList.add('border-red-500');
+          });
+          
+          inputElement.addEventListener('input', function() {
+            if (inputElement.validity.valid) {
+              inputElement.classList.remove('border-red-500');
+            }
+          });
+        });
+      });
+    </script>
+
     <!-- Contact Info Section -->
     <section class="py-8 bg-transparent relative z-10">
       <div class="relative max-w-4xl mx-auto px-6">

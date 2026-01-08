@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import SpeedInsights from '@vercel/speed-insights/astro';
+import CookieConsent from '../components/CookieConsent.astro';
 
 interface Props {
   title?: string;
@@ -246,6 +247,9 @@ const {
   <body class="min-h-screen text-white antialiased" style="background-color: #15293f;">
     
     <slot />
+    
+    <!-- Cookie Consent Banner -->
+    <CookieConsent />
     
     <!-- Scripts -->
     <script>
