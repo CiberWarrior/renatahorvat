@@ -97,14 +97,38 @@ const {
     <meta name="google-site-verification" content="T1_sOgmyD20gtjDzmLD" />
     
     
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CY6VB6BVJL"></script>
+    <!-- Google tag (gtag.js) with Consent Mode v2 -->
     <script>
       // @ts-ignore - Google Analytics global variables
       (window as any).dataLayer = (window as any).dataLayer || [];
       function gtag(...args: any[]){(window as any).dataLayer.push(args);}
+      
+      // Check for existing consent in localStorage
+      const COOKIE_CONSENT_KEY = 'cookie_consent_preferences';
+      const existingConsent = localStorage.getItem(COOKIE_CONSENT_KEY);
+      let hasAnalyticsConsent = false;
+      
+      if (existingConsent) {
+        try {
+          const consent = JSON.parse(existingConsent);
+          hasAnalyticsConsent = consent.analytics === true;
+        } catch (e) {
+          // Invalid consent data, treat as no consent
+        }
+      }
+      
+      // Set default consent mode to 'denied' before GA loads (GDPR compliant)
+      // But if user already gave consent, update it immediately
+      gtag('consent', 'default', {
+        'analytics_storage': hasAnalyticsConsent ? 'granted' : 'denied',
+        'ad_storage': 'denied',
+        'wait_for_update': hasAnalyticsConsent ? 0 : 500
+      });
+      
       gtag('js', new Date());
-
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CY6VB6BVJL"></script>
+    <script>
       gtag('config', 'G-CY6VB6BVJL', {
         page_title: document.title,
         page_location: window.location.href,

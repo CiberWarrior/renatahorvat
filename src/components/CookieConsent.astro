@@ -127,8 +127,15 @@
     // Analytics is already loaded in Layout.astro
     // This function is called to confirm it should be active
     if (typeof window.gtag !== 'undefined') {
+      // Update consent to granted
       window.gtag('consent', 'update', {
         'analytics_storage': 'granted'
+      });
+      
+      // Send page view after consent is granted
+      window.gtag('event', 'page_view', {
+        page_title: document.title,
+        page_location: window.location.href
       });
     }
   }
