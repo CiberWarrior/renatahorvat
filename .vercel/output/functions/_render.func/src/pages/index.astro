@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import About from '../components/About.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Footer from '../components/Footer.astro';
+
+// SEO optimized page data
+const pageTitle = "Renata Horvat - Designer & Digital Creator | Science Communication Expert Croatia";
+const pageDescription = "Renata Horvat is a Croatian designer specializing in science communication, e-learning platforms, and academic websites. 20+ years transforming complex research into engaging visual experiences for universities and research institutions.";
+const pageKeywords = "Renata Horvat, designer Croatia, science communication, e-learning design, academic websites, visual design, instructional design, Zagreb designer, educational design, scientific visualization, infographics, digital creator, web design Croatia, university websites, research communication";
+---
+
+<Layout 
+  title={pageTitle} 
+  description={pageDescription}
+  keywords={pageKeywords}
+>
+  <Header />
+  <main>
+    <!-- SEO Content Block - Hidden but accessible to search engines -->
+    <div class="sr-only">
+      <h1>Renata Horvat</h1>
+      <h2>Renata Horvat Designer</h2>
+      <h3>Renata Horvat Croatia</h3>
+      <h4>Renata Horvat Zagreb</h4>
+      <p>Renata Horvat is a designer from Croatia specializing in science communication and educational design. Renata Horvat creates e-learning platforms, academic websites, and scientific infographics for universities and research institutions. Based in Zagreb, Croatia, Renata Horvat has 20+ years of experience transforming complex research into engaging visual experiences.</p>
+      <p>Renata Horvat services include: instructional design, e-learning development, academic web design, scientific visualization, infographics creation, and WordPress to Astro migration. Renata Horvat works with universities, research institutions, and educational organizations worldwide.</p>
+    </div>
+    
+    <Hero />
+    <Services />
+    <About />
+    <Testimonials />
+  </main>
+  <Footer />
+</Layout>

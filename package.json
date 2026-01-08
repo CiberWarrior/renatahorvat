@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/vercel": "^8.0.0",
     "@iconify/json": "^2.2.382",
     "@iconify/utils": "^3.0.1",
     "@tailwindcss/aspect-ratio": "^0.4.2",
