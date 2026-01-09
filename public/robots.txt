@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://renatahorvat.com/sitemap-index.xml
+Sitemap: https://renatahorvat.com/sitemap.xml
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1

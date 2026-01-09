@@ -630,3 +630,115 @@
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(45deg, #7c3aed, #0891b2);
 }
+
+/* Form validation styles */
+input.border-green-500,
+textarea.border-green-500 {
+  border-color: #10b981 !important;
+}
+
+input.border-red-500,
+textarea.border-red-500 {
+  border-color: #ef4444 !important;
+}
+
+/* Additional animations for contact page */
+@keyframes gradient-x {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 3s ease infinite;
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Enhanced reveal animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal.opacity-100 {
+  opacity: 1;
+}
+
+.reveal.translate-y-0 {
+  transform: translateY(0);
+}
+
+.reveal-stagger {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  transition: opacity 0.8s ease-out 0.2s, transform 0.8s ease-out 0.2s;
+}
+
+.reveal-stagger.opacity-100 {
+  opacity: 1;
+}
+
+.reveal-stagger.translate-y-0 {
+  transform: translateY(0);
+}
+
+.reveal-stagger.scale-100 {
+  transform: translateY(0) scale(1);
+}
+
+/* Form field group styling */
+.form-field-group {
+  position: relative;
+}
+
+.form-field-group:focus-within label {
+  color: #67e8f9;
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+/* Enhanced button hover effects */
+button:not(:disabled):hover {
+  transform: translateY(-2px);
+}
+
+button:not(:disabled):active {
+  transform: translateY(0);
+}
+
+/* Smooth transitions for all interactive elements */
+a, button, input, textarea {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Enhanced focus states */
+input:focus,
+textarea:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px -5px rgba(6, 182, 212, 0.2), 0 0 0 2px rgba(6, 182, 212, 0.1);
+}
+
+/* Card hover lift effect */
+.group:hover .group\:hover\:shadow-cyan-500\/20 {
+  transform: translateY(-4px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}

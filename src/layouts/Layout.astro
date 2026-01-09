@@ -10,6 +10,8 @@ interface Props {
   canonical?: string;
   ogImage?: string;
   gaId?: string;
+  structuredData?: object | object[];
+  breadcrumbs?: Array<{ name: string; url: string }>;
 }
 
 const {
@@ -18,7 +20,9 @@ const {
   keywords = "designer, digital creator, science communication, visual design, web design, educational design, infographics, scientific visualization, portfolio, Croatia, instructional design, e-learning design, online textbook creation, e-book design, course design, learning experience design, dizajner, grafički dizajn, web dizajn, digitalni dizajn, znanstvena komunikacija, infografike, vizualizacija podataka, portfolio dizajner, Hrvatska, Zagreb, edukacijski dizajn, dizajn za znanost, kreativni dizajn, brand dizajn, UI UX dizajn, instrukski dizajn, e-učenje dizajn, online udžbenici, e-knjige dizajn",
   canonical = Astro.url.href,
   ogImage = "/og-image.jpg",
-  gaId = import.meta.env.PUBLIC_GA_ID || "G-XXXXXXXXXX"
+  gaId = import.meta.env.PUBLIC_GA_ID || "G-XXXXXXXXXX",
+  structuredData,
+  breadcrumbs
 } = Astro.props;
 ---
 
@@ -287,6 +291,33 @@ const {
       "priceRange": "$$"
     }
     </script>
+
+    {/* Breadcrumb Structured Data */}
+    {breadcrumbs && breadcrumbs.length > 0 && (
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": breadcrumbs.map((crumb, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": crumb.name,
+          "item": crumb.url
+        }))
+      })} />
+    )}
+
+    {/* Additional Structured Data from page */}
+    {structuredData && (
+      <>
+        {Array.isArray(structuredData) ? (
+          structuredData.map((data, index) => (
+            <script key={`structured-data-${index}`} type="application/ld+json" set:html={JSON.stringify(data)} />
+          ))
+        ) : (
+          <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+        )}
+      </>
+    )}
   </head>
   <body class="min-h-screen text-white antialiased" style="background-color: #15293f;">
     <!-- Skip to main content link for accessibility -->

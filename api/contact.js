@@ -26,19 +26,32 @@ export default async function handler(req, res) {
     // Get form data
     const { name, email, message, gdprConsent } = req.body;
 
-    // Validate required fields
-    if (!name || !email || !message) {
+    // Validate required fields with specific messages
+    if (!name || !name.trim()) {
       return res.status(400).json({
         success: false,
-        message: 'Molim popunite sva obavezna polja.'
+        message: 'Name and surname is required. Please enter both your first and last name.'
       });
     }
 
-    // Validate GDPR consent
-    if (!gdprConsent) {
+    if (name.trim().length < 2) {
       return res.status(400).json({
         success: false,
-        message: 'Morate prihvatiti politiku privatnosti.'
+        message: 'Name must be at least 2 characters long.'
+      });
+    }
+
+    if (!name.trim().includes(' ')) {
+      return res.status(400).json({
+        success: false,
+        message: 'Please enter both your name and surname (e.g., "John Doe").'
+      });
+    }
+
+    if (!email || !email.trim()) {
+      return res.status(400).json({
+        success: false,
+        message: 'Email address is required. Please enter your email address.'
       });
     }
 
@@ -47,7 +60,36 @@ export default async function handler(req, res) {
     if (!emailRegex.test(email)) {
       return res.status(400).json({
         success: false,
-        message: 'Unesite ispravnu email adresu.'
+        message: 'Please enter a valid email address. Format should be: example@domain.com'
+      });
+    }
+
+    if (!message || !message.trim()) {
+      return res.status(400).json({
+        success: false,
+        message: 'Message is required. Please tell me about your project.'
+      });
+    }
+
+    if (message.trim().length < 10) {
+      return res.status(400).json({
+        success: false,
+        message: 'Message must be at least 10 characters long. Please provide more details about your project.'
+      });
+    }
+
+    if (message.length > 1000) {
+      return res.status(400).json({
+        success: false,
+        message: 'Message cannot exceed 1000 characters. Please shorten your message.'
+      });
+    }
+
+    // Validate GDPR consent
+    if (!gdprConsent) {
+      return res.status(400).json({
+        success: false,
+        message: 'You must agree to the Privacy Policy to submit this form. Please check the consent checkbox.'
       });
     }
 

@@ -3,7 +3,7 @@ export const projects = [
   { 
     title: "Bacteriology e-book", 
     summary: "Interactive e-learning platform with fast navigation and engaging visual content for medical students.", 
-    href: "https://praktikum-iz-bakteriologije.vercel.app/", 
+    href: "https://bakteriologija.biol.pmf.hr", 
     tags: ["Education", "Medical"],
     icon: "book",
     iconBg: "cyan-blue"
@@ -11,7 +11,7 @@ export const projects = [
   { 
     title: "Genetika e-book", 
     summary: "Comprehensive online genetics textbook for biology students at University of Zagreb, featuring interactive content and modern web design.", 
-    href: "https://www.genetika.biol.pmf.hr/", 
+    href: "https://www.genetika.biol.pmf.hr", 
     tags: ["Education", "Genetics", "Biology", "E-learning"],
     icon: "book",
     iconBg: "blue-purple"
@@ -19,7 +19,7 @@ export const projects = [
   { 
     title: "Botanical Garden Zagreb", 
     summary: "Official website for the University of Zagreb Botanical Garden, showcasing plant collections, educational programs, and visitor information.", 
-    href: "https://botanickivrt.biol.pmf.hr/", 
+    href: "https://botanickivrt.biol.pmf.hr", 
     tags: ["Botany", "Education", "Nature", "University"],
     icon: "leaf",
     iconBg: "green-teal"
