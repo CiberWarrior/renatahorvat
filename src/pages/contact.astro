@@ -258,6 +258,7 @@ const contactBreadcrumbs = [
               <form 
                 id="contact-form"
                 class="space-y-6"
+                novalidate
               >
                 <!-- Name and Surname Field -->
                 <div class="form-field-group">
@@ -338,19 +339,22 @@ const contactBreadcrumbs = [
                 </div>
 
                 <!-- GDPR Consent Checkbox -->
-                <div class="flex items-start gap-3 p-4 bg-purple-500/10 border border-purple-500/20 rounded-xl">
-                  <input
-                    type="checkbox"
-                    id="gdpr-consent"
-                    name="gdpr_consent"
-                    required
-                    class="mt-1 w-4 h-4 rounded border-gray-600 text-cyan-500 focus:ring-cyan-500 focus:ring-offset-gray-900"
-                  />
-                  <label for="gdpr-consent" class="text-sm text-gray-300 leading-relaxed">
-                    I agree to the processing of my personal data according to the 
-                    <a href="/privacy-policy" target="_blank" class="text-cyan-400 hover:text-cyan-300 underline">Privacy Policy</a>. 
-                    Your information will only be used to respond to your inquiry. <span class="text-red-400">*</span>
-                  </label>
+                <div class="form-field-group">
+                  <div class="flex items-start gap-3 p-4 bg-purple-500/10 border border-purple-500/20 rounded-xl">
+                    <input
+                      type="checkbox"
+                      id="gdpr-consent"
+                      name="gdpr_consent"
+                      required
+                      class="mt-1 w-4 h-4 rounded border-gray-600 text-cyan-500 focus:ring-cyan-500 focus:ring-offset-gray-900"
+                    />
+                    <label for="gdpr-consent" class="text-sm text-gray-300 leading-relaxed">
+                      I agree to the processing of my personal data according to the 
+                      <a href="/privacy-policy" target="_blank" class="text-cyan-400 hover:text-cyan-300 underline">Privacy Policy</a>. 
+                      Your information will only be used to respond to your inquiry. <span class="text-red-400">*</span>
+                    </label>
+                  </div>
+                  <div id="gdpr-error" class="hidden mt-2 text-sm text-red-400" role="alert"></div>
                 </div>
 
                 <!-- Honeypot (spam protection - hidden field) -->
@@ -485,6 +489,9 @@ const contactBreadcrumbs = [
 
         form.addEventListener('submit', async function(e) {
           e.preventDefault();
+          e.stopPropagation();
+
+          console.log('Form submit triggered');
 
           // Get form data
           const formData = new FormData(form);
@@ -500,6 +507,64 @@ const contactBreadcrumbs = [
           const email = formData.get('email') as string;
           const message = formData.get('message') as string;
           const gdprConsent = formData.get('gdpr_consent') === 'on';
+
+          // Client-side validation before submit
+          const nameValidation = validateName(name);
+          const emailValidation = validateEmail(email);
+          const messageValidation = validateMessage(message);
+          
+          let hasErrors = false;
+
+          if (nameValidation) {
+            if (nameError) {
+              nameError.textContent = nameValidation;
+              nameError.classList.remove('hidden');
+              nameInput.classList.add('border-red-500');
+              nameInput.classList.remove('border-green-500');
+            }
+            hasErrors = true;
+          }
+
+          if (emailValidation) {
+            if (emailError) {
+              emailError.textContent = emailValidation;
+              emailError.classList.remove('hidden');
+              emailInput.classList.add('border-red-500');
+              emailInput.classList.remove('border-green-500');
+            }
+            hasErrors = true;
+          }
+
+          if (messageValidation) {
+            if (messageError) {
+              messageError.textContent = messageValidation;
+              messageError.classList.remove('hidden');
+              messageInput.classList.add('border-red-500');
+              messageInput.classList.remove('border-green-500');
+            }
+            hasErrors = true;
+          }
+
+          if (!gdprConsent) {
+            const gdprError = document.getElementById('gdpr-error');
+            const gdprCheckbox = document.getElementById('gdpr-consent') as HTMLInputElement;
+            if (gdprError) {
+              gdprError.textContent = 'You must agree to the Privacy Policy to submit this form.';
+              gdprError.classList.remove('hidden');
+            }
+            if (gdprCheckbox) {
+              gdprCheckbox.classList.add('ring-2', 'ring-red-500');
+            }
+            hasErrors = true;
+          }
+
+          // If there are validation errors, stop submission
+          if (hasErrors) {
+            submitButton.disabled = false;
+            if (buttonText) buttonText.classList.remove('hidden');
+            if (buttonLoader) buttonLoader.classList.add('hidden');
+            return;
+          }
 
           // Disable button and show loader
           submitButton.disabled = true;
@@ -548,6 +613,12 @@ const contactBreadcrumbs = [
               if (messageError) {
                 messageError.classList.add('hidden');
                 messageInput.classList.remove('border-red-500', 'border-green-500');
+              }
+              if (gdprError) {
+                gdprError.classList.add('hidden');
+                if (gdprCheckbox) {
+                  gdprCheckbox.classList.remove('ring-2', 'ring-red-500');
+                }
               }
               
               // Reset character counter
@@ -605,6 +676,8 @@ const contactBreadcrumbs = [
         const nameError = document.getElementById('name-error');
         const emailError = document.getElementById('email-error');
         const messageError = document.getElementById('message-error');
+        const gdprError = document.getElementById('gdpr-error');
+        const gdprCheckbox = document.getElementById('gdpr-consent') as HTMLInputElement;
         const messageCounter = document.getElementById('message-counter');
 
         // Character counter for message field
@@ -769,6 +842,20 @@ const contactBreadcrumbs = [
             } else {
               messageError.classList.add('hidden');
               messageInput.classList.remove('border-red-500', 'border-green-500');
+            }
+          });
+        }
+
+        // Real-time validation for GDPR checkbox
+        if (gdprCheckbox && gdprError) {
+          gdprCheckbox.addEventListener('change', () => {
+            if (gdprCheckbox.checked) {
+              gdprError.classList.add('hidden');
+              gdprCheckbox.classList.remove('ring-2', 'ring-red-500');
+            } else {
+              gdprError.textContent = 'You must agree to the Privacy Policy to submit this form.';
+              gdprError.classList.remove('hidden');
+              gdprCheckbox.classList.add('ring-2', 'ring-red-500');
             }
           });
         }
