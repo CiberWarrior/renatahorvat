@@ -100,8 +100,9 @@ const {
     <!-- Google tag (gtag.js) with Consent Mode v2 -->
     <script>
       // @ts-ignore - Google Analytics global variables
-      (window as any).dataLayer = (window as any).dataLayer || [];
-      function gtag(...args: any[]){(window as any).dataLayer.push(args);}
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
       
       // Check for existing consent in localStorage
       const COOKIE_CONSENT_KEY = 'cookie_consent_preferences';
@@ -129,14 +130,14 @@ const {
     </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CY6VB6BVJL"></script>
     <script>
-      // Wait for gtag to be available before configuring
+      // Wait for DOM to be ready, then configure GA
       function initGA() {
-        if (typeof gtag === 'undefined') {
+        if (typeof window.gtag === 'undefined') {
           setTimeout(initGA, 100);
           return;
         }
         
-        gtag('config', 'G-CY6VB6BVJL', {
+        window.gtag('config', 'G-CY6VB6BVJL', {
           page_title: document.title,
           page_location: window.location.href,
           custom_map: {
@@ -155,8 +156,8 @@ const {
             const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
             if (scrollPercent > maxScroll && scrollPercent % 25 === 0) {
               maxScroll = scrollPercent;
-              if (typeof gtag !== 'undefined') {
-                gtag('event', 'scroll_depth', {
+              if (typeof window.gtag !== 'undefined') {
+                window.gtag('event', 'scroll_depth', {
                   scroll_percentage: scrollPercent,
                   page_title: document.title
                 });
@@ -170,8 +171,8 @@ const {
         let startTime = Date.now();
         window.addEventListener('beforeunload', function() {
           const timeOnPage = Math.round((Date.now() - startTime) / 1000);
-          if (typeof gtag !== 'undefined') {
-            gtag('event', 'time_on_page', {
+          if (typeof window.gtag !== 'undefined') {
+            window.gtag('event', 'time_on_page', {
               time_seconds: timeOnPage,
               page_title: document.title
             });

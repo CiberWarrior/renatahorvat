@@ -12,7 +12,7 @@ const navItems = [
   <nav class="max-w-7xl mx-auto px-6 py-4">
     <div class="flex items-center justify-between">
       <!-- Logo -->
-      <a href="/" class="flex items-center" onclick="if(typeof gtag !== 'undefined') gtag('event', 'logo_click', { logo_location: 'header' })">
+      <a href="/" class="flex items-center" onclick="if(typeof window.gtag !== 'undefined') window.gtag('event', 'logo_click', { logo_location: 'header' })">
         <img 
           src="/images/icon.png" 
           alt="Renata Horvat Logo" 
@@ -29,7 +29,7 @@ const navItems = [
             <a 
               href={item.href} 
               class="relative text-white/90 hover:text-white transition-colors duration-300 font-medium text-sm uppercase tracking-wider group focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900 rounded px-2"
-              onclick={`if(typeof gtag !== 'undefined') gtag('event', 'navigation_click', { nav_item: '${item.label}', nav_location: 'desktop_header' })`}
+              onclick={`if(typeof window.gtag !== 'undefined') window.gtag('event', 'navigation_click', { nav_item: '${item.label}', nav_location: 'desktop_header' })`}
             >
               {item.label}
               <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-blue-400 group-hover:w-full transition-all duration-300"></span>
@@ -61,7 +61,7 @@ const navItems = [
             <a 
               href={item.href} 
               class="block py-3 text-white/90 hover:text-white transition-colors font-medium text-sm uppercase tracking-wider focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-800 rounded px-2"
-              onclick={`if(typeof gtag !== 'undefined') gtag('event', 'navigation_click', { nav_item: '${item.label}', nav_location: 'mobile_header' })`}
+              onclick={`if(typeof window.gtag !== 'undefined') window.gtag('event', 'navigation_click', { nav_item: '${item.label}', nav_location: 'mobile_header' })`}
               role="menuitem"
             >
               {item.label}
