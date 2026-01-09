@@ -129,43 +129,62 @@ const {
     </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-CY6VB6BVJL"></script>
     <script>
-      gtag('config', 'G-CY6VB6BVJL', {
-        page_title: document.title,
-        page_location: window.location.href,
-        custom_map: {
-          'custom_parameter_1': 'portfolio_visitor'
+      // Wait for gtag to be available before configuring
+      function initGA() {
+        if (typeof gtag === 'undefined') {
+          setTimeout(initGA, 100);
+          return;
         }
-      });
-
-      // Track scroll depth - Optimized with throttling
-      let maxScroll = 0;
-      let scrollTimeout: ReturnType<typeof setTimeout> | null = null;
-      window.addEventListener('scroll', function() {
-        // Throttle scroll events for better performance
-        if (scrollTimeout) return;
         
-        scrollTimeout = setTimeout(() => {
-          const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
-          if (scrollPercent > maxScroll && scrollPercent % 25 === 0) {
-            maxScroll = scrollPercent;
-            gtag('event', 'scroll_depth', {
-              scroll_percentage: scrollPercent,
+        gtag('config', 'G-CY6VB6BVJL', {
+          page_title: document.title,
+          page_location: window.location.href,
+          custom_map: {
+            'custom_parameter_1': 'portfolio_visitor'
+          }
+        });
+
+        // Track scroll depth - Optimized with throttling
+        let maxScroll = 0;
+        let scrollTimeout: ReturnType<typeof setTimeout> | null = null;
+        window.addEventListener('scroll', function() {
+          // Throttle scroll events for better performance
+          if (scrollTimeout) return;
+          
+          scrollTimeout = setTimeout(() => {
+            const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+            if (scrollPercent > maxScroll && scrollPercent % 25 === 0) {
+              maxScroll = scrollPercent;
+              if (typeof gtag !== 'undefined') {
+                gtag('event', 'scroll_depth', {
+                  scroll_percentage: scrollPercent,
+                  page_title: document.title
+                });
+              }
+            }
+            scrollTimeout = null;
+          }, 100); // Throttle to 10fps max
+        });
+
+        // Track time on page
+        let startTime = Date.now();
+        window.addEventListener('beforeunload', function() {
+          const timeOnPage = Math.round((Date.now() - startTime) / 1000);
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'time_on_page', {
+              time_seconds: timeOnPage,
               page_title: document.title
             });
           }
-          scrollTimeout = null;
-        }, 100); // Throttle to 10fps max
-      });
-
-      // Track time on page
-      let startTime = Date.now();
-      window.addEventListener('beforeunload', function() {
-        const timeOnPage = Math.round((Date.now() - startTime) / 1000);
-        gtag('event', 'time_on_page', {
-          time_seconds: timeOnPage,
-          page_title: document.title
         });
-      });
+      }
+      
+      // Initialize GA when DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initGA);
+      } else {
+        initGA();
+      }
     </script>
     
     <!-- Structured Data - Enhanced -->
