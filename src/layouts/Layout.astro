@@ -101,7 +101,7 @@ const {
     <meta name="google-site-verification" content="T1_sOgmyD20gtjDzmLD" />
     
     
-    <!-- Google tag (gtag.js) with Consent Mode v2 -->
+    <!-- Google tag (gtag.js) - Only loaded if consent already exists -->
     <script>
       // @ts-ignore - Google Analytics global variables
       window.dataLayer = window.dataLayer || [];
@@ -110,85 +110,168 @@ const {
       
       // Check for existing consent in localStorage
       const COOKIE_CONSENT_KEY = 'cookie_consent_preferences';
+      const COOKIE_CONSENT_VERSION = '1.0';
       const existingConsent = localStorage.getItem(COOKIE_CONSENT_KEY);
       let hasAnalyticsConsent = false;
       
       if (existingConsent) {
         try {
           const consent = JSON.parse(existingConsent);
-          hasAnalyticsConsent = consent.analytics === true;
+          // Check if version matches and analytics is enabled
+          if (consent.version === COOKIE_CONSENT_VERSION && consent.analytics === true) {
+            hasAnalyticsConsent = true;
+          }
         } catch (e) {
           // Invalid consent data, treat as no consent
         }
       }
       
-      // Set default consent mode to 'denied' before GA loads (GDPR compliant)
-      // But if user already gave consent, update it immediately
-      gtag('consent', 'default', {
-        'analytics_storage': hasAnalyticsConsent ? 'granted' : 'denied',
-        'ad_storage': 'denied',
-        'wait_for_update': hasAnalyticsConsent ? 0 : 500
-      });
-      
-      gtag('js', new Date());
-    </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CY6VB6BVJL"></script>
-    <script>
-      // Wait for DOM to be ready, then configure GA
-      function initGA() {
-        if (typeof window.gtag === 'undefined') {
-          setTimeout(initGA, 100);
-          return;
-        }
-        
-        window.gtag('config', 'G-CY6VB6BVJL', {
-          page_title: document.title,
-          page_location: window.location.href,
-          custom_map: {
-            'custom_parameter_1': 'portfolio_visitor'
-          }
+      // Only load GA scripts if user already gave consent (returning visitor)
+      if (hasAnalyticsConsent) {
+        // Set consent mode to 'granted' since user already consented
+        // @ts-ignore - gtag function signature
+        gtag('consent', 'default', {
+          'analytics_storage': 'granted',
+          'ad_storage': 'denied',
+          'wait_for_update': 0
         });
+        
+        // @ts-ignore - gtag function signature
+        gtag('js', new Date());
+        
+        // Load GA script dynamically
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-CY6VB6BVJL';
+        document.head.appendChild(script);
+        
+        // Configure GA after script loads
+        script.onload = function() {
+          // @ts-ignore - gtag function signature
+          window.gtag('config', 'G-CY6VB6BVJL', {
+            page_title: document.title,
+            page_location: window.location.href,
+            custom_map: {
+              'custom_parameter_1': 'portfolio_visitor'
+            }
+          });
 
-        // Track scroll depth - Optimized with throttling
-        let maxScroll = 0;
-        let scrollTimeout: ReturnType<typeof setTimeout> | null = null;
-        window.addEventListener('scroll', function() {
-          // Throttle scroll events for better performance
-          if (scrollTimeout) return;
+          // Track scroll depth - Optimized with throttling
+          let maxScroll = 0;
+          let scrollTimeout: ReturnType<typeof setTimeout> | null = null;
+          window.addEventListener('scroll', function() {
+            // Throttle scroll events for better performance
+            if (scrollTimeout) return;
+            
+            scrollTimeout = setTimeout(() => {
+              const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+              if (scrollPercent > maxScroll && scrollPercent % 25 === 0) {
+                maxScroll = scrollPercent;
+                if (typeof window.gtag !== 'undefined') {
+                  // @ts-ignore - gtag function signature
+                  window.gtag('event', 'scroll_depth', {
+                    scroll_percentage: scrollPercent,
+                    page_title: document.title
+                  });
+                }
+              }
+              scrollTimeout = null;
+            }, 100); // Throttle to 10fps max
+          });
+
+          // Track time on page
+          let startTime = Date.now();
+          window.addEventListener('beforeunload', function() {
+            const timeOnPage = Math.round((Date.now() - startTime) / 1000);
+            if (typeof window.gtag !== 'undefined') {
+              // @ts-ignore - gtag function signature
+              window.gtag('event', 'time_on_page', {
+                time_seconds: timeOnPage,
+                page_title: document.title
+              });
+            }
+          });
+        };
+      } else {
+        // No consent - set default to denied and expose function to load GA later
+        gtag('consent', 'default', {
+          'analytics_storage': 'denied',
+          'ad_storage': 'denied',
+          'wait_for_update': 500
+        });
+        
+        // Expose function to load GA dynamically when consent is given
+        window.loadGoogleAnalytics = function() {
+          if (document.querySelector('script[src*="googletagmanager.com/gtag/js"]')) {
+            // Already loaded
+            return;
+          }
           
-          scrollTimeout = setTimeout(() => {
-            const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
-            if (scrollPercent > maxScroll && scrollPercent % 25 === 0) {
-              maxScroll = scrollPercent;
+          // @ts-ignore - gtag function signature
+          gtag('js', new Date());
+          
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-CY6VB6BVJL';
+          document.head.appendChild(script);
+          
+          script.onload = function() {
+            // Update consent to granted
+            // @ts-ignore - gtag function signature
+            window.gtag('consent', 'update', {
+              'analytics_storage': 'granted'
+            });
+            
+            // @ts-ignore - gtag function signature
+            window.gtag('config', 'G-CY6VB6BVJL', {
+              page_title: document.title,
+              page_location: window.location.href,
+              custom_map: {
+                'custom_parameter_1': 'portfolio_visitor'
+              }
+            });
+
+            // Send page view after consent is granted
+            window.gtag('event', 'page_view', {
+              page_title: document.title,
+              page_location: window.location.href
+            });
+
+            // Track scroll depth - Optimized with throttling
+            let maxScroll = 0;
+            let scrollTimeout: ReturnType<typeof setTimeout> | null = null;
+            window.addEventListener('scroll', function() {
+              if (scrollTimeout) return;
+              
+              scrollTimeout = setTimeout(() => {
+                const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+                if (scrollPercent > maxScroll && scrollPercent % 25 === 0) {
+                  maxScroll = scrollPercent;
+                  if (typeof window.gtag !== 'undefined') {
+                    window.gtag('event', 'scroll_depth', {
+                      scroll_percentage: scrollPercent,
+                      page_title: document.title
+                    });
+                  }
+                }
+                scrollTimeout = null;
+              }, 100);
+            });
+
+            // Track time on page
+            let startTime = Date.now();
+            window.addEventListener('beforeunload', function() {
+              const timeOnPage = Math.round((Date.now() - startTime) / 1000);
               if (typeof window.gtag !== 'undefined') {
-                window.gtag('event', 'scroll_depth', {
-                  scroll_percentage: scrollPercent,
+                // @ts-ignore - gtag function signature
+                window.gtag('event', 'time_on_page', {
+                  time_seconds: timeOnPage,
                   page_title: document.title
                 });
               }
-            }
-            scrollTimeout = null;
-          }, 100); // Throttle to 10fps max
-        });
-
-        // Track time on page
-        let startTime = Date.now();
-        window.addEventListener('beforeunload', function() {
-          const timeOnPage = Math.round((Date.now() - startTime) / 1000);
-          if (typeof window.gtag !== 'undefined') {
-            window.gtag('event', 'time_on_page', {
-              time_seconds: timeOnPage,
-              page_title: document.title
             });
-          }
-        });
-      }
-      
-      // Initialize GA when DOM is ready
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initGA);
-      } else {
-        initGA();
+          };
+        };
       }
     </script>
     

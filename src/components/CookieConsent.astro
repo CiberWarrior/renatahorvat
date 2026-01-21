@@ -126,34 +126,39 @@
     localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(consent));
   }
 
-  // Load Google Analytics
+  // Load Google Analytics dynamically
   function loadAnalytics() {
-    // Analytics is already loaded in Layout.astro
-    // This function is called to confirm it should be active
+    // Check if GA is already loaded
     if (typeof window.gtag !== 'undefined') {
-      // Update consent to granted
+      // GA already loaded - just update consent
+      // @ts-ignore - gtag function signature
       window.gtag('consent', 'update', {
         'analytics_storage': 'granted'
       });
       
       // Send page view after consent is granted
+      // @ts-ignore - gtag function signature
       window.gtag('event', 'page_view', {
         page_title: document.title,
         page_location: window.location.href
       });
+    } else if (typeof (window as any).loadGoogleAnalytics === 'function') {
+      // GA not loaded yet - use dynamic loader from Layout.astro
+      (window as any).loadGoogleAnalytics();
     }
   }
 
   // Disable Google Analytics
   function disableAnalytics() {
+    // Set GA disable flag to prevent any future loading
+    (window as any)['ga-disable-G-CY6VB6BVJL'] = true;
+    
+    // If GA is already loaded, update consent to denied
     if (typeof window.gtag !== 'undefined') {
       window.gtag('consent', 'update', {
         'analytics_storage': 'denied'
       });
     }
-    
-    // Set GA disable flag
-    window['ga-disable-G-CY6VB6BVJL'] = true;
   }
 
   // Initialize
@@ -174,10 +179,12 @@
     const consent = hasConsent();
     
     if (consent) {
-      // Consent already given
+      // Consent already given - GA should already be loaded by Layout.astro
       if (consent.analytics) {
+        // Ensure GA is properly initialized (may already be loaded by Layout.astro)
         loadAnalytics();
       } else {
+        // User previously rejected - ensure GA is disabled
         disableAnalytics();
       }
       // Show settings trigger button
@@ -185,34 +192,37 @@
     } else {
       // No consent yet - show banner
       banner.classList.remove('hidden');
-      // Disable analytics by default until consent
+      // Disable analytics by default until consent (prevents any accidental loading)
       disableAnalytics();
     }
 
-    // Accept All
+    // Accept All - Load GA and enable tracking
     acceptBtn.addEventListener('click', function() {
       saveConsent(true);
-      loadAnalytics();
+      loadAnalytics(); // This will dynamically load GA if not already loaded
       banner.classList.add('hidden');
       settingsTrigger.classList.remove('hidden');
       
-      // Track consent given
-      if (typeof window.gtag !== 'undefined') {
-        window.gtag('event', 'cookie_consent', {
-          consent_action: 'accept_all'
-        });
-      }
+      // Track consent given (will fire after GA loads)
+      setTimeout(() => {
+        if (typeof window.gtag !== 'undefined') {
+          // @ts-ignore - gtag function signature
+          window.gtag('event', 'cookie_consent', {
+            consent_action: 'accept_all'
+          });
+        }
+      }, 500);
     });
 
-    // Reject All
+    // Reject All - Disable GA and prevent loading
     rejectBtn.addEventListener('click', function() {
       saveConsent(false);
-      disableAnalytics();
+      disableAnalytics(); // Prevents GA from loading and disables if already loaded
       banner.classList.add('hidden');
       settingsTrigger.classList.remove('hidden');
       
-      // Track consent rejected (won't actually fire since analytics disabled)
-      console.log('Cookie consent: rejected');
+      // Log consent rejected (won't track since analytics disabled)
+      console.log('Cookie consent: rejected - Analytics disabled');
     });
 
     // Customize - Toggle details
@@ -227,20 +237,25 @@
           saveConsent(analyticsEnabled);
           
           if (analyticsEnabled) {
-            loadAnalytics();
+            loadAnalytics(); // Load GA if enabled
           } else {
-            disableAnalytics();
+            disableAnalytics(); // Disable GA if disabled
           }
           
           banner.classList.add('hidden');
           settingsTrigger.classList.remove('hidden');
           
-          // Track custom settings
-          if (typeof window.gtag !== 'undefined' && analyticsEnabled) {
-            window.gtag('event', 'cookie_consent', {
-              consent_action: 'customize',
-              analytics_enabled: analyticsEnabled
-            });
+          // Track custom settings (will fire after GA loads if enabled)
+          if (analyticsEnabled) {
+            setTimeout(() => {
+              if (typeof window.gtag !== 'undefined') {
+                // @ts-ignore - gtag function signature
+                window.gtag('event', 'cookie_consent', {
+                  consent_action: 'customize',
+                  analytics_enabled: analyticsEnabled
+                });
+              }
+            }, 500);
           }
         }
       }
