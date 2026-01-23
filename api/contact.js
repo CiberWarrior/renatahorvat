@@ -1,6 +1,16 @@
 import { Resend } from 'resend';
 
 export default async function handler(req, res) {
+  // Set CORS headers
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  // Handle preflight requests
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
   // Only allow POST requests
   if (req.method !== 'POST') {
     return res.status(405).json({
@@ -215,14 +225,14 @@ Poslano s renatahorvat.com
       console.error('Resend Error:', error);
       return res.status(500).json({
         success: false,
-        message: 'Došlo je do greške pri slanju poruke. Molim pokušajte ponovno.'
+        message: 'An error occurred while sending your message. Please try again.'
       });
     }
 
     // Success response
     return res.status(200).json({
       success: true,
-      message: 'Hvala vam! Vaša poruka je uspješno poslana.',
+      message: 'Thank you! Your message has been sent successfully.',
       data
     });
 
@@ -230,7 +240,7 @@ Poslano s renatahorvat.com
     console.error('API Error:', error);
     return res.status(500).json({
       success: false,
-      message: 'Došlo je do greške. Molim pokušajte ponovno kasnije.'
+      message: 'An error occurred. Please try again later.'
     });
   }
 }

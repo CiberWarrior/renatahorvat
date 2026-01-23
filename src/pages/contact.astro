@@ -47,8 +47,6 @@ const contactBreadcrumbs = [
   <Header />
   
   <main class="relative">
-    <!-- SEO H1 tag for Contact page -->
-    <h1 class="sr-only">Contact Renata Horvat - Croatian Designer & Science Communication Expert</h1>
     <!-- Space Background -->
     <div class="fixed inset-0 space-background">
       <!-- Stars -->
@@ -174,11 +172,11 @@ const contactBreadcrumbs = [
             <div class="text-center lg:text-left flex-1 order-1 lg:order-2 lg:pt-4">
               <h1 class="text-5xl lg:text-7xl xl:text-8xl font-black text-white mb-4 leading-tight">
                 <span class="bg-gradient-to-r from-cyan-300 via-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent">
-                  Renata Horvat
+                  Contact
                 </span>
               </h1>
               <p class="text-lg lg:text-xl text-cyan-200/80 font-medium tracking-wide">
-                Designer & Digital Creator
+                Renata Horvat — Designer & Digital Creator
               </p>
             </div>
           </div>
@@ -235,8 +233,8 @@ const contactBreadcrumbs = [
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
                   <div>
-                    <h3 class="text-green-400 font-semibold mb-1">Poruka uspješno poslana!</h3>
-                    <p class="text-green-300 text-sm">Hvala vam što ste me kontaktirali. Javit ću vam se uskoro!</p>
+                    <h3 class="text-green-400 font-semibold mb-1">Message sent successfully!</h3>
+                    <p class="text-green-300 text-sm">Thank you for contacting me. I'll get back to you soon!</p>
                   </div>
                 </div>
               </div>
@@ -248,8 +246,8 @@ const contactBreadcrumbs = [
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
                   <div>
-                    <h3 class="text-red-400 font-semibold mb-1">Ups! Nešto je pošlo po zlu</h3>
-                    <p class="text-red-300 text-sm" id="error-text">Molim pokušajte ponovno ili mi pošaljite email na screatives.info@gmail.com</p>
+                    <h3 class="text-red-400 font-semibold mb-1">Oops! Something went wrong</h3>
+                    <p class="text-red-300 text-sm" id="error-text">Please try again or send me an email at screatives.info@gmail.com</p>
                   </div>
                 </div>
               </div>
@@ -275,8 +273,6 @@ const contactBreadcrumbs = [
                       type="text"
                       id="name"
                       name="name"
-                      required
-                      minlength="2"
                       class="w-full pl-12 pr-4 py-3 bg-gray-800/50 border border-gray-600/50 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/50 focus:border-cyan-400 transition-all duration-300"
                       placeholder="Your name and surname"
                       aria-describedby="name-error"
@@ -297,10 +293,9 @@ const contactBreadcrumbs = [
                       </svg>
                     </div>
                     <input
-                      type="email"
+                      type="text"
                       id="email"
                       name="email"
-                      required
                       class="w-full pl-12 pr-4 py-3 bg-gray-800/50 border border-gray-600/50 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/50 focus:border-cyan-400 transition-all duration-300"
                       placeholder="your.email@example.com"
                       aria-describedby="email-error"
@@ -326,8 +321,6 @@ const contactBreadcrumbs = [
                     <textarea
                       id="message"
                       name="message"
-                      required
-                      minlength="10"
                       maxlength="1000"
                       rows="6"
                       class="w-full pl-12 pr-4 py-3 bg-gray-800/50 border border-gray-600/50 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/50 focus:border-cyan-400 transition-all duration-300 resize-none"
@@ -345,7 +338,6 @@ const contactBreadcrumbs = [
                       type="checkbox"
                       id="gdpr-consent"
                       name="gdpr_consent"
-                      required
                       class="mt-1 w-4 h-4 rounded border-gray-600 text-cyan-500 focus:ring-cyan-500 focus:ring-offset-gray-900"
                     />
                     <label for="gdpr-consent" class="text-sm text-gray-300 leading-relaxed">
@@ -477,15 +469,63 @@ const contactBreadcrumbs = [
     <!-- Form Handling Script -->
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-        const form = document.getElementById('contact-form') as HTMLFormElement | null;
-        const submitButton = document.getElementById('submit-button') as HTMLButtonElement | null;
+        // Get all DOM elements first, before they're used
+        const form = document.getElementById('contact-form');
+        const submitButton = document.getElementById('submit-button');
         const buttonText = document.getElementById('button-text');
         const buttonLoader = document.getElementById('button-loader');
         const successMessage = document.getElementById('success-message');
         const errorMessage = document.getElementById('error-message');
         const errorText = document.getElementById('error-text');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const messageInput = document.getElementById('message');
+        const nameError = document.getElementById('name-error');
+        const emailError = document.getElementById('email-error');
+        const messageError = document.getElementById('message-error');
+        const gdprError = document.getElementById('gdpr-error');
+        const gdprCheckbox = document.getElementById('gdpr-consent');
+        const messageCounter = document.getElementById('message-counter');
 
         if (!form || !submitButton) return;
+
+        // Validation functions
+        const validateName = (value) => {
+          if (!value || !value.trim()) {
+            return 'Name and surname is required.';
+          }
+          if (value.trim().length < 2) {
+            return 'Name must be at least 2 characters long.';
+          }
+          if (!value.trim().includes(' ')) {
+            return 'Please enter both name and surname.';
+          }
+          return '';
+        };
+
+        const validateEmail = (value) => {
+          if (!value || !value.trim()) {
+            return 'Email is required.';
+          }
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(value)) {
+            return 'Please enter a valid email address (e.g., example@domain.com).';
+          }
+          return '';
+        };
+
+        const validateMessage = (value) => {
+          if (!value || !value.trim()) {
+            return 'Message is required.';
+          }
+          if (value.trim().length < 10) {
+            return 'Message must be at least 10 characters long.';
+          }
+          if (value.length > 1000) {
+            return 'Message cannot exceed 1000 characters.';
+          }
+          return '';
+        };
 
         form.addEventListener('submit', async function(e) {
           e.preventDefault();
@@ -502,10 +542,13 @@ const contactBreadcrumbs = [
             return;
           }
 
-          // Get form values
-          const name = formData.get('name') as string;
-          const email = formData.get('email') as string;
-          const message = formData.get('message') as string;
+          // Get form values with safe string conversion
+          const nameValue = formData.get('name');
+          const emailValue = formData.get('email');
+          const messageValue = formData.get('message');
+          const name = nameValue ? String(nameValue) : '';
+          const email = emailValue ? String(emailValue) : '';
+          const message = messageValue ? String(messageValue) : '';
           const gdprConsent = formData.get('gdpr_consent') === 'on';
 
           // Client-side validation before submit
@@ -516,7 +559,7 @@ const contactBreadcrumbs = [
           let hasErrors = false;
 
           if (nameValidation) {
-            if (nameError) {
+            if (nameError && nameInput) {
               nameError.textContent = nameValidation;
               nameError.classList.remove('hidden');
               nameInput.classList.add('border-red-500');
@@ -526,7 +569,7 @@ const contactBreadcrumbs = [
           }
 
           if (emailValidation) {
-            if (emailError) {
+            if (emailError && emailInput) {
               emailError.textContent = emailValidation;
               emailError.classList.remove('hidden');
               emailInput.classList.add('border-red-500');
@@ -536,7 +579,7 @@ const contactBreadcrumbs = [
           }
 
           if (messageValidation) {
-            if (messageError) {
+            if (messageError && messageInput) {
               messageError.textContent = messageValidation;
               messageError.classList.remove('hidden');
               messageInput.classList.add('border-red-500');
@@ -546,8 +589,6 @@ const contactBreadcrumbs = [
           }
 
           if (!gdprConsent) {
-            const gdprError = document.getElementById('gdpr-error');
-            const gdprCheckbox = document.getElementById('gdpr-consent') as HTMLInputElement;
             if (gdprError) {
               gdprError.textContent = 'You must agree to the Privacy Policy to submit this form.';
               gdprError.classList.remove('hidden');
@@ -582,10 +623,10 @@ const contactBreadcrumbs = [
                 'Content-Type': 'application/json',
               },
               body: JSON.stringify({
-                name,
-                email,
-                message,
-                gdprConsent,
+                name: name,
+                email: email,
+                message: message,
+                gdprConsent: gdprConsent,
               }),
             });
 
@@ -602,15 +643,15 @@ const contactBreadcrumbs = [
               form.reset();
               
               // Clear all error messages
-              if (nameError) {
+              if (nameError && nameInput) {
                 nameError.classList.add('hidden');
                 nameInput.classList.remove('border-red-500', 'border-green-500');
               }
-              if (emailError) {
+              if (emailError && emailInput) {
                 emailError.classList.add('hidden');
                 emailInput.classList.remove('border-red-500', 'border-green-500');
               }
-              if (messageError) {
+              if (messageError && messageInput) {
                 messageError.classList.add('hidden');
                 messageInput.classList.remove('border-red-500', 'border-green-500');
               }
@@ -629,8 +670,8 @@ const contactBreadcrumbs = [
               }
 
               // Track Analytics
-              if (typeof (window as any).gtag !== 'undefined') {
-                (window as any).gtag('event', 'form_submission', {
+              if (typeof window.gtag !== 'undefined') {
+                window.gtag('event', 'form_submission', {
                   form_type: 'contact',
                   submission_status: 'success'
                 });
@@ -642,12 +683,12 @@ const contactBreadcrumbs = [
               }, 10000);
             } else {
               // Error response from server
-              throw new Error(data.message || 'Greška pri slanju poruke');
+              throw new Error(data.message || 'Error sending message');
             }
           } catch (error) {
             // Error
             console.error('Form submission error:', error);
-            const errorMsg = error instanceof Error ? error.message : 'Molim pokušajte ponovno ili mi pošaljite email direktno na screatives.info@gmail.com';
+            const errorMsg = error instanceof Error ? error.message : 'Please try again or send me an email directly at screatives.info@gmail.com';
             if (errorText) errorText.textContent = errorMsg;
             if (errorMessage) {
               errorMessage.classList.remove('hidden');
@@ -655,8 +696,8 @@ const contactBreadcrumbs = [
             }
 
             // Track Analytics
-            if (typeof (window as any).gtag !== 'undefined') {
-              (window as any).gtag('event', 'form_submission', {
+            if (typeof window.gtag !== 'undefined') {
+              window.gtag('event', 'form_submission', {
                 form_type: 'contact',
                 submission_status: 'error'
               });
@@ -669,22 +710,11 @@ const contactBreadcrumbs = [
           }
         });
 
-        // Real-time validation with error messages
-        const nameInput = document.getElementById('name') as HTMLInputElement;
-        const emailInput = document.getElementById('email') as HTMLInputElement;
-        const messageInput = document.getElementById('message') as HTMLTextAreaElement;
-        const nameError = document.getElementById('name-error');
-        const emailError = document.getElementById('email-error');
-        const messageError = document.getElementById('message-error');
-        const gdprError = document.getElementById('gdpr-error');
-        const gdprCheckbox = document.getElementById('gdpr-consent') as HTMLInputElement;
-        const messageCounter = document.getElementById('message-counter');
-
         // Character counter for message field
         if (messageInput && messageCounter) {
           const updateCounter = () => {
-            const length = messageInput.value.length;
-            const maxLength = messageInput.maxLength;
+            const length = messageInput.value ? messageInput.value.length : 0;
+            const maxLength = messageInput.maxLength || 1000;
             messageCounter.textContent = `${length} / ${maxLength}`;
             
             if (length > maxLength * 0.9) {
@@ -699,44 +729,6 @@ const contactBreadcrumbs = [
           messageInput.addEventListener('input', updateCounter);
           updateCounter(); // Initial count
         }
-
-        // Validation functions
-        const validateName = (value: string): string => {
-          if (!value.trim()) {
-            return 'Name and surname is required.';
-          }
-          if (value.trim().length < 2) {
-            return 'Name must be at least 2 characters long.';
-          }
-          if (!value.trim().includes(' ')) {
-            return 'Please enter both name and surname.';
-          }
-          return '';
-        };
-
-        const validateEmail = (value: string): string => {
-          if (!value.trim()) {
-            return 'Email is required.';
-          }
-          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-          if (!emailRegex.test(value)) {
-            return 'Please enter a valid email address (e.g., example@domain.com).';
-          }
-          return '';
-        };
-
-        const validateMessage = (value: string): string => {
-          if (!value.trim()) {
-            return 'Message is required.';
-          }
-          if (value.trim().length < 10) {
-            return 'Message must be at least 10 characters long.';
-          }
-          if (value.length > 1000) {
-            return 'Message cannot exceed 1000 characters.';
-          }
-          return '';
-        };
 
         // Real-time validation for name
         if (nameInput && nameError) {
@@ -755,7 +747,7 @@ const contactBreadcrumbs = [
           });
 
           nameInput.addEventListener('input', () => {
-            if (nameInput.value.trim().length > 0) {
+            if (nameInput.value && nameInput.value.trim().length > 0) {
               const error = validateName(nameInput.value);
               if (error) {
                 nameError.textContent = error;
@@ -791,7 +783,7 @@ const contactBreadcrumbs = [
           });
 
           emailInput.addEventListener('input', () => {
-            if (emailInput.value.trim().length > 0) {
+            if (emailInput.value && emailInput.value.trim().length > 0) {
               const error = validateEmail(emailInput.value);
               if (error) {
                 emailError.textContent = error;
@@ -827,7 +819,7 @@ const contactBreadcrumbs = [
           });
 
           messageInput.addEventListener('input', () => {
-            if (messageInput.value.trim().length > 0) {
+            if (messageInput.value && messageInput.value.trim().length > 0) {
               const error = validateMessage(messageInput.value);
               if (error) {
                 messageError.textContent = error;
