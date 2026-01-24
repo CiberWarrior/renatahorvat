@@ -220,9 +220,6 @@
       disableAnalytics(); // Prevents GA from loading and disables if already loaded
       banner.classList.add('hidden');
       settingsTrigger.classList.remove('hidden');
-      
-      // Log consent rejected (won't track since analytics disabled)
-      console.log('Cookie consent: rejected - Analytics disabled');
     });
 
     // Customize - Toggle details

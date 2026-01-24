@@ -516,14 +516,12 @@ const contactBreadcrumbs = [
           e.preventDefault();
           e.stopPropagation();
 
-          console.log('Form submit triggered');
-
           // Get form data
           const formData = new FormData(form);
           
-          // Check honeypot (spam protection)
+          // Check honeypot (spam protection) - silent handling
           if (formData.get('_gotcha')) {
-            console.log('Spam detected');
+            // Spam detected - silently reject without user feedback
             return;
           }
 
