@@ -118,6 +118,7 @@
     will-change: transform; /* GPU acceleration hint */
     contain: layout style paint; /* Performance optimization */
   }
+
   
   /* Neumorphism */
   .neumorphism {
