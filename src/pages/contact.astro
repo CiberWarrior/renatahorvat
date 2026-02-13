@@ -43,6 +43,7 @@ const contactBreadcrumbs = [
   keywords={pageKeywords}
   structuredData={contactStructuredData}
   breadcrumbs={contactBreadcrumbs}
+  preloadResources={[{ href: '/images/renatahorvat.jpg', as: 'image', type: 'image/jpeg' }]}
 >
   <Header />
   
@@ -82,7 +83,10 @@ const contactBreadcrumbs = [
                 <img
                   src="/images/renatahorvat.jpg"
                   alt="Renata Horvat - Designer & Digital Creator"
-                  width="200" height="200"
+                  width="200"
+                  height="200"
+                  fetchpriority="high"
+                  decoding="async"
                   class="w-[144px] h-[144px] lg:w-[208px] lg:h-[208px] rounded-full object-cover block"
                 />
               </div>

@@ -3,6 +3,12 @@ import '../styles/global.css';
 import SpeedInsights from '@vercel/speed-insights/astro';
 import CookieConsent from '../components/CookieConsent.astro';
 
+interface PreloadResource {
+  href: string;
+  as: string;
+  type?: string;
+}
+
 interface Props {
   title?: string;
   description?: string;
@@ -12,6 +18,8 @@ interface Props {
   gaId?: string;
   structuredData?: object | object[];
   breadcrumbs?: Array<{ name: string; url: string }>;
+  /** Optional preloads for LCP/critical resources (e.g. hero image only on contact page) */
+  preloadResources?: PreloadResource[];
 }
 
 const {
@@ -22,8 +30,13 @@ const {
   ogImage = "/og-image.jpg",
   gaId = import.meta.env.PUBLIC_GA_ID || "G-XXXXXXXXXX",
   structuredData,
-  breadcrumbs
+  breadcrumbs,
+  preloadResources = []
 } = Astro.props;
+
+// Non-render-blocking font URL (display=swap for immediate text visibility)
+const fontCssUrl =
+  'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Bungee&display=swap';
 ---
 
 <!DOCTYPE html>
@@ -53,16 +66,23 @@ const {
     <!-- Sitemap -->
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
     
-    <!-- Fonts -->
+    <!-- Fonts: preconnect + async load to avoid render-blocking (improves LCP/FCP) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Bungee&display=swap" rel="stylesheet">
-    
+    <link rel="preload" href={fontCssUrl} as="style">
+    <link rel="stylesheet" href={fontCssUrl} media="print" onload="this.media='all'">
+    <noscript>
+      <link rel="stylesheet" href={fontCssUrl}>
+    </noscript>
+
     <!-- Resource Hints -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link rel="preload" href="/images/renatahorvat.jpg" as="image" type="image/jpeg">
-    <link rel="preload" href="/images/icon.png" as="image" type="image/png">
+
+    <!-- Page-specific LCP/critical preloads only (e.g. contact hero image); no global image preloads -->
+    {preloadResources.map((r) => (
+      <link rel="preload" href={r.href} as={r.as} type={r.type ?? undefined} />
+    ))}
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
