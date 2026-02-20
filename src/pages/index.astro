@@ -19,7 +19,8 @@ const pageKeywords = "designer Croatia, science communication, e-learning design
   keywords={pageKeywords}
 >
   <Header />
-  <main>
+  <!-- Content: Layout.astro already wraps slot in <main id="main-content">; no duplicate main here -->
+  <>
     <Hero />
     
     <!-- What I Do Section -->
@@ -161,6 +162,6 @@ const pageKeywords = "designer Croatia, science communication, e-learning design
         </div>
       </div>
     </section>
-  </main>
+  </>
   <Footer />
 </Layout>
