@@ -23,8 +23,8 @@ interface Props {
 }
 
 const {
-  title = "Renata Horvat — Instructional & Scientific Designer",
-  description = "TURNING KNOWLEDGE INTO VISUAL EXPERIENCES. I combine design with deep understanding of science and education. Instructional design, e-learning, online textbooks, and e-book creation. Dizajner koji pretvara znanje u vizualne priče - instrukski dizajn, e-učenje, online udžbenici.",
+  title = "Renata Horvat - Designer & Digital Creator | Science Communication Expert Croatia",
+  description = "Renata Horvat is a Croatian designer specializing in science communication, e-learning platforms, and academic websites. 20+ years transforming complex research into engaging visual experiences for universities and research institutions.",
   keywords = "designer, digital creator, science communication, visual design, web design, educational design, infographics, scientific visualization, portfolio, Croatia, instructional design, e-learning design, online textbook creation, e-book design, course design, learning experience design, dizajner, grafički dizajn, web dizajn, digitalni dizajn, znanstvena komunikacija, infografike, vizualizacija podataka, portfolio dizajner, Hrvatska, Zagreb, edukacijski dizajn, dizajn za znanost, kreativni dizajn, brand dizajn, UI UX dizajn, instrukski dizajn, e-učenje dizajn, online udžbenici, e-knjige dizajn",
   canonical = Astro.url.href,
   ogImage = "/og-image.jpg",
@@ -33,6 +33,10 @@ const {
   breadcrumbs,
   preloadResources = []
 } = Astro.props;
+
+// Absolute OG image URL for social platforms (Facebook, LinkedIn require full URL)
+const absoluteOgImage =
+  ogImage.startsWith('http') ? ogImage : new URL(ogImage, Astro.url.origin).href;
 
 // Non-render-blocking font URL (display=swap for immediate text visibility)
 const fontCssUrl =
@@ -89,7 +93,7 @@ const fontCssUrl =
     <meta property="og:url" content={canonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
+    <meta property="og:image" content={absoluteOgImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="Renata Horvat Portfolio" />
@@ -100,7 +104,7 @@ const fontCssUrl =
     <meta name="twitter:url" content={canonical} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image" content={absoluteOgImage} />
     <meta name="twitter:creator" content="@renatahorvat" />
     
     <!-- Google Search Console Verification -->
@@ -338,7 +342,7 @@ const fontCssUrl =
     }
     </script>
 
-    <!-- Website Structured Data -->
+    <!-- Website Structured Data (no SearchAction - /search page does not exist) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -348,11 +352,6 @@ const fontCssUrl =
       "author": {
         "@type": "Person",
         "name": "Renata Horvat"
-      },
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://renatahorvat.com/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
       }
     }
     </script>

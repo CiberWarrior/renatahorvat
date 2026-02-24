@@ -13,7 +13,9 @@ export default defineConfig({
       customPages: [
         'https://renatahorvat.com/',
         'https://renatahorvat.com/services',
-        'https://renatahorvat.com/contact'
+        'https://renatahorvat.com/contact',
+        'https://renatahorvat.com/privacy-policy',
+        'https://renatahorvat.com/legal'
       ]
     })
   ],
