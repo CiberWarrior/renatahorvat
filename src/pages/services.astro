@@ -7,7 +7,7 @@ import { projects } from "../lib/projects";
 import ProjectCard from "../components/ProjectCard.astro";
 
 // SEO optimized page data
-const pageTitle = "Portfolio by Renata Horvat - E-learning & Academic Web Design | Croatia";
+const pageTitle = "Services & Portfolio - Renata Horvat | E-learning & Academic Web Design Croatia";
 const pageDescription = "Explore selected projects including academic websites, e-learning platforms, conference sites, and digital content for knowledge-driven organizations.";
 const pageKeywords = "Renata Horvat portfolio, e-learning design, academic websites, scientific design, university websites, research communication, Croatia designer, Zagreb web design, educational platforms";
 
@@ -55,31 +55,11 @@ const breadcrumbStructuredData = {
   ]
 };
 
-// Group projects by category
-const eLearningProjects = portfolioProjects.filter(p => 
-  p.title.toLowerCase().includes('e-book') || 
-  p.title.toLowerCase().includes('textbook')
-);
-
-const societyProjects = portfolioProjects.filter(p => 
-  p.title.toLowerCase().includes('society') || 
-  p.title.toLowerCase().includes('federation') ||
-  p.title.toLowerCase().includes('collection')
-);
-
-const conferenceProjects = portfolioProjects.filter(p => 
-  p.title.toLowerCase().includes('conference') || 
-  p.title.toLowerCase().includes('symposium') ||
-  p.title.toLowerCase().includes('congress') ||
-  p.title.toLowerCase().includes('olympiad') ||
-  p.title.toLowerCase().includes('meeting')
-);
-
-const otherProjects = portfolioProjects.filter(p => 
-  !eLearningProjects.includes(p) && 
-  !societyProjects.includes(p) && 
-  !conferenceProjects.includes(p)
-);
+// Group projects by explicit category field
+const eLearningProjects = portfolioProjects.filter(p => p.category === 'elearning');
+const societyProjects = portfolioProjects.filter(p => p.category === 'society');
+const conferenceProjects = portfolioProjects.filter(p => p.category === 'conference');
+const otherProjects = portfolioProjects.filter(p => p.category === 'other');
 ---
 <Layout 
   title={pageTitle} 
@@ -111,8 +91,8 @@ const otherProjects = portfolioProjects.filter(p =>
           
           <h1 class="text-4xl lg:text-6xl font-black text-white mb-6">
             <span class="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
-              Long-term digital<br />
-              projects
+              How I work —<br />
+              and what I've built
             </span>
           </h1>
           
@@ -122,11 +102,11 @@ const otherProjects = portfolioProjects.filter(p =>
               <h2 class="text-2xl font-bold text-cyan-400 mb-3">Digital platforms for learning and knowledge-based work</h2>
               <p class="text-gray-300 leading-relaxed mb-3">I design and build websites and platforms for universities, research groups, conferences, and organizations that work with complex content.</p>
               <p class="text-gray-400 text-sm font-medium mb-1">Typical projects include:</p>
-              <ul class="text-gray-300 text-sm leading-relaxed space-y-1 list-none pl-0">
-                <li>• Academic and institutional websites</li>
-                <li>• E-learning platforms and digital textbooks</li>
-                <li>• Conference and event websites</li>
-                <li>• Content-heavy custom web projects</li>
+              <ul class="text-gray-300 text-sm leading-relaxed space-y-1 list-disc pl-5 marker:text-cyan-400">
+                <li>Academic and institutional websites</li>
+                <li>E-learning platforms and digital textbooks</li>
+                <li>Conference and event websites</li>
+                <li>Content-heavy custom web projects</li>
               </ul>
             </div>
             <!-- Service 2 -->
@@ -135,11 +115,11 @@ const otherProjects = portfolioProjects.filter(p =>
               <p class="text-gray-300 leading-relaxed mb-3">Good design isn't decoration — it's structure.</p>
               <p class="text-gray-300 leading-relaxed mb-3">I help turn dense information into clear, readable, and well-organized digital experiences.</p>
               <p class="text-gray-400 text-sm font-medium mb-1">This includes:</p>
-              <ul class="text-gray-300 text-sm leading-relaxed space-y-1 list-none pl-0">
-                <li>• Information architecture and content structure</li>
-                <li>• Visual systems for teaching, research, and outreach</li>
-                <li>• Infographics, diagrams, and scientific visuals</li>
-                <li>• Design that supports content instead of competing with it</li>
+              <ul class="text-gray-300 text-sm leading-relaxed space-y-1 list-disc pl-5 marker:text-cyan-400">
+                <li>Information architecture and content structure</li>
+                <li>Visual systems for teaching, research, and outreach</li>
+                <li>Infographics, diagrams, and scientific visuals</li>
+                <li>Design that supports content instead of competing with it</li>
               </ul>
             </div>
             <!-- Service 3 -->
@@ -148,15 +128,28 @@ const otherProjects = portfolioProjects.filter(p =>
               <p class="text-gray-300 leading-relaxed mb-3">I work with teams who care about what happens after launch.</p>
               <p class="text-gray-300 leading-relaxed mb-3">Everything is built with clean, maintainable code so updates don't require rebuilding the whole system.</p>
               <p class="text-gray-400 text-sm font-medium mb-1">You can expect:</p>
-              <ul class="text-gray-300 text-sm leading-relaxed space-y-1 list-none pl-0">
-                <li>• Fast, accessible, and secure websites</li>
-                <li>• Mobile-first design that works across devices</li>
-                <li>• SEO and structure considered from the start</li>
-                <li>• Ongoing support and long-term collaboration</li>
+              <ul class="text-gray-300 text-sm leading-relaxed space-y-1 list-disc pl-5 marker:text-cyan-400">
+                <li>Fast, accessible, and secure websites</li>
+                <li>Mobile-first design that works across devices</li>
+                <li>SEO and structure considered from the start</li>
+                <li>Ongoing support and long-term collaboration</li>
               </ul>
             </div>
           </div>
         </div>
+
+        <div class="max-w-3xl mx-auto mt-8 text-center">
+          <a
+            href="/contact"
+            class="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-semibold transition-colors duration-200"
+          >
+            Let's talk about your project
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+
       </div>
     </section>
 
@@ -233,10 +226,10 @@ const otherProjects = portfolioProjects.filter(p =>
           <div class="mb-12">
             <h2 class="text-3xl lg:text-4xl font-black text-white mb-3">
               <span class="bg-gradient-to-r from-green-400 to-teal-500 bg-clip-text text-transparent">
-                Other Projects
+                Specialist & Custom Builds
               </span>
             </h2>
-            <p class="text-gray-400 text-lg">Unique projects including research tools, botanical gardens, and more</p>
+            <p class="text-gray-400 text-lg">Research databases, institutional sites, and custom digital projects outside standard categories</p>
           </div>
           
           <div class="grid md:grid-cols-2 gap-8">

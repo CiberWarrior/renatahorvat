@@ -20,8 +20,49 @@ const pageKeywords = "designer Croatia, science communication, e-learning design
 >
   <Header />
   <!-- Content: Layout.astro already wraps slot in <main id="main-content">; no duplicate main here -->
-  <>
     <Hero />
+
+    <!-- About Section -->
+    <section class="py-16 bg-transparent" aria-labelledby="about-heading">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="flex flex-col lg:flex-row items-start gap-10 lg:gap-16">
+          <!-- Left: label + heading -->
+          <div class="lg:w-64 flex-shrink-0">
+            <Badge variant="default" class="gap-2 mb-4">
+              <span class="w-2 h-2 bg-cyan-400 rounded-full"></span>
+              About
+            </Badge>
+            <h2
+              id="about-heading"
+              class="text-2xl lg:text-3xl font-black text-white leading-snug"
+            >
+              Designing for people who work with knowledge
+            </h2>
+          </div>
+          <!-- Right: bio text -->
+          <div class="flex-1 space-y-5">
+            <p class="text-gray-300 text-lg leading-relaxed">
+              I'm Renata — a designer and developer based in Zagreb with over 20 years of experience building digital tools for the academic and research world.
+            </p>
+            <p class="text-gray-300 leading-relaxed">
+              I work with universities, scientific societies, and research teams who need websites and platforms that handle complex content, stay maintainable, and actually serve their users long after launch — not just look good at the handover.
+            </p>
+            <p class="text-gray-300 leading-relaxed">
+              My background is in science communication, which means I'm comfortable with dense subject matter and experienced in turning it into something clear, readable, and usable.
+            </p>
+            <a
+              href="/contact"
+              class="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-semibold transition-colors duration-200 mt-2"
+            >
+              Let's talk about your project
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- What I Do Section -->
     <section class="py-20 bg-transparent">
@@ -99,11 +140,14 @@ const pageKeywords = "designer Croatia, science communication, e-learning design
         </div>
 
         <div class="text-center mb-10">
-          <h2 class="text-4xl lg:text-5xl font-black text-white">
+          <h2 class="text-4xl lg:text-5xl font-black text-white mb-4">
             <span class="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
               Built to last, not just to launch
             </span>
           </h2>
+          <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+            Two decades of working with academic and research teams — here's what that looks like in numbers.
+          </p>
         </div>
 
         <!-- Stats -->
@@ -164,6 +208,5 @@ const pageKeywords = "designer Croatia, science communication, e-learning design
         </div>
       </div>
     </section>
-  </>
   <Footer />
 </Layout>

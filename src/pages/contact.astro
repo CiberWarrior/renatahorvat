@@ -174,7 +174,7 @@ const contactBreadcrumbs = [
                 <!-- Name and Surname Field -->
                 <div class="form-field-group">
                   <label for="name" class="block text-sm font-semibold text-gray-300 mb-2">
-                    Name and Surname <span class="text-red-400">*</span>
+                    Your name <span class="text-red-400">*</span>
                   </label>
                   <div class="relative">
                     <div class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 pointer-events-none">
@@ -187,7 +187,7 @@ const contactBreadcrumbs = [
                       id="name"
                       name="name"
                       class="w-full pl-12 pr-4 py-3 bg-gray-800/50 border border-gray-600/50 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/50 focus:border-cyan-400 transition-all duration-300"
-                      placeholder="Your name and surname"
+                      placeholder="Your name"
                       aria-describedby="name-error"
                     />
                     <div id="name-error" class="hidden mt-1 text-sm text-red-400" role="alert"></div>
@@ -206,7 +206,7 @@ const contactBreadcrumbs = [
                       </svg>
                     </div>
                     <input
-                      type="text"
+                      type="email"
                       id="email"
                       name="email"
                       class="w-full pl-12 pr-4 py-3 bg-gray-800/50 border border-gray-600/50 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-400/50 focus:border-cyan-400 transition-all duration-300"
@@ -375,42 +375,45 @@ const contactBreadcrumbs = [
 
     <!-- Form Handling Script -->
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        // Get all DOM elements first, before they're used
-        const form = document.getElementById('contact-form');
-        const submitButton = document.getElementById('submit-button');
-        const buttonText = document.getElementById('button-text');
-        const buttonLoader = document.getElementById('button-loader');
-        const successMessage = document.getElementById('success-message');
-        const errorMessage = document.getElementById('error-message');
-        const errorText = document.getElementById('error-text');
-        const nameInput = document.getElementById('name');
-        const emailInput = document.getElementById('email');
-        const messageInput = document.getElementById('message');
-        const nameError = document.getElementById('name-error');
-        const emailError = document.getElementById('email-error');
-        const messageError = document.getElementById('message-error');
-        const gdprError = document.getElementById('gdpr-error');
-        const gdprCheckbox = document.getElementById('gdpr-consent');
-        const messageCounter = document.getElementById('message-counter');
+      declare global {
+        interface Window {
+          gtag?: (...args: unknown[]) => void;
+        }
+      }
+
+      document.addEventListener('DOMContentLoaded', function () {
+        // Typed element references
+        const form = document.getElementById('contact-form') as HTMLFormElement | null;
+        const submitButton = document.getElementById('submit-button') as HTMLButtonElement | null;
+        const buttonText = document.getElementById('button-text') as HTMLElement | null;
+        const buttonLoader = document.getElementById('button-loader') as HTMLElement | null;
+        const successMessage = document.getElementById('success-message') as HTMLElement | null;
+        const errorMessage = document.getElementById('error-message') as HTMLElement | null;
+        const errorText = document.getElementById('error-text') as HTMLElement | null;
+        const nameInput = document.getElementById('name') as HTMLInputElement | null;
+        const emailInput = document.getElementById('email') as HTMLInputElement | null;
+        const messageInput = document.getElementById('message') as HTMLTextAreaElement | null;
+        const nameError = document.getElementById('name-error') as HTMLElement | null;
+        const emailError = document.getElementById('email-error') as HTMLElement | null;
+        const messageError = document.getElementById('message-error') as HTMLElement | null;
+        const gdprError = document.getElementById('gdpr-error') as HTMLElement | null;
+        const gdprCheckbox = document.getElementById('gdpr-consent') as HTMLInputElement | null;
+        const messageCounter = document.getElementById('message-counter') as HTMLElement | null;
 
         if (!form || !submitButton) return;
 
         // Validation functions
-        const validateName = (value) => {
+        const validateName = (value: string): string => {
           if (!value || !value.trim()) {
-            return 'Name and surname is required.';
+            return 'Name is required.';
           }
           if (value.trim().length < 2) {
             return 'Name must be at least 2 characters long.';
           }
-          if (!value.trim().includes(' ')) {
-            return 'Please enter both name and surname.';
-          }
           return '';
         };
 
-        const validateEmail = (value) => {
+        const validateEmail = (value: string): string => {
           if (!value || !value.trim()) {
             return 'Email is required.';
           }
@@ -421,7 +424,7 @@ const contactBreadcrumbs = [
           return '';
         };
 
-        const validateMessage = (value) => {
+        const validateMessage = (value: string): string => {
           if (!value || !value.trim()) {
             return 'Message is required.';
           }
@@ -434,20 +437,15 @@ const contactBreadcrumbs = [
           return '';
         };
 
-        form.addEventListener('submit', async function(e) {
+        form.addEventListener('submit', async function (e) {
           e.preventDefault();
           e.stopPropagation();
 
-          // Get form data
           const formData = new FormData(form);
-          
-          // Check honeypot (spam protection) - silent handling
-          if (formData.get('_gotcha')) {
-            // Spam detected - silently reject without user feedback
-            return;
-          }
 
-          // Get form values with safe string conversion
+          // Honeypot check — silent reject
+          if (formData.get('_gotcha')) return;
+
           const nameValue = formData.get('name');
           const emailValue = formData.get('email');
           const messageValue = formData.get('message');
@@ -456,11 +454,10 @@ const contactBreadcrumbs = [
           const message = messageValue ? String(messageValue) : '';
           const gdprConsent = formData.get('gdpr_consent') === 'on';
 
-          // Client-side validation before submit
           const nameValidation = validateName(name);
           const emailValidation = validateEmail(email);
           const messageValidation = validateMessage(message);
-          
+
           let hasErrors = false;
 
           if (nameValidation) {
@@ -504,124 +501,92 @@ const contactBreadcrumbs = [
             hasErrors = true;
           }
 
-          // If there are validation errors, stop submission
           if (hasErrors) {
             submitButton.disabled = false;
-            if (buttonText) buttonText.classList.remove('hidden');
-            if (buttonLoader) buttonLoader.classList.add('hidden');
+            buttonText?.classList.remove('hidden');
+            buttonLoader?.classList.add('hidden');
             return;
           }
 
-          // Disable button and show loader
           submitButton.disabled = true;
-          if (buttonText) buttonText.classList.add('hidden');
-          if (buttonLoader) buttonLoader.classList.remove('hidden');
-
-          // Hide any previous messages
-          if (successMessage) successMessage.classList.add('hidden');
-          if (errorMessage) errorMessage.classList.add('hidden');
+          buttonText?.classList.add('hidden');
+          buttonLoader?.classList.remove('hidden');
+          successMessage?.classList.add('hidden');
+          errorMessage?.classList.add('hidden');
 
           try {
             const response = await fetch('/api/contact', {
               method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({
-                name: name,
-                email: email,
-                message: message,
-                gdprConsent: gdprConsent,
-              }),
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ name, email, message, gdprConsent }),
             });
 
             const data = await response.json();
 
             if (response.ok && data.success) {
-              // Success
               if (successMessage) {
                 successMessage.classList.remove('hidden');
                 successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
               }
-              
-              // Reset form and clear all validation states
+
               form.reset();
-              
-              // Clear all error messages
-              if (nameError && nameInput) {
-                nameError.classList.add('hidden');
-                nameInput.classList.remove('border-red-500', 'border-green-500');
-              }
-              if (emailError && emailInput) {
-                emailError.classList.add('hidden');
-                emailInput.classList.remove('border-red-500', 'border-green-500');
-              }
-              if (messageError && messageInput) {
-                messageError.classList.add('hidden');
-                messageInput.classList.remove('border-red-500', 'border-green-500');
-              }
+
+              nameError?.classList.add('hidden');
+              nameInput?.classList.remove('border-red-500', 'border-green-500');
+              emailError?.classList.add('hidden');
+              emailInput?.classList.remove('border-red-500', 'border-green-500');
+              messageError?.classList.add('hidden');
+              messageInput?.classList.remove('border-red-500', 'border-green-500');
+
               if (gdprError) {
                 gdprError.classList.add('hidden');
-                if (gdprCheckbox) {
-                  gdprCheckbox.classList.remove('ring-2', 'ring-red-500');
-                }
+                gdprCheckbox?.classList.remove('ring-2', 'ring-red-500');
               }
-              
-              // Reset character counter
+
               if (messageCounter) {
                 messageCounter.textContent = '0 / 1000';
                 messageCounter.classList.remove('text-yellow-400');
                 messageCounter.classList.add('text-gray-400');
               }
 
-              // Track Analytics
-              if (typeof window.gtag !== 'undefined') {
-                window.gtag('event', 'form_submission', {
-                  form_type: 'contact',
-                  submission_status: 'success'
-                });
-              }
+              window.gtag?.('event', 'form_submission', {
+                form_type: 'contact',
+                submission_status: 'success',
+              });
 
-              // Hide success message after 10 seconds
-              setTimeout(() => {
-                if (successMessage) successMessage.classList.add('hidden');
-              }, 10000);
+              setTimeout(() => successMessage?.classList.add('hidden'), 10000);
             } else {
-              // Error response from server
               throw new Error(data.message || 'Error sending message');
             }
           } catch (error) {
-            // Error
             console.error('Form submission error:', error);
-            const errorMsg = error instanceof Error ? error.message : 'Please try again or send me an email directly at screatives.info@gmail.com';
+            const errorMsg =
+              error instanceof Error
+                ? error.message
+                : 'Please try again or send me an email directly at screatives.info@gmail.com';
             if (errorText) errorText.textContent = errorMsg;
             if (errorMessage) {
               errorMessage.classList.remove('hidden');
               errorMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             }
 
-            // Track Analytics
-            if (typeof window.gtag !== 'undefined') {
-              window.gtag('event', 'form_submission', {
-                form_type: 'contact',
-                submission_status: 'error'
-              });
-            }
+            window.gtag?.('event', 'form_submission', {
+              form_type: 'contact',
+              submission_status: 'error',
+            });
           } finally {
-            // Re-enable button and hide loader
             submitButton.disabled = false;
-            if (buttonText) buttonText.classList.remove('hidden');
-            if (buttonLoader) buttonLoader.classList.add('hidden');
+            buttonText?.classList.remove('hidden');
+            buttonLoader?.classList.add('hidden');
           }
         });
 
-        // Character counter for message field
+        // Character counter
         if (messageInput && messageCounter) {
           const updateCounter = () => {
-            const length = messageInput.value ? messageInput.value.length : 0;
+            const length = messageInput.value.length;
             const maxLength = messageInput.maxLength || 1000;
             messageCounter.textContent = `${length} / ${maxLength}`;
-            
             if (length > maxLength * 0.9) {
               messageCounter.classList.add('text-yellow-400');
               messageCounter.classList.remove('text-gray-400');
@@ -630,14 +595,13 @@ const contactBreadcrumbs = [
               messageCounter.classList.add('text-gray-400');
             }
           };
-          
           messageInput.addEventListener('input', updateCounter);
-          updateCounter(); // Initial count
+          updateCounter();
         }
 
-        // Real-time validation for name
+        // Real-time validation — name
         if (nameInput && nameError) {
-          nameInput.addEventListener('blur', () => {
+          const applyNameValidation = () => {
             const error = validateName(nameInput.value);
             if (error) {
               nameError.textContent = error;
@@ -649,21 +613,12 @@ const contactBreadcrumbs = [
               nameInput.classList.remove('border-red-500');
               nameInput.classList.add('border-green-500');
             }
-          });
+          };
 
+          nameInput.addEventListener('blur', applyNameValidation);
           nameInput.addEventListener('input', () => {
-            if (nameInput.value && nameInput.value.trim().length > 0) {
-              const error = validateName(nameInput.value);
-              if (error) {
-                nameError.textContent = error;
-                nameError.classList.remove('hidden');
-                nameInput.classList.add('border-red-500');
-                nameInput.classList.remove('border-green-500');
-              } else {
-                nameError.classList.add('hidden');
-                nameInput.classList.remove('border-red-500');
-                nameInput.classList.add('border-green-500');
-              }
+            if (nameInput.value.trim().length > 0) {
+              applyNameValidation();
             } else {
               nameError.classList.add('hidden');
               nameInput.classList.remove('border-red-500', 'border-green-500');
@@ -671,9 +626,9 @@ const contactBreadcrumbs = [
           });
         }
 
-        // Real-time validation for email
+        // Real-time validation — email
         if (emailInput && emailError) {
-          emailInput.addEventListener('blur', () => {
+          const applyEmailValidation = () => {
             const error = validateEmail(emailInput.value);
             if (error) {
               emailError.textContent = error;
@@ -685,21 +640,12 @@ const contactBreadcrumbs = [
               emailInput.classList.remove('border-red-500');
               emailInput.classList.add('border-green-500');
             }
-          });
+          };
 
+          emailInput.addEventListener('blur', applyEmailValidation);
           emailInput.addEventListener('input', () => {
-            if (emailInput.value && emailInput.value.trim().length > 0) {
-              const error = validateEmail(emailInput.value);
-              if (error) {
-                emailError.textContent = error;
-                emailError.classList.remove('hidden');
-                emailInput.classList.add('border-red-500');
-                emailInput.classList.remove('border-green-500');
-              } else {
-                emailError.classList.add('hidden');
-                emailInput.classList.remove('border-red-500');
-                emailInput.classList.add('border-green-500');
-              }
+            if (emailInput.value.trim().length > 0) {
+              applyEmailValidation();
             } else {
               emailError.classList.add('hidden');
               emailInput.classList.remove('border-red-500', 'border-green-500');
@@ -707,9 +653,9 @@ const contactBreadcrumbs = [
           });
         }
 
-        // Real-time validation for message
+        // Real-time validation — message
         if (messageInput && messageError) {
-          messageInput.addEventListener('blur', () => {
+          const applyMessageValidation = () => {
             const error = validateMessage(messageInput.value);
             if (error) {
               messageError.textContent = error;
@@ -721,21 +667,12 @@ const contactBreadcrumbs = [
               messageInput.classList.remove('border-red-500');
               messageInput.classList.add('border-green-500');
             }
-          });
+          };
 
+          messageInput.addEventListener('blur', applyMessageValidation);
           messageInput.addEventListener('input', () => {
-            if (messageInput.value && messageInput.value.trim().length > 0) {
-              const error = validateMessage(messageInput.value);
-              if (error) {
-                messageError.textContent = error;
-                messageError.classList.remove('hidden');
-                messageInput.classList.add('border-red-500');
-                messageInput.classList.remove('border-green-500');
-              } else {
-                messageError.classList.add('hidden');
-                messageInput.classList.remove('border-red-500');
-                messageInput.classList.add('border-green-500');
-              }
+            if (messageInput.value.trim().length > 0) {
+              applyMessageValidation();
             } else {
               messageError.classList.add('hidden');
               messageInput.classList.remove('border-red-500', 'border-green-500');
@@ -743,7 +680,7 @@ const contactBreadcrumbs = [
           });
         }
 
-        // Real-time validation for GDPR checkbox
+        // Real-time validation — GDPR checkbox
         if (gdprCheckbox && gdprError) {
           gdprCheckbox.addEventListener('change', () => {
             if (gdprCheckbox.checked) {

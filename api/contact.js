@@ -40,7 +40,7 @@ export default async function handler(req, res) {
     if (!name || !name.trim()) {
       return res.status(400).json({
         success: false,
-        message: 'Name and surname is required. Please enter both your first and last name.'
+        message: 'Name is required.'
       });
     }
 
@@ -48,13 +48,6 @@ export default async function handler(req, res) {
       return res.status(400).json({
         success: false,
         message: 'Name must be at least 2 characters long.'
-      });
-    }
-
-    if (!name.trim().includes(' ')) {
-      return res.status(400).json({
-        success: false,
-        message: 'Please enter both your name and surname (e.g., "John Doe").'
       });
     }
 
