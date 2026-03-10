@@ -26,9 +26,25 @@ const pageKeywords = "designer Croatia, science communication, e-learning design
     <section class="py-16 bg-transparent" aria-labelledby="about-heading">
       <div class="max-w-4xl mx-auto px-6">
         <div class="flex flex-col lg:flex-row items-start gap-10 lg:gap-16">
-          <!-- Left: label + heading -->
-          <div class="lg:w-64 flex-shrink-0">
-            <Badge variant="default" class="gap-2 mb-4">
+
+          <!-- Left: photo -->
+          <div class="flex-shrink-0 flex justify-center w-full lg:w-auto">
+            <div class="rounded-full p-[2px] bg-gradient-to-r from-cyan-400/80 via-blue-500/80 to-purple-500/80 w-[112px] h-[112px] lg:w-[136px] lg:h-[136px]">
+              <img
+                src="/images/renatahorvat.jpg"
+                alt="Renata Horvat - Designer & Digital Creator"
+                width="132"
+                height="132"
+                loading="lazy"
+                decoding="async"
+                class="w-[108px] h-[108px] lg:w-[132px] lg:h-[132px] rounded-full object-cover block"
+              />
+            </div>
+          </div>
+
+          <!-- Right: label + heading + bio -->
+          <div class="flex-1 space-y-5">
+            <Badge variant="default" class="gap-2">
               <span class="w-2 h-2 bg-cyan-400 rounded-full"></span>
               About
             </Badge>
@@ -38,9 +54,6 @@ const pageKeywords = "designer Croatia, science communication, e-learning design
             >
               Designing for people who work with knowledge
             </h2>
-          </div>
-          <!-- Right: bio text -->
-          <div class="flex-1 space-y-5">
             <p class="text-gray-300 text-lg leading-relaxed">
               I'm Renata — a designer and developer based in Zagreb with over 20 years of experience building digital tools for the academic and research world.
             </p>
@@ -52,7 +65,7 @@ const pageKeywords = "designer Croatia, science communication, e-learning design
             </p>
             <a
               href="/contact"
-              class="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-semibold transition-colors duration-200 mt-2"
+              class="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-semibold transition-colors duration-200 pt-1"
             >
               Let's talk about your project
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -60,6 +73,7 @@ const pageKeywords = "designer Croatia, science communication, e-learning design
               </svg>
             </a>
           </div>
+
         </div>
       </div>
     </section>
