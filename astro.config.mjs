@@ -12,7 +12,7 @@ export default defineConfig({
       filter: (page) => !page.includes('admin') && !page.includes('private'),
       customPages: [
         'https://renatahorvat.com/',
-        'https://renatahorvat.com/services',
+        'https://renatahorvat.com/work',
         'https://renatahorvat.com/contact',
         'https://renatahorvat.com/privacy-policy',
         'https://renatahorvat.com/legal'

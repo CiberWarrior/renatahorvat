@@ -7,7 +7,7 @@ import { projects } from "../lib/projects";
 import ProjectCard from "../components/ProjectCard.astro";
 
 // SEO optimized page data
-const pageTitle = "Services & Portfolio - Renata Horvat | E-learning & Academic Web Design Croatia";
+const pageTitle = "Work & Portfolio - Renata Horvat | E-learning & Academic Web Design Croatia";
 const pageDescription = "Explore selected projects including academic websites, e-learning platforms, conference sites, and digital content for knowledge-driven organizations.";
 const pageKeywords = "Renata Horvat portfolio, e-learning design, academic websites, scientific design, university websites, research communication, Croatia designer, Zagreb web design, educational platforms";
 
@@ -20,7 +20,7 @@ const portfolioStructuredData = {
   "@type": "CollectionPage",
   "name": "Renata Horvat Portfolio",
   "description": pageDescription,
-  "url": "https://renatahorvat.com/services",
+  "url": "https://renatahorvat.com/work",
   "mainEntity": {
     "@type": "ItemList",
     "itemListElement": portfolioProjects.slice(0, 10).map((project, index) => ({
@@ -49,8 +49,8 @@ const breadcrumbStructuredData = {
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Portfolio",
-      "item": "https://renatahorvat.com/services"
+      "name": "Work",
+      "item": "https://renatahorvat.com/work"
     }
   ]
 };
@@ -68,7 +68,7 @@ const otherProjects = portfolioProjects.filter(p => p.category === 'other');
   structuredData={[portfolioStructuredData, breadcrumbStructuredData]}
   breadcrumbs={[
     { name: "Home", url: "https://renatahorvat.com" },
-    { name: "Portfolio", url: "https://renatahorvat.com/services" }
+    { name: "Work", url: "https://renatahorvat.com/work" }
   ]}
 >
   <Header />

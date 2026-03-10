@@ -3,5 +3,12 @@
   "outputDirectory": "dist",
   "framework": "astro",
   "installCommand": "npm install",
-  "devCommand": "npm run dev"
+  "devCommand": "npm run dev",
+  "redirects": [
+    {
+      "source": "/services",
+      "destination": "/work",
+      "permanent": true
+    }
+  ]
 }
