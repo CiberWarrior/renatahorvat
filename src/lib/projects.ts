@@ -173,45 +173,4 @@ export const projects: Project[] = [
     category: 'other',
   },
 
-  // Projects without links
-  {
-    title: 'WordPress Migration',
-    summary:
-      'Complete migration from WordPress to a modern platform, resulting in 80% faster load times and improved SEO performance.',
-    href: '',
-    tags: ['Migration', 'Performance', 'SEO'],
-    icon: 'default',
-    iconBg: 'cyan-blue',
-    category: 'other',
-  },
-  {
-    title: 'Educational Visual Library',
-    summary:
-      'Comprehensive library of scientific infographics and educational materials with search and filtering capabilities.',
-    href: '',
-    tags: ['Infographics', 'Education', 'Search', 'Visual'],
-    icon: 'book',
-    iconBg: 'blue-purple',
-    category: 'other',
-  },
-  {
-    title: 'AI-Powered Content Generator',
-    summary:
-      'Custom tool for generating educational content using AI, with template system and quality control features.',
-    href: '',
-    tags: ['AI', 'Automation', 'Content', 'Templates'],
-    icon: 'beaker',
-    iconBg: 'purple-pink',
-    category: 'other',
-  },
-  {
-    title: 'Research Data Visualization',
-    summary:
-      'Interactive dashboard for displaying complex research data with charts, filters, and export functionality.',
-    href: '',
-    tags: ['Data', 'Visualization', 'Dashboard', 'Research'],
-    icon: 'database',
-    iconBg: 'green-teal',
-    category: 'other',
-  },
 ];

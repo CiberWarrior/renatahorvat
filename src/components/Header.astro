@@ -6,6 +6,8 @@ const navItems = [
   { href: "/services", label: "Services" },
   { href: "/contact", label: "Contact" },
 ];
+
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 ---
 
 <header class="relative z-50 bg-slate-900/80 backdrop-blur-xl border-b border-slate-700/50 overflow-hidden">
@@ -24,18 +26,24 @@ const navItems = [
       
       <!-- Desktop Navigation -->
       <ul class="hidden md:flex items-center space-x-8">
-        {navItems.map((item) => (
-          <li>
-            <a 
-              href={item.href} 
-              class="relative text-white/90 hover:text-white transition-colors duration-300 font-medium text-sm uppercase tracking-wider group focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900 rounded px-2"
-              onclick={`if(typeof window.gtag !== 'undefined') window.gtag('event', 'navigation_click', { nav_item: '${item.label}', nav_location: 'desktop_header' })`}
-            >
-              {item.label}
-              <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-blue-400 group-hover:w-full transition-all duration-300"></span>
-            </a>
-          </li>
-        ))}
+        {navItems.map((item) => {
+          const isActive = item.href === '/'
+            ? currentPath === '/'
+            : currentPath.startsWith(item.href);
+          return (
+            <li>
+              <a
+                href={item.href}
+                aria-current={isActive ? 'page' : undefined}
+                class={`relative transition-colors duration-300 font-medium text-sm uppercase tracking-wider group focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900 rounded px-2 ${isActive ? 'text-white' : 'text-white/70 hover:text-white'}`}
+                onclick={`if(typeof window.gtag !== 'undefined') window.gtag('event', 'navigation_click', { nav_item: '${item.label}', nav_location: 'desktop_header' })`}
+              >
+                {item.label}
+                <span class={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-400 transition-all duration-300 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+              </a>
+            </li>
+          );
+        })}
       </ul>
       
       <!-- Mobile menu button -->
@@ -56,18 +64,24 @@ const navItems = [
     <div class="md:hidden hidden mt-4 pb-4" id="mobile-menu" role="menu" aria-label="Mobile navigation">
       <div class="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6">
       <ul class="space-y-4" role="menubar">
-        {navItems.map((item) => (
-          <li role="none">
-            <a 
-              href={item.href} 
-              class="block py-3 text-white/90 hover:text-white transition-colors font-medium text-sm uppercase tracking-wider focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-800 rounded px-2"
-              onclick={`if(typeof window.gtag !== 'undefined') window.gtag('event', 'navigation_click', { nav_item: '${item.label}', nav_location: 'mobile_header' })`}
-              role="menuitem"
-            >
-              {item.label}
-            </a>
-          </li>
-        ))}
+        {navItems.map((item) => {
+          const isActive = item.href === '/'
+            ? currentPath === '/'
+            : currentPath.startsWith(item.href);
+          return (
+            <li role="none">
+              <a
+                href={item.href}
+                aria-current={isActive ? 'page' : undefined}
+                class={`mobile-nav-link block py-3 font-medium text-sm uppercase tracking-wider focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-800 rounded px-2 transition-colors duration-200 ${isActive ? 'text-cyan-400' : 'text-white/90 hover:text-white'}`}
+                onclick={`if(typeof window.gtag !== 'undefined') window.gtag('event', 'navigation_click', { nav_item: '${item.label}', nav_location: 'mobile_header' })`}
+                role="menuitem"
+              >
+                {item.label}
+              </a>
+            </li>
+          );
+        })}
       </ul>
       </div>
     </div>
@@ -85,6 +99,14 @@ const navItems = [
             const isHidden = menu.classList.contains('hidden');
             menu.classList.toggle('hidden');
             button.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+          });
+
+          // Auto-close menu when a link is clicked
+          menu.querySelectorAll('.mobile-nav-link').forEach((link) => {
+            link.addEventListener('click', function() {
+              menu.classList.add('hidden');
+              button.setAttribute('aria-expanded', 'false');
+            });
           });
         }
       });
