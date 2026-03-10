@@ -3,14 +3,16 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-const pageTitle = 'LEGAL NOTICE | Renata Horvat';
-const pageDescription = 'Legal Notice for CreativeStar - Business information and legal details.';
+const pageTitle = 'Legal Notice | Renata Horvat';
+const pageDescription = 'Legal Notice for CreativeStar - Business information, disclaimer, and legal details.';
+const lastUpdated = 'March 10, 2026';
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
   <Header />
   <main class="py-20 bg-transparent">
     <div class="max-w-4xl mx-auto px-6">
+
       <!-- Header -->
       <div class="text-center mb-12">
         <h1 class="text-4xl lg:text-5xl font-black text-white mb-4">
@@ -19,54 +21,58 @@ const pageDescription = 'Legal Notice for CreativeStar - Business information an
           </span>
         </h1>
         <p class="text-gray-400 text-sm">
-          Business Information & Legal Details
+          Last Updated: <span class="text-cyan-400">{lastUpdated}</span>
         </p>
       </div>
 
       <!-- Content -->
       <div class="prose prose-invert prose-lg max-w-none">
-        <!-- Business Information -->
+
+        <!-- Intro -->
+        <div class="bg-gray-900/60 border border-cyan-400/20 rounded-2xl p-8 mb-8">
+          <p class="text-gray-300 leading-relaxed mb-0">
+            This Legal Notice provides information about the owner and operator of this website in accordance with applicable Croatian and EU law.
+          </p>
+        </div>
+
+        <!-- 1. Business Information -->
         <section class="mb-12">
-          <div class="bg-gray-900/60 border border-cyan-400/20 rounded-2xl p-8">
-            <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-              <span class="w-8 h-8 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center text-sm">ℹ</span>
-              Business Information
-            </h2>
-            
+          <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+            <span class="w-8 h-8 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center text-sm">1</span>
+            Business Information
+          </h2>
+          <div class="bg-gray-900/40 border border-gray-700/30 rounded-xl p-6">
             <div class="space-y-4 text-gray-300">
               <div class="flex flex-col sm:flex-row sm:items-start gap-2">
-                <strong class="text-white min-w-[180px]">Business Name:</strong>
+                <strong class="text-white min-w-[200px]">Business Name:</strong>
                 <span>CreativeStar, Computer Programming and IT Services</span>
               </div>
-              
               <div class="flex flex-col sm:flex-row sm:items-start gap-2">
-                <strong class="text-white min-w-[180px]">Owner:</strong>
+                <strong class="text-white min-w-[200px]">Owner:</strong>
                 <span>Renata Horvat</span>
               </div>
-              
               <div class="flex flex-col sm:flex-row sm:items-start gap-2">
-                <strong class="text-white min-w-[180px]">Address:</strong>
+                <strong class="text-white min-w-[200px]">Address:</strong>
                 <span>Josipa Pupačića 4, 10090 Zagreb, Croatia</span>
               </div>
-              
               <div class="flex flex-col sm:flex-row sm:items-start gap-2">
-                <strong class="text-white min-w-[180px]">OIB:</strong>
+                <strong class="text-white min-w-[200px]">OIB (Tax ID):</strong>
                 <span>04904111520</span>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- Contact -->
+        <!-- 2. Contact -->
         <section class="mb-12">
-          <div class="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-400/30 rounded-xl p-8">
-            <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
-              <span class="w-8 h-8 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center text-sm">✉</span>
-              Contact
-            </h2>
+          <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+            <span class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center text-sm">2</span>
+            Contact
+          </h2>
+          <div class="bg-gray-900/40 border border-gray-700/30 rounded-xl p-6">
             <div class="space-y-2 text-gray-300">
-              <p>
-                <strong class="text-white">Email:</strong>{' '}
+              <p class="mb-0">
+                <strong class="text-white">Email: </strong>
                 <a href="mailto:screatives.info@gmail.com" class="text-cyan-400 hover:text-cyan-300 transition-colors duration-300">
                   screatives.info@gmail.com
                 </a>
@@ -75,29 +81,65 @@ const pageDescription = 'Legal Notice for CreativeStar - Business information an
           </div>
         </section>
 
-        <!-- Bottom CTA -->
-        <div class="mt-12 text-center">
-          <a
-            href="/contact"
-            class="group inline-grid items-center px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-2xl hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 hover:scale-105 overflow-hidden"
-            style="grid-template-columns: 1fr auto;"
-          >
-            <span class="[grid-area:1/1] transition-all duration-300 group-hover:opacity-0 group-hover:-translate-y-4">
-              Let's talk before my coffee goes cold ☕
-            </span>
-            <span class="[grid-area:1/1] transition-all duration-300 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 italic">
-              Reheating it for the 3rd time anyway →
-            </span>
-            <svg
-              class="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-            </svg>
-          </a>
-        </div>
+        <!-- 3. Disclaimer of Liability -->
+        <section class="mb-12">
+          <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+            <span class="w-8 h-8 bg-gradient-to-r from-purple-600 to-pink-500 rounded-lg flex items-center justify-center text-sm">3</span>
+            Disclaimer of Liability
+          </h2>
+          <div class="bg-gray-900/40 border border-gray-700/30 rounded-xl p-6">
+            <p class="text-gray-300 leading-relaxed mb-4">
+              The content of this website has been compiled with the greatest possible care. However, we cannot guarantee the accuracy, completeness, or timeliness of the information provided.
+            </p>
+            <p class="text-gray-300 leading-relaxed mb-0">
+              We reserve the right to modify, supplement, or delete parts of the website or the entire website without prior notice.
+            </p>
+          </div>
+        </section>
+
+        <!-- 4. Copyright -->
+        <section class="mb-12">
+          <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+            <span class="w-8 h-8 bg-gradient-to-r from-green-500 to-teal-500 rounded-lg flex items-center justify-center text-sm">4</span>
+            Copyright
+          </h2>
+          <div class="bg-gray-900/40 border border-gray-700/30 rounded-xl p-6">
+            <p class="text-gray-300 leading-relaxed mb-4">
+              All content published on this website — including text, images, graphics, and design — is the intellectual property of Renata Horvat / CreativeStar and is protected by applicable copyright law.
+            </p>
+            <p class="text-gray-300 leading-relaxed mb-0">
+              Any reproduction, distribution, or use of content from this website without prior written consent is strictly prohibited.
+            </p>
+          </div>
+        </section>
+
+        <!-- 5. External Links -->
+        <section class="mb-12">
+          <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+            <span class="w-8 h-8 bg-gradient-to-r from-amber-500 to-orange-500 rounded-lg flex items-center justify-center text-sm">5</span>
+            External Links
+          </h2>
+          <div class="bg-gray-900/40 border border-gray-700/30 rounded-xl p-6">
+            <p class="text-gray-300 leading-relaxed mb-0">
+              This website may contain links to external websites. We have no control over the content of those websites and accept no responsibility for them. At the time of linking, the linked pages were checked for potential legal violations — no illegal content was found. We will remove any links promptly if violations are identified.
+            </p>
+          </div>
+        </section>
+
+        <!-- 6. Governing Law -->
+        <section class="mb-12">
+          <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+            <span class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-violet-500 rounded-lg flex items-center justify-center text-sm">6</span>
+            Governing Law
+          </h2>
+          <div class="bg-gray-900/40 border border-gray-700/30 rounded-xl p-6">
+            <p class="text-gray-300 leading-relaxed mb-0">
+              This Legal Notice is governed by the laws of the Republic of Croatia. Any disputes arising from the use of this website shall be subject to the jurisdiction of the competent courts in Zagreb, Croatia.
+            </p>
+          </div>
+        </section>
+
+
       </div>
     </div>
   </main>
@@ -108,13 +150,22 @@ const pageDescription = 'Legal Notice for CreativeStar - Business information an
   .prose {
     max-width: none;
   }
-  
+
   .prose h2 {
     margin-top: 2rem;
     margin-bottom: 1rem;
   }
-  
+
   .prose p {
     margin-bottom: 1rem;
+  }
+
+  .prose ul {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .prose li {
+    margin-bottom: 0.5rem;
   }
 </style>
