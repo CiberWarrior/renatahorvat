@@ -43,6 +43,16 @@ export const projects: Project[] = [
     category: 'other',
   },
   {
+    title: 'ICD11 - XI. International Congress of Dipterology',
+    summary:
+      'Official website for the XI. International Congress of Dipterology, held in Zagreb, Croatia. Features scientific program, registration, abstract submission, keynote speakers, and venue information.',
+    href: 'https://icd11.biol.pmf.hr',
+    tags: ['Dipterology', 'Entomology', 'Congress', 'Zagreb', 'International'],
+    icon: 'users',
+    iconBg: 'teal-cyan',
+    category: 'conference',
+  },
+  {
     title: 'Scientific Conference Website',
     summary:
       'Modern conference website with registration system, speaker profiles, and interactive schedule management.',
