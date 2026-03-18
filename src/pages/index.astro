@@ -17,6 +17,7 @@ const pageKeywords = "designer Croatia, science communication, e-learning design
   title={pageTitle} 
   description={pageDescription}
   keywords={pageKeywords}
+  preloadResources={[{ href: '/images/renatahorvat.jpg', as: 'image', type: 'image/jpeg' }]}
 >
   <Header />
   <!-- Content: Layout.astro already wraps slot in <main id="main-content">; no duplicate main here -->
@@ -35,8 +36,9 @@ const pageKeywords = "designer Croatia, science communication, e-learning design
                 alt="Renata Horvat - Designer & Digital Creator"
                 width="132"
                 height="132"
-                loading="lazy"
+                loading="eager"
                 decoding="async"
+                fetchpriority="high"
                 class="w-[108px] h-[108px] lg:w-[132px] lg:h-[132px] rounded-full object-cover block"
               />
             </div>

@@ -38,9 +38,9 @@ const {
 const absoluteOgImage =
   ogImage.startsWith('http') ? ogImage : new URL(ogImage, Astro.url.origin).href;
 
-// Non-render-blocking font URL (display=swap for immediate text visibility)
+// Non-render-blocking font URL — reduced weights (400,800) for faster LCP
 const fontCssUrl =
-  'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Bungee&display=swap';
+  'https://fonts.googleapis.com/css2?family=Inter:wght@400;800&family=Bungee&display=swap';
 ---
 
 <!DOCTYPE html>
@@ -419,11 +419,9 @@ const fontCssUrl =
     <!-- Cookie Consent Banner -->
     <CookieConsent />
     
-    <!-- Scripts -->
+    <!-- Scripts: Defer non-critical reveal animations to improve INP -->
     <script>
-      // Native scroll with reveal animations only
-      document.addEventListener('DOMContentLoaded', function() {
-        // Reveal animations - Optimized for performance
+      function runRevealAnimations() {
         const observerOptions = {
           threshold: 0.1,
           rootMargin: '0px 0px -50px 0px'
@@ -432,53 +430,53 @@ const fontCssUrl =
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
-              // Use transform3d for GPU acceleration
               (entry.target as HTMLElement).style.opacity = '1';
               (entry.target as HTMLElement).style.transform = 'translate3d(0, 0, 0)';
-              // Unobserve after animation to improve performance
               observer.unobserve(entry.target);
             }
           });
         }, observerOptions);
 
-        // Observe all elements with reveal class
         document.querySelectorAll('.reveal').forEach(el => {
           const element = el as HTMLElement;
           element.style.opacity = '0';
-          element.style.transform = 'translate3d(0, 30px, 0)'; // Use transform3d
+          element.style.transform = 'translate3d(0, 30px, 0)';
           element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-          element.style.willChange = 'opacity, transform'; // GPU acceleration hint
+          element.style.willChange = 'opacity, transform';
           observer.observe(el);
         });
 
-        // Staggered reveal animations - Optimized for performance
-        document.querySelectorAll('.reveal-stagger').forEach((container, index) => {
+        document.querySelectorAll('.reveal-stagger').forEach((container) => {
           const children = container.children;
           Array.from(children).forEach((child, childIndex) => {
             const childElement = child as HTMLElement;
             childElement.style.opacity = '0';
-            childElement.style.transform = 'translate3d(0, 30px, 0)'; // Use transform3d
+            childElement.style.transform = 'translate3d(0, 30px, 0)';
             childElement.style.transition = `opacity 0.6s ease ${childIndex * 0.1}s, transform 0.6s ease ${childIndex * 0.1}s`;
-            childElement.style.willChange = 'opacity, transform'; // GPU acceleration hint
+            childElement.style.willChange = 'opacity, transform';
           });
-          
+
           const staggerObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
               if (entry.isIntersecting) {
                 Array.from(entry.target.children).forEach(child => {
-                  const childElement = child as HTMLElement;
-                  childElement.style.opacity = '1';
-                  childElement.style.transform = 'translate3d(0, 0, 0)'; // Use transform3d
+                  (child as HTMLElement).style.opacity = '1';
+                  (child as HTMLElement).style.transform = 'translate3d(0, 0, 0)';
                 });
-                // Unobserve after animation to improve performance
                 staggerObserver.unobserve(entry.target);
               }
             });
           }, observerOptions);
-          
           staggerObserver.observe(container);
         });
-      });
+      }
+
+      // Defer to avoid blocking main thread during first interaction (improves INP)
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(runRevealAnimations, { timeout: 500 });
+      } else {
+        document.addEventListener('DOMContentLoaded', runRevealAnimations);
+      }
     </script>
     
     <!-- Vercel Speed Insights -->

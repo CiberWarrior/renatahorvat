@@ -162,8 +162,8 @@
     }
   }
 
-  // Initialize
-  document.addEventListener('DOMContentLoaded', function() {
+  // Initialize — defer to avoid blocking first interaction (improves INP)
+  function init() {
     const banner = document.getElementById('cookie-consent-banner');
     const settingsTrigger = document.getElementById('cookie-settings-trigger');
     const acceptBtn = document.getElementById('cookie-accept-btn');
@@ -270,7 +270,13 @@
         analyticsCheckbox.checked = currentConsent.analytics;
       }
     });
-  });
+  }
+
+  if ('requestIdleCallback' in window) {
+    window.requestIdleCallback(init as () => void, { timeout: 2000 });
+  } else {
+    document.addEventListener('DOMContentLoaded', init);
+  }
 </script>
 
 <style>
