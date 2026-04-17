@@ -3,7 +3,7 @@ import Button from './ui/Button.astro';
 import Badge from './ui/Badge.astro';
 ---
 
-<section class="relative py-20 bg-transparent overflow-hidden">
+<section class="relative overflow-hidden bg-transparent py-16 sm:py-20">
   <!-- Futuristic background -->
   <div class="absolute inset-0">
     <div class="absolute inset-0 bg-gradient-to-br from-gray-900/50 via-gray-800/30 to-gray-900/50"></div>
@@ -11,10 +11,10 @@ import Badge from './ui/Badge.astro';
   
   <div class="relative max-w-7xl mx-auto px-6">
     <div class="max-w-4xl mx-auto text-center">
-      <div class="space-y-6">
+      <div class="space-y-5 sm:space-y-6">
         <!-- Main heading - single visible H1 for SEO and accessibility -->
-        <h1 class="text-5xl lg:text-7xl font-black leading-tight mb-8">
-          <span class="block bg-gradient-to-r from-gray-100 via-cyan-200 to-blue-300 bg-clip-text text-transparent mb-6 tracking-tight">
+        <h1 class="mb-6 text-4xl font-black leading-tight sm:text-5xl lg:mb-8 lg:text-7xl">
+          <span class="mb-4 block bg-gradient-to-r from-gray-100 via-cyan-200 to-blue-300 bg-clip-text text-transparent tracking-tight sm:mb-6">
             From complex ideas to
           </span>
           <span class="block bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent tracking-tight">
@@ -22,24 +22,27 @@ import Badge from './ui/Badge.astro';
           </span>
         </h1>
         
-        <p class="text-xl lg:text-2xl text-gray-300 font-medium max-w-3xl mx-auto leading-relaxed">
+        <p class="mx-auto max-w-3xl text-lg font-medium leading-relaxed text-gray-300 sm:text-xl lg:text-2xl">
           I help teams and organizations turn complex content into clear, usable digital experiences.
         </p>
         
-        <!-- Micro-list of services -->
-        <p class="text-sm text-gray-400 mt-4">
-          Academic websites <span class="text-gray-600">•</span> E-learning & digital textbooks <span class="text-gray-600">•</span> Conference sites <span class="text-gray-600">•</span> Science visuals
-        </p>
+        <!-- The same service list is visually broken into smaller chips for faster scanning. -->
+        <div class="mx-auto mt-2 flex max-w-3xl flex-wrap justify-center gap-2.5 text-sm text-gray-300">
+          <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1.5">Academic websites</span>
+          <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1.5">E-learning & digital textbooks</span>
+          <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1.5">Conference sites</span>
+          <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1.5">Science visuals</span>
+        </div>
         
         <!-- CTA Buttons -->
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-12">
+        <div class="mt-10 flex flex-col items-stretch justify-center gap-3 sm:mt-12 sm:flex-row sm:items-center sm:gap-4">
           <!-- Primary CTA -->
-          <a href="/work" class="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-lg rounded-2xl hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 inline-block focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900" onclick="if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: 'view_projects', cta_location: 'hero' })">
+          <a href="/work" class="inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-4 text-lg font-bold text-white shadow-lg shadow-cyan-900/20 transition-all duration-300 hover:from-cyan-600 hover:to-blue-700 hover:shadow-cyan-900/40 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900" onclick="if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: 'view_projects', cta_location: 'hero' })">
             See Selected Projects
           </a>
           
           <!-- Secondary CTA -->
-          <a href="/contact" class="px-8 py-4 border-2 border-cyan-400/30 text-cyan-400 font-bold text-lg rounded-2xl hover:bg-cyan-400/10 hover:border-cyan-400/50 transition-all duration-300 inline-block focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900" onclick="if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: 'get_in_touch', cta_location: 'hero' })">
+          <a href="/contact" class="inline-flex items-center justify-center rounded-2xl border border-cyan-400/30 bg-transparent px-8 py-4 text-lg font-bold text-cyan-400 transition-all duration-300 hover:border-cyan-400/50 hover:bg-cyan-400/10 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900" onclick="if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: 'get_in_touch', cta_location: 'hero' })">
             Let's Talk
           </a>
         </div>
