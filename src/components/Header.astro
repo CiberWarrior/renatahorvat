@@ -1,6 +1,4 @@
 ---
-import Button from './ui/Button.astro';
-
 const navItems = [
   { href: "/", label: "Home" },
   { href: "/work", label: "Work" },
@@ -61,21 +59,20 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
     </div>
     
     <!-- Mobile menu -->
-    <div class="md:hidden hidden mt-4 pb-4" id="mobile-menu" role="menu" aria-label="Mobile navigation">
+    <div class="md:hidden hidden mt-4 pb-4" id="mobile-menu" aria-label="Mobile navigation">
       <div class="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6">
-      <ul class="space-y-4" role="menubar">
+      <ul class="space-y-4">
         {navItems.map((item) => {
           const isActive = item.href === '/'
             ? currentPath === '/'
             : currentPath.startsWith(item.href);
           return (
-            <li role="none">
+            <li>
               <a
                 href={item.href}
                 aria-current={isActive ? 'page' : undefined}
                 class={`mobile-nav-link block py-3 font-medium text-sm uppercase tracking-wider focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-800 rounded px-2 transition-colors duration-200 ${isActive ? 'text-cyan-400' : 'text-white/90 hover:text-white'}`}
                 onclick={`if(typeof window.gtag !== 'undefined') window.gtag('event', 'navigation_click', { nav_item: '${item.label}', nav_location: 'mobile_header' })`}
-                role="menuitem"
               >
                 {item.label}
               </a>
@@ -99,6 +96,12 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
             const isHidden = menu.classList.contains('hidden');
             menu.classList.toggle('hidden');
             button.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+            if (isHidden) {
+              const firstLink = menu.querySelector('.mobile-nav-link');
+              if (firstLink instanceof HTMLElement) firstLink.focus();
+            } else {
+              (button as HTMLElement).focus();
+            }
           });
 
           // Auto-close menu when a link is clicked
@@ -106,7 +109,17 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
             link.addEventListener('click', function() {
               menu.classList.add('hidden');
               button.setAttribute('aria-expanded', 'false');
+              (button as HTMLElement).focus();
             });
+          });
+
+          // Close on Escape for keyboard users
+          document.addEventListener('keydown', function(e) {
+            if (e.key !== 'Escape') return;
+            if (menu.classList.contains('hidden')) return;
+            menu.classList.add('hidden');
+            button.setAttribute('aria-expanded', 'false');
+            (button as HTMLElement).focus();
           });
         }
       });
