@@ -55,6 +55,9 @@ const breadcrumbStructuredData = {
   ]
 };
 
+// Featured projects for the curated highlight section
+const featuredProjects = portfolioProjects.filter(p => p.featured);
+
 // Group projects by explicit category field
 const eLearningProjects = portfolioProjects.filter(p => p.category === 'elearning');
 const societyProjects = portfolioProjects.filter(p => p.category === 'society');
@@ -96,62 +99,56 @@ const otherProjects = portfolioProjects.filter(p => p.category === 'other');
             </span>
           </h1>
           
-          <div class="max-w-3xl mx-auto space-y-8 text-left bg-gray-900/60 border border-cyan-400/15 rounded-2xl p-6 sm:p-8 mt-6 backdrop-blur-sm">
-            <!-- Service 1 -->
-            <div>
-              <h2 class="text-xl sm:text-2xl font-bold text-cyan-400 mb-3">Digital platforms for learning and knowledge-based work</h2>
-              <p class="text-gray-300 leading-relaxed mb-3">I design and build websites and platforms for universities, research groups, conferences, and organizations that work with complex content.</p>
-              <p class="text-gray-400 text-sm font-medium mb-1">Typical projects include:</p>
-              <ul class="text-gray-300 text-sm leading-relaxed space-y-1 list-disc pl-5 marker:text-cyan-400">
-                <li>Academic and institutional websites</li>
-                <li>E-learning platforms and digital textbooks</li>
-                <li>Conference and event websites</li>
-                <li>Content-heavy custom web projects</li>
-              </ul>
-            </div>
-            <!-- Service 2 -->
-            <div>
-              <h2 class="text-xl sm:text-2xl font-bold text-cyan-400 mb-3">Structure, clarity, and visual communication</h2>
-              <p class="text-gray-300 leading-relaxed mb-3">Good design isn't decoration — it's structure.</p>
-              <p class="text-gray-300 leading-relaxed mb-3">I help turn dense information into clear, readable, and well-organized digital experiences.</p>
-              <p class="text-gray-400 text-sm font-medium mb-1">This includes:</p>
-              <ul class="text-gray-300 text-sm leading-relaxed space-y-1 list-disc pl-5 marker:text-cyan-400">
-                <li>Information architecture and content structure</li>
-                <li>Visual systems for teaching, research, and outreach</li>
-                <li>Infographics, diagrams, and scientific visuals</li>
-                <li>Design that supports content instead of competing with it</li>
-              </ul>
-            </div>
-            <!-- Service 3 -->
-            <div>
-              <h2 class="text-xl sm:text-2xl font-bold text-cyan-400 mb-3">Built to last — not just to launch</h2>
-              <p class="text-gray-300 leading-relaxed mb-3">I work with teams who care about what happens after launch.</p>
-              <p class="text-gray-300 leading-relaxed mb-3">Everything is built with clean, maintainable code so updates don't require rebuilding the whole system.</p>
-              <p class="text-gray-400 text-sm font-medium mb-1">You can expect:</p>
-              <ul class="text-gray-300 text-sm leading-relaxed space-y-1 list-disc pl-5 marker:text-cyan-400">
-                <li>Fast, accessible, and secure websites</li>
-                <li>Mobile-first design that works across devices</li>
-                <li>SEO and structure considered from the start</li>
-                <li>Ongoing support and long-term collaboration</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+          <p class="text-gray-300 leading-relaxed max-w-2xl mx-auto mt-6 text-lg">
+            Websites and platforms for universities, research groups, conferences, and organizations that work with complex content — structured for clarity, built to last.
+          </p>
 
-        <div class="max-w-3xl mx-auto mt-8 text-center">
-          <a
-            href="/contact"
-            class="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-semibold transition-colors duration-200"
-          >
-            Let's talk about your project
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
+          <div class="mt-8">
+            <a
+              href="/contact"
+              class="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-semibold transition-colors duration-200"
+            >
+              Let's talk about your project
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
         </div>
 
       </div>
     </section>
+
+    <!-- Featured Projects -->
+    {featuredProjects.length > 0 && (
+      <section class="py-16 bg-transparent">
+        <div class="relative max-w-7xl mx-auto px-6">
+          <div class="mb-12">
+            <Badge variant="default" class="gap-2 mb-4">
+              <span class="w-2 h-2 bg-cyan-400 rounded-full"></span>
+              Featured
+            </Badge>
+            <h2 class="text-3xl lg:text-4xl font-black text-white mb-3">
+              <span class="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
+                Featured Work
+              </span>
+            </h2>
+            <p class="text-gray-400 text-lg">A curated selection across e-learning, academic societies, conferences, and research infrastructure</p>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-8">
+            {featuredProjects.map((project) => (
+              <ProjectCard {...project} />
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- All Projects by Category -->
+    <div class="max-w-7xl mx-auto px-6 pt-4 pb-2">
+      <p class="text-xs font-semibold uppercase tracking-widest text-gray-600">All Projects</p>
+    </div>
 
     <!-- E-Learning Platforms -->
     {eLearningProjects.length > 0 && (
@@ -163,7 +160,7 @@ const otherProjects = portfolioProjects.filter(p => p.category === 'other');
                 E-Learning Platforms
               </span>
             </h2>
-            <p class="text-gray-400 text-lg">Fast, accessible platforms that help students learn and stay engaged</p>
+            <p class="text-gray-400 text-lg">Fast, accessible platforms that help students learn and stay engaged <span class="text-gray-600 text-sm">· {eLearningProjects.length} projects</span></p>
           </div>
           
           <div class="grid md:grid-cols-2 gap-8">
@@ -185,7 +182,7 @@ const otherProjects = portfolioProjects.filter(p => p.category === 'other');
                 Academic Societies & Organizations
               </span>
             </h2>
-            <p class="text-gray-400 text-lg">Long-term platforms for member communication, publications, and outreach</p>
+            <p class="text-gray-400 text-lg">Long-term platforms for member communication, publications, and outreach <span class="text-gray-600 text-sm">· {societyProjects.length} projects</span></p>
           </div>
           
           <div class="grid md:grid-cols-2 gap-8">
@@ -207,7 +204,7 @@ const otherProjects = portfolioProjects.filter(p => p.category === 'other');
                 Conferences & Scientific Events
               </span>
             </h2>
-            <p class="text-gray-400 text-lg">Complete event sites with registration, schedules, and attendee management</p>
+            <p class="text-gray-400 text-lg">Complete event sites with registration, schedules, and attendee management <span class="text-gray-600 text-sm">· {conferenceProjects.length} projects</span></p>
           </div>
           
           <div class="grid md:grid-cols-2 gap-8">
@@ -229,7 +226,7 @@ const otherProjects = portfolioProjects.filter(p => p.category === 'other');
                 Specialist & Custom Builds
               </span>
             </h2>
-            <p class="text-gray-400 text-lg">Research databases, institutional sites, and custom digital projects outside standard categories</p>
+            <p class="text-gray-400 text-lg">Research databases, institutional sites, and custom digital projects outside standard categories <span class="text-gray-600 text-sm">· {otherProjects.length} projects</span></p>
           </div>
           
           <div class="grid md:grid-cols-2 gap-8">

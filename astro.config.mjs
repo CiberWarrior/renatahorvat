@@ -13,6 +13,7 @@ export default defineConfig({
       customPages: [
         'https://renatahorvat.com/',
         'https://renatahorvat.com/work',
+        'https://renatahorvat.com/work/genetika-ebook',
         'https://renatahorvat.com/contact',
         'https://renatahorvat.com/privacy-policy',
         'https://renatahorvat.com/legal'

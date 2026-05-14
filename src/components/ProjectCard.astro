@@ -4,8 +4,8 @@ import CardContent from './ui/CardContent.astro';
 import Badge from './ui/Badge.astro';
 import Button from './ui/Button.astro';
 
-interface Props { title: string; summary: string; href: string; tags?: string[]; icon?: string; iconBg?: string; }
-const { title, summary, href, tags = [], icon = "default", iconBg = "cyan-blue" } = Astro.props as Props;
+interface Props { title: string; summary: string; href: string; tags?: string[]; icon?: string; iconBg?: string; caseStudySlug?: string; }
+const { title, summary, href, tags = [], icon = "default", iconBg = "cyan-blue", caseStudySlug } = Astro.props as Props;
 
 // Icon definitions
 const getIcon = (iconName: string) => {
@@ -115,14 +115,34 @@ const getIconGlow = (bgName: string) => {
           <p class="text-gray-100 mb-4 leading-relaxed">
             {summary}
           </p>
+          {tags.length > 0 && (
+            <div class="flex flex-wrap gap-1.5 mt-1 mb-2">
+              {tags.map((tag) => (
+                <span class="px-2 py-0.5 text-xs font-medium text-gray-400 border border-gray-700/60 rounded-full bg-gray-800/40">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
       </div>
       
-      <!-- CTA link -->
-      {href && href.trim() !== "" && (
-        <div class="flex justify-end mt-auto">
-          <a 
-            href={href} 
+      <!-- CTA links -->
+      <div class={`flex items-center mt-auto ${caseStudySlug ? 'justify-between' : 'justify-end'}`}>
+        {caseStudySlug && (
+          <a
+            href={`/work/${caseStudySlug}`}
+            class="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-cyan-300 font-medium transition-colors duration-200"
+          >
+            Case study
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+        )}
+        {href && href.trim() !== "" && (
+          <a
+            href={href}
             target="_blank"
             rel="noopener noreferrer"
             class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-cyan-400/20 to-blue-500/20 border border-cyan-400/30 text-cyan-400 font-medium rounded-lg hover:from-cyan-400/30 hover:to-blue-500/30 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900"
@@ -133,8 +153,8 @@ const getIconGlow = (bgName: string) => {
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
             </svg>
           </a>
-        </div>
-      )}
+        )}
+      </div>
       
       <!-- Decorative elements -->
       <div class="absolute top-4 right-4 w-6 h-6 border-t-2 border-r-2 border-cyan-400/30 rounded-tr-lg"></div>

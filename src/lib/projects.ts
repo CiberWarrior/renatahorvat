@@ -8,6 +8,8 @@ export interface Project {
   icon: string;
   iconBg: string;
   category: ProjectCategory;
+  featured?: boolean;
+  caseStudySlug?: string;
 }
 
 export const projects: Project[] = [
@@ -31,6 +33,8 @@ export const projects: Project[] = [
     icon: 'book',
     iconBg: 'blue-purple',
     category: 'elearning',
+    featured: true,
+    // caseStudySlug: 'genetika-ebook',
   },
   {
     title: 'Botanical Garden Zagreb',
@@ -51,6 +55,7 @@ export const projects: Project[] = [
     icon: 'users',
     iconBg: 'teal-cyan',
     category: 'conference',
+    featured: true,
   },
   {
     title: 'Scientific Conference Website',
@@ -81,6 +86,7 @@ export const projects: Project[] = [
     icon: 'database',
     iconBg: 'emerald-green',
     category: 'other',
+    featured: true,
   },
   {
     title: 'Croatian Botanical Society',
@@ -101,6 +107,7 @@ export const projects: Project[] = [
     icon: 'globe',
     iconBg: 'teal-cyan',
     category: 'society',
+    featured: true,
   },
   {
     title: 'IAA 2024 - International Association of Astacology Symposium',

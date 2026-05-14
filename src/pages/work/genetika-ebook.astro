@@ -1,0 +1,229 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Badge from '../../components/ui/Badge.astro';
+import Card from '../../components/ui/Card.astro';
+import CardContent from '../../components/ui/CardContent.astro';
+
+const pageTitle = "Genetika e-book — Case Study | Renata Horvat";
+const pageDescription = "Case study: Digital genetics textbook for the University of Zagreb, Faculty of Science. Web design, WordPress/Divi build, educational diagram design, and visual content structure.";
+const pageKeywords = "e-learning design, digital textbook, WordPress design, educational website, genetics textbook, University of Zagreb, Divi, educational diagram design";
+
+const breadcrumbs = [
+  { name: "Home", url: "https://renatahorvat.com" },
+  { name: "Work", url: "https://renatahorvat.com/work" },
+  { name: "Genetika e-book", url: "https://renatahorvat.com/work/genetika-ebook" },
+];
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "Genetika e-book",
+  "description": pageDescription,
+  "url": "https://renatahorvat.com/work/genetika-ebook",
+  "author": {
+    "@type": "Person",
+    "name": "Renata Horvat",
+    "url": "https://renatahorvat.com"
+  },
+  "contributor": {
+    "@type": "Person",
+    "name": "Prof. Mirjana Pavlica"
+  },
+  "about": "Genetics education",
+  "educationalUse": "instruction"
+};
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  keywords={pageKeywords}
+  breadcrumbs={breadcrumbs}
+  structuredData={structuredData}
+>
+  <Header />
+
+  <!-- Hero Section -->
+  <section class="relative py-16 sm:py-20 bg-transparent overflow-hidden">
+    <div class="absolute inset-0">
+      <div class="absolute inset-0 bg-gradient-to-br from-gray-900/50 via-gray-800/30 to-gray-900/50"></div>
+      <div class="absolute inset-0 opacity-5">
+        <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(6, 182, 212, 0.3) 1px, transparent 0); background-size: 20px 20px;"></div>
+      </div>
+    </div>
+
+    <div class="relative max-w-4xl mx-auto px-6">
+      <!-- Breadcrumb -->
+      <nav class="mb-8 flex items-center gap-2 text-sm text-gray-500" aria-label="Breadcrumb">
+        <a href="/work" class="hover:text-cyan-400 transition-colors duration-200">Work</a>
+        <span aria-hidden="true">/</span>
+        <span class="text-gray-400">Genetika e-book</span>
+      </nav>
+
+      <Badge variant="default" class="gap-2 mb-6">
+        <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+        Digital Textbook · E-Learning
+      </Badge>
+
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6">
+        <span class="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+          Genetika e-book
+        </span>
+      </h1>
+
+      <p class="text-lg text-gray-300 leading-relaxed max-w-2xl mb-8">
+        A digital genetics textbook for students at the University of Zagreb, Faculty of Science — structured to make complex biological content clearer, more navigable, and easier to study online.
+      </p>
+
+      <a
+        href="https://www.genetika.biol.pmf.hr"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-400/20 to-blue-500/20 border border-cyan-400/30 text-cyan-400 font-medium rounded-xl hover:from-cyan-400/30 hover:to-blue-500/30 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900"
+      >
+        View live project
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Project Metadata -->
+  <section class="py-10 bg-transparent">
+    <div class="max-w-4xl mx-auto px-6">
+      <Card class="bg-gray-900/60 border border-cyan-400/15">
+        <CardContent class="p-6 sm:p-8">
+          <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2">Client</p>
+              <p class="text-gray-200 text-sm leading-relaxed hyphens-none">
+                University of Zagreb<br />
+                Faculty of Science<br />
+                Department of Biology
+              </p>
+            </div>
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2">Project type</p>
+              <p class="text-gray-200 text-sm leading-relaxed hyphens-none">
+                Digital textbook<br />
+                Educational website
+              </p>
+            </div>
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2">My role</p>
+              <ul class="text-gray-200 text-sm space-y-1 hyphens-none">
+                <li>Web design</li>
+                <li>WordPress / Divi build</li>
+                <li>Visual content structure</li>
+                <li>Educational diagram design</li>
+                <li>Image preparation</li>
+              </ul>
+            </div>
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-2">Tools</p>
+              <ul class="text-gray-200 text-sm space-y-1 hyphens-none">
+                <li>WordPress</li>
+                <li>Divi</li>
+                <li>Adobe Illustrator</li>
+                <li>Adobe Photoshop</li>
+              </ul>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <section class="py-8 bg-transparent">
+    <div class="max-w-3xl mx-auto px-6 space-y-14">
+
+      <!-- Scientific authorship note -->
+      <div class="p-4 bg-blue-500/5 border border-blue-400/15 rounded-xl">
+        <p class="text-gray-400 text-sm leading-relaxed">
+          <span class="font-semibold text-gray-300">Scientific authorship:</span> The scientific and educational text was authored by Prof. Mirjana Pavlica. My contribution covered the complete web design, WordPress/Divi implementation, visual content structure, and the creation of educational diagrams.
+        </p>
+      </div>
+
+      <!-- Challenge -->
+      <div>
+        <h2 class="text-2xl lg:text-3xl font-black text-white mb-4">
+          <span class="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            Challenge
+          </span>
+        </h2>
+        <p class="text-gray-300 leading-relaxed">
+          Genetics is a conceptually dense subject. The material includes abstract biological processes, inheritance patterns, molecular mechanisms, definitions, diagrams, tables, summaries and review questions. The challenge was to transform this complex teaching material into a clear online learning experience that students could read, navigate and use independently.
+        </p>
+      </div>
+
+      <!-- What I did -->
+      <div>
+        <h2 class="text-2xl lg:text-3xl font-black text-white mb-4">
+          <span class="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+            What I did
+          </span>
+        </h2>
+        <p class="text-gray-300 leading-relaxed">
+          I designed and built the website from scratch in WordPress using the Divi theme. I structured the content for online reading, created the visual hierarchy for chapters and learning sections, and designed many of the educational diagrams in Adobe Illustrator. I also prepared and edited visual materials in Adobe Photoshop. Some images were used from external sources with permission or under free-use licences.
+        </p>
+      </div>
+
+      <!-- Solution -->
+      <div>
+        <h2 class="text-2xl lg:text-3xl font-black text-white mb-4">
+          <span class="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
+            Solution
+          </span>
+        </h2>
+        <p class="text-gray-300 leading-relaxed">
+          The content was organized into a clear digital textbook structure, with chapters, summaries, review sections and quizzes. Visual elements were used to support understanding, especially in areas where genetics concepts are difficult to explain through text alone. The design approach focused on readability, clarity, navigation and long-term maintainability inside WordPress.
+        </p>
+      </div>
+
+      <!-- Result -->
+      <div>
+        <h2 class="text-2xl lg:text-3xl font-black text-white mb-4">
+          <span class="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
+            Result
+          </span>
+        </h2>
+        <p class="text-gray-300 leading-relaxed">
+          The result is a structured online textbook that makes complex genetics content easier to access, understand and study. The website supports students with a clear chapter structure, visual explanations, summaries and self-assessment elements, while allowing the educational material to remain available and maintainable online.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Navigation -->
+  <section class="py-16 bg-transparent">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pt-8 border-t border-gray-800">
+        <a
+          href="/work"
+          class="inline-flex items-center gap-2 text-gray-400 hover:text-cyan-300 font-medium transition-colors duration-200"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"></path>
+          </svg>
+          Back to Work
+        </a>
+        <a
+          href="/contact"
+          class="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-semibold transition-colors duration-200"
+        >
+          Let's talk about your project
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
