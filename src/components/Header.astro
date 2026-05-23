@@ -2,6 +2,7 @@
 const navItems = [
   { href: "/", label: "Home" },
   { href: "/work", label: "Work" },
+  { href: "/prices", label: "Pricing" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -63,15 +64,15 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
       <div class="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6">
       <ul class="space-y-4">
         {navItems.map((item) => {
-          const isActive = item.href === '/'
+          const isActiveMobile = item.href === '/'
             ? currentPath === '/'
             : currentPath.startsWith(item.href);
           return (
             <li>
               <a
                 href={item.href}
-                aria-current={isActive ? 'page' : undefined}
-                class={`mobile-nav-link block py-3 font-medium text-sm uppercase tracking-wider focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-800 rounded px-2 transition-colors duration-200 ${isActive ? 'text-cyan-400' : 'text-white/90 hover:text-white'}`}
+                aria-current={isActiveMobile ? 'page' : undefined}
+                class={`mobile-nav-link block py-3 font-medium text-sm uppercase tracking-wider focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-800 rounded px-2 transition-colors duration-200 ${isActiveMobile ? 'text-cyan-400' : 'text-white/90 hover:text-white'}`}
                 onclick={`if(typeof window.gtag !== 'undefined') window.gtag('event', 'navigation_click', { nav_item: '${item.label}', nav_location: 'mobile_header' })`}
               >
                 {item.label}

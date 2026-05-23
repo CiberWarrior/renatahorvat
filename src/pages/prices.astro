@@ -1,0 +1,239 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Badge from '../components/ui/Badge.astro';
+import Card from '../components/ui/Card.astro';
+import CardContent from '../components/ui/CardContent.astro';
+
+const pageTitle = "Pricing — Renata Horvat | Web Design & Development";
+const pageDescription = "Transparent pricing for web design and development projects. Landing pages from €500, websites from €1,000, business growth packages from €1,800, and custom academic or e-learning platforms. Based in Zagreb, Croatia.";
+const pageKeywords = "web design pricing Croatia, website cost Zagreb, e-learning platform price, academic website pricing, freelance web developer rates Croatia";
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  keywords={pageKeywords}
+>
+  <Header />
+
+  <!-- Hero -->
+  <section class="py-20 bg-transparent">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <Badge variant="default" class="gap-2 mb-6">
+        <span class="w-2 h-2 bg-cyan-400 rounded-full"></span>
+        Pricing
+      </Badge>
+      <h1 class="text-4xl lg:text-5xl font-black text-white mb-6">
+        <span class="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
+          Simple, transparent pricing
+        </span>
+      </h1>
+      <p class="text-xl text-gray-300 leading-relaxed">
+        Every project is different — these are starting points, not limits. Complex or custom work gets a tailored quote after our first call.
+      </p>
+    </div>
+  </section>
+
+  <!-- Pricing Cards -->
+  <section class="pb-20 bg-transparent" aria-label="Pricing packages">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto">
+
+        <!-- Landing Page -->
+        <Card class="h-full bg-gray-900/60 border border-blue-400/20 hover:border-blue-400/40 transition-all duration-300">
+          <CardContent class="flex h-full flex-col p-8 text-left">
+            <div class="mb-6">
+              <h2 class="text-xl font-bold text-white mb-2">Landing Page</h2>
+              <div class="text-3xl font-black text-white">
+                From <span class="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">€500</span>
+              </div>
+            </div>
+            <ul class="space-y-3 mb-8 flex-1">
+              {[
+                'Single page',
+                'Contact form',
+                'Basic SEO',
+                'Mobile-first',
+                'Custom domain setup',
+                'Open Graph tags',
+                'Lighthouse-optimized',
+                'Git version control',
+                'Vercel deployment',
+              ].map((item) => (
+                <li class="flex items-start gap-3 text-gray-300">
+                  <svg class="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <a
+              href="/contact"
+              class="inline-flex w-full items-center justify-center rounded-xl border border-blue-400/40 px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:border-blue-400/80 hover:bg-blue-400/10 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900"
+              onclick="if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: 'pricing_landing', cta_location: 'prices_page' })"
+            >
+              Get a quote
+            </a>
+          </CardContent>
+        </Card>
+
+        <!-- Website — highlighted -->
+        <div class="relative">
+          <div class="absolute -inset-px bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-2xl blur-sm opacity-40"></div>
+          <Card class="relative h-full bg-gray-900/90 border border-cyan-400/40 transition-all duration-300">
+            <CardContent class="flex h-full flex-col p-8 text-left">
+              <div class="mb-6">
+                <div class="flex items-center justify-between mb-2">
+                  <h2 class="text-xl font-bold text-white">Website</h2>
+                  <span class="text-xs font-semibold uppercase tracking-wider text-cyan-400 bg-cyan-400/10 border border-cyan-400/30 px-2 py-1 rounded-full">Most common</span>
+                </div>
+                <div class="text-3xl font-black text-white">
+                  From <span class="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">€1,000</span>
+                </div>
+              </div>
+              <ul class="space-y-3 mb-8 flex-1">
+                {[
+                  'Multiple pages',
+                  'Portfolio or services',
+                  'Forms & integrations',
+                  'SEO setup',
+                  'Semantic HTML & accessibility',
+                  'Performance-optimized build',
+                  'Sitemap & robots.txt',
+                  'Git version control',
+                  'Vercel deployment',
+                ].map((item) => (
+                  <li class="flex items-start gap-3 text-gray-300">
+                    <svg class="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <a
+                href="/contact"
+                class="inline-flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-3 text-sm font-bold text-white transition-all duration-300 hover:from-cyan-600 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900"
+                onclick="if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: 'pricing_website', cta_location: 'prices_page' })"
+              >
+                Get a quote
+              </a>
+            </CardContent>
+          </Card>
+        </div>
+
+        <!-- Business Growth Website -->
+        <Card class="h-full bg-gray-900/60 border border-cyan-400/20 hover:border-cyan-400/40 transition-all duration-300">
+          <CardContent class="flex h-full flex-col p-8 text-left">
+            <div class="mb-6">
+              <h2 class="text-xl font-bold text-white mb-2">Business Growth</h2>
+              <div class="text-3xl font-black text-white">
+                From <span class="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">€1,800</span>
+              </div>
+            </div>
+            <ul class="space-y-3 mb-8 flex-1">
+              {[
+                '5 to 10 pages',
+                'SEO architecture',
+                'Service pages',
+                'Blog setup',
+                'GA4 events',
+                'Schema markup',
+                'Local SEO setup',
+                'Conversion-focused layout',
+                'Core Web Vitals optimized',
+                'WCAG 2.1 AA accessibility',
+                'Git version control',
+                'Vercel deployment',
+              ].map((item) => (
+                <li class="flex items-start gap-3 text-gray-300">
+                  <svg class="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <a
+              href="/contact"
+              class="inline-flex w-full items-center justify-center rounded-xl border border-cyan-400/40 px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:border-cyan-400/80 hover:bg-cyan-400/10 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900"
+              onclick="if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: 'pricing_business', cta_location: 'prices_page' })"
+            >
+              Get a quote
+            </a>
+          </CardContent>
+        </Card>
+
+        <!-- Custom Project -->
+        <Card class="h-full bg-gray-900/60 border border-purple-400/20 hover:border-purple-400/40 transition-all duration-300">
+          <CardContent class="flex h-full flex-col p-8 text-left">
+            <div class="mb-6">
+              <h2 class="text-xl font-bold text-white mb-2">Custom Project</h2>
+              <div class="text-3xl font-black text-white">
+                <span class="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">Let's talk</span>
+              </div>
+            </div>
+            <ul class="space-y-3 mb-8 flex-1">
+              {[
+                'E-learning platforms',
+                'Academic & conference sites',
+                'Complex integrations',
+                'Long-term support',
+                'Custom API integrations',
+                'Headless CMS setup',
+                'CI/CD pipeline',
+                'Ongoing maintenance & updates',
+                'Custom domain & DNS setup',
+                'Performance & security audit',
+              ].map((item) => (
+                <li class="flex items-start gap-3 text-gray-300">
+                  <svg class="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <a
+              href="/contact"
+              class="inline-flex w-full items-center justify-center rounded-xl border border-purple-400/40 px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:border-purple-400/80 hover:bg-purple-400/10 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900"
+              onclick="if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: 'pricing_custom', cta_location: 'prices_page' })"
+            >
+              Get in touch
+            </a>
+          </CardContent>
+        </Card>
+
+      </div>
+
+      <p class="text-center text-gray-500 text-sm mt-10">
+        All projects include a free initial consultation. Prices in EUR, VAT not included.
+      </p>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="py-16 bg-transparent">
+    <div class="max-w-2xl mx-auto px-6 text-center">
+      <h2 class="text-2xl lg:text-3xl font-black text-white mb-4">Not sure which package fits?</h2>
+      <p class="text-gray-300 mb-8 text-lg leading-relaxed">
+        Most projects start with a short conversation. No commitment, no pitch deck — just a relaxed chat to see what you need.
+      </p>
+      <a
+        href="/contact"
+        class="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-4 text-lg font-bold text-white transition-all duration-300 hover:from-cyan-600 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900"
+        onclick="if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: 'pricing_bottom_cta', cta_location: 'prices_page' })"
+      >
+        Let's talk about your project
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
