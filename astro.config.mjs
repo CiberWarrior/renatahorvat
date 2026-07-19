@@ -9,15 +9,7 @@ export default defineConfig({
   site: 'https://renatahorvat.com',
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('admin') && !page.includes('private'),
-      customPages: [
-        'https://renatahorvat.com/',
-        'https://renatahorvat.com/work',
-        'https://renatahorvat.com/work/genetika-ebook',
-        'https://renatahorvat.com/contact',
-        'https://renatahorvat.com/privacy-policy',
-        'https://renatahorvat.com/legal'
-      ]
+      filter: (page) => !page.includes('admin') && !page.includes('private')
     })
   ],
   vite: {
