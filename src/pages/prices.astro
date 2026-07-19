@@ -6,8 +6,8 @@ import Badge from '../components/ui/Badge.astro';
 import Card from '../components/ui/Card.astro';
 import CardContent from '../components/ui/CardContent.astro';
 
-const pageTitle = "Pricing — Renata Horvat | Web Design & Development";
-const pageDescription = "Transparent pricing for web design and development projects. Landing pages from €500, websites from €1,000, business growth packages from €1,800, and custom academic or e-learning platforms. Based in Zagreb, Croatia.";
+const pageTitle = "Pricing – Renata Horvat | Web Design Zagreb";
+const pageDescription = "Transparent pricing for web design and development projects. Landing pages from €500, websites from €1,000, extended websites from €1,800, and custom academic or e-learning platforms. Based in Zagreb, Croatia.";
 const pageKeywords = "web design pricing Croatia, website cost Zagreb, e-learning platform price, academic website pricing, freelance web developer rates Croatia";
 ---
 
@@ -66,12 +66,10 @@ const pageKeywords = "web design pricing Croatia, website cost Zagreb, e-learnin
                 'Custom domain setup',
                 'Open Graph tags',
                 'Lighthouse-optimized',
-                'Git version control',
-                'Vercel deployment',
               ].map((item) => (
                 <li class="flex items-start gap-3 text-gray-300">
                   <svg class="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                   </svg>
                   {item}
                 </li>
@@ -103,27 +101,25 @@ const pageKeywords = "web design pricing Croatia, website cost Zagreb, e-learnin
               </div>
               <ul class="space-y-3 mb-8 flex-1">
                 {[
-                  'Multiple pages',
-                  'Portfolio or services',
-                  'Forms & integrations',
-                  'SEO setup',
-                  'Semantic HTML & accessibility',
-                  'Performance-optimized build',
-                  'Sitemap & robots.txt',
-                  'Git version control',
-                  'Vercel deployment',
+                'Multiple pages',
+                'Portfolio or services',
+                'Forms & integrations',
+                'SEO setup',
+                'Semantic HTML & accessibility',
+                'Performance-optimized build',
+                'Sitemap & robots.txt',
                 ].map((item) => (
                   <li class="flex items-start gap-3 text-gray-300">
-                    <svg class="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <a
-                href="/contact"
-                class="inline-flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-3 text-sm font-bold text-white transition-all duration-300 hover:from-cyan-600 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900"
+                  <svg class="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <a
+              href="/contact"
+              class="inline-flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-3 text-sm font-bold text-white transition-all duration-300 hover:from-cyan-600 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900"
                 onclick="if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: 'pricing_website', cta_location: 'prices_page' })"
               >
                 Get a quote
@@ -139,11 +135,11 @@ const pageKeywords = "web design pricing Croatia, website cost Zagreb, e-learnin
           <div class="flex-1 h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent"></div>
         </div>
 
-        <!-- Business Growth Website -->
+        <!-- Extended Website -->
         <Card class="h-full bg-gray-900/60 border border-cyan-400/20 hover:border-cyan-400/40 transition-all duration-300">
           <CardContent class="flex h-full flex-col p-8 lg:p-10 text-left">
             <div class="mb-8">
-              <h2 class="text-2xl font-bold text-white mb-3">Business Growth</h2>
+              <h2 class="text-2xl font-bold text-white mb-3">Extended Website</h2>
               <div class="text-4xl font-black text-white">
                 From <span class="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">€1,800</span>
               </div>
@@ -160,12 +156,10 @@ const pageKeywords = "web design pricing Croatia, website cost Zagreb, e-learnin
                 'Conversion-focused layout',
                 'Core Web Vitals optimized',
                 'WCAG 2.1 AA accessibility',
-                'Git version control',
-                'Vercel deployment',
               ].map((item) => (
                 <li class="flex items-start gap-3 text-gray-300">
                   <svg class="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                   </svg>
                   {item}
                 </li>
@@ -174,7 +168,7 @@ const pageKeywords = "web design pricing Croatia, website cost Zagreb, e-learnin
             <a
               href="/contact"
               class="inline-flex w-full items-center justify-center rounded-xl border border-cyan-400/40 px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:border-cyan-400/80 hover:bg-cyan-400/10 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900"
-              onclick="if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: 'pricing_business', cta_location: 'prices_page' })"
+              onclick="if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: 'pricing_extended', cta_location: 'prices_page' })"
             >
               Get a quote
             </a>
@@ -198,14 +192,13 @@ const pageKeywords = "web design pricing Croatia, website cost Zagreb, e-learnin
                 'Long-term support',
                 'Custom API integrations',
                 'Headless CMS setup',
-                'CI/CD pipeline',
                 'Ongoing maintenance & updates',
                 'Custom domain & DNS setup',
                 'Performance & security audit',
               ].map((item) => (
                 <li class="flex items-start gap-3 text-gray-300">
                   <svg class="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                   </svg>
                   {item}
                 </li>
