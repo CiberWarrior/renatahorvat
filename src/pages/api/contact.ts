@@ -7,6 +7,15 @@ import { Resend } from 'resend';
  */
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 export const POST: APIRoute = async ({ request }) => {
   const contentType = request.headers.get('content-type') || '';
   if (!contentType.includes('application/json')) {
@@ -87,6 +96,9 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   const resend = new Resend(apiKey);
+  const safeName = escapeHtml(name);
+  const safeEmail = escapeHtml(email);
+  const safeMessage = escapeHtml(message);
 
   const { data, error } = await resend.emails.send({
     from: 'Kontakt Forma <contact@renatahorvat.com>',
@@ -168,19 +180,19 @@ export const POST: APIRoute = async ({ request }) => {
             <div class="content">
               <div class="field">
                 <div class="field-label">Ime i Prezime</div>
-                <div class="field-value">${name}</div>
+                <div class="field-value">${safeName}</div>
               </div>
               <div class="field">
                 <div class="field-label">Email Adresa</div>
                 <div class="field-value">
-                  <a href="mailto:${email}" style="color: #667eea; text-decoration: none;">
-                    ${email}
+                  <a href="mailto:${encodeURIComponent(email)}" style="color: #667eea; text-decoration: none;">
+                    ${safeEmail}
                   </a>
                 </div>
               </div>
               <div class="field">
                 <div class="field-label">Poruka</div>
-                <div class="message-box">${message}</div>
+                <div class="message-box">${safeMessage}</div>
               </div>
               <div class="footer">
                 Poslano s renatahorvat.com

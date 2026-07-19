@@ -1,5 +1,14 @@
 import { Resend } from 'resend';
 
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 export default async function handler(req, res) {
   // Set CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -96,6 +105,10 @@ export default async function handler(req, res) {
       });
     }
 
+    const safeName = escapeHtml(name.trim());
+    const safeEmail = escapeHtml(email.trim());
+    const safeMessage = escapeHtml(message.trim());
+
     // Send email using Resend
     const { data, error } = await resend.emails.send({
       from: 'Kontakt Forma <contact@renatahorvat.com>',
@@ -177,21 +190,21 @@ export default async function handler(req, res) {
             <div class="content">
               <div class="field">
                 <div class="field-label">Ime i Prezime</div>
-                <div class="field-value">${name}</div>
+                <div class="field-value">${safeName}</div>
               </div>
               
               <div class="field">
                 <div class="field-label">Email Adresa</div>
                 <div class="field-value">
-                  <a href="mailto:${email}" style="color: #667eea; text-decoration: none;">
-                    ${email}
+                  <a href="mailto:${encodeURIComponent(email.trim())}" style="color: #667eea; text-decoration: none;">
+                    ${safeEmail}
                   </a>
                 </div>
               </div>
               
               <div class="field">
                 <div class="field-label">Poruka</div>
-                <div class="message-box">${message}</div>
+                <div class="message-box">${safeMessage}</div>
               </div>
               
               <div class="footer">
