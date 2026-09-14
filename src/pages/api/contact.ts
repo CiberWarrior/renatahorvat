@@ -2,8 +2,9 @@ import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
 
 /**
- * Local dev: Astro serves this at POST /api/contact when you run `npm run dev`.
- * Production (Vercel): static build does not emit this file; `api/contact.js` handles /api/contact.
+ * Local `astro dev` can serve this at POST /api/contact.
+ * Astro 7 static mode prerenders the endpoint, so request headers are unavailable
+ * in local POST until an adapter is configured. Production uses `api/contact.js`.
  */
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
