@@ -10,6 +10,8 @@ export interface Project {
   category: ProjectCategory;
   featured?: boolean;
   caseStudySlug?: string;
+  image?: string;
+  role?: string;
 }
 
 export const projects: Project[] = [
@@ -34,6 +36,8 @@ export const projects: Project[] = [
     iconBg: 'blue-purple',
     category: 'elearning',
     featured: true,
+    image: '/images/work/genetika.jpg',
+    role: 'Web design, WordPress build and educational diagrams for a university textbook.',
     // caseStudySlug: 'genetika-ebook',
   },
   {
@@ -56,9 +60,11 @@ export const projects: Project[] = [
     iconBg: 'teal-cyan',
     category: 'conference',
     featured: true,
+    image: '/images/work/icd11.jpg',
+    role: 'Congress site for the programme, registration, abstracts and speakers.',
   },
   {
-    title: 'Scientific Conference Website',
+    title: '15th Croatian Biological Congress',
     summary:
       'Modern conference website with registration system, speaker profiles, and interactive schedule management.',
     href: 'https://www.hbd-sbc.hr/en/congress2025/',
@@ -87,6 +93,8 @@ export const projects: Project[] = [
     iconBg: 'emerald-green',
     category: 'other',
     featured: true,
+    image: '/images/work/herbarium.jpg',
+    role: 'Collection website for specimens, search and the work of a university herbarium.',
   },
   {
     title: 'Croatian Botanical Society',
@@ -108,6 +116,8 @@ export const projects: Project[] = [
     iconBg: 'teal-cyan',
     category: 'society',
     featured: true,
+    image: '/images/work/feps.jpg',
+    role: 'Society website for news, membership and symposia across Europe.',
   },
   {
     title: 'IAA 2024 - International Association of Astacology Symposium',

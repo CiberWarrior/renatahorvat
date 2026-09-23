@@ -59,10 +59,11 @@ const breadcrumbStructuredData = {
 const featuredProjects = portfolioProjects.filter(p => p.featured);
 
 // Group projects by explicit category field
-const eLearningProjects = portfolioProjects.filter(p => p.category === 'elearning');
-const societyProjects = portfolioProjects.filter(p => p.category === 'society');
-const conferenceProjects = portfolioProjects.filter(p => p.category === 'conference');
-const otherProjects = portfolioProjects.filter(p => p.category === 'other');
+const eLearningProjects = portfolioProjects.filter(p => p.category === 'elearning' && !p.featured);
+const societyProjects = portfolioProjects.filter(p => p.category === 'society' && !p.featured);
+const conferenceProjects = portfolioProjects.filter(p => p.category === 'conference' && !p.featured);
+const otherProjects = portfolioProjects.filter(p => p.category === 'other' && !p.featured);
+const countLabel = (count: number) => (count === 1 ? '1 project' : `${count} projects`);
 ---
 <Layout 
   title={pageTitle} 
@@ -135,7 +136,7 @@ const otherProjects = portfolioProjects.filter(p => p.category === 'other');
             <p class="text-gray-400 text-lg">A curated selection across e-learning, academic societies, conferences, and research infrastructure</p>
           </div>
 
-          <div class="grid md:grid-cols-2 gap-8">
+          <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
             {featuredProjects.map((project) => (
               <ProjectCard {...project} />
             ))}
@@ -159,7 +160,7 @@ const otherProjects = portfolioProjects.filter(p => p.category === 'other');
                 E-Learning Platforms
               </span>
             </h2>
-            <p class="text-gray-400 text-lg">Fast, accessible platforms that help students learn and stay engaged <span class="text-gray-600 text-sm">· {eLearningProjects.length} projects</span></p>
+            <p class="text-gray-400 text-lg">Fast, accessible platforms that help students learn and stay engaged <span class="text-gray-600 text-sm">· {countLabel(eLearningProjects.length)}</span></p>
           </div>
           
           <div class="grid md:grid-cols-2 gap-8">
@@ -181,7 +182,7 @@ const otherProjects = portfolioProjects.filter(p => p.category === 'other');
                 Academic Societies & Organizations
               </span>
             </h2>
-            <p class="text-gray-400 text-lg">Long-term platforms for member communication, publications, and outreach <span class="text-gray-600 text-sm">· {societyProjects.length} projects</span></p>
+            <p class="text-gray-400 text-lg">Long-term platforms for member communication, publications, and outreach <span class="text-gray-600 text-sm">· {countLabel(societyProjects.length)}</span></p>
           </div>
           
           <div class="grid md:grid-cols-2 gap-8">
@@ -203,7 +204,7 @@ const otherProjects = portfolioProjects.filter(p => p.category === 'other');
                 Conferences & Scientific Events
               </span>
             </h2>
-            <p class="text-gray-400 text-lg">Complete event sites with registration, schedules, and attendee management <span class="text-gray-600 text-sm">· {conferenceProjects.length} projects</span></p>
+            <p class="text-gray-400 text-lg">Complete event sites with registration, schedules, and attendee management <span class="text-gray-600 text-sm">· {countLabel(conferenceProjects.length)}</span></p>
           </div>
           
           <div class="grid md:grid-cols-2 gap-8">
@@ -225,7 +226,7 @@ const otherProjects = portfolioProjects.filter(p => p.category === 'other');
                 Specialist & Custom Builds
               </span>
             </h2>
-            <p class="text-gray-400 text-lg">Research databases, institutional sites, and custom digital projects outside standard categories <span class="text-gray-600 text-sm">· {otherProjects.length} projects</span></p>
+            <p class="text-gray-400 text-lg">Research databases, institutional sites, and custom digital projects outside standard categories <span class="text-gray-600 text-sm">· {countLabel(otherProjects.length)}</span></p>
           </div>
           
           <div class="grid md:grid-cols-2 gap-8">

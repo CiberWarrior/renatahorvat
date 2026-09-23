@@ -4,8 +4,15 @@ import CardContent from './ui/CardContent.astro';
 import Badge from './ui/Badge.astro';
 import Button from './ui/Button.astro';
 
-interface Props { title: string; summary: string; href: string; tags?: string[]; icon?: string; iconBg?: string; caseStudySlug?: string; }
-const { title, summary, href, tags = [], icon = "default", iconBg = "cyan-blue", caseStudySlug } = Astro.props as Props;
+interface Props { title: string; summary: string; href: string; tags?: string[]; icon?: string; iconBg?: string; caseStudySlug?: string; image?: string; role?: string; }
+const { title, summary, href, tags = [], icon = "default", iconBg = "cyan-blue", caseStudySlug, image, role } = Astro.props as Props;
+
+let siteHost = "";
+try {
+  siteHost = new URL(href).hostname.replace(/^www\./, "");
+} catch {
+  siteHost = "";
+}
 
 // Icon definitions
 const getIcon = (iconName: string) => {
@@ -91,6 +98,53 @@ const getIconGlow = (bgName: string) => {
 };
 ---
 
+{image ? (
+<article class="group h-full">
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label={`View ${title}`}
+    class="block overflow-hidden rounded-2xl border border-white/10 bg-[#101c2e] shadow-lg shadow-black/20 transition duration-300 group-hover:-translate-y-1 group-hover:border-cyan-400/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400"
+    onclick={`if(typeof window.gtag !== 'undefined') window.gtag('event', 'project_view', { project_title: ${JSON.stringify(title)}, project_url: ${JSON.stringify(href)} })`}
+  >
+    <div class="flex items-center gap-1.5 border-b border-white/10 px-3 py-2">
+      <span class="h-2 w-2 rounded-full bg-[#ff5f57]"></span>
+      <span class="h-2 w-2 rounded-full bg-[#febc2e]"></span>
+      <span class="h-2 w-2 rounded-full bg-[#28c840]"></span>
+      <span class="ml-2 truncate text-[11px] text-gray-500">{siteHost}</span>
+    </div>
+    <div class="overflow-hidden">
+      <img
+        src={image}
+        alt=""
+        width="1440"
+        height="900"
+        loading="lazy"
+        decoding="async"
+        class="h-44 w-full object-cover object-top transition duration-500 group-hover:scale-[1.03] sm:h-36"
+      />
+    </div>
+  </a>
+  <div class="px-1 pt-3">
+    <h3 class="text-[15px] font-semibold leading-snug text-white">{title}</h3>
+    {(role || summary) && (
+      <p class="mt-1 line-clamp-2 text-sm leading-relaxed text-gray-400">{role || summary}</p>
+    )}
+    {caseStudySlug && (
+      <a
+        href={`/work/${caseStudySlug}`}
+        class="mt-2 inline-flex items-center gap-1.5 text-sm font-medium text-cyan-400 transition-colors hover:text-cyan-300"
+      >
+        Case study
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
+      </a>
+    )}
+  </div>
+</article>
+) : (
 <div class="relative group h-full">
   <!-- Neon glow effect -->
   <div class="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-2xl blur opacity-15 group-hover:opacity-25 transition duration-1000 group-hover:duration-200"></div>
@@ -99,12 +153,10 @@ const getIconGlow = (bgName: string) => {
   <Card class="relative bg-gray-900/80 backdrop-blur-xl border border-cyan-400/30 rounded-2xl overflow-hidden h-full">
     <CardContent class="p-6 h-full flex flex-col">
       <div class="flex items-start space-x-4 flex-grow">
-        <!-- Project icon -->
         <div class="relative">
           <div class={`w-12 h-12 ${getIconBg(iconBg)} rounded-xl flex items-center justify-center text-white shadow-lg shadow-cyan-400/30`}>
             <Fragment set:html={getIcon(icon)} />
           </div>
-          <!-- Icon glow -->
           <div class={`absolute inset-0 w-12 h-12 bg-gradient-to-r ${getIconGlow(iconBg)} rounded-xl blur opacity-30`}></div>
         </div>
         
@@ -146,6 +198,7 @@ const getIconGlow = (bgName: string) => {
             target="_blank"
             rel="noopener noreferrer"
             class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-cyan-400/20 to-blue-500/20 border border-cyan-400/30 text-cyan-400 font-medium rounded-lg hover:from-cyan-400/30 hover:to-blue-500/30 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900"
+            aria-label={`View ${title}`}
             onclick={`if(typeof window.gtag !== 'undefined') window.gtag('event', 'project_view', { project_title: ${JSON.stringify(title)}, project_url: ${JSON.stringify(href)} })`}
           >
             View Project
@@ -156,9 +209,9 @@ const getIconGlow = (bgName: string) => {
         )}
       </div>
       
-      <!-- Decorative elements -->
       <div class="absolute top-4 right-4 w-6 h-6 border-t-2 border-r-2 border-cyan-400/30 rounded-tr-lg"></div>
       <div class="absolute bottom-4 left-4 w-6 h-6 border-b-2 border-l-2 border-cyan-400/30 rounded-bl-lg"></div>
     </CardContent>
   </Card>
 </div>
+)}

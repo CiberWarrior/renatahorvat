@@ -6,6 +6,17 @@ import Footer from '../components/Footer.astro';
 import Badge from '../components/ui/Badge.astro';
 import Card from '../components/ui/Card.astro';
 import CardContent from '../components/ui/CardContent.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { projects } from '../lib/projects';
+
+const previewTitles = [
+  'Genetika e-book',
+  'ICD11 - XI. International Congress of Dipterology',
+  'FEPS - Federation of European Phycological Societies',
+];
+const previewProjects = previewTitles
+  .map((title) => projects.find((project) => project.title === title))
+  .filter((project) => project !== undefined);
 
 // SEO optimized page data
 const pageTitle = "Renata Horvat – Web Designer & Developer | Zagreb";
@@ -154,6 +165,29 @@ const pageKeywords = "designer Croatia, science communication, e-learning design
               </div>
             </CardContent>
           </Card>
+        </div>
+
+        <div class="mb-20">
+          <div class="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h2 class="text-2xl font-black text-white sm:text-3xl">Selected work</h2>
+              <p class="mt-2 max-w-xl text-gray-400">A textbook, a congress and a scientific society.</p>
+            </div>
+            <a
+              href="/work"
+              class="inline-flex items-center gap-2 text-sm font-semibold text-cyan-400 transition-colors duration-200 hover:text-cyan-300"
+            >
+              All projects
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+          <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {previewProjects.map((project) => (
+              <ProjectCard {...project} />
+            ))}
+          </div>
         </div>
 
         <div class="text-center mb-10">
