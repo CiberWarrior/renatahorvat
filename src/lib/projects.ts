@@ -12,19 +12,37 @@ export interface Project {
   caseStudySlug?: string;
   image?: string;
   role?: string;
+  /** Kept for reference but not shown in the portfolio (outside the academic niche) */
+  archived?: boolean;
 }
 
 export const projects: Project[] = [
   // Projects with links
   {
+    title: 'Mirisni potpisi - Fragrant Signatures',
+    summary:
+      'Website for the handbook on creating natural perfumes: book presentation, table of contents and reviews, education and events, in Croatian and English, with online ordering.',
+    href: 'https://www.fragrant-signatures.eu/',
+    tags: ['Handbook', 'Education', 'Natural perfumery', 'Bilingual'],
+    icon: 'book',
+    iconBg: 'purple-pink',
+    category: 'elearning',
+    featured: true,
+    image: '/images/work/fragrant-signatures.jpg',
+    role: 'Bilingual website for a handbook and courses on natural perfume making.',
+  },
+  {
     title: 'Bacteriology e-book',
     summary:
-      'Interactive e-learning platform with fast navigation and engaging visual content for medical students.',
+      'Online textbook and lab manual for the bacteriology practical at the Faculty of Science, University of Zagreb, with step-by-step guides from aseptic technique to identifying bacteria.',
     href: 'https://bakteriologija.biol.pmf.hr',
-    tags: ['Education', 'Medical'],
+    tags: ['Education', 'Microbiology', 'E-learning'],
     icon: 'book',
     iconBg: 'cyan-blue',
     category: 'elearning',
+    featured: true,
+    image: '/images/work/bakteriologija.jpg',
+    role: 'Online textbook and lab manual for a university bacteriology practical.',
   },
   {
     title: 'Genetika e-book',
@@ -49,6 +67,19 @@ export const projects: Project[] = [
     icon: 'leaf',
     iconBg: 'green-teal',
     category: 'other',
+  },
+  {
+    title: 'IST 2027 - 19th International Symposium on Trichoptera',
+    summary:
+      'Official website for the 19th International Symposium on Trichoptera, held in Zagreb, Croatia, in July 2027. Features programme, registration, abstract submission, venue information and a gallery of caddisflies.',
+    href: 'https://trichoptera.biol.pmf.hr/',
+    tags: ['Trichoptera', 'Entomology', 'Symposium', 'Zagreb', 'International'],
+    icon: 'users',
+    iconBg: 'green-teal',
+    category: 'conference',
+    featured: true,
+    image: '/images/work/trichoptera.jpg',
+    role: 'Symposium website for the programme, registration, abstracts and venue.',
   },
   {
     title: 'ICD11 - XI. International Congress of Dipterology',
@@ -148,6 +179,9 @@ export const projects: Project[] = [
     icon: 'database',
     iconBg: 'violet-purple',
     category: 'society',
+    featured: true,
+    image: '/images/work/diatoms.jpg',
+    role: 'Digital collection of Croatian diatoms: species database, specimens and research materials.',
   },
   {
     title: 'Croatian Biological Society (HBD-SBC)',
@@ -198,6 +232,10 @@ export const projects: Project[] = [
     icon: 'bicycle',
     iconBg: 'pink-red',
     category: 'other',
+    archived: true,
   },
 
 ];
+
+/** Projects shown on the site */
+export const portfolio = projects.filter((p) => !p.archived && p.href.trim() !== '');

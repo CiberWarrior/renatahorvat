@@ -3,20 +3,42 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import Footer from '../components/Footer.astro';
-import Badge from '../components/ui/Badge.astro';
-import Card from '../components/ui/Card.astro';
-import CardContent from '../components/ui/CardContent.astro';
-import ProjectCard from '../components/ProjectCard.astro';
-import { projects } from '../lib/projects';
+import CaseCard from '../components/CaseCard.astro';
+import ContactCta from '../components/ContactCta.astro';
+import { projects, portfolio } from '../lib/projects';
 
-const previewTitles = [
-  'Genetika e-book',
-  'ICD11 - XI. International Congress of Dipterology',
-  'FEPS - Federation of European Phycological Societies',
+const previews = [
+  { title: 'Genetika e-book', meta: 'E-textbook · Faculty of Science' },
+  { title: 'ICD11 - XI. International Congress of Dipterology', meta: 'Congress · International' },
+  { title: 'Croatian National Diatom Collection', meta: 'Collection · Faculty of Science' },
 ];
-const previewProjects = previewTitles
-  .map((title) => projects.find((project) => project.title === title))
-  .filter((project) => project !== undefined);
+const previewProjects = previews.flatMap(({ title, meta }) => {
+  const project = projects.find((p) => p.title === title);
+  return project?.image ? [{ ...project, image: project.image, meta }] : [];
+});
+
+const services = [
+  {
+    title: 'Conference & congress websites',
+    text: 'For organising committees who need the site live before the call for abstracts.',
+    items: ['Programme and speakers', 'Registration and abstract submission', 'Venue, travel and an archive after the event'],
+  },
+  {
+    title: 'Society & research group websites',
+    text: 'Long-lived sites for news, membership, publications and outreach.',
+    items: ['Membership and events', 'Publication lists', 'Content your team can update'],
+  },
+  {
+    title: 'E-textbooks & e-learning',
+    text: 'Course material students can read on a phone and come back to during revision.',
+    items: ['Chapter structure and navigation', 'Teaching diagrams in one consistent style'],
+  },
+  {
+    title: 'Science figures & infographics',
+    text: 'Got a paper, presentation or dataset that needs to make sense visually? On their own or as part of a bigger build.',
+    items: ['Publication-ready vector files', 'A consistent style across a series'],
+  },
+];
 
 // SEO optimized page data
 const pageTitle = "Renata Horvat – Web Designer & Developer | Zagreb";
@@ -24,246 +46,114 @@ const pageDescription = "Renata Horvat is a Croatian designer specializing in sc
 const pageKeywords = "designer Croatia, science communication, e-learning design, academic websites, visual design, instructional design, educational design, scientific visualization, infographics, digital creator, web design Croatia, university websites, research communication, Zagreb designer";
 ---
 
-<Layout 
-  title={pageTitle} 
+<Layout
+  title={pageTitle}
   description={pageDescription}
   keywords={pageKeywords}
-  preloadResources={[{ href: '/images/renatahorvat.jpg', as: 'image', type: 'image/jpeg' }]}
 >
   <Header />
-  <!-- Content: Layout.astro already wraps slot in <main id="main-content">; no duplicate main here -->
-    <Hero />
+  <!-- Layout.astro already wraps slot in <main id="main-content"> -->
+  <Hero />
 
-    <!-- About Section -->
-    <section class="py-16 bg-transparent" aria-labelledby="about-heading">
-      <div class="max-w-4xl mx-auto px-6">
-        <div class="flex flex-col items-start gap-8 lg:flex-row lg:gap-16">
+  <!-- Selected work -->
+  <section id="work" class="scroll-mt-20 border-b border-rule py-16 sm:py-20" aria-labelledby="work-heading">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="mb-10 flex flex-wrap items-end justify-between gap-4">
+        <h2 id="work-heading" class="font-serif text-4xl font-medium text-ink sm:text-[2.6rem]">Selected work</h2>
+        <a href="/work" class="group font-medium text-sci hover:text-sci-dark">All {portfolio.length} projects <span class="inline-block transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true">→</span></a>
+      </div>
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {previewProjects.map((project) => (
+          <CaseCard
+            title={project.title}
+            href={project.href}
+            image={project.image}
+            role={project.role}
+            summary={project.summary}
+            meta={project.meta}
+            category={project.category}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
 
-          <!-- Left: photo -->
-          <div class="flex-shrink-0 flex justify-center w-full lg:w-auto">
-            <div class="rounded-full p-[2px] bg-gradient-to-r from-cyan-400/80 via-blue-500/80 to-purple-500/80 w-[112px] h-[112px] lg:w-[136px] lg:h-[136px]">
-              <img
-                src="/images/renatahorvat.jpg"
-                alt="Renata Horvat - Web Designer & Developer"
-                width="132"
-                height="132"
-                loading="eager"
-                decoding="async"
-                fetchpriority="high"
-                class="w-[108px] h-[108px] lg:w-[132px] lg:h-[132px] rounded-full object-cover block"
-              />
-            </div>
+  <!-- Services -->
+  <section class="border-b border-rule bg-surface py-16 sm:py-20" aria-labelledby="services-heading">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="mb-10 flex flex-wrap items-end justify-between gap-4">
+        <h2 id="services-heading" class="font-serif text-4xl font-medium text-ink sm:text-[2.6rem]">What I build</h2>
+        <a href="/prices" class="group font-medium text-sci hover:text-sci-dark">Pricing <span class="inline-block transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true">→</span></a>
+      </div>
+      <div class="grid border-t border-ink md:grid-cols-2">
+        {services.map((service, i) => (
+          <div class={`grid min-w-0 content-start gap-3 border-b border-rule py-7 ${i % 2 === 1 ? 'md:border-l md:pl-8' : 'md:pr-8'}`}>
+            <h3 class="font-serif text-2xl font-medium text-ink">{service.title}</h3>
+            <p class="text-[15px] leading-relaxed text-ink-soft">{service.text}</p>
+            <ul class="list-disc space-y-1 pl-5 text-[15px] text-ink marker:text-sci">
+              {service.items.map((item) => <li>{item}</li>)}
+            </ul>
           </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
-          <!-- Right: label + heading + bio -->
-          <div class="flex-1 max-w-3xl space-y-4 sm:space-y-5">
-            <Badge variant="default" class="gap-2">
-              <span class="w-2 h-2 bg-cyan-400 rounded-full"></span>
-              About
-            </Badge>
-            <h2
-              id="about-heading"
-              class="text-2xl lg:text-3xl font-black text-white leading-snug"
-            >
-              Designing for people who work with knowledge
-            </h2>
-            <!-- Keep the copy untouched; only strengthen the visual lead paragraph. -->
-            <p class="text-gray-200 text-lg leading-relaxed sm:text-xl">
-              I'm Renata — a web designer and developer based in Zagreb with over 20 years of experience building digital tools for the academic and research world.
-            </p>
-            <p class="text-gray-300 text-base leading-relaxed max-w-2xl">
-              I work with universities, scientific societies, and research teams who need websites and platforms that handle complex content, stay maintainable, and actually serve their users long after launch — not just look good at the handover.
-            </p>
-            <p class="text-gray-300 text-base leading-relaxed max-w-2xl">
-              My background is in science communication, which means I'm comfortable with dense subject matter and experienced in turning it into something clear, readable, and usable.
-            </p>
-            <a
-              href="/contact"
-              class="inline-flex items-center gap-2 pt-3 text-cyan-400 hover:text-cyan-300 font-semibold transition-colors duration-200"
-            >
-              Let's talk about your project
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
-          </div>
-
+  <!-- About -->
+  <section id="about" class="scroll-mt-20 border-b border-rule py-16 sm:py-20" aria-labelledby="about-heading">
+    <div class="mx-auto grid max-w-6xl items-start gap-10 px-4 sm:px-6 md:grid-cols-[180px_1fr] md:gap-16">
+      <!-- Portrait -->
+      <div class="flex items-center gap-5 md:flex-col md:items-start md:gap-6">
+        <div class="relative h-32 w-32 shrink-0 md:h-36 md:w-36">
+          <span class="absolute inset-0 translate-x-2.5 translate-y-2.5 rounded-full bg-sci-soft" aria-hidden="true"></span>
+          <img
+            src="/images/renatahorvat.jpg"
+            alt="Portrait of Renata Horvat"
+            width="288"
+            height="288"
+            loading="lazy"
+            decoding="async"
+            class="relative h-full w-full rounded-full object-cover object-[50%_25%] ring-4 ring-paper"
+          />
+        </div>
+        <div>
+          <p class="font-serif text-xl font-medium text-ink">Renata Horvat</p>
+          <p class="mt-0.5 font-mono text-xs uppercase tracking-[.06em] text-ink-soft">Zagreb · 20+ years</p>
         </div>
       </div>
-    </section>
 
-    <!-- What I Do Section -->
-    <section class="py-20 bg-transparent">
-      <div class="relative max-w-7xl mx-auto px-6">
-        <div class="text-center mb-16">
-          <Badge variant="default" class="gap-2 mb-6">
-            <span class="w-2 h-2 bg-cyan-400 rounded-full"></span>
-            What I Do
-          </Badge>
-          <h2 class="text-4xl lg:text-5xl font-black text-white mb-6">
-            <span class="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
-              Web design and development
-            </span>
-          </h2>
-          <p class="text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto">
-            Clear, maintainable websites for organizations, projects, and small teams.
-          </p>
-        </div>
-
-        <!-- Three Service Areas - same content, improved scanability and tablet layout -->
-        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 mb-16">
-          <!-- Digital platforms -->
-          <Card class="h-full bg-gray-900/60 border border-blue-400/20 hover:border-blue-400/40 transition-all duration-300">
-            <CardContent class="flex h-full flex-col p-6 pt-6 sm:p-8 sm:pt-8 text-left">
-              <div class="w-14 h-14 bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mb-6">
-                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
-                </svg>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-3">Websites & platforms</h3>
-              <p class="text-gray-300 leading-relaxed mb-4">
-                Whether it's a university website, an e-learning platform, or a conference site — built to handle complex content and stay easy to manage long after launch.
-              </p>
-              <div class="mt-auto pt-3 text-sm text-blue-400 font-semibold">
-                Built for the long run
-              </div>
-            </CardContent>
-          </Card>
-
-          <!-- Content & communication -->
-          <Card class="h-full bg-gray-900/60 border border-cyan-400/20 hover:border-cyan-400/40 transition-all duration-300">
-            <CardContent class="flex h-full flex-col p-6 pt-6 sm:p-8 sm:pt-8 text-left">
-              <div class="w-14 h-14 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-xl flex items-center justify-center mb-6">
-                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
-                </svg>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-3">Science visuals & infographics</h3>
-              <p class="text-gray-300 leading-relaxed mb-4">
-                Got a paper, presentation, or dataset that needs to make sense visually? Science visuals and infographics — as a standalone project or woven into a bigger build.
-              </p>
-              <div class="mt-auto pt-3 text-sm text-cyan-400 font-semibold">
-                Complex data made visible
-              </div>
-            </CardContent>
-          </Card>
-
-          <!-- Long-term support -->
-          <Card class="h-full bg-gray-900/60 border border-purple-400/20 hover:border-purple-400/40 transition-all duration-300 md:col-span-2 lg:col-span-1">
-            <CardContent class="flex h-full flex-col p-6 pt-6 sm:p-8 sm:pt-8 text-left">
-              <div class="w-14 h-14 bg-gradient-to-r from-purple-600 to-pink-500 rounded-xl flex items-center justify-center mb-6">
-                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-              </div>
-              <h3 class="text-xl font-bold text-white mb-3">Design without development</h3>
-              <p class="text-gray-300 leading-relaxed mb-4">
-                Already have a developer but need someone for the design side? Or just a hand with updates? Available for design-only work and ad hoc support whenever you need it.
-              </p>
-              <div class="mt-auto pt-3 text-sm text-purple-400 font-semibold">
-                Here when you need it
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
-        <div class="mb-20">
-          <div class="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <h2 class="text-2xl font-black text-white sm:text-3xl">Selected work</h2>
-              <p class="mt-2 max-w-xl text-gray-400">A textbook, a congress and a scientific society.</p>
-            </div>
-            <a
-              href="/work"
-              class="inline-flex items-center gap-2 text-sm font-semibold text-cyan-400 transition-colors duration-200 hover:text-cyan-300"
-            >
-              All projects
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
+      <div class="max-w-2xl space-y-5">
+        <h2 id="about-heading" class="font-serif text-3xl font-medium leading-tight text-balance text-ink sm:text-4xl">
+          Designing for people who work with knowledge
+        </h2>
+        <p class="text-lg leading-relaxed text-ink">
+          I'm Renata, a web designer and developer based in Zagreb with over 20 years of experience building digital tools for the academic and research world.
+        </p>
+        <p class="leading-relaxed text-ink-soft">
+          I work with universities, scientific societies and research teams who need websites and platforms that handle complex content, stay maintainable, and serve their users long after launch.
+        </p>
+        <p class="leading-relaxed text-ink-soft">
+          My background is in science communication, so I'm comfortable with dense subject matter and experienced in turning it into something clear, readable and usable.
+        </p>
+        <dl class="grid grid-cols-3 gap-4 border-t border-rule pt-6">
+          <div>
+            <dt class="text-sm text-ink-soft">Years</dt>
+            <dd class="font-serif text-3xl font-medium tabular-nums text-sci" data-count="20" data-suffix="+">20+</dd>
           </div>
-          <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {previewProjects.map((project) => (
-              <ProjectCard {...project} />
-            ))}
+          <div>
+            <dt class="text-sm text-ink-soft">Projects</dt>
+            <dd class="font-serif text-3xl font-medium tabular-nums text-sci" data-count="50" data-suffix="+">50+</dd>
           </div>
-        </div>
-
-        <div class="text-center mb-10">
-          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white mb-4">
-            <span class="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
-              Built to last, not just to launch
-            </span>
-          </h2>
-          <p class="text-lg text-gray-400 max-w-2xl mx-auto">
-            Two decades of working with academic and research teams — here's what that looks like in numbers.
-          </p>
-        </div>
-
-        <!-- Stats -->
-        <div class="max-w-5xl mx-auto mb-16">
-          <div class="relative gpu-accelerated">
-            <div class="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-2xl blur-sm opacity-20"></div>
-            <Card class="relative bg-gray-900/90 border border-cyan-400/20 gpu-accelerated">
-              <CardContent class="p-8 lg:p-12">
-                <div class="grid md:grid-cols-3 gap-8 text-center">
-                  <div>
-                    <div class="text-4xl lg:text-5xl font-black bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-2">
-                      20+
-                    </div>
-                    <div class="text-gray-300 font-medium">Years of Experience</div>
-                    <div class="text-sm text-gray-400 mt-1">Working with academic and research teams</div>
-                  </div>
-                  <div>
-                    <div class="text-4xl lg:text-5xl font-black bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent mb-2">
-                      50+
-                    </div>
-                    <div class="text-gray-300 font-medium">Projects Delivered</div>
-                    <div class="text-sm text-gray-400 mt-1">Academic websites, e-learning, and research platforms</div>
-                  </div>
-                  <div>
-                    <div class="text-4xl lg:text-5xl font-black bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent mb-2">
-                      15+
-                    </div>
-                    <div class="text-gray-300 font-medium">Universities & Institutions</div>
-                    <div class="text-sm text-gray-400 mt-1">Ongoing and long-term collaborations</div>
-                  </div>
-                </div>
-                <div class="mt-10 pt-8 border-t border-gray-700">
-                  <div class="text-center">
-                    <p class="text-gray-400 text-sm uppercase tracking-wider mb-4">Trusted by</p>
-                    <!-- Same trust names, reorganized into a wrapped layout for smaller screens. -->
-                    <div class="flex flex-wrap items-center justify-center gap-3 text-sm sm:text-base">
-                      <span class="font-semibold text-cyan-400">University of Zagreb</span>
-                      <span class="text-gray-500">•</span>
-                      <span class="text-gray-300">Croatian Botanical Society</span>
-                      <span class="text-gray-500">•</span>
-                      <span class="text-gray-300">Croatian Biological Society</span>
-                      <span class="text-gray-500">•</span>
-                      <span class="text-gray-300">FEPS Europe</span>
-                      <span class="text-gray-500">•</span>
-                      <span class="text-gray-300">and other academic and research organizations</span>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+          <div>
+            <dt class="text-sm text-ink-soft">Institutions</dt>
+            <dd class="font-serif text-3xl font-medium tabular-nums text-sci" data-count="15" data-suffix="+">15+</dd>
           </div>
-        </div>
-
-        <!-- Keep the same CTA content, but let spacing carry the section transition. -->
-        <div class="mx-auto max-w-4xl text-center pt-6 sm:pt-8">
-          <a 
-            href="/work" 
-            class="inline-flex w-full items-center justify-center rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-4 text-lg font-bold text-white transition-all duration-300 hover:from-cyan-600 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900 sm:w-auto sm:px-10 sm:py-5 sm:text-xl"
-            onclick="if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: 'view_portfolio', cta_location: 'homepage' })"
-          >
-            Explore Selected Projects →
-          </a>
-        </div>
+        </dl>
       </div>
-    </section>
+    </div>
+  </section>
+
+  <ContactCta location="homepage_bottom" />
 
   <Footer />
 </Layout>

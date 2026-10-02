@@ -38,9 +38,9 @@ const {
 const absoluteOgImage =
   ogImage.startsWith('http') ? ogImage : new URL(ogImage, Astro.url.origin).href;
 
-// Non-render-blocking font URL — reduced weights (400,800) for faster LCP
+// Non-render-blocking font URL
 const fontCssUrl =
-  'https://fonts.googleapis.com/css2?family=Inter:wght@400;800&family=Bungee&display=swap';
+  'https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap';
 ---
 
 <!DOCTYPE html>
@@ -60,12 +60,13 @@ const fontCssUrl =
     <link rel="canonical" href={canonical} />
     
     <!-- Performance -->
-    <meta name="theme-color" content="#15293f" />
-    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#f5f7f4" />
+    <meta name="color-scheme" content="light" />
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/images/icon.png" />
-    <link rel="apple-touch-icon" href="/images/icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/images/icon.png" />
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
     
     <!-- Sitemap -->
     <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
@@ -405,9 +406,9 @@ const fontCssUrl =
       </>
     )}
   </head>
-  <body class="min-h-screen text-white antialiased" style="background-color: #15293f;">
+  <body class="min-h-screen bg-paper font-text text-ink antialiased">
     <!-- Skip to main content link for accessibility -->
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[10000] focus:px-4 focus:py-2 focus:bg-cyan-500 focus:text-white focus:rounded-lg focus:font-semibold">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[10000] focus:px-4 focus:py-2 focus:bg-sci focus:text-white focus:rounded-md focus:font-medium">
       Skip to main content
     </a>
     <main id="main-content" tabindex="-1">
@@ -417,66 +418,56 @@ const fontCssUrl =
     <!-- Cookie Consent Banner -->
     <CookieConsent />
     
-    <!-- Scripts: Defer non-critical reveal animations to improve INP -->
+    <!-- Gentle scroll reveal and count-up; skipped for reduced motion -->
     <script>
-      function runRevealAnimations() {
-        const observerOptions = {
-          threshold: 0.1,
-          rootMargin: '0px 0px -50px 0px'
-        };
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              (entry.target as HTMLElement).style.opacity = '1';
-              (entry.target as HTMLElement).style.transform = 'translate3d(0, 0, 0)';
-              observer.unobserve(entry.target);
-            }
+      if (!reduceMotion && 'IntersectionObserver' in window) {
+        const reveal = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target as HTMLElement;
+            reveal.unobserve(el);
+            el.classList.add('revealed');
+            // Hand the element back to its normal hover transitions once the entrance is done
+            window.setTimeout(() => {
+              el.classList.remove('reveal-pending', 'revealed');
+              el.style.transitionDelay = '';
+            }, 1100);
           });
-        }, observerOptions);
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-        document.querySelectorAll('.reveal').forEach(el => {
-          const element = el as HTMLElement;
-          element.style.opacity = '0';
-          element.style.transform = 'translate3d(0, 30px, 0)';
-          element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-          element.style.willChange = 'opacity, transform';
-          observer.observe(el);
+        document.querySelectorAll<HTMLElement>('[data-reveal]').forEach((el) => {
+          const siblings = el.parentElement ? Array.from(el.parentElement.children) : [el];
+          el.style.transitionDelay = `${(siblings.indexOf(el) % 4) * 80}ms`;
+          el.classList.add('reveal-pending');
+          reveal.observe(el);
         });
 
-        document.querySelectorAll('.reveal-stagger').forEach((container) => {
-          const children = container.children;
-          Array.from(children).forEach((child, childIndex) => {
-            const childElement = child as HTMLElement;
-            childElement.style.opacity = '0';
-            childElement.style.transform = 'translate3d(0, 30px, 0)';
-            childElement.style.transition = `opacity 0.6s ease ${childIndex * 0.1}s, transform 0.6s ease ${childIndex * 0.1}s`;
-            childElement.style.willChange = 'opacity, transform';
+        const counter = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target as HTMLElement;
+            counter.unobserve(el);
+            const target = Number(el.dataset.count);
+            const suffix = el.dataset.suffix ?? '';
+            const start = performance.now();
+            const tick = (now: number) => {
+              const t = Math.min((now - start) / 1200, 1);
+              el.textContent = `${Math.round(target * (1 - Math.pow(1 - t, 3)))}${suffix}`;
+              if (t < 1) requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
           });
+        }, { threshold: 0.6 });
 
-          const staggerObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                Array.from(entry.target.children).forEach(child => {
-                  (child as HTMLElement).style.opacity = '1';
-                  (child as HTMLElement).style.transform = 'translate3d(0, 0, 0)';
-                });
-                staggerObserver.unobserve(entry.target);
-              }
-            });
-          }, observerOptions);
-          staggerObserver.observe(container);
+        document.querySelectorAll<HTMLElement>('[data-count]').forEach((el) => {
+          el.textContent = `0${el.dataset.suffix ?? ''}`;
+          counter.observe(el);
         });
-      }
-
-      // Defer to avoid blocking main thread during first interaction (improves INP)
-      if ('requestIdleCallback' in window) {
-        window.requestIdleCallback(runRevealAnimations, { timeout: 500 });
-      } else {
-        document.addEventListener('DOMContentLoaded', runRevealAnimations);
       }
     </script>
-    
+
     <!-- Vercel Speed Insights -->
     <SpeedInsights />
   </body>

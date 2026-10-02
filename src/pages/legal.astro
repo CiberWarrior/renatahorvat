@@ -10,53 +10,51 @@ const lastUpdated = 'March 10, 2026';
 
 <Layout title={pageTitle} description={pageDescription}>
   <Header />
-  <div class="py-16 sm:py-20 bg-transparent">
+  <div class="py-14 sm:py-16">
     <div class="max-w-4xl mx-auto px-6">
 
       <!-- Header -->
-      <div class="text-center mb-12">
-        <h1 class="text-4xl lg:text-5xl font-black text-white mb-4">
-          <span class="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
-            Legal Notice
-          </span>
+      <div class="mb-12">
+        <h1 class="font-serif text-4xl font-medium text-ink sm:text-5xl mb-4">
+          Legal Notice
         </h1>
-        <p class="text-gray-400 text-sm">
-          Last Updated: <span class="text-cyan-400">{lastUpdated}</span>
+        <p class="text-ink-soft text-sm">
+          Last Updated: <span class="text-sci">{lastUpdated}</span>
         </p>
       </div>
 
       <!-- Content -->
-      <div class="prose prose-invert prose-lg max-w-none">
+      <div class="max-w-none">
 
         <!-- Intro -->
-        <div class="bg-gray-900/60 border border-cyan-400/20 rounded-2xl p-8 mb-8">
-          <p class="text-gray-300 leading-relaxed mb-0">
+        <div class="bg-surface border border-rule rounded-lg p-8 mb-8">
+          <p class="text-ink-soft leading-relaxed mb-0">
             This Legal Notice provides information about the owner and operator of this website in accordance with applicable Croatian and EU law.
           </p>
         </div>
 
         <!-- 1. Business Information -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-3">
-            <span class="w-8 h-8 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center text-sm">1</span>
+          <h2 class="font-serif text-2xl font-medium text-ink mb-4 flex items-baseline gap-3">
+            <span class="font-mono text-sm text-sci">1.</span>
             Business Information
           </h2>
-          <div class="bg-gray-900/40 border border-gray-700/30 rounded-xl p-6">
-            <div class="space-y-4 text-gray-300">
+          <div class="bg-surface border border-rule rounded-xl p-6">
+            <div class="space-y-4 text-ink-soft">
               <div class="flex flex-col sm:flex-row sm:items-start gap-2">
-                <strong class="text-white min-w-[200px]">Business Name:</strong>
+                <strong class="text-ink min-w-[200px]">Business Name:</strong>
                 <span>CreativeStar, Computer Programming and IT Services</span>
               </div>
               <div class="flex flex-col sm:flex-row sm:items-start gap-2">
-                <strong class="text-white min-w-[200px]">Owner:</strong>
+                <strong class="text-ink min-w-[200px]">Owner:</strong>
                 <span>Renata Horvat</span>
               </div>
               <div class="flex flex-col sm:flex-row sm:items-start gap-2">
-                <strong class="text-white min-w-[200px]">Address:</strong>
+                <strong class="text-ink min-w-[200px]">Address:</strong>
                 <span>Josipa Pupačića 4, 10090 Zagreb, Croatia</span>
               </div>
               <div class="flex flex-col sm:flex-row sm:items-start gap-2">
-                <strong class="text-white min-w-[200px]">OIB (Tax ID):</strong>
+                <strong class="text-ink min-w-[200px]">OIB (Tax ID):</strong>
                 <span>04904111520</span>
               </div>
             </div>
@@ -65,15 +63,15 @@ const lastUpdated = 'March 10, 2026';
 
         <!-- 2. Contact -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-3">
-            <span class="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center text-sm">2</span>
+          <h2 class="font-serif text-2xl font-medium text-ink mb-4 flex items-baseline gap-3">
+            <span class="font-mono text-sm text-sci">2.</span>
             Contact
           </h2>
-          <div class="bg-gray-900/40 border border-gray-700/30 rounded-xl p-6">
-            <div class="space-y-2 text-gray-300">
+          <div class="bg-surface border border-rule rounded-xl p-6">
+            <div class="space-y-2 text-ink-soft">
               <p class="mb-0">
-                <strong class="text-white">Email: </strong>
-                <a href="mailto:screatives.info@gmail.com" class="text-cyan-400 hover:text-cyan-300 transition-colors duration-300">
+                <strong class="text-ink">Email: </strong>
+                <a href="mailto:screatives.info@gmail.com" class="text-sci hover:text-sci-dark transition-colors duration-300">
                   screatives.info@gmail.com
                 </a>
               </p>
@@ -83,15 +81,15 @@ const lastUpdated = 'March 10, 2026';
 
         <!-- 3. Disclaimer of Liability -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-3">
-            <span class="w-8 h-8 bg-gradient-to-r from-purple-600 to-pink-500 rounded-lg flex items-center justify-center text-sm">3</span>
+          <h2 class="font-serif text-2xl font-medium text-ink mb-4 flex items-baseline gap-3">
+            <span class="font-mono text-sm text-sci">3.</span>
             Disclaimer of Liability
           </h2>
-          <div class="bg-gray-900/40 border border-gray-700/30 rounded-xl p-6">
-            <p class="text-gray-300 leading-relaxed mb-4">
+          <div class="bg-surface border border-rule rounded-xl p-6">
+            <p class="text-ink-soft leading-relaxed mb-4">
               The content of this website has been compiled with the greatest possible care. However, we cannot guarantee the accuracy, completeness, or timeliness of the information provided.
             </p>
-            <p class="text-gray-300 leading-relaxed mb-0">
+            <p class="text-ink-soft leading-relaxed mb-0">
               We reserve the right to modify, supplement, or delete parts of the website or the entire website without prior notice.
             </p>
           </div>
@@ -99,15 +97,15 @@ const lastUpdated = 'March 10, 2026';
 
         <!-- 4. Copyright -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-3">
-            <span class="w-8 h-8 bg-gradient-to-r from-green-500 to-teal-500 rounded-lg flex items-center justify-center text-sm">4</span>
+          <h2 class="font-serif text-2xl font-medium text-ink mb-4 flex items-baseline gap-3">
+            <span class="font-mono text-sm text-sci">4.</span>
             Copyright
           </h2>
-          <div class="bg-gray-900/40 border border-gray-700/30 rounded-xl p-6">
-            <p class="text-gray-300 leading-relaxed mb-4">
+          <div class="bg-surface border border-rule rounded-xl p-6">
+            <p class="text-ink-soft leading-relaxed mb-4">
               All content published on this website — including text, images, graphics, and design — is the intellectual property of Renata Horvat / CreativeStar and is protected by applicable copyright law.
             </p>
-            <p class="text-gray-300 leading-relaxed mb-0">
+            <p class="text-ink-soft leading-relaxed mb-0">
               Any reproduction, distribution, or use of content from this website without prior written consent is strictly prohibited.
             </p>
           </div>
@@ -115,12 +113,12 @@ const lastUpdated = 'March 10, 2026';
 
         <!-- 5. External Links -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-3">
-            <span class="w-8 h-8 bg-gradient-to-r from-amber-500 to-orange-500 rounded-lg flex items-center justify-center text-sm">5</span>
+          <h2 class="font-serif text-2xl font-medium text-ink mb-4 flex items-baseline gap-3">
+            <span class="font-mono text-sm text-sci">5.</span>
             External Links
           </h2>
-          <div class="bg-gray-900/40 border border-gray-700/30 rounded-xl p-6">
-            <p class="text-gray-300 leading-relaxed mb-0">
+          <div class="bg-surface border border-rule rounded-xl p-6">
+            <p class="text-ink-soft leading-relaxed mb-0">
               This website may contain links to external websites. We have no control over the content of those websites and accept no responsibility for them. At the time of linking, the linked pages were checked for potential legal violations — no illegal content was found. We will remove any links promptly if violations are identified.
             </p>
           </div>
@@ -128,12 +126,12 @@ const lastUpdated = 'March 10, 2026';
 
         <!-- 6. Governing Law -->
         <section class="mb-12">
-          <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-3">
-            <span class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-violet-500 rounded-lg flex items-center justify-center text-sm">6</span>
+          <h2 class="font-serif text-2xl font-medium text-ink mb-4 flex items-baseline gap-3">
+            <span class="font-mono text-sm text-sci">6.</span>
             Governing Law
           </h2>
-          <div class="bg-gray-900/40 border border-gray-700/30 rounded-xl p-6">
-            <p class="text-gray-300 leading-relaxed mb-0">
+          <div class="bg-surface border border-rule rounded-xl p-6">
+            <p class="text-ink-soft leading-relaxed mb-0">
               This Legal Notice is governed by the laws of the Republic of Croatia. Any disputes arising from the use of this website shall be subject to the jurisdiction of the competent courts in Zagreb, Croatia.
             </p>
           </div>
