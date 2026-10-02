@@ -2,13 +2,83 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import Badge from '../components/ui/Badge.astro';
-import Card from '../components/ui/Card.astro';
-import CardContent from '../components/ui/CardContent.astro';
+import ContactCta from '../components/ContactCta.astro';
 
 const pageTitle = "Pricing – Renata Horvat | Web Design Zagreb";
-const pageDescription = "Transparent pricing for web design and development projects. Landing pages from €500, websites from €1,000, extended websites from €1,800, and custom academic or e-learning platforms. Based in Zagreb, Croatia.";
-const pageKeywords = "web design pricing Croatia, website cost Zagreb, e-learning platform price, academic website pricing, freelance web developer rates Croatia";
+const pageDescription = "Starting prices for websites for research projects, scientific societies, research groups and departments, from €500. Conference websites, e-textbooks and science figures are quoted after a first call. Based in Zagreb, Croatia.";
+const pageKeywords = "academic website pricing, scientific society website cost, conference website price, e-learning platform price, research project website, web design pricing Croatia, website cost Zagreb";
+
+// Each package has a defined scope (pages, rounds of changes), so the price stays predictable
+const packages = [
+  {
+    name: 'Research project page',
+    price: '€500',
+    for: 'A single page for a research project, grant or lab.',
+    pages: '1 page',
+    cta: 'pricing_project_page',
+  },
+  {
+    name: 'Society or research group website',
+    price: '€1,000',
+    for: 'A multi-page site for a scientific society or research group.',
+    pages: 'Up to 5 pages',
+    cta: 'pricing_society',
+    common: true,
+  },
+  {
+    name: 'Department or institutional website',
+    price: '€1,800',
+    for: 'A larger site with several audiences.',
+    pages: 'Up to 10 pages',
+    cta: 'pricing_institutional',
+  },
+];
+
+// true = included, false = not included. Larger packages include everything in the smaller ones.
+const rows: { label: string; values: (string | boolean)[] }[] = [
+  { label: 'Pages', values: ['1', 'Up to 5', 'Up to 10'] },
+  { label: 'Rounds of design changes', values: ['2', '2', '2'] },
+  { label: 'Contact form', values: [true, true, true] },
+  { label: 'Funder logos and acknowledgements', values: [true, true, true] },
+  { label: 'Custom domain setup', values: [true, true, true] },
+  { label: 'Content your team can update', values: [false, true, true] },
+  { label: 'News and events', values: [false, true, true] },
+  { label: 'Membership information and forms', values: [false, true, true] },
+  { label: 'Publication lists', values: [false, true, true] },
+  { label: 'Content structure for several audiences', values: [false, false, true] },
+  { label: 'Analytics with event tracking', values: [false, false, true] },
+  { label: 'Schema markup for search engines', values: [false, false, true] },
+];
+
+const scoped = [
+  {
+    name: 'Conference & congress websites',
+    text: 'Programme, speakers, registration and abstract submission.',
+    factors: ['Registration and online payment', 'Abstract submission and review', 'Size of the programme and number of speakers', 'Number of languages', 'Archive after the event'],
+  },
+  {
+    name: 'E-textbooks & e-learning',
+    text: 'Online course material with clear navigation, quizzes and diagrams.',
+    factors: ['Number of chapters and amount of material', 'Number of figures and diagrams', 'Quizzes and other interactive parts', 'Moving existing content online'],
+  },
+  {
+    name: 'Science figures & infographics',
+    text: 'Diagrams for papers, posters, lectures and textbooks.',
+    factors: ['Number of figures', 'Simple diagram or detailed illustration', 'Delivery formats for print and web'],
+  },
+];
+
+const afterLaunch = [
+  'Content and software updates',
+  'Hosting and domain help',
+  'Design-only work for teams that already have a developer',
+];
+
+const steps = [
+  { title: 'Free first call', text: 'We talk through what you need. No brief and no commitment required.' },
+  { title: 'Written quote', text: 'You get a tailored quote with the scope and the price, so you can compare it and plan your budget.' },
+  { title: 'Build and handover', text: 'I build the site and hand it over so your team can keep it up to date.' },
+];
 ---
 
 <Layout
@@ -18,237 +88,148 @@ const pageKeywords = "web design pricing Croatia, website cost Zagreb, e-learnin
 >
   <Header />
 
-  <!-- Hero -->
-  <section class="py-20 bg-transparent">
-    <div class="max-w-3xl mx-auto px-6 text-center">
-      <Badge variant="default" class="gap-2 mb-6">
-        <span class="w-2 h-2 bg-cyan-400 rounded-full"></span>
-        Pricing
-      </Badge>
-      <h1 class="text-4xl lg:text-5xl font-black text-white mb-6">
-        <span class="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
-          Simple, transparent pricing
-        </span>
+  <!-- Intro -->
+  <section class="border-b border-rule py-14 sm:py-16">
+    <div class="mx-auto max-w-6xl space-y-5 px-4 sm:px-6">
+      <p class="font-mono text-xs uppercase tracking-[.08em] text-ink-soft">Pricing</p>
+      <h1 class="max-w-3xl font-serif text-4xl font-medium leading-tight text-balance text-ink sm:text-5xl">
+        Starting prices for academic and research websites
       </h1>
-      <p class="text-xl text-gray-300 leading-relaxed">
-        Every project is different — these are starting points, not limits. Complex or custom work gets a tailored quote after our first call.
+      <p class="max-w-2xl text-lg leading-relaxed text-ink-soft">
+        Every project is different. The three packages below show where prices start for professional, business and institutional clients. Each has a defined scope, and larger projects get a tailored quote after our first call.
       </p>
-      <div class="mt-8 max-w-xl mx-auto">
-        <p class="text-sm font-semibold text-gray-200">
-          Pricing for businesses and organisations
-        </p>
-        <p class="mt-2 text-sm text-gray-400 leading-relaxed">
-          Starting prices shown below apply to professional, business and institutional clients. Final pricing depends on project scope, requirements and complexity.
-        </p>
+    </div>
+  </section>
+
+  <!-- Packages -->
+  <section class="py-14 sm:py-16" aria-labelledby="packages-heading">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <h2 id="packages-heading" class="sr-only">Website packages</h2>
+      <div class="grid gap-10 border-t border-ink pt-8 md:grid-cols-3 md:gap-0">
+        {packages.map((pkg, i) => (
+          <article class={`flex min-w-0 flex-col gap-3 ${i > 0 ? 'md:border-l md:border-rule md:pl-8' : ''} ${i < packages.length - 1 ? 'md:pr-8' : ''}`}>
+            <div class={`min-h-6 items-center ${pkg.common ? 'flex' : 'hidden md:flex'}`}>
+              {pkg.common && (
+                <span class="rounded-full bg-sci-soft px-2.5 py-0.5 font-mono text-[11px] uppercase tracking-[.06em] text-sci">Most common</span>
+              )}
+            </div>
+            <h3 class="font-serif text-2xl font-medium leading-tight text-ink md:min-h-[3.5rem]">{pkg.name}</h3>
+            <p class="text-[15px] text-ink-soft md:min-h-[3rem]">{pkg.for}</p>
+            <p class="font-serif text-4xl text-ink">
+              <span class="font-text text-base text-ink-soft">from </span>{pkg.price}
+            </p>
+            <p class="font-mono text-xs uppercase tracking-[.06em] text-sci md:min-h-8">{pkg.pages} · 2 rounds of changes</p>
+            <a
+              href="/contact"
+              class={`group mt-3 inline-flex items-center justify-center gap-2 rounded-md px-5 py-2.5 font-medium transition-colors ${pkg.common ? 'bg-sci text-white hover:bg-sci-dark' : 'border border-rule bg-surface text-ink hover:border-sci'}`}
+              onclick={`if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: '${pkg.cta}', cta_location: 'prices_page' })`}
+            >
+              Ask for a quote <span class="inline-block transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true">→</span>
+            </a>
+          </article>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- Pricing Cards -->
-  <section class="pb-20 bg-transparent" aria-label="Pricing packages">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid gap-8 md:grid-cols-2 max-w-5xl mx-auto">
-
-        <!-- Row label: Essential -->
-        <div class="md:col-span-2 flex items-center gap-4 pb-2">
-          <div class="flex-1 h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent"></div>
-          <span class="text-xs font-semibold uppercase tracking-widest text-gray-500">Essential</span>
-          <div class="flex-1 h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent"></div>
-        </div>
-
-        <!-- Landing Page -->
-        <Card class="h-full bg-gray-900/60 border border-blue-400/20 hover:border-blue-400/40 transition-all duration-300">
-          <CardContent class="flex h-full flex-col p-8 lg:p-10 text-left">
-            <div class="mb-8">
-              <h2 class="text-2xl font-bold text-white mb-3">Landing Page</h2>
-              <div class="text-4xl font-black text-white">
-                From <span class="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">€500</span>
-              </div>
-            </div>
-            <ul class="space-y-3 mb-8 flex-1">
-              {[
-                'Single page',
-                'Contact form',
-                'Basic SEO',
-                'Mobile-first',
-                'Custom domain setup',
-                'Open Graph tags',
-                'Lighthouse-optimized',
-              ].map((item) => (
-                <li class="flex items-start gap-3 text-gray-300">
-                  <svg class="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  {item}
-                </li>
+  <!-- Comparison -->
+  <section class="border-t border-rule py-14 sm:py-16" aria-labelledby="compare-heading">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <h2 id="compare-heading" class="mb-8 font-serif text-3xl font-medium text-ink sm:text-4xl">What is in each package</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full min-w-[560px] border-collapse text-left text-[15px]">
+          <thead>
+            <tr class="border-b border-ink">
+              <th scope="col" class="py-3 pr-4 font-mono text-[11px] font-normal uppercase tracking-[.08em] text-ink-soft"><span class="sr-only">Feature</span></th>
+              {packages.map((pkg) => (
+                <th scope="col" class="px-3 py-3 font-serif text-base font-medium text-ink">{pkg.name}<span class="mt-0.5 block font-text text-sm font-normal text-ink-soft">from {pkg.price}</span></th>
               ))}
-            </ul>
-            <a
-              href="/contact"
-              class="inline-flex w-full items-center justify-center rounded-xl border border-blue-400/40 px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:border-blue-400/80 hover:bg-blue-400/10 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900"
-              onclick="if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: 'pricing_landing', cta_location: 'prices_page' })"
-            >
-              Get a quote
-            </a>
-          </CardContent>
-        </Card>
-
-        <!-- Website — highlighted -->
-        <div class="relative">
-          <div class="absolute -inset-px bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-2xl blur-sm opacity-40"></div>
-          <Card class="relative h-full bg-gray-900/90 border border-cyan-400/40 transition-all duration-300">
-            <CardContent class="flex h-full flex-col p-8 lg:p-10 text-left">
-              <div class="mb-8">
-                <div class="flex items-center justify-between mb-3">
-                  <h2 class="text-2xl font-bold text-white">Website</h2>
-                  <span class="text-xs font-semibold uppercase tracking-wider text-cyan-400 bg-cyan-400/10 border border-cyan-400/30 px-2 py-1 rounded-full">Most common</span>
-                </div>
-                <div class="text-4xl font-black text-white">
-                  From <span class="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">€1,000</span>
-                </div>
-              </div>
-              <ul class="space-y-3 mb-8 flex-1">
-                {[
-                'Multiple pages',
-                'Portfolio or services',
-                'Forms & integrations',
-                'SEO setup',
-                'Semantic HTML & accessibility',
-                'Performance-optimized build',
-                'Sitemap & robots.txt',
-                ].map((item) => (
-                  <li class="flex items-start gap-3 text-gray-300">
-                  <svg class="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <a
-              href="/contact"
-              class="inline-flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-3 text-sm font-bold text-white transition-all duration-300 hover:from-cyan-600 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900"
-                onclick="if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: 'pricing_website', cta_location: 'prices_page' })"
-              >
-                Get a quote
-              </a>
-            </CardContent>
-          </Card>
-        </div>
-
-        <!-- Row separator -->
-        <div class="md:col-span-2 flex items-center gap-4 py-2">
-          <div class="flex-1 h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent"></div>
-          <span class="text-xs font-semibold uppercase tracking-widest text-gray-500">Advanced</span>
-          <div class="flex-1 h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent"></div>
-        </div>
-
-        <!-- Extended Website -->
-        <Card class="h-full bg-gray-900/60 border border-cyan-400/20 hover:border-cyan-400/40 transition-all duration-300">
-          <CardContent class="flex h-full flex-col p-8 lg:p-10 text-left">
-            <div class="mb-8">
-              <h2 class="text-2xl font-bold text-white mb-3">Extended Website</h2>
-              <div class="text-4xl font-black text-white">
-                From <span class="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">€1,800</span>
-              </div>
-            </div>
-            <ul class="space-y-3 mb-8 flex-1">
-              {[
-                '5 to 10 pages',
-                'SEO architecture',
-                'Service pages',
-                'Blog setup',
-                'GA4 events',
-                'Schema markup',
-                'Local SEO setup',
-                'Conversion-focused layout',
-                'Core Web Vitals optimized',
-                'WCAG 2.1 AA accessibility',
-              ].map((item) => (
-                <li class="flex items-start gap-3 text-gray-300">
-                  <svg class="w-5 h-5 text-cyan-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <a
-              href="/contact"
-              class="inline-flex w-full items-center justify-center rounded-xl border border-cyan-400/40 px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:border-cyan-400/80 hover:bg-cyan-400/10 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900"
-              onclick="if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: 'pricing_extended', cta_location: 'prices_page' })"
-            >
-              Get a quote
-            </a>
-          </CardContent>
-        </Card>
-
-        <!-- Custom Project -->
-        <Card class="h-full bg-gray-900/60 border border-purple-400/20 hover:border-purple-400/40 transition-all duration-300">
-          <CardContent class="flex h-full flex-col p-8 lg:p-10 text-left">
-            <div class="mb-8">
-              <h2 class="text-2xl font-bold text-white mb-3">Custom Project</h2>
-              <div class="text-4xl font-black text-white">
-                <span class="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">Let's talk</span>
-              </div>
-            </div>
-            <ul class="space-y-3 mb-8 flex-1">
-              {[
-                'E-learning platforms',
-                'Academic & conference sites',
-                'Complex integrations',
-                'Long-term support',
-                'Custom API integrations',
-                'Headless CMS setup',
-                'Ongoing maintenance & updates',
-                'Custom domain & DNS setup',
-                'Performance & security audit',
-              ].map((item) => (
-                <li class="flex items-start gap-3 text-gray-300">
-                  <svg class="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                  </svg>
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <a
-              href="/contact"
-              class="inline-flex w-full items-center justify-center rounded-xl border border-purple-400/40 px-6 py-3 text-sm font-semibold text-white transition-all duration-200 hover:border-purple-400/80 hover:bg-purple-400/10 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900"
-              onclick="if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: 'pricing_custom', cta_location: 'prices_page' })"
-            >
-              Get in touch
-            </a>
-          </CardContent>
-        </Card>
-
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row) => (
+              <tr class="border-b border-rule">
+                <th scope="row" class="py-3 pr-4 font-normal text-ink">{row.label}</th>
+                {row.values.map((v) => (
+                  <td class="px-3 py-3">
+                    {typeof v === 'string' ? (
+                      <span class="text-ink">{v}</span>
+                    ) : v ? (
+                      <span class="text-sci" aria-label="Included">✓</span>
+                    ) : (
+                      <span class="text-ink-soft/50" aria-label="Not included">–</span>
+                    )}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
-
-      <p class="text-center text-gray-500 text-sm mt-10">
-        All projects include a free initial consultation. Prices in EUR, VAT not included.
+      <p class="mt-6 text-[15px] text-ink-soft">
+        Every project also includes a free first consultation, WCAG 2.1 AA accessibility and a fast, mobile-first build. Anything beyond the scope of a package is quoted separately. Prices in EUR, VAT not included.
       </p>
     </div>
   </section>
 
-  <!-- Bottom CTA -->
-  <section class="py-16 bg-transparent">
-    <div class="max-w-2xl mx-auto px-6 text-center">
-      <h2 class="text-2xl lg:text-3xl font-black text-white mb-4">Not sure which package fits?</h2>
-      <p class="text-gray-300 mb-8 text-lg leading-relaxed">
-        Most projects start with a short conversation. No commitment, no pitch deck — just a relaxed chat to see what you need.
-      </p>
-      <a
-        href="/contact"
-        class="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-4 text-lg font-bold text-white transition-all duration-300 hover:from-cyan-600 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900"
-        onclick="if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: 'pricing_bottom_cta', cta_location: 'prices_page' })"
-      >
-        Let's talk about your project
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-        </svg>
-      </a>
+  <!-- Priced by scope -->
+  <section class="border-t border-rule py-14 sm:py-16" aria-labelledby="scoped-heading">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="mb-8 max-w-2xl space-y-3">
+        <h2 id="scoped-heading" class="font-serif text-3xl font-medium text-ink sm:text-4xl">Priced by scope</h2>
+        <p class="text-ink-soft">These projects vary too much for a fixed starting price. The price depends on the points below, and I'll send a quote once I know what you need.</p>
+      </div>
+      <div class="grid border-t border-ink md:grid-cols-3">
+        {scoped.map((item, i) => (
+          <div class={`grid min-w-0 content-start gap-3 border-b border-rule py-6 md:border-b-0 ${i > 0 ? 'md:border-l md:border-rule md:pl-8' : ''} ${i < scoped.length - 1 ? 'md:pr-8' : ''}`}>
+            <h3 class="font-serif text-xl font-medium text-ink">{item.name}</h3>
+            <p class="text-[15px] leading-relaxed text-ink-soft">{item.text}</p>
+            <div>
+              <p class="mb-1.5 font-mono text-[11px] uppercase tracking-[.08em] text-ink-soft">The price depends on</p>
+              <ul class="list-disc space-y-1 pl-5 text-[15px] text-ink marker:text-sci">
+                {item.factors.map((f) => <li>{f}</li>)}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
+
+  <!-- After launch -->
+  <section class="border-t border-rule py-14 sm:py-16" aria-labelledby="after-heading">
+    <div class="mx-auto grid max-w-6xl gap-6 px-4 sm:px-6 md:grid-cols-[1fr_1.2fr] md:gap-16">
+      <div class="space-y-3">
+        <h2 id="after-heading" class="font-serif text-3xl font-medium text-ink sm:text-4xl">After launch</h2>
+        <p class="text-ink-soft">Support is priced separately and agreed with you, either as one-off help or as ongoing care.</p>
+      </div>
+      <ul class="list-disc space-y-2 pl-5 text-[15px] text-ink marker:text-sci md:self-center">
+        {afterLaunch.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <!-- How a quote works -->
+  <section class="border-t border-rule py-14 sm:py-16" aria-labelledby="steps-heading">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <h2 id="steps-heading" class="mb-8 font-serif text-3xl font-medium text-ink sm:text-4xl">How a quote works</h2>
+      <ol class="grid gap-8 border-t border-ink pt-6 md:grid-cols-3 md:gap-0">
+        {steps.map((step, i) => (
+          <li class={`min-w-0 ${i > 0 ? 'md:border-l md:border-rule md:pl-8' : ''} ${i < steps.length - 1 ? 'md:pr-8' : ''}`}>
+            <p class="font-mono text-sm text-sci">Step {i + 1}</p>
+            <h3 class="mt-1 font-serif text-xl font-medium text-ink">{step.title}</h3>
+            <p class="mt-2 text-[15px] leading-relaxed text-ink-soft">{step.text}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <ContactCta
+    location="prices_bottom"
+    heading="Not sure which option fits?"
+    text="Most projects start with a short conversation. No commitment and no pitch deck, just a chat about what you need."
+  />
 
   <Footer />
 </Layout>

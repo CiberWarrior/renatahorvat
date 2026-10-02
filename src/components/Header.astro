@@ -9,22 +9,16 @@ const navItems = [
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 ---
 
-<header class="relative z-50 bg-slate-900/80 backdrop-blur-xl border-b border-slate-700/50 overflow-hidden">
-  <nav class="max-w-7xl mx-auto px-6 py-4">
-    <div class="flex items-center justify-between">
-      <!-- Logo -->
-      <a href="/" class="flex items-center" onclick="if(typeof window.gtag !== 'undefined') window.gtag('event', 'logo_click', { logo_location: 'header' })">
-        <img 
-          src="/images/icon.png" 
-          alt="Renata Horvat Logo" 
-          width="40" 
-          height="40"
-          class="w-10 h-10"
-        />
+<header class="sticky top-0 z-50 border-b border-rule bg-paper/95 font-text text-ink backdrop-blur">
+  <nav class="mx-auto max-w-6xl px-4 py-4 sm:px-6" aria-label="Main">
+    <div class="flex items-center justify-between gap-4">
+      <a href="/" class="font-serif text-xl font-medium text-ink no-underline" onclick="if(typeof window.gtag !== 'undefined') window.gtag('event', 'logo_click', { logo_location: 'header' })">
+        Renata Horvat
+        <span class="ml-2 hidden font-text text-sm font-normal text-ink-soft lg:inline">web design for science</span>
       </a>
-      
+
       <!-- Desktop Navigation -->
-      <ul class="hidden md:flex items-center space-x-8">
+      <ul class="hidden items-center gap-7 md:flex">
         {navItems.map((item) => {
           const isActive = item.href === '/'
             ? currentPath === '/'
@@ -34,35 +28,36 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
               <a
                 href={item.href}
                 aria-current={isActive ? 'page' : undefined}
-                class={`relative transition-colors duration-300 font-medium text-sm uppercase tracking-wider group focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900 rounded px-2 ${isActive ? 'text-white' : 'text-white/70 hover:text-white'}`}
+                class={`text-[15px] underline-offset-[6px] transition-colors hover:text-sci ${isActive ? 'text-ink underline decoration-sci decoration-2' : 'text-ink-soft'}`}
                 onclick={`if(typeof window.gtag !== 'undefined') window.gtag('event', 'navigation_click', { nav_item: '${item.label}', nav_location: 'desktop_header' })`}
               >
                 {item.label}
-                <span class={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-400 transition-all duration-300 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
               </a>
             </li>
           );
         })}
+        <li>
+          <a href="/contact" class="rounded-md bg-sci px-4 py-2 text-[15px] font-medium text-white transition-colors hover:bg-sci-dark">Start a project</a>
+        </li>
       </ul>
-      
+
       <!-- Mobile menu button -->
-      <button 
-        class="md:hidden p-2 text-white hover:text-purple-300 transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900 rounded" 
+      <button
+        class="rounded p-2 text-ink md:hidden"
         id="mobile-menu-button"
         aria-label="Toggle mobile navigation menu"
         aria-expanded="false"
         aria-controls="mobile-menu"
       >
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
       </button>
     </div>
-    
+
     <!-- Mobile menu -->
-    <div class="md:hidden hidden mt-4 pb-4" id="mobile-menu" aria-label="Mobile navigation">
-      <div class="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6">
-      <ul class="space-y-4">
+    <div class="mt-3 hidden border-t border-rule pt-2 md:hidden" id="mobile-menu" aria-label="Mobile navigation">
+      <ul>
         {navItems.map((item) => {
           const isActiveMobile = item.href === '/'
             ? currentPath === '/'
@@ -72,7 +67,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
               <a
                 href={item.href}
                 aria-current={isActiveMobile ? 'page' : undefined}
-                class={`mobile-nav-link block py-3 font-medium text-sm uppercase tracking-wider focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-800 rounded px-2 transition-colors duration-200 ${isActiveMobile ? 'text-cyan-400' : 'text-white/90 hover:text-white'}`}
+                class={`mobile-nav-link block py-3 text-base ${isActiveMobile ? 'font-medium text-sci' : 'text-ink'}`}
                 onclick={`if(typeof window.gtag !== 'undefined') window.gtag('event', 'navigation_click', { nav_item: '${item.label}', nav_location: 'mobile_header' })`}
               >
                 {item.label}
@@ -81,7 +76,6 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
           );
         })}
       </ul>
-      </div>
     </div>
   </nav>
 </header>

@@ -1,0 +1,59 @@
+---
+import type { ProjectCategory } from '../lib/projects';
+
+interface Props { title: string; href: string; image: string; role?: string; summary: string; meta: string; category: ProjectCategory; }
+const { title, href, image, role, summary, meta, category } = Astro.props as Props;
+
+// One colour per kind of project, so the dot carries information
+const categoryColor: Record<ProjectCategory, string> = {
+  conference: '#2f5fa8',
+  society: '#1f6b5c',
+  elearning: '#c2547a',
+  other: '#b7791f',
+};
+
+let siteHost = "";
+try {
+  siteHost = new URL(href).hostname.replace(/^www\./, "");
+} catch {
+  siteHost = "";
+}
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label={`${title}: visit the website (opens in a new tab)`}
+  data-reveal
+  class="group flex min-w-0 flex-col rounded-xl border border-rule bg-surface p-2 transition-[border-color,box-shadow,transform] duration-300 hover:border-sci/50 hover:shadow-[0_14px_30px_-18px_rgb(21_33_30/.45)] motion-safe:hover:-translate-y-0.5"
+  onclick={`if(typeof window.gtag !== 'undefined') window.gtag('event', 'project_view', { project_title: ${JSON.stringify(title)}, project_url: ${JSON.stringify(href)} })`}
+>
+  <div class="overflow-hidden rounded-lg bg-paper ring-1 ring-rule ring-inset">
+    <img
+      src={image}
+      alt=""
+      width="1600"
+      height="771"
+      loading="lazy"
+      decoding="async"
+      class="aspect-[16/9] w-full object-cover object-top transition-transform duration-500 ease-out motion-safe:group-hover:scale-[1.03]"
+    />
+  </div>
+
+  <div class="flex flex-1 flex-col px-2.5 pt-4 pb-1">
+    <p class="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[.06em] text-ink-soft">
+      <span class="h-2 w-2 shrink-0 rounded-full" style={`background:${categoryColor[category]}`} aria-hidden="true"></span>
+      {meta}
+    </p>
+    <h3 class="mt-2 font-serif text-[1.2rem] font-medium leading-snug text-balance text-ink">{title}</h3>
+    <p class="mt-1.5 mb-4 text-sm leading-relaxed text-ink-soft">{role || summary}</p>
+
+    <div class="mt-auto flex items-center justify-between gap-3 border-t border-rule pt-3">
+      <span class="truncate font-mono text-xs text-ink-soft">{siteHost}</span>
+      <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-rule text-ink-soft transition-colors duration-300 group-hover:border-sci group-hover:bg-sci group-hover:text-white" aria-hidden="true">
+        <svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11 11 5M6 5h5v5" /></svg>
+      </span>
+    </div>
+  </div>
+</a>

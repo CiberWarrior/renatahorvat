@@ -1,85 +1,22 @@
-<footer class="bg-transparent relative">
-  
-  <div class="relative max-w-7xl mx-auto px-6 py-20">
-    <div class="grid lg:grid-cols-4 gap-12">
-      <!-- Brand -->
-      <div class="lg:col-span-2">
-        <div class="mb-6">
-          <span class="text-2xl font-bold text-white">Renata Horvat</span>
-        </div>
-        <p class="text-gray-300 mb-8 text-lg leading-relaxed max-w-md">
-          A designer who speaks the language of science.<br />
-          I help turn complex ideas into clear, usable digital experiences.
-        </p>
-        
-        <!-- CTA -->
-        <a 
-          href="/contact" 
-          class="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-2xl hover:from-purple-700 hover:to-blue-700 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/25 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900"
-        >
-          <span>Contact Me</span>
-          <svg class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-          </svg>
-        </a>
-      </div>
-      
-      <!-- Services -->
+<footer class="border-t border-rule bg-paper font-text text-ink">
+  <div class="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+    <div class="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
       <div>
-        <h4 class="text-lg font-semibold text-white mb-6">Services</h4>
-        <ul class="space-y-3">
-          <li><a href="/work" class="text-gray-300 hover:text-purple-300 transition-colors duration-300">Digital platforms for learning</a></li>
-          <li><a href="/work" class="text-gray-300 hover:text-purple-300 transition-colors duration-300">Academic & educational websites</a></li>
-          <li><a href="/work" class="text-gray-300 hover:text-purple-300 transition-colors duration-300">Conference & event websites</a></li>
-          <li><a href="/work" class="text-gray-300 hover:text-purple-300 transition-colors duration-300">Visual communication & infographics</a></li>
-        </ul>
+        <p class="font-serif text-2xl font-medium">Renata Horvat</p>
+        <p class="mt-2 max-w-md text-ink-soft">Web design for universities, research groups and scientific societies. Zagreb.</p>
       </div>
-      
-      <!-- Contact -->
-      <div>
-        <h4 class="text-lg font-semibold text-white mb-6">Connect</h4>
-        <ul class="space-y-3">
-          <li><a href="/contact" class="text-gray-300 hover:text-purple-300 transition-colors duration-300">Get in touch</a></li>
-          <li><a href="/work" class="text-gray-300 hover:text-purple-300 transition-colors duration-300">View portfolio</a></li>
-          <li>
-            <a href="mailto:screatives.info@gmail.com" class="text-gray-300 hover:text-purple-300 transition-colors duration-300">
-              screatives.info@gmail.com
-            </a>
-          </li>
-        </ul>
+      <div class="flex flex-col gap-1 text-[15px] md:items-end">
+        <a href="/contact" class="font-medium text-sci hover:text-sci-dark">Send a message →</a>
+        <a href="mailto:screatives.info@gmail.com" class="break-all text-ink-soft hover:text-sci">screatives.info@gmail.com</a>
       </div>
     </div>
-    
-    <!-- Bottom bar -->
-    <div class="border-t border-white/10 mt-16 pt-8">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-        <p class="text-gray-400 text-sm">
-          © {new Date().getFullYear()} All rights reserved.
-        </p>
-        
-        <!-- Legal Links -->
-        <div class="flex flex-wrap items-center justify-center gap-4 text-sm">
-          <a 
-            href="/privacy-policy" 
-            class="text-gray-400 hover:text-cyan-400 transition-colors duration-300"
-          >
-            Privacy Policy
-          </a>
-          <span class="text-gray-600">•</span>
-          <a 
-            href="/legal" 
-            class="text-gray-400 hover:text-cyan-400 transition-colors duration-300"
-          >
-            Legal Notice
-          </a>
-          <span class="text-gray-600">•</span>
-          <button 
-            id="footer-cookie-settings"
-            class="text-gray-400 hover:text-cyan-400 transition-colors duration-300 cursor-pointer"
-          >
-            Cookie Settings
-          </button>
-        </div>
+
+    <div class="mt-12 flex flex-col gap-3 border-t border-rule pt-6 text-sm text-ink-soft md:flex-row md:items-center md:justify-between">
+      <p>© {new Date().getFullYear()} Renata Horvat · Zagreb</p>
+      <div class="flex flex-wrap items-center gap-4">
+        <a href="/privacy-policy" class="hover:text-sci">Privacy Policy</a>
+        <a href="/legal" class="hover:text-sci">Legal Notice</a>
+        <button id="footer-cookie-settings" class="cursor-pointer hover:text-sci">Cookie Settings</button>
       </div>
     </div>
   </div>

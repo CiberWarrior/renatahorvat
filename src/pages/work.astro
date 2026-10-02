@@ -2,17 +2,14 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import Badge from "../components/ui/Badge.astro";
-import { projects } from "../lib/projects";
-import ProjectCard from "../components/ProjectCard.astro";
+import CaseCard from "../components/CaseCard.astro";
+import ContactCta from "../components/ContactCta.astro";
+import { portfolio, type ProjectCategory } from "../lib/projects";
 
 // SEO optimized page data
 const pageTitle = "Work – Renata Horvat | Web Design Portfolio Croatia";
-const pageDescription = "Explore selected projects including academic websites, e-learning platforms, conference sites, and digital content for knowledge-driven organizations.";
+const pageDescription = "Selected projects: e-textbooks, conference websites, scientific society websites and research collections for universities and research organisations.";
 const pageKeywords = "Renata Horvat portfolio, e-learning design, academic websites, scientific design, university websites, research communication, Croatia designer, Zagreb web design, educational platforms";
-
-// Filter projects with links only
-const portfolioProjects = projects.filter(p => p.href && p.href.trim() !== "");
 
 // Structured data for portfolio page
 const portfolioStructuredData = {
@@ -23,7 +20,7 @@ const portfolioStructuredData = {
   "url": "https://renatahorvat.com/work",
   "mainEntity": {
     "@type": "ItemList",
-    "itemListElement": portfolioProjects.slice(0, 10).map((project, index) => ({
+    "itemListElement": portfolio.slice(0, 10).map((project, index) => ({
       "@type": "ListItem",
       "position": index + 1,
       "item": {
@@ -40,33 +37,45 @@ const breadcrumbStructuredData = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://renatahorvat.com"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Work",
-      "item": "https://renatahorvat.com/work"
-    }
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://renatahorvat.com" },
+    { "@type": "ListItem", "position": 2, "name": "Work", "item": "https://renatahorvat.com/work" }
   ]
 };
 
-// Featured projects for the curated highlight section
-const featuredProjects = portfolioProjects.filter(p => p.featured);
+const featuredMeta: Record<string, string> = {
+  'Genetika e-book': 'E-textbook · Faculty of Science',
+  'Bacteriology e-book': 'E-textbook · Faculty of Science',
+  'Mirisni potpisi - Fragrant Signatures': 'Handbook · Education · HR / EN',
+  'Croatian National Diatom Collection': 'Collection · Faculty of Science',
+  'IST 2027 - 19th International Symposium on Trichoptera': 'Symposium · International · 2027',
+  'ICD11 - XI. International Congress of Dipterology': 'Congress · International',
+  'Herbarium Croaticum': 'Collection · Faculty of Science',
+  'FEPS - Federation of European Phycological Societies': 'Society · Europe',
+};
+const featured = portfolio.flatMap((p) =>
+  p.featured && p.image ? [{ ...p, image: p.image, meta: featuredMeta[p.title] ?? '' }] : []
+);
 
-// Group projects by explicit category field
-const eLearningProjects = portfolioProjects.filter(p => p.category === 'elearning' && !p.featured);
-const societyProjects = portfolioProjects.filter(p => p.category === 'society' && !p.featured);
-const conferenceProjects = portfolioProjects.filter(p => p.category === 'conference' && !p.featured);
-const otherProjects = portfolioProjects.filter(p => p.category === 'other' && !p.featured);
-const countLabel = (count: number) => (count === 1 ? '1 project' : `${count} projects`);
+const groups: { category: ProjectCategory; name: string }[] = [
+  { category: 'conference', name: 'Conferences & scientific events' },
+  { category: 'society', name: 'Societies & collections' },
+  { category: 'elearning', name: 'E-textbooks' },
+  { category: 'other', name: 'Research projects & institutions' },
+];
+const grouped = groups
+  .map((g) => ({ ...g, items: portfolio.filter((p) => p.category === g.category) }))
+  .filter((g) => g.items.length > 0);
+
+const host = (href: string) => {
+  try {
+    return new URL(href).hostname.replace(/^www\./, '');
+  } catch {
+    return href;
+  }
+};
 ---
-<Layout 
-  title={pageTitle} 
+<Layout
+  title={pageTitle}
   description={pageDescription}
   keywords={pageKeywords}
   structuredData={[portfolioStructuredData, breadcrumbStructuredData]}
@@ -76,191 +85,79 @@ const countLabel = (count: number) => (count === 1 ? '1 project' : `${count} pro
   ]}
 >
   <Header />
-  <div>
-    <!-- Hero Section -->
-    <section class="relative py-16 sm:py-20 bg-transparent overflow-hidden">
-      <div class="absolute inset-0">
-        <div class="absolute inset-0 bg-gradient-to-br from-gray-900/50 via-gray-800/30 to-gray-900/50"></div>
-        <div class="absolute inset-0 opacity-5">
-          <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, rgba(6, 182, 212, 0.3) 1px, transparent 0); background-size: 20px 20px;"></div>
-        </div>
-      </div>
-      
-      <div class="relative max-w-7xl mx-auto px-6">
-        <div class="max-w-4xl mx-auto text-center">
-          <Badge variant="default" class="gap-2 mb-6">
-            <span class="w-2 h-2 bg-cyan-400 rounded-full"></span>
-            Portfolio
-          </Badge>
-          
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white mb-6">
-            <span class="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
-              Selected projects
-            </span>
-          </h1>
-          
-          <p class="text-gray-300 leading-relaxed max-w-2xl mx-auto mt-6 text-lg">
-            Websites and platforms for universities, research groups, conferences, and organizations that work with complex content — structured for clarity, built to last.
-          </p>
 
-          <div class="mt-8">
-            <a
-              href="/contact"
-              class="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-semibold transition-colors duration-200"
-            >
-              Let's talk about your project
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Featured Projects -->
-    {featuredProjects.length > 0 && (
-      <section class="py-16 bg-transparent">
-        <div class="relative max-w-7xl mx-auto px-6">
-          <div class="mb-12">
-            <Badge variant="default" class="gap-2 mb-4">
-              <span class="w-2 h-2 bg-cyan-400 rounded-full"></span>
-              Featured
-            </Badge>
-            <h2 class="text-3xl lg:text-4xl font-black text-white mb-3">
-              <span class="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
-                Featured Work
-              </span>
-            </h2>
-            <p class="text-gray-400 text-lg">A curated selection across e-learning, academic societies, conferences, and research infrastructure</p>
-          </div>
-
-          <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
-            {featuredProjects.map((project) => (
-              <ProjectCard {...project} />
-            ))}
-          </div>
-        </div>
-      </section>
-    )}
-
-    <!-- All Projects by Category -->
-    <div class="max-w-7xl mx-auto px-6 pt-4 pb-2">
-      <p class="text-xs font-semibold uppercase tracking-widest text-gray-400">All Projects</p>
+  <!-- Intro -->
+  <section class="border-b border-rule py-14 sm:py-16">
+    <div class="mx-auto max-w-6xl space-y-5 px-4 sm:px-6">
+      <p class="font-mono text-xs uppercase tracking-[.08em] text-ink-soft">Work · {portfolio.length} projects</p>
+      <h1 class="max-w-3xl font-serif text-4xl font-medium leading-tight text-balance text-ink sm:text-5xl">
+        Websites for universities, conferences and scientific societies
+      </h1>
+      <p class="max-w-2xl text-lg leading-relaxed text-ink-soft">
+        Platforms for organisations that work with complex content, structured for clarity and built to last.
+      </p>
     </div>
+  </section>
 
-    <!-- E-Learning Platforms -->
-    {eLearningProjects.length > 0 && (
-      <section class="py-16 bg-transparent">
-        <div class="relative max-w-7xl mx-auto px-6">
-          <div class="mb-12">
-            <h2 class="text-3xl lg:text-4xl font-black text-white mb-3">
-              <span class="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-                E-Learning Platforms
-              </span>
-            </h2>
-            <p class="text-gray-400 text-lg">Fast, accessible platforms that help students learn and stay engaged <span class="text-gray-600 text-sm">· {countLabel(eLearningProjects.length)}</span></p>
-          </div>
-          
-          <div class="grid md:grid-cols-2 gap-8">
-            {eLearningProjects.map((project) => (
-              <ProjectCard {...project} />
-            ))}
-          </div>
-        </div>
-      </section>
-    )}
-
-    <!-- Academic Societies & Organizations -->
-    {societyProjects.length > 0 && (
-      <section class="py-16 bg-transparent">
-        <div class="relative max-w-7xl mx-auto px-6">
-          <div class="mb-12">
-            <h2 class="text-3xl lg:text-4xl font-black text-white mb-3">
-              <span class="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                Academic Societies & Organizations
-              </span>
-            </h2>
-            <p class="text-gray-400 text-lg">Long-term platforms for member communication, publications, and outreach <span class="text-gray-600 text-sm">· {countLabel(societyProjects.length)}</span></p>
-          </div>
-          
-          <div class="grid md:grid-cols-2 gap-8">
-            {societyProjects.map((project) => (
-              <ProjectCard {...project} />
-            ))}
-          </div>
-        </div>
-      </section>
-    )}
-
-    <!-- Conferences & Events -->
-    {conferenceProjects.length > 0 && (
-      <section class="py-16 bg-transparent">
-        <div class="relative max-w-7xl mx-auto px-6">
-          <div class="mb-12">
-            <h2 class="text-3xl lg:text-4xl font-black text-white mb-3">
-              <span class="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
-                Conferences & Scientific Events
-              </span>
-            </h2>
-            <p class="text-gray-400 text-lg">Complete event sites with registration, schedules, and attendee management <span class="text-gray-600 text-sm">· {countLabel(conferenceProjects.length)}</span></p>
-          </div>
-          
-          <div class="grid md:grid-cols-2 gap-8">
-            {conferenceProjects.map((project) => (
-              <ProjectCard {...project} />
-            ))}
-          </div>
-        </div>
-      </section>
-    )}
-
-    <!-- Other Projects -->
-    {otherProjects.length > 0 && (
-      <section class="py-16 bg-transparent">
-        <div class="relative max-w-7xl mx-auto px-6">
-          <div class="mb-12">
-            <h2 class="text-3xl lg:text-4xl font-black text-white mb-3">
-              <span class="bg-gradient-to-r from-green-400 to-teal-500 bg-clip-text text-transparent">
-                Specialist & Custom Builds
-              </span>
-            </h2>
-            <p class="text-gray-400 text-lg">Research databases, institutional sites, and custom digital projects outside standard categories <span class="text-gray-600 text-sm">· {countLabel(otherProjects.length)}</span></p>
-          </div>
-          
-          <div class="grid md:grid-cols-2 gap-8">
-            {otherProjects.map((project) => (
-              <ProjectCard {...project} />
-            ))}
-          </div>
-        </div>
-      </section>
-    )}
-
-    <!-- CTA Section -->
-    <section class="py-20 bg-transparent">
-      <div class="relative max-w-4xl mx-auto px-6">
-        <div class="relative group">
-          <div class="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 rounded-2xl blur opacity-15 group-hover:opacity-25 transition duration-500"></div>
-          <div class="relative bg-gray-900/80 backdrop-blur-sm border border-cyan-400/30 rounded-2xl p-12 text-center">
-            <p class="text-sm text-gray-400 uppercase tracking-wider mb-4">Selected work</p>
-            <h2 class="text-3xl lg:text-4xl font-black text-white mb-4">
-              Not sure where to start?
-            </h2>
-            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              If you're thinking about a project and want to make sense of it before building anything, feel free to reach out.
-            </p>
-            <a 
-              href="/contact" 
-              class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-lg rounded-2xl hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 shadow-lg shadow-cyan-950/20 hover:shadow-cyan-500/20 focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-gray-900"
-            >
-              Let's talk
-            </a>
-          </div>
-        </div>
+  <!-- Featured -->
+  <section class="py-14 sm:py-16" aria-labelledby="featured-heading">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <h2 id="featured-heading" class="mb-10 font-serif text-3xl font-medium text-ink sm:text-4xl">Featured</h2>
+      <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+        {featured.map((project) => (
+          <CaseCard
+            title={project.title}
+            href={project.href}
+            image={project.image}
+            role={project.role}
+            summary={project.summary}
+            meta={project.meta}
+            category={project.category}
+          />
+        ))}
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
+
+  <!-- All projects -->
+  <section class="border-t border-rule py-14 sm:py-16" aria-labelledby="all-heading">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <h2 id="all-heading" class="mb-8 font-serif text-3xl font-medium text-ink sm:text-4xl">All projects</h2>
+      <div class="border-t border-ink">
+        {grouped.map((group) => (
+          <div class="grid gap-3 border-b border-rule py-6 md:grid-cols-[200px_1fr] md:gap-10">
+            <h3 class="flex items-baseline gap-2 font-mono text-xs uppercase tracking-[.08em] text-ink-soft md:flex-col md:gap-1">
+              <span class="text-ink">{group.name}</span>
+              <span>{group.items.length} projects</span>
+            </h3>
+            <ul class="grid gap-x-10 gap-y-0.5 sm:grid-cols-2">
+              {group.items.map((project) => (
+                <li>
+                  <a
+                    href={project.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={host(project.href)}
+                    class="group flex items-baseline justify-between gap-3 rounded-sm py-1.5 text-[15px] leading-snug text-ink transition-colors hover:text-sci"
+                    onclick={`if(typeof window.gtag !== 'undefined') window.gtag('event', 'project_view', { project_title: ${JSON.stringify(project.title)}, project_url: ${JSON.stringify(project.href)} })`}
+                  >
+                    <span>{project.title}</span>
+                    <span class="shrink-0 text-ink-soft/60 transition-colors group-hover:text-sci" aria-hidden="true">↗</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <ContactCta
+    location="work_bottom"
+    heading="Have a project like these?"
+    text="If you're thinking about a project and want to make sense of it before building anything, send a few lines."
+  />
+
   <Footer />
 </Layout>
