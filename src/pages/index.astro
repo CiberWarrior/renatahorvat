@@ -38,12 +38,17 @@ const services = [
     text: 'Got a paper, presentation or dataset that needs to make sense visually? On their own or as part of a bigger build.',
     items: ['Publication-ready vector files', 'A consistent style across a series'],
   },
+  {
+    title: 'Web apps for research',
+    text: 'Searchable collections, image catalogues and tools that present data and results.',
+    items: ['Catalogues and databases', 'Search and filters', 'Conference tools'],
+  },
 ];
 
 // SEO optimized page data
 const pageTitle = "Renata Horvat – Web Designer & Developer | Zagreb";
-const pageDescription = "Renata Horvat is a Croatian designer specializing in science communication, e-learning platforms, and academic websites. 20+ years transforming complex research into engaging visual experiences for universities and research institutions.";
-const pageKeywords = "designer Croatia, science communication, e-learning design, academic websites, visual design, instructional design, educational design, scientific visualization, infographics, digital creator, web design Croatia, university websites, research communication, Zagreb designer";
+const pageDescription = "Web designer and developer in Zagreb with over 20 years of experience. Clear, fast websites for conferences, societies, universities and small businesses, from design to launch.";
+const pageKeywords = "web designer Zagreb, web design Croatia, conference website, society website, university website, small business website, web developer Zagreb, Renata Horvat";
 ---
 
 <Layout
@@ -85,12 +90,13 @@ const pageKeywords = "designer Croatia, science communication, e-learning design
         <h2 id="services-heading" class="font-serif text-4xl font-medium text-ink sm:text-[2.6rem]">What I build</h2>
         <a href="/prices" class="group font-medium text-sci hover:text-sci-dark">Pricing <span class="inline-block transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true">→</span></a>
       </div>
+      <p class="-mt-4 mb-8 max-w-2xl text-ink-soft">Mostly for universities, societies and congresses, and for small businesses that need a clear website.</p>
       <div class="grid border-t border-ink md:grid-cols-2">
         {services.map((service, i) => (
-          <div class={`grid min-w-0 content-start gap-3 border-b border-rule py-7 ${i % 2 === 1 ? 'md:border-l md:pl-8' : 'md:pr-8'}`}>
+          <div class={`grid min-w-0 content-start gap-3 border-b border-rule py-7 ${services.length % 2 === 1 && i === services.length - 1 ? 'md:col-span-2' : i % 2 === 1 ? 'md:border-l md:pl-8' : 'md:pr-8'}`}>
             <h3 class="font-serif text-2xl font-medium text-ink">{service.title}</h3>
             <p class="text-[15px] leading-relaxed text-ink-soft">{service.text}</p>
-            <ul class="list-disc space-y-1 pl-5 text-[15px] text-ink marker:text-sci">
+            <ul class={`list-disc space-y-1 pl-5 text-[15px] text-ink marker:text-sci ${services.length % 2 === 1 && i === services.length - 1 ? 'md:grid md:grid-cols-3 md:gap-x-8' : ''}`}>
               {service.items.map((item) => <li>{item}</li>)}
             </ul>
           </div>
@@ -127,13 +133,16 @@ const pageKeywords = "designer Croatia, science communication, e-learning design
           Designing for people who work with knowledge
         </h2>
         <p class="text-lg leading-relaxed text-ink">
-          I'm Renata, a web designer and developer based in Zagreb with over 20 years of experience building digital tools for the academic and research world.
+          I'm Renata, a web designer and developer based in Zagreb with over 20 years of experience building websites for universities, societies, congresses and small businesses.
         </p>
         <p class="leading-relaxed text-ink-soft">
           I work with universities, scientific societies and research teams who need websites and platforms that handle complex content, stay maintainable, and serve their users long after launch.
         </p>
         <p class="leading-relaxed text-ink-soft">
           My background is in science communication, so I'm comfortable with dense subject matter and experienced in turning it into something clear, readable and usable.
+        </p>
+        <p class="text-[15px] leading-relaxed text-ink-soft">
+          <span class="mr-2 font-mono text-xs uppercase tracking-[.08em] text-ink">Tools</span>WordPress, HTML and CSS, Astro and Next.js, Adobe tools, illustration and photography.
         </p>
         <dl class="grid grid-cols-3 gap-4 border-t border-rule pt-6">
           <div>
@@ -153,7 +162,7 @@ const pageKeywords = "designer Croatia, science communication, e-learning design
     </div>
   </section>
 
-  <ContactCta location="homepage_bottom" />
+  <ContactCta location="homepage_bottom" illustration />
 
   <Footer />
 </Layout>

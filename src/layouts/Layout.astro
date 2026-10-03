@@ -24,8 +24,8 @@ interface Props {
 
 const {
   title = "Renata Horvat – Web Designer & Developer | Zagreb",
-  description = "Renata Horvat is a Croatian designer specializing in science communication, e-learning platforms, and academic websites. 20+ years transforming complex research into engaging visual experiences for universities and research institutions.",
-  keywords = "web designer, web developer, science communication, visual design, web design, educational design, infographics, scientific visualization, portfolio, Croatia, instructional design, e-learning design, online textbook creation, e-book design, course design, learning experience design, dizajner, grafički dizajn, web dizajn, digitalni dizajn, znanstvena komunikacija, infografike, vizualizacija podataka, portfolio dizajner, Hrvatska, Zagreb, edukacijski dizajn, dizajn za znanost, kreativni dizajn, UI UX dizajn, instrukcijski dizajn, e-učenje dizajn, online udžbenici, e-knjige dizajn",
+  description = "Web designer and developer in Zagreb with over 20 years of experience. Clear, fast websites for conferences, societies, universities and small businesses, from design to launch.",
+  keywords = "web designer Zagreb, web design Croatia, conference website, society website, university website, small business website, web developer Zagreb, Renata Horvat",
   canonical = Astro.url.href,
   ogImage = "/images/renatahorvat.jpg",
   gaId = import.meta.env.PUBLIC_GA_ID || "G-XXXXXXXXXX",
@@ -37,6 +37,7 @@ const {
 // Absolute OG image URL for social platforms (Facebook, LinkedIn require full URL)
 const absoluteOgImage =
   ogImage.startsWith('http') ? ogImage : new URL(ogImage, Astro.url.origin).href;
+
 
 // Non-render-blocking font URL
 const fontCssUrl =
@@ -292,7 +293,7 @@ const fontCssUrl =
       "@type": "Person",
       "name": "Renata Horvat",
       "jobTitle": "Web Designer & Developer",
-      "description": "Web designer and developer based in Zagreb with 20+ years building digital platforms for universities, scientific societies, and research institutions.",
+      "description": "Web designer and developer based in Zagreb with 20+ years building websites for conferences, societies, universities and small businesses.",
       "url": "https://renatahorvat.com",
       "image": "https://renatahorvat.com/images/renatahorvat.jpg",
       "sameAs": [
@@ -336,15 +337,7 @@ const fontCssUrl =
       "offers": {
         "@type": "Service",
         "name": "Design Services | Dizajn usluge",
-        "description": "Web design and development for academic and research organisations. E-learning platforms, conference sites, and institutional websites. Grafički dizajn, instrukcijski dizajn, e-učenje, online udžbenici i e-knjige."
-      }
-    }
-    </script>
-
-    <!-- Website Structured Data (no SearchAction - /search page does not exist) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
+        "description": "Web design and development: websites for conferences, scientific societies, universities and small businesses, including design, illustrations and build.",
       "@type": "WebSite",
       "name": "Renata Horvat Portfolio",
       "url": "https://renatahorvat.com",
@@ -361,7 +354,7 @@ const fontCssUrl =
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "Renata Horvat Design Services",
-      "description": "Professional design services for academic and scientific content",
+      "description": "Web design and development services",
       "url": "https://renatahorvat.com",
       "email": "screatives.info@gmail.com",
       "address": {
@@ -423,6 +416,18 @@ const fontCssUrl =
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
       if (!reduceMotion && 'IntersectionObserver' in window) {
+        document.documentElement.classList.add('js-motion');
+
+        // Start the contact band animation only when it comes into view
+        const play = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('tt-play');
+            play.unobserve(entry.target);
+          });
+        }, { threshold: 0.45 });
+        document.querySelectorAll('.tt-svg').forEach((el) => play.observe(el));
+
         const reveal = new IntersectionObserver((entries) => {
           entries.forEach((entry) => {
             if (!entry.isIntersecting) return;

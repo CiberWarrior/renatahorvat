@@ -1,26 +1,36 @@
 ---
-interface Props { heading?: string; text?: string; location: string; }
+import DiatomLong from './DiatomLong.astro';
+
+interface Props { heading?: string; text?: string; location: string; illustration?: boolean; }
 const {
   heading = 'Planning a congress, a society site or an e-textbook?',
   text = "Send a few lines about the project. You don't need a fully formed brief.",
   location,
+  illustration = false,
 } = Astro.props as Props;
 ---
 
 <section class="bg-ink py-16 text-paper sm:py-20" aria-labelledby={`cta-heading-${location}`}>
-  <div class="mx-auto grid max-w-6xl gap-6 px-4 sm:px-6">
-    <h2 id={`cta-heading-${location}`} class="max-w-3xl font-serif text-4xl font-medium leading-tight text-balance sm:text-5xl">
-      {heading}
-    </h2>
-    <p class="max-w-xl text-lg text-paper/75">{text}</p>
-    <div>
-      <a
-        href="/contact"
-        class="group inline-flex items-center gap-2 rounded-md bg-paper px-6 py-3 font-medium text-ink transition-colors hover:bg-sci-soft"
-        onclick={`if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: 'get_in_touch', cta_location: '${location}' })`}
-      >
-        Write to me <span class="inline-block transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true">→</span>
-      </a>
+  <div class={`mx-auto max-w-6xl px-4 sm:px-6 ${illustration ? 'grid items-center gap-10 md:grid-cols-[1.2fr_1fr] md:gap-8' : ''}`}>
+    <div class="grid gap-6">
+      <h2 id={`cta-heading-${location}`} class="max-w-3xl font-serif text-4xl font-medium leading-tight text-balance sm:text-5xl">
+        {heading}
+      </h2>
+      <p class="max-w-xl text-lg text-paper/75">{text}</p>
+      <div>
+        <a
+          href="/contact"
+          class="group inline-flex items-center gap-2 rounded-md bg-paper px-6 py-3 font-medium text-ink transition-colors hover:bg-sci-soft"
+          onclick={`if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: 'get_in_touch', cta_location: '${location}' })`}
+        >
+          Write to me <span class="inline-block transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true">→</span>
+        </a>
+      </div>
     </div>
+    {illustration && (
+      <div class="mx-auto w-full max-w-[340px] md:ml-auto md:mr-0">
+        <DiatomLong tone="dark" />
+      </div>
+    )}
   </div>
 </section>

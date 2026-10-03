@@ -121,3 +121,8 @@ textarea.border-red-500 {
   opacity: 1;
   transform: none;
 }
+
+/* A drawn illustration waits until it scrolls into view (only when the script has marked the page) */
+.js-motion .tt-svg:not(.tt-play) * {
+  animation-play-state: paused;
+}
