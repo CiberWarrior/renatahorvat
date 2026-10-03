@@ -8,8 +8,8 @@ import { portfolio, type ProjectCategory } from "../lib/projects";
 
 // SEO optimized page data
 const pageTitle = "Work – Renata Horvat | Web Design Portfolio Croatia";
-const pageDescription = "Selected projects: e-textbooks, conference websites, scientific society websites and research collections for universities and research organisations.";
-const pageKeywords = "Renata Horvat portfolio, e-learning design, academic websites, scientific design, university websites, research communication, Croatia designer, Zagreb web design, educational platforms";
+const pageDescription = "Selected projects by Renata Horvat: websites and platforms for conferences, scientific societies, universities and small businesses.";
+const pageKeywords = "web designer Zagreb, web design Croatia, conference website, society website, university website, small business website, web developer Zagreb, Renata Horvat, portfolio";
 
 // Structured data for portfolio page
 const portfolioStructuredData = {
@@ -91,10 +91,10 @@ const host = (href: string) => {
     <div class="mx-auto max-w-6xl space-y-5 px-4 sm:px-6">
       <p class="font-mono text-xs uppercase tracking-[.08em] text-ink-soft">Work · {portfolio.length} projects</p>
       <h1 class="max-w-3xl font-serif text-4xl font-medium leading-tight text-balance text-ink sm:text-5xl">
-        Websites for universities, conferences and scientific societies
+        Selected work
       </h1>
       <p class="max-w-2xl text-lg leading-relaxed text-ink-soft">
-        Platforms for organisations that work with complex content, structured for clarity and built to last.
+        Websites and platforms for universities, conferences, societies and small organisations, structured for clarity and built to last.
       </p>
     </div>
   </section>
@@ -155,6 +155,7 @@ const host = (href: string) => {
 
   <ContactCta
     location="work_bottom"
+    illustration
     heading="Have a project like these?"
     text="If you're thinking about a project and want to make sense of it before building anything, send a few lines."
   />
