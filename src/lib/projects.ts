@@ -19,6 +19,16 @@ export interface Project {
 export const projects: Project[] = [
   // Projects with links
   {
+    title: 'Terenska nastava iz algologije',
+    summary:
+      'Online handbook for undergraduate Biology students on fieldwork in algology, from the Department of Biology, Faculty of Science, University of Zagreb.',
+    href: 'https://www.terenska.algologija.biol.pmf.hr',
+    tags: ['E-textbook', 'Algology', 'Education', 'University'],
+    icon: 'book',
+    iconBg: 'emerald-green',
+    category: 'elearning',
+  },
+  {
     title: 'Mirisni potpisi - Fragrant Signatures',
     summary:
       'Website for the handbook on creating natural perfumes: book presentation, table of contents and reviews, education and events, in Croatian and English, with online ordering.',
