@@ -142,22 +142,29 @@ import { whatsappUrl } from '../lib/contact';
         </form>
       </div>
 
-      <aside class="space-y-6 self-start border-t border-ink pt-6 text-[15px] lg:sticky lg:top-24 lg:border-t-0 lg:border-l lg:border-rule lg:pt-0 lg:pl-8">
-        <div>
-          <h2 class="font-mono text-xs uppercase tracking-[.08em] text-ink-soft">WhatsApp</h2>
-          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="mt-1 block break-all text-ink hover:text-sci" onclick="if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: 'whatsapp', cta_location: 'contact_aside' })">Message me on WhatsApp ↗</a>
+      <aside class="space-y-6 self-start lg:sticky lg:top-24">
+        <div class="rounded-lg border border-sci/40 bg-sci-soft p-5">
+          <h2 class="font-serif text-xl font-medium text-ink">Prefer to write directly?</h2>
+          <div class="mt-4 space-y-3">
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between gap-3 rounded-md bg-sci px-4 py-3 font-medium text-white transition-colors hover:bg-sci-dark" onclick="if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: 'whatsapp', cta_location: 'contact_aside' })">
+              <span>Message me on WhatsApp</span>
+              <span class="inline-block transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true">↗</span>
+            </a>
+            <a href="mailto:screatives.info@gmail.com" class="block break-all rounded-md border border-sci/40 bg-surface px-4 py-3 text-ink transition-colors hover:border-sci hover:text-sci">
+              <span class="block font-mono text-[11px] uppercase tracking-[.08em] text-ink-soft">Email</span>
+              screatives.info@gmail.com
+            </a>
+          </div>
         </div>
-        <div>
-          <h2 class="font-mono text-xs uppercase tracking-[.08em] text-ink-soft">Email</h2>
-          <a href="mailto:screatives.info@gmail.com" class="mt-1 block break-all text-ink hover:text-sci">screatives.info@gmail.com</a>
-        </div>
-        <div>
-          <h2 class="font-mono text-xs uppercase tracking-[.08em] text-ink-soft">Response time</h2>
-          <p class="mt-1 text-ink">Within a day or two. No auto-responses, just me.</p>
-        </div>
-        <div>
-          <h2 class="font-mono text-xs uppercase tracking-[.08em] text-ink-soft">First conversation</h2>
-          <p class="mt-1 text-ink">Free, with no commitment.</p>
+        <div class="space-y-5 border-l border-rule pl-5 text-[15px]">
+          <div>
+            <h2 class="font-mono text-xs uppercase tracking-[.08em] text-ink-soft">Response time</h2>
+            <p class="mt-1 text-ink">Within a day or two. No auto-responses, just me.</p>
+          </div>
+          <div>
+            <h2 class="font-mono text-xs uppercase tracking-[.08em] text-ink-soft">First conversation</h2>
+            <p class="mt-1 text-ink">Free, with no commitment.</p>
+          </div>
         </div>
       </aside>
     </div>
