@@ -32,6 +32,7 @@ const contactBreadcrumbs = [
   { name: "Home", url: "https://renatahorvat.com" },
   { name: "Contact", url: "https://renatahorvat.com/contact" }
 ];
+import { whatsappUrl } from '../lib/contact';
 ---
 
 
@@ -142,6 +143,10 @@ const contactBreadcrumbs = [
       </div>
 
       <aside class="space-y-6 self-start border-t border-ink pt-6 text-[15px] lg:sticky lg:top-24 lg:border-t-0 lg:border-l lg:border-rule lg:pt-0 lg:pl-8">
+        <div>
+          <h2 class="font-mono text-xs uppercase tracking-[.08em] text-ink-soft">WhatsApp</h2>
+          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="mt-1 block break-all text-ink hover:text-sci" onclick="if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: 'whatsapp', cta_location: 'contact_aside' })">Message me on WhatsApp ↗</a>
+        </div>
         <div>
           <h2 class="font-mono text-xs uppercase tracking-[.08em] text-ink-soft">Email</h2>
           <a href="mailto:screatives.info@gmail.com" class="mt-1 block break-all text-ink hover:text-sci">screatives.info@gmail.com</a>
