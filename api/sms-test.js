@@ -1,0 +1,63 @@
+// Practice endpoint for the hidden test page /private/sms-test.
+// Sends one SMS through Twilio. It does nothing until the Twilio variables are set,
+// and it only sends to numbers listed in SMS_TEST_ALLOWED (comma-separated, e.g. +385...).
+const phoneRegex = /^\+[1-9]\d{7,14}$/;
+
+export default async function handler(req, res) {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ success: false, message: 'Method not allowed.' });
+  }
+
+  const sid = process.env.TWILIO_ACCOUNT_SID;
+  const token = process.env.TWILIO_AUTH_TOKEN;
+  const from = process.env.TWILIO_FROM;
+  const allowed = (process.env.SMS_TEST_ALLOWED || '')
+    .split(',')
+    .map((n) => n.trim())
+    .filter(Boolean);
+
+  if (!sid || !token || !from || allowed.length === 0) {
+    return res.status(503).json({ success: false, message: 'The SMS test is not switched on.' });
+  }
+
+  const body = typeof req.body === 'string' ? safeParse(req.body) : req.body || {};
+  const firstName = String(body.firstName || '').trim().slice(0, 60);
+  const lastName = String(body.lastName || '').trim().slice(0, 60);
+  const phone = String(body.phone || '').replace(/[\s()-]/g, '');
+
+  if (!firstName || !lastName) {
+    return res.status(400).json({ success: false, message: 'Please enter first and last name.' });
+  }
+  if (!phoneRegex.test(phone)) {
+    return res.status(400).json({ success: false, message: 'Enter the number with country code, e.g. +385981234567.' });
+  }
+  if (body.consent !== true) {
+    return res.status(400).json({ success: false, message: 'Please confirm that you agree to receive the test SMS.' });
+  }
+  if (!allowed.includes(phone)) {
+    return res.status(403).json({ success: false, message: 'This number is not on the test list.' });
+  }
+
+  const text = `Hello ${firstName} ${lastName}, this is a test message from renatahorvat.com.`;
+  const response = await fetch(`https://api.twilio.com/2010-04-01/Accounts/${sid}/Messages.json`, {
+    method: 'POST',
+    headers: {
+      Authorization: 'Basic ' + Buffer.from(`${sid}:${token}`).toString('base64'),
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: new URLSearchParams({ To: phone, From: from, Body: text }),
+  });
+
+  if (!response.ok) {
+    return res.status(502).json({ success: false, message: 'The SMS could not be sent.' });
+  }
+  return res.status(200).json({ success: true, message: 'SMS sent. Check your phone.' });
+}
+
+function safeParse(str) {
+  try {
+    return JSON.parse(str);
+  } catch {
+    return {};
+  }
+}

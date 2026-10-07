@@ -20,6 +20,8 @@ interface Props {
   breadcrumbs?: Array<{ name: string; url: string }>;
   /** Optional preloads for LCP/critical resources (e.g. hero image only on contact page) */
   preloadResources?: PreloadResource[];
+  /** Hide the page from search engines (test pages) */
+  noindex?: boolean;
 }
 
 const {
@@ -31,7 +33,8 @@ const {
   gaId = import.meta.env.PUBLIC_GA_ID || "G-XXXXXXXXXX",
   structuredData,
   breadcrumbs,
-  preloadResources = []
+  preloadResources = [],
+  noindex = false
 } = Astro.props;
 
 // Absolute OG image URL for social platforms (Facebook, LinkedIn require full URL)
@@ -57,7 +60,7 @@ const fontCssUrl =
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords} />
     <meta name="author" content="Renata Horvat" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
     <link rel="canonical" href={canonical} />
     
     <!-- Performance -->
