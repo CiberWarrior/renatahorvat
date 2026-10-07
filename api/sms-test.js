@@ -1,6 +1,8 @@
 // Practice endpoint for the hidden test page /private/sms-test.
-// Sends one SMS through Twilio. It does nothing until the Twilio variables are set,
+// Sends one SMS through Twilio with a link that opens a WhatsApp chat. It does nothing until the Twilio variables are set,
 // and it only sends to numbers listed in SMS_TEST_ALLOWED (comma-separated, e.g. +385...).
+// Same number and wording as src/lib/contact.ts (this plain-JS function cannot import it)
+const WHATSAPP_LINK = 'https://wa.me/385989801920?text=' + encodeURIComponent('Hello Renata, I found your website and would like to talk about a project.');
 const phoneRegex = /^\+[1-9]\d{7,14}$/;
 
 export default async function handler(req, res) {
@@ -38,7 +40,7 @@ export default async function handler(req, res) {
     return res.status(403).json({ success: false, message: 'This number is not on the test list.' });
   }
 
-  const text = `Hello ${firstName} ${lastName}, this is a test message from renatahorvat.com.`;
+  const text = `Hello ${firstName} ${lastName}, thank you for your message. Write to me on WhatsApp: ${WHATSAPP_LINK}`;
   const response = await fetch(`https://api.twilio.com/2010-04-01/Accounts/${sid}/Messages.json`, {
     method: 'POST',
     headers: {
