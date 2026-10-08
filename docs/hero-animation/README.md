@@ -32,3 +32,7 @@ Završni commit: `0548469`, poslan na `origin/hero-test-tube`. Produkcijski buil
 ## Organizacija datoteka
 
 Produkcijska animacija uređuje se u `src/components/HeroMagic.astro`. Ova mapa čuva upute, samostalni `prototype.html` i sve snimke razvoja u `screenshots/`. Prototip je razvojna referenca; ne učitava se na javnoj stranici. Datoteke u `docs/` nisu dio Astro produkcijskog paketa.
+
+## Prilagodba proporcija i mobitela
+
+Nacrtani web povećan je 20 % oko točke ulaza (620, 240). Odredišta zvjezdica i sjena usklađeni su s novim proporcijama. SVG viewBox je 1060 × 530. Na zaslonima do 767 px prikazuje se gotova statična ilustracija, a od 768 px animacija se pokreće pri ulasku u vidljivi dio stranice. Razmak između teksta i ilustracije smanjen je na mobitelu. Build je prošao; vizualnu provjeru ove izmjene treba dovršiti jer je preglednik blokirala provjera pristupa.
