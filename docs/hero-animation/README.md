@@ -40,3 +40,7 @@ Nacrtani web povećan je 20 % oko točke ulaza (620, 240). Odredišta zvjezdica 
 ## Odobrena završna dorada
 
 U produkcijsku komponentu preneseni su gradijenti cijevi i spojeva, diskretan sjaj zvjezdica, kratki impulsi izlaska i dolaska te mekše pojavljivanje i iscrtavanje sadržaja weba. Manje proporcije weba iz posljednje Cursor verzije ostaju. Mobilni prikaz je statičan. Usporedni prototipovi `polished-prototype.html` i `motion-prototype.html` ostaju u ovoj mapi.
+
+## Ulaz dokumenata u produkcijski hero
+
+U hero je prenesen odobreni ulazni tok iz prototipa: dva dokumenta i dvije slikovne kartice ulaze glatko i redom u lijevak. Zvijezde putuju unutar maske cijevi te izlaze prema webu; prolaz je neznatno ubrzan. Monitor prikazuje jedan kardiogramski vrh i kratke oznake koda, a monitor i raketa spojeni su na cijevi kabelima. Na mobitelu i uz smanjeno kretanje ostaje završna statična ilustracija, bez ulaznih kartica.
