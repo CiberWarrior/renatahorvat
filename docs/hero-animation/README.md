@@ -36,3 +36,7 @@ Produkcijska animacija uređuje se u `src/components/HeroMagic.astro`. Ova mapa 
 ## Prilagodba proporcija i mobitela
 
 Nacrtani web povećan je 20 % oko točke ulaza (620, 240). Odredišta zvjezdica i sjena usklađeni su s novim proporcijama. SVG viewBox je 1060 × 530. Na zaslonima do 767 px prikazuje se gotova statična ilustracija, a od 768 px animacija se pokreće pri ulasku u vidljivi dio stranice. Razmak između teksta i ilustracije smanjen je na mobitelu. Build je prošao; vizualnu provjeru ove izmjene treba dovršiti jer je preglednik blokirala provjera pristupa.
+
+## Odobrena završna dorada
+
+U produkcijsku komponentu preneseni su gradijenti cijevi i spojeva, diskretan sjaj zvjezdica, kratki impulsi izlaska i dolaska te mekše pojavljivanje i iscrtavanje sadržaja weba. Manje proporcije weba iz posljednje Cursor verzije ostaju. Mobilni prikaz je statičan. Usporedni prototipovi `polished-prototype.html` i `motion-prototype.html` ostaju u ovoj mapi.
