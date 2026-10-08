@@ -1,9 +1,9 @@
 ---
-import DiatomPlate from './DiatomPlate.astro';
+import HeroMagic from './HeroMagic.astro';
 ---
 
 <section class="border-b border-rule py-14 sm:py-20">
-  <div class="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
+  <div class="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1fr_1.25fr] lg:gap-10">
     <div class="fade-up space-y-6">
       <p class="font-mono text-xs uppercase tracking-[.08em] text-ink-soft">Web designer &amp; developer · Zagreb</p>
 
@@ -26,11 +26,8 @@ import DiatomPlate from './DiatomPlate.astro';
       </div>
     </div>
 
-    <figure class="fade-up fade-up-2 rounded-lg border border-rule bg-surface p-5 sm:p-6">
-      <DiatomPlate />
-      <figcaption class="mt-4 border-t border-rule pt-3 text-sm text-ink-soft">
-        <b class="font-mono font-medium text-ink">Fig. 1</b> Two diatom valves drawn as a line plate: a pennate form (<span class="font-mono">1a</span>) and a centric form (<span class="font-mono">1b</span>).
-      </figcaption>
+    <figure class="fade-up fade-up-2 min-w-0">
+      <HeroMagic />
     </figure>
   </div>
 </section>
