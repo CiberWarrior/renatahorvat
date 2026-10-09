@@ -52,3 +52,7 @@ Odobrena varijanta `three-dials-prototype.html` prenesena je u `HeroMagic.astro`
 ## Animacija na mobitelu (9. listopada 2026.)
 
 Na Renatin zahtjev mobilni prikaz sada pokreće istu animaciju pri ulasku ilustracije u ekran. Statična završna ilustracija ostaje uz `prefers-reduced-motion` i bez JavaScripta. Početno skrivanje završnog stanja vrijedi na svim širinama kako bi se izbjegao treptaj. Na mobitelu se preskaču samo dekorativni impulsi i završni sjaj; dokumenti, zvjezdice, kazaljke, zupčanici i izgradnja weba rade u postojećoj petlji koja se gasi nakon završetka.
+
+## Vidljiv okvir i dorada nacrtanog weba
+
+Prazan okvir, gornja traka i točkice vidljivi su diskretno prije početka animacije. Izlaskom prve zvjezdice okvir pojačava vidljivost i pojavljuje se prvo zaglavlje sadržaja. Sljedeće skupine dodaju sliku, tekst i gumbe. Nacrtani web ima traku adrese, detaljniju navigaciju i gumbe, tanje linije te jedan kratki završni sjaj bez dodatnih biblioteka ili zahtjeva. Prikaz bez JavaScripta i uz smanjeno kretanje ostaje potpun i statičan. Razvojni pregled: `web-reveal-prototype.html`.

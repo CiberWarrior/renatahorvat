@@ -1,3 +1,27 @@
+<!doctype html>
+<html lang="hr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hero — izgradnja weba</title>
+<style>
+body{margin:0;padding:28px;background:#f5f7f4;color:#15211e;font-family:system-ui,sans-serif}
+main{max-width:1120px;margin:0 auto}
+h1{font-family:Georgia,serif;font-size:clamp(26px,4vw,36px);font-weight:400;margin:8px 0}
+p{max-width:760px;color:#56645f;line-height:1.55}
+nav{display:flex;gap:8px;margin:18px 0}
+button{font:inherit;border:1px solid #d6ddd8;border-radius:8px;background:white;color:#1f6b5c;padding:9px 15px;cursor:pointer}
+button:hover{background:#e8f1eb}
+button:focus-visible{outline:3px solid #3573b7;outline-offset:2px}
+.hero-machine{max-width:1060px;margin:auto}
+@media(max-width:600px){body{padding:18px}}
+</style>
+</head>
+<body>
+<main>
+<h1>Okvir je tu. Zvjezdice grade sadržaj.</h1>
+<p>Diskretan okvir vidi se od početka; prva zvjezdica pokreće izgradnju sadržaja, a završni sjaj označava dovršen web.</p>
+<nav aria-label="Prototype controls"><button id="replay">Ponovi animaciju</button></nav>
 <div class="hero-machine polished">
 <script is:inline>
   // Runs during parsing, before the SVG can paint its static fallback.
@@ -248,3 +272,7 @@ root.style.removeProperty('visibility');
 
 }
 </script>
+</main>
+<script>document.getElementById("replay").addEventListener("click",()=>location.reload());</script>
+</body>
+</html>
