@@ -78,3 +78,7 @@ Uklonjena je mala oznaka ispod teksta, dvije donje kartice i donja ukrasna linij
 ## Usklađena paleta nacrtanog weba
 
 Zeleni gumbi koriste isti svijetli gradijent kao cijevi, s tankim zelenim rubom i zelenim oznakama. Naslovna linija stanjena je na 1,6. Podloga weba prati pozadinu stranice, gornja traka metalne spojeve, a ljubičasta slika ima nježniji gradijent. Tirkizni detalji preuzimaju ton postojećeg propelera.
+
+## Modernija završna ilustracija weba
+
+Navigacija je prozračnija s jednom oznakom brenda; kontrole preglednika su manje. Slika ima mekše zaobljene kutove i zakrivljenu ilustraciju krajolika precizno ograničenu maskom. Tri tekstne linije imaju jasnije razmake i različite duljine, a glavni gumb oblik kapsule. Zadržani su postojeća paleta, pet skupina sadržaja i jedan prolaz animacije.
