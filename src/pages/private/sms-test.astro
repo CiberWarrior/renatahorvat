@@ -2,72 +2,149 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+const services = ['Website', 'Graphic design', 'Illustration', 'Advertising', 'Social media', 'Not sure yet'];
 ---
 
-<Layout title="SMS test" description="Practice page" noindex>
+<Layout title="Project questionnaire — test" description="Practice project enquiry form" noindex>
   <Header />
-  <section class="py-14 sm:py-16">
-    <div class="mx-auto max-w-xl space-y-6 px-4 sm:px-6">
-      <p class="font-mono text-xs uppercase tracking-[.08em] text-ink-soft">Practice page · SMS test</p>
-      <h1 class="font-serif text-4xl font-medium text-ink">SMS test</h1>
-      <p class="text-ink-soft">Practice form: enter your details and a verified test number. The free Twilio trial sends a predefined appointment reminder, without your name or a WhatsApp link.</p>
-
-      <form id="sms-form" class="space-y-4">
-        <label class="block text-[15px] text-ink">First name
-          <input name="firstName" required autocomplete="given-name" class="mt-1 w-full rounded-md border border-rule bg-surface px-3 py-2" />
+  <section class="py-12 sm:py-16">
+    <div class="mx-auto max-w-2xl space-y-6 px-4 sm:px-6">
+      <p class="font-mono text-xs uppercase tracking-[.08em] text-ink-soft">Practice page · Project questionnaire</p>
+      <h1 class="font-serif text-4xl font-medium text-ink">Tell me about your project</h1>
+      <p class="text-ink-soft">Try this short questionnaire. Submitting it sends a real test enquiry to my inbox. You can also request a test SMS.</p>
+      <form id="project-form" class="space-y-6">
+        <fieldset>
+          <legend class="mb-3 font-medium text-ink">Which services are you interested in? <span class="text-sm font-normal text-ink-soft">Choose one or more.</span></legend>
+          <div class="flex flex-wrap gap-2">
+            {services.map(service => <label class="flex min-h-[44px] cursor-pointer items-center gap-2 rounded-full border border-rule bg-surface px-4 py-2 text-sm text-ink"><input type="checkbox" name="services" value={service} class="accent-sci" />{service}</label>)}
+          </div>
+          <p id="services-error" class="mt-2 text-sm text-ink-soft" hidden>Please choose at least one service.</p>
+        </fieldset>
+        <label class="block text-[15px] text-ink">What would you like to achieve? <span aria-hidden="true">*</span>
+          <textarea name="goal" required minlength="10" maxlength="400" rows="4" placeholder="Tell me a little about your project and what you need." class="mt-2 w-full rounded-md border border-rule bg-surface px-3 py-3"></textarea>
+          <span class="text-xs text-ink-soft">10–400 characters.</span>
         </label>
-        <label class="block text-[15px] text-ink">Last name
-          <input name="lastName" required autocomplete="family-name" class="mt-1 w-full rounded-md border border-rule bg-surface px-3 py-2" />
+        <label class="block text-[15px] text-ink">Existing website <span class="text-ink-soft">(optional)</span>
+          <input name="website" type="url" maxlength="160" placeholder="https://example.com" class="mt-2 w-full rounded-md border border-rule bg-surface px-3 py-3" />
         </label>
-        <label class="block text-[15px] text-ink">Mobile number (with country code)
-          <input name="phone" type="tel" required placeholder="+385981234567" autocomplete="tel" class="mt-1 w-full rounded-md border border-rule bg-surface px-3 py-2" />
-        </label>
-        <label class="flex items-start gap-2 text-sm text-ink-soft">
-          <input name="consent" type="checkbox" required class="mt-1" />
-          <span>I agree to receive a test SMS on this number through Twilio. The number is used for this test.</span>
-        </label>
-        <button type="submit" class="rounded-md bg-sci px-6 py-3 font-medium text-white transition-colors hover:bg-sci-dark disabled:opacity-60 disabled:cursor-wait">Send SMS</button>
-        <p id="sms-status" class="text-[15px]" role="status"></p>
+        <div class="grid gap-5 sm:grid-cols-2">
+          <label class="block text-[15px] text-ink">When would you like to start?
+            <select name="timeline" class="mt-2 w-full rounded-md border border-rule bg-surface px-3 py-3">
+              <option>Just exploring</option><option>As soon as possible</option><option>Within the next few months</option><option>I have a flexible timeline</option>
+            </select>
+          </label>
+          <label class="block text-[15px] text-ink">Approximate budget <span class="text-ink-soft">(optional)</span>
+            <select name="budget" class="mt-2 w-full rounded-md border border-rule bg-surface px-3 py-3">
+              <option value="">I'd like a recommendation</option><option>Under €500</option><option>€500–€1,000</option><option>€1,000–€2,000</option><option>Over €2,000</option>
+            </select>
+          </label>
+        </div>
+        <div class="grid gap-5 sm:grid-cols-2">
+          <label class="block text-[15px] text-ink">First name <span aria-hidden="true">*</span><input name="firstName" required maxlength="40" autocomplete="given-name" class="mt-2 w-full rounded-md border border-rule bg-surface px-3 py-3" /></label>
+          <label class="block text-[15px] text-ink">Last name <span aria-hidden="true">*</span><input name="lastName" required maxlength="40" autocomplete="family-name" class="mt-2 w-full rounded-md border border-rule bg-surface px-3 py-3" /></label>
+        </div>
+        <label class="block text-[15px] text-ink">Email <span aria-hidden="true">*</span><input name="email" type="email" required maxlength="254" autocomplete="email" class="mt-2 w-full rounded-md border border-rule bg-surface px-3 py-3" /></label>
+        <div class="space-y-3 rounded-lg border border-rule p-4">
+          <label class="flex items-start gap-3 text-sm text-ink"><input id="sms-option" name="sms" type="checkbox" class="mt-1 accent-sci" /><span>I would also like to receive one test SMS through Twilio.</span></label>
+          <p class="text-sm text-ink-soft">The trial sends an appointment reminder template, not a personalised project confirmation. SMS is available only for the verified test number.</p>
+          <label id="phone-field" hidden class="text-[15px] text-ink">Mobile number (with country code)<input name="phone" type="tel" disabled maxlength="25" autocomplete="tel" placeholder="+385981234567" class="mt-2 w-full rounded-md border border-rule bg-surface px-3 py-3" /></label>
+        </div>
+        <label class="flex items-start gap-3 text-sm text-ink-soft"><input name="privacy" type="checkbox" required class="mt-1 accent-sci" /><span>I have read the <a href="/privacy-policy" class="underline">Privacy Policy</a>. My details will be used to respond to this test enquiry. <span aria-hidden="true">*</span></span></label>
+        <button type="submit" class="min-h-[44px] rounded-md bg-sci px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-sci-dark disabled:cursor-default disabled:opacity-60">Send test enquiry</button>
+        <p id="project-status" class="text-[15px] text-ink" role="status" aria-live="polite"></p>
       </form>
     </div>
   </section>
-
   <script>
-    const form = document.getElementById('sms-form') as HTMLFormElement | null;
-    const status = document.getElementById('sms-status') as HTMLElement | null;
-    const button = form?.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+    const form = document.getElementById('project-form') as HTMLFormElement;
+    const status = document.getElementById('project-status') as HTMLElement;
+    const button = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+    const sms = document.getElementById('sms-option') as HTMLInputElement;
+    const phoneField = document.getElementById('phone-field') as HTMLElement;
+    const phone = form.elements.namedItem('phone') as HTMLInputElement;
+    const servicesError = document.getElementById('services-error') as HTMLElement;
     let pending = false;
-    form?.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      if (!form || !status || pending || !form.reportValidity()) return;
-      pending = true;
-      if (button) {
-        button.disabled = true;
-        button.textContent = 'Sending…';
-      }
+    let emailAccepted = false;
+    sms.addEventListener('change', () => {
+      phoneField.hidden = !sms.checked;
+      phone.disabled = !sms.checked;
+      phone.required = sms.checked;
+    });
+    form.addEventListener('change', () => {
+      if (form.querySelector('input[name="services"]:checked')) servicesError.hidden = true;
+    });
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      if (pending || emailAccepted || !form.reportValidity()) return;
       const data = new FormData(form);
-      status.textContent = 'Sending…';
+      const services = data.getAll('services').map(String);
+      servicesError.hidden = services.length > 0;
+      if (!services.length) {
+        (form.querySelector('input[name="services"]') as HTMLInputElement).focus();
+        status.textContent = 'Please choose at least one service.';
+        return;
+      }
+      const get = (key: string) => String(data.get(key) ?? '').trim();
+      if (!get('firstName') || !get('lastName') || get('goal').length < 10) {
+        status.textContent = 'Please enter your name and at least 10 characters about your project.';
+        return;
+      }
+      const wantsSms = sms.checked;
+      const number = get('phone').replace(/[\s()-]/g, '');
+      if (wantsSms && !/^\+[1-9]\d{7,14}$/.test(number)) {
+        status.textContent = 'Please enter a valid mobile number with its country code.';
+        phone.focus();
+        return;
+      }
+      const message = [
+        '[TEST PROJECT QUESTIONNAIRE]',
+        `Services: ${services.join(', ')}`,
+        `Goal: ${get('goal')}`,
+        `Existing website: ${get('website') || 'None provided'}`,
+        `Start: ${get('timeline')}`,
+        `Budget: ${get('budget') || 'Recommendation requested'}`,
+        `Test SMS requested: ${wantsSms ? 'Yes' : 'No'}`,
+        ...(wantsSms ? [`Test mobile number: ${number}`] : []),
+      ].join('\n');
+      if (message.length > 1000) {
+        status.textContent = 'Please shorten your project description or website address.';
+        return;
+      }
+      pending = true;
+      button.disabled = true;
+      button.textContent = 'Sending…';
+      status.textContent = 'Sending your test enquiry…';
       try {
-        const res = await fetch('/api/sms-test', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            firstName: data.get('firstName'),
-            lastName: data.get('lastName'),
-            phone: data.get('phone'),
-            consent: data.get('consent') === 'on',
-          }),
+        const response = await fetch('/api/contact', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: `${get('firstName')} ${get('lastName')}`, email: get('email'), message, gdprConsent: data.get('privacy') === 'on' }),
         });
-        const json = await res.json();
-        status.textContent = typeof json.message === 'string' ? json.message : 'Unexpected server response. Check the logs before retrying.';
+        const result = await response.json();
+        if (!response.ok || result.success !== true) {
+          status.textContent = typeof result.message === 'string' ? result.message : 'Your enquiry could not be submitted. Please try again later.';
+          return;
+        }
+        emailAccepted = true;
+        if (!wantsSms) {
+          status.textContent = 'Your test enquiry was accepted for email delivery. Check the inbox to confirm it arrived. No SMS was requested.';
+          return;
+        }
+        status.textContent = 'Your enquiry was accepted for email delivery. Requesting the test SMS…';
+        const smsResponse = await fetch('/api/sms-test', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ firstName: get('firstName'), lastName: get('lastName'), phone: number, consent: true }),
+        });
+        const smsResult = await smsResponse.json();
+        const detail = typeof smsResult.message === 'string' ? smsResult.message : 'Check the SMS logs for the result.';
+        status.textContent = `Your enquiry was accepted for email delivery. ${smsResponse.ok ? '' : 'The test SMS could not be sent. '}${detail} Check the inbox to confirm your enquiry arrived.`;
       } catch {
-        status.textContent = 'The request could not be completed. Check the logs before retrying.';
+        status.textContent = emailAccepted
+          ? 'Your enquiry was accepted for email delivery, but the SMS result could not be confirmed. Check your phone and the Twilio logs. Your enquiry will not be resent.'
+          : 'The submission result could not be confirmed. Check the inbox before trying again to avoid a duplicate enquiry.';
       } finally {
         pending = false;
-        if (button) {
-          button.disabled = false;
-          button.textContent = 'Send SMS';
-        }
+        button.disabled = emailAccepted;
+        button.textContent = emailAccepted ? 'Enquiry submitted' : 'Send test enquiry';
       }
     });
   </script>
