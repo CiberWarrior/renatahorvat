@@ -19,36 +19,26 @@ const previewProjects = previews.flatMap(({ title, meta }) => {
 
 const services = [
   {
-    title: 'Conference & congress websites',
-    text: 'For organising committees that need a website ready before the call for abstracts.',
-    items: ['Programme and speakers', 'Registration and abstract submission', 'Venue, travel and an archive after the event'],
+    title: 'Web design & build',
+    text: 'Clear, distinctive websites for researchers, educators, organisations and small businesses.',
+    items: ['Business, conference and society websites', 'Online textbooks and learning resources', 'Searchable collections and research tools'],
   },
   {
-    title: 'Society & research group websites',
-    text: 'Websites built to last, with news, membership information, publications and outreach.',
-    items: ['Membership and events', 'Publication lists', 'Content your team can update'],
+    title: 'Graphic design & illustration',
+    text: 'Visuals that make your ideas clear and give your project its own character.',
+    items: ['Promotional materials and ad design', 'Illustrations and infographics', 'Scientific figures and educational diagrams'],
   },
   {
-    title: 'E-textbooks & e-learning',
-    text: 'Course materials students can use on their phones and revisit when studying.',
-    items: ['Chapter structure and navigation', 'Educational diagrams in a consistent style'],
-  },
-  {
-    title: 'Scientific figures & infographics',
-    text: 'Clear visuals for papers, presentations and data, available as a standalone service or as part of a website project.',
-    items: ['Publication-ready vector files', 'A consistent style across a series'],
-  },
-  {
-    title: 'Web apps for research',
-    text: 'Searchable collections, image catalogues and tools that present data and results.',
-    items: ['Catalogues and databases', 'Search and filters', 'Conference tools'],
+    title: 'Digital advertising & social media',
+    text: 'Ad design, campaign management and day-to-day social media account management.',
+    items: ['Facebook Ads campaigns', 'Google Ads campaigns', 'Social media account management'],
   },
 ];
 
 // SEO optimized page data
-const pageTitle = "Renata Horvat – Web Designer & Developer | Zagreb";
-const pageDescription = "Web designer and developer in Zagreb with over 20 years of experience. Clear, fast websites for conferences, societies, universities and small businesses, from design to launch.";
-const pageKeywords = "web designer Zagreb, web design Croatia, conference website, society website, university website, small business website, web developer Zagreb, Renata Horvat";
+const pageTitle = "Renata Horvat – Web & Graphic Designer | Zagreb";
+const pageDescription = "Web and graphic designer in Zagreb with over 20 years of experience. Clear, fast websites for conferences, societies, universities and small businesses, from design to launch.";
+const pageKeywords = "web designer Zagreb, web design Croatia, conference website, society website, university website, small business website, graphic designer Zagreb, Renata Horvat";
 ---
 
 <Layout
@@ -84,10 +74,10 @@ const pageKeywords = "web designer Zagreb, web design Croatia, conference websit
   <section class="border-b border-rule bg-surface py-16 sm:py-20" aria-labelledby="services-heading">
     <div class="mx-auto max-w-6xl px-4 sm:px-6">
       <div class="mb-10 flex flex-wrap items-end justify-between gap-4">
-        <h2 id="services-heading" class="font-serif text-4xl font-medium text-ink sm:text-[2.6rem]">What I build</h2>
+        <h2 id="services-heading" class="font-serif text-4xl font-medium text-ink sm:text-[2.6rem]">What I do</h2>
         <a href="/prices" class="group font-medium text-sci hover:text-sci-dark">Pricing <span class="inline-block transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true">→</span></a>
       </div>
-      <p class="-mt-4 mb-8 max-w-2xl text-ink-soft">For universities, societies, conference organisers and small businesses that need a clear website.</p>
+      <p class="-mt-4 mb-8 max-w-2xl text-ink-soft">Websites, visual materials and digital advertising for academic organisations and small businesses.</p>
       <div class="grid border-t border-ink md:grid-cols-2">
         {services.map((service, i) => (
           <div class={`grid min-w-0 content-start gap-3 border-b border-rule py-7 ${services.length % 2 === 1 && i === services.length - 1 ? 'md:col-span-2' : i % 2 === 1 ? 'md:border-l md:pl-8' : 'md:pr-8'}`}>
@@ -127,16 +117,16 @@ const pageKeywords = "web designer Zagreb, web design Croatia, conference websit
 
       <div class="max-w-2xl space-y-5">
         <h2 id="about-heading" class="font-serif text-3xl font-medium leading-tight text-balance text-ink sm:text-4xl">
-          Designing for people who work with knowledge
+          A clear approach. A creative eye.
         </h2>
         <p class="text-lg leading-relaxed text-ink">
-          I'm Renata, a web designer and developer based in Zagreb with over 20 years of experience building websites for universities, societies, congresses and small businesses.
+          I'm Renata, a web and graphic designer based in Zagreb, with over 20 years of experience working with universities, organisations and small businesses.
         </p>
         <p class="leading-relaxed text-ink-soft">
-          Research teams, societies and organisations come to me for websites and web apps that handle complex content, stay easy to maintain and keep serving their users long after launch.
+          I design and build websites, create illustrations and promotional materials, and manage Facebook and Google Ads campaigns and social media accounts.
         </p>
         <p class="leading-relaxed text-ink-soft">
-          My background in science communication helps me turn complex subject matter into clear, readable and useful content.
+          My background in science communication helps me turn complex ideas into clear messages and distinctive visuals.
         </p>
         <dl class="grid grid-cols-3 gap-4 border-t border-rule pt-6">
           <div>

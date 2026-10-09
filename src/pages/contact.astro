@@ -5,8 +5,8 @@ import Footer from "../components/Footer.astro";
 
 // SEO optimized page data
 const pageTitle = "Contact – Renata Horvat | Web Designer Zagreb";
-const pageDescription = "Get in touch with Renata Horvat, web designer in Zagreb, about a new website for your conference, society or business. The first conversation is free.";
-const pageKeywords = "contact Renata Horvat, web designer Zagreb, web design Croatia, conference website, society website, university website, small business website, web developer Zagreb, Renata Horvat";
+const pageDescription = "Get in touch with Renata Horvat, web designer in Zagreb, about a website, graphic design, illustration, advertising or social media project. The first conversation is free.";
+const pageKeywords = "contact Renata Horvat, web designer Zagreb, web design Croatia, conference website, society website, university website, small business website, graphic designer Zagreb, Renata Horvat";
 
 // Structured data for contact page
 const contactStructuredData = {
@@ -19,7 +19,7 @@ const contactStructuredData = {
     "@type": "Person",
     "name": "Renata Horvat",
     "email": "screatives.info@gmail.com",
-    "jobTitle": "Web Designer & Developer",
+    "jobTitle": "Web & Graphic Designer",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Zagreb",
@@ -99,7 +99,7 @@ import { whatsappUrl } from '../lib/contact';
             <p class="mb-1.5 block text-sm font-medium text-ink" id="project-type-label">What kind of project is it? <span class="font-normal text-ink-soft">(optional)</span></p>
             <input type="hidden" id="project-type" name="project_type" value="" />
             <div class="flex flex-wrap gap-2" role="group" aria-labelledby="project-type-label">
-              {['Website', 'Conference site', 'E-learning', 'Scientific figures', 'Not sure yet'].map((tag) => (
+              {['Website', 'Conference site', 'E-learning', 'Graphic design', 'Illustration', 'Advertising', 'Social media', 'Not sure yet'].map((tag) => (
                 <button type="button" class="project-tag rounded-full border border-rule bg-surface px-3.5 py-1.5 text-sm text-ink transition-colors hover:border-sci" data-value={tag}>
                   {tag}
                 </button>

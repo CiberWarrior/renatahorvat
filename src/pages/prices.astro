@@ -5,7 +5,7 @@ import Footer from '../components/Footer.astro';
 import ContactCta from '../components/ContactCta.astro';
 
 const pageTitle = "Pricing – Renata Horvat | Web Design Zagreb";
-const pageDescription = "Starting prices for websites from €500: research project pages, society and group websites and institutional sites. Conference websites, e-textbooks and scientific figures are quoted after an initial conversation. Zagreb, Croatia.";
+const pageDescription = "Starting prices for websites from €500: research project pages, society and group websites and institutional sites. Other websites, graphic design, illustration, advertising and social media management are quoted individually. Zagreb, Croatia.";
 const pageKeywords = "academic website pricing, scientific society website cost, conference website price, e-learning platform price, research project website, web design pricing Croatia, website cost Zagreb";
 
 // Each package has a defined scope (pages, rounds of changes), so the price stays predictable
@@ -66,6 +66,21 @@ const scoped = [
     text: 'Diagrams for papers, posters, lectures and textbooks.',
     factors: ['Number of figures', 'Simple diagram or detailed illustration', 'File formats for print and web'],
   },
+  {
+    name: 'Graphic design & illustration',
+    text: 'Illustrations, ad designs and promotional materials for your organisation or business.',
+    factors: ['Type and number of materials', 'Level of detail', 'File formats for print and web'],
+  },
+  {
+    name: 'Digital advertising',
+    text: 'Ad design and campaign management for Facebook and Google Ads.',
+    factors: ['Advertising platforms', 'Number of campaigns and ad designs', 'Campaign duration'],
+  },
+  {
+    name: 'Social media management',
+    text: 'Day-to-day management of your social media accounts.',
+    factors: ['Number of accounts', 'Scope of account management', 'Duration of support'],
+  },
 ];
 
 const afterLaunch = [
@@ -96,7 +111,7 @@ const steps = [
         Starting prices for websites
       </h1>
       <p class="max-w-2xl text-lg leading-relaxed text-ink-soft">
-        Every project is different. The three packages below give you a starting point for budgeting. Each has a defined scope. Larger projects receive a tailored quote after an initial conversation.
+        Every project is different. The three packages below give you a starting point for budgeting. Each has a defined scope. Business websites and projects outside these packages receive a tailored quote after an initial conversation.
       </p>
     </div>
   </section>
@@ -181,7 +196,7 @@ const steps = [
       </div>
       <div class="grid border-t border-ink md:grid-cols-3">
         {scoped.map((item, i) => (
-          <div class={`grid min-w-0 content-start gap-3 border-b border-rule py-6 md:border-b-0 ${i > 0 ? 'md:border-l md:border-rule md:pl-8' : ''} ${i < scoped.length - 1 ? 'md:pr-8' : ''}`}>
+          <div class={`grid min-w-0 content-start gap-3 border-b border-rule py-6 md:border-b-0 ${i % 3 > 0 ? 'md:border-l md:border-rule md:pl-8' : ''} ${i % 3 < 2 ? 'md:pr-8' : ''}`}>
             <h3 class="font-serif text-xl font-medium text-ink">{item.name}</h3>
             <p class="text-[15px] leading-relaxed text-ink-soft">{item.text}</p>
             <div>
