@@ -74,3 +74,7 @@ Provjera: produkcijski build i test izdvojene stvarne animacijske skripte s kont
 ## Jednostavniji nacrtani web
 
 Uklonjena je mala oznaka ispod teksta, dvije donje kartice i donja ukrasna linija. Ostaju jedna naslovna i dvije tekstne linije te jedan zeleni gumb ispod teksta. Okvir je skraćen da prati sadržaj; odredište završnih zvjezdica i naglasak dolaska usklađeni su s novim gumbom.
+
+## Usklađena paleta nacrtanog weba
+
+Zeleni gumbi koriste isti svijetli gradijent kao cijevi, s tankim zelenim rubom i zelenim oznakama. Naslovna linija stanjena je na 1,6. Podloga weba prati pozadinu stranice, gornja traka metalne spojeve, a ljubičasta slika ima nježniji gradijent. Tirkizni detalji preuzimaju ton postojećeg propelera.
