@@ -44,3 +44,7 @@ U produkcijsku komponentu preneseni su gradijenti cijevi i spojeva, diskretan sj
 ## Ulaz dokumenata u produkcijski hero
 
 U hero je prenesen odobreni ulazni tok iz prototipa: dva dokumenta i dvije slikovne kartice ulaze glatko i redom u lijevak. Zvijezde putuju unutar maske cijevi te izlaze prema webu; prolaz je neznatno ubrzan. Monitor prikazuje jedan kardiogramski vrh i kratke oznake koda, a monitor i raketa spojeni su na cijevi kabelima. Na mobitelu i uz smanjeno kretanje ostaje završna statična ilustracija, bez ulaznih kartica.
+
+## Tri mjerača i završna antenica (9. listopada 2026.)
+
+Odobrena varijanta `three-dials-prototype.html` prenesena je u `HeroMagic.astro`: tri povezana mjerača s kazaljkama u žutoj, zelenoj, crvenoj i plavoj boji, tri izvorna zupčanika bez remena, kratka antenica u donjoj cijevi s manjom ljubičastom kuglicom i tanji obrubi svih dijelova cijevi. Kazaljke koriste postojeću animacijsku petlju i zajedno sa zupčanicima postupno staju. Mobilni prikaz i smanjeno kretanje ostaju statični. Hero raspored ima više prostora za ilustraciju na desktopu i tabletu. Prototipovi s remenom i treperećim lampicama ostaju lokalne neodobrene alternative; nisu dio produkcije.

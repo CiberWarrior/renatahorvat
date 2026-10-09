@@ -1,3 +1,27 @@
+<!doctype html>
+<html lang="hr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hero — tri mjerača i antena</title>
+<style>
+body{margin:0;padding:28px;background:#f5f7f4;color:#15211e;font-family:system-ui,sans-serif}
+main{max-width:1120px;margin:0 auto}
+h1{font-family:Georgia,serif;font-size:clamp(26px,4vw,36px);font-weight:400;margin:8px 0}
+p{max-width:760px;color:#56645f;line-height:1.55}
+nav{display:flex;gap:8px;margin:18px 0}
+button{font:inherit;border:1px solid #d6ddd8;border-radius:8px;background:white;color:#1f6b5c;padding:9px 15px;cursor:pointer}
+button:hover{background:#e8f1eb}
+button:focus-visible{outline:3px solid #3573b7;outline-offset:2px}
+.hero-machine{max-width:1060px;margin:auto}
+@media(max-width:600px){body{padding:18px}}
+</style>
+</head>
+<body>
+<main>
+<h1>Tri mjerača i antena</h1>
+<p>Tri mjerača prate rad stroja. Zupčanici se vrte bez remena, a antenica i tanji rub cijevi daju ilustraciji lakši izgled.</p>
+<nav aria-label="Prototype controls"><button id="replay">Ponovi animaciju</button></nav>
 <div class="hero-machine polished">
 <script is:inline>
   // Runs during parsing, before the SVG can paint its static fallback.
@@ -209,14 +233,14 @@ const umbrellas=[...root.querySelectorAll('.umbrella')].map(node=>({phase:Number
 function drawUmbrellas(t,settled=false){for(const umbrella of umbrellas){const phase=umbrella.phase,end=endTime;let open=settled?1:(.5-.5*Math.cos((t+phase)*Math.PI*2/5.6));if(t>end-2){const blend=ease(clamp((t-(end-2))/2));open+= (1-open)*blend;}const w=5+30*open,y=20*(1-open),inner=w/3,peak=-32;
 umbrella.canopy.setAttribute('d',`M${-w} ${y} Q${-w*.65} ${peak} 0 ${peak} Q${w*.65} ${peak} ${w} ${y} Q${w*.67} ${y-10*open} ${inner} ${y} Q0 ${y-12*open} ${-inner} ${y} Q${-w*.67} ${y-10*open} ${-w} ${y}Z`);
 umbrella.ribs.setAttribute('d',`M0 ${peak} Q${-inner} ${peak+13} ${-inner} ${y} M0 ${peak} Q${inner} ${peak+13} ${inner} ${y}`);}}
-const outline=root.querySelector('.web-outline'),gauge=root.querySelector('.gauge-pointer'),microNeedles=[...root.querySelectorAll('.micro-needle')].map(node=>({node,rate:Number(node.dataset.rate)})),outletEcho=root.querySelector('.outlet-echo'),arrivalEchoes=[...root.querySelectorAll('.arrival-echo')];
+const outline=root.querySelector('.web-outline'),gauge=root.querySelector('.gauge-pointer'),microNeedles=[...root.querySelectorAll('.micro-needle')],outletEcho=root.querySelector('.outlet-echo'),arrivalEchoes=[...root.querySelectorAll('.arrival-echo')];
 function echo(node,age,duration,strength){const u=clamp(age/duration),visible=age>=0&&age<duration;node.style.opacity=visible?String(strength*Math.sin(Math.PI*u)):0;node.style.transform=`scale(${.6+u*.9})`;}
 function drawEchoes(t){let latest=-10;for(const particle of particles){const age=t-particle.delay-STAR_TRAVEL;if(age>=0)latest=age;}echo(outletEcho,latest,.5,.42);arrivalEchoes.forEach((node,i)=>echo(node,t-arrivals[i]-.85,.7,.36));}
 const wheels=[...root.querySelectorAll('.working')].map(node=>({node,duration:node.classList.contains('gear-main')?12:node.classList.contains('gear-small')?9:node.classList.contains('gear-tiny')?7:10,direction:node.classList.contains('reverse')?-1:1}));
 wheels.forEach(w=>w.node.style.animation='none');
-function drawWheels(t){const duration=2.4,brake=endTime-duration,u=clamp((t-brake)/duration),clock=t<=brake?t:brake+duration*(u-u*u+u*u*u/3);wheels.forEach(w=>w.node.setAttribute('transform',`rotate(${w.direction*360*clock/w.duration})`));microNeedles.forEach(({node,rate})=>node.setAttribute('transform',`rotate(${(clock*rate)%360})`));}
+function drawWheels(t){const duration=2.4,brake=endTime-duration,u=clamp((t-brake)/duration),clock=t<=brake?t:brake+duration*(u-u*u+u*u*u/3);wheels.forEach(w=>w.node.setAttribute('transform',`rotate(${w.direction*360*clock/w.duration})`));}
 function start(){scene.classList.remove('prepared');root.classList.remove('input-ready');cancelAnimationFrame(frame);outletEcho.style.opacity=0;arrivalEchoes.forEach(node=>node.style.opacity=0);elapsed=0;lastTime=0;outline.style.strokeDashoffset="1";drawWheels(0);container.replaceChildren();inside.replaceChildren();parts.forEach(p=>p.classList.remove('show'));scene.classList.remove('finished');scene.classList.add('active');if(reduced.matches||mobile.matches){finish();return}root.classList.add('input-ready');drawInputs(0,true);particles=Array.from({length:15},(_,i)=>makeParticle(i));frame=requestAnimationFrame(tick);}
-function tick(now){if(!lastTime)lastTime=now;if(!document.hidden)elapsed+=Math.min((now-lastTime)/1000,.06);lastTime=now;const t=elapsed;drawInputs(t);drawWheels(t);drawEchoes(t);outline.style.strokeDashoffset=String(1-clamp((t-arrivals[0])/1.25));drawUmbrellas(t);gauge.setAttribute("transform",`rotate(${-3+15*Math.sin(t*Math.PI/5)})`);
+function tick(now){if(!lastTime)lastTime=now;if(!document.hidden)elapsed+=Math.min((now-lastTime)/1000,.06);lastTime=now;const t=elapsed;drawInputs(t);microNeedles.forEach((needle,i)=>needle.setAttribute('transform','rotate('+((t*[32,44,56,92][i])%360)+')'));drawWheels(t);drawEchoes(t);outline.style.strokeDashoffset=String(1-clamp((t-arrivals[0])/1.25));drawUmbrellas(t);gauge.setAttribute("transform",`rotate(${-3+15*Math.sin(t*Math.PI/5)})`);
 for(const {node,group,lane,delay,size,rotates} of particles){const age=t-delay;if(age<0){node.style.opacity=0;continue}let x,y,opacity=1,scale=size;const travel=STAR_TRAVEL;
 if(age<travel){const u=clamp(age/travel),speed=u,p=pathSamples[Math.round(clamp(speed)*700)];x=p.x;y=p.y;opacity=clamp(age/.2);}
 else{const release=delay+travel,arrival=release+1.4,u=clamp((t-release)/(arrival-release)),v=ease(u),target=targets[group],spread=Math.sin(Math.PI*u),angle=lane/3*Math.PI*2;
@@ -233,3 +257,8 @@ root.style.removeProperty('visibility');
 
 }
 </script>
+
+</main>
+<script>document.getElementById('replay').addEventListener('click',()=>location.reload());</script>
+</body>
+</html>
