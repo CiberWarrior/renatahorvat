@@ -120,7 +120,7 @@ import { whatsappUrl } from '../lib/contact';
             <div class="flex items-start gap-3">
               <input type="checkbox" id="gdpr-consent" name="gdpr_consent" class="mt-1 h-4 w-4 rounded border-rule text-sci focus:ring-sci" />
               <label for="gdpr-consent" class="text-sm leading-relaxed text-ink-soft">
-                I agree to the processing of my personal data in accordance with the <a href="/privacy-policy" target="_blank" class="text-sci underline underline-offset-2">Privacy Policy</a>. Your information will only be used to respond to your enquiry. <span class="text-allele">*</span>
+                I have read the <a href="/privacy-policy" target="_blank" class="text-sci underline underline-offset-2">Privacy Policy</a>. Your details are used to respond to your enquiry, as explained in the policy. <span class="text-allele">*</span>
               </label>
             </div>
             <div id="gdpr-error" class="mt-1 hidden text-sm text-red-700" role="alert"></div>
@@ -311,7 +311,7 @@ import { whatsappUrl } from '../lib/contact';
 
           if (!gdprConsent) {
             if (gdprError) {
-              gdprError.textContent = 'You must agree to the Privacy Policy to submit this form.';
+              gdprError.textContent = 'Please confirm that you have read the Privacy Policy before submitting this form.';
               gdprError.classList.remove('hidden');
             }
             if (gdprCheckbox) {
@@ -513,7 +513,7 @@ import { whatsappUrl } from '../lib/contact';
               gdprError.classList.add('hidden');
               gdprCheckbox.classList.remove('ring-2', 'ring-red-500');
             } else {
-              gdprError.textContent = 'You must agree to the Privacy Policy to submit this form.';
+              gdprError.textContent = 'Please confirm that you have read the Privacy Policy before submitting this form.';
               gdprError.classList.remove('hidden');
               gdprCheckbox.classList.add('ring-2', 'ring-red-500');
             }
