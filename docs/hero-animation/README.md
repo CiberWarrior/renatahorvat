@@ -48,3 +48,7 @@ U hero je prenesen odobreni ulazni tok iz prototipa: dva dokumenta i dvije sliko
 ## Tri mjerača i završna antenica (9. listopada 2026.)
 
 Odobrena varijanta `three-dials-prototype.html` prenesena je u `HeroMagic.astro`: tri povezana mjerača s kazaljkama u žutoj, zelenoj, crvenoj i plavoj boji, tri izvorna zupčanika bez remena, kratka antenica u donjoj cijevi s manjom ljubičastom kuglicom i tanji obrubi svih dijelova cijevi. Kazaljke koriste postojeću animacijsku petlju i zajedno sa zupčanicima postupno staju. Mobilni prikaz i smanjeno kretanje ostaju statični. Hero raspored ima više prostora za ilustraciju na desktopu i tabletu. Prototipovi s remenom i treperećim lampicama ostaju lokalne neodobrene alternative; nisu dio produkcije.
+
+## Animacija na mobitelu (9. listopada 2026.)
+
+Na Renatin zahtjev mobilni prikaz sada pokreće istu animaciju pri ulasku ilustracije u ekran. Statična završna ilustracija ostaje uz `prefers-reduced-motion` i bez JavaScripta. Početno skrivanje završnog stanja vrijedi na svim širinama kako bi se izbjegao treptaj. Na mobitelu se preskaču samo dekorativni impulsi i završni sjaj; dokumenti, zvjezdice, kazaljke, zupčanici i izgradnja weba rade u postojećoj petlji koja se gasi nakon završetka.
