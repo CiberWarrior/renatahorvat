@@ -19,7 +19,7 @@ export interface Project {
 export const projects: Project[] = [
   // Projects with links
   {
-    title: 'Terenska nastava iz algologije',
+    title: 'Algology Fieldwork Manual',
     summary:
       'Online handbook for undergraduate Biology students on fieldwork in algology, from the Department of Biology, Faculty of Science, University of Zagreb.',
     href: 'https://www.terenska.algologija.biol.pmf.hr',
