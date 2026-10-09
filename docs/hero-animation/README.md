@@ -56,3 +56,21 @@ Na Renatin zahtjev mobilni prikaz sada pokreće istu animaciju pri ulasku ilustr
 ## Vidljiv okvir i dorada nacrtanog weba
 
 Prazan okvir, gornja traka i točkice vidljivi su diskretno prije početka animacije. Izlaskom prve zvjezdice okvir pojačava vidljivost i pojavljuje se prvo zaglavlje sadržaja. Sljedeće skupine dodaju sliku, tekst i gumbe. Nacrtani web ima traku adrese, detaljniju navigaciju i gumbe, tanje linije te jedan kratki završni sjaj bez dodatnih biblioteka ili zahtjeva. Prikaz bez JavaScripta i uz smanjeno kretanje ostaje potpun i statičan. Razvojni pregled: `web-reveal-prototype.html`.
+
+## Završno čišćenje i optimizacija (9. listopada 2026.)
+
+Ova odluka zamjenjuje starije opise mobilnog prikaza i antene u ovoj dokumentaciji. Produkcijska komponenta i `web-reveal-prototype.html` koriste istu animacijsku logiku.
+
+- Animacija radi jednom, na desktopu i mobitelu. Nema gumba za ponovno pokretanje. Uz smanjeno kretanje, bez JavaScripta ili bez IntersectionObservera prikazuje se završna ilustracija.
+- Donja antenica ima malu ljubičastu kuglicu, tanak rub i oprugu vezanu uz nepomično ležište. Nema dodatnog propelera. Postojeći propeler u okruglom kućištu ostaje.
+- Usklađeni su rubovi lijevka, rakete, kišobrana i spojevi postolja. Sadržaj nacrtanog weba ima unutarnju masku. Suvišne ukrasne crte uklonjene su.
+- Donji mali zupčanik približen je velikom; početni kutovi i brzine usklađeni su s brojem zuba. Zvjezdice interpoliraju spremljene uzorke putanje te pri izlasku prelaze iz maske cijevi u slobodan sloj.
+- RAF i CSS animacije pauziraju kada ilustracija izađe iz vidljivog područja ili je kartica skrivena. Nastavak zadržava proteklo vrijeme. Zvjezdice se uklanjaju odmah nakon dolaska; završetak zaustavlja RAF i odspaja observer.
+- Antena i kazaljka nježno se smiruju. Pojedini dijelovi weba dobiju kratak naglasak dolaska, bez ponavljanja cijele animacije.
+- Hero CTA gumbi na mobitelu imaju najveću širinu 18rem. Nema novih biblioteka, vanjskih zahtjeva, videa ili bitmap animacija.
+
+Provjera: produkcijski build i test izdvojene stvarne animacijske skripte s kontroliranim DOM/RAF objektima. Test pokriva završetak, pauzu/nastavak, uklanjanje čestica, smanjeno kretanje i odsutnost observera. Vizualna provjera u pregledniku nije dovršena jer je pristup pregledniku blokiran pravilom okruženja. Produkcijska objava nije dio ove provjere.
+
+## Jednostavniji nacrtani web
+
+Uklonjena je mala oznaka ispod teksta, dvije donje kartice i donja ukrasna linija. Ostaju jedna naslovna i dvije tekstne linije te jedan zeleni gumb ispod teksta. Okvir je skraćen da prati sadržaj; odredište završnih zvjezdica i naglasak dolaska usklađeni su s novim gumbom.

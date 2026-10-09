@@ -25,11 +25,11 @@ import HeroMagic from './HeroMagic.astro';
         Web designer with over 20 years of experience. From scientific congresses to a local bike service, I design, illustrate and build clear websites, and web apps that present research.
       </p>
 
-      <div class="flex flex-col gap-3 pt-2 sm:flex-row">
-        <a href="#work" class="group inline-flex items-center justify-center gap-2 rounded-md bg-sci px-6 py-3 font-medium text-white transition-colors hover:bg-sci-dark" onclick="if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: 'view_projects', cta_location: 'hero' })">
+      <div class="flex flex-col items-start gap-3 pt-2 sm:flex-row sm:items-stretch">
+        <a href="#work" class="group inline-flex w-full max-w-[18rem] items-center justify-center gap-2 sm:w-auto sm:max-w-none rounded-md bg-sci px-6 py-3 font-medium text-white transition-colors hover:bg-sci-dark" onclick="if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: 'view_projects', cta_location: 'hero' })">
           See selected work <span class="inline-block transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true">→</span>
         </a>
-        <a href="/contact" class="group inline-flex items-center justify-center gap-2 rounded-md border border-rule bg-surface px-6 py-3 font-medium text-ink transition-colors hover:border-sci" onclick="if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: 'get_in_touch', cta_location: 'hero' })">
+        <a href="/contact" class="group inline-flex w-full max-w-[18rem] items-center justify-center gap-2 sm:w-auto sm:max-w-none rounded-md border border-rule bg-surface px-6 py-3 font-medium text-ink transition-colors hover:border-sci" onclick="if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: 'get_in_touch', cta_location: 'hero' })">
           Talk about a project <span class="inline-block transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true">→</span>
         </a>
       </div>
