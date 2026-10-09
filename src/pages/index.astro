@@ -53,7 +53,12 @@ const pageKeywords = "web designer Zagreb, web design Croatia, conference websit
   <!-- Selected work -->
   <section id="work" class="scroll-mt-20 border-b border-rule py-16 sm:py-20" aria-labelledby="work-heading">
     <div class="mx-auto max-w-6xl px-4 sm:px-6">
-      <h2 id="work-heading" class="mb-10 font-serif text-4xl font-medium text-ink sm:text-[2.6rem]">Selected work</h2>
+      <div class="mb-10 flex flex-wrap items-end justify-between gap-x-6 gap-y-2">
+        <h2 id="work-heading" class="font-serif text-4xl font-medium text-ink sm:text-[2.6rem]">Selected work</h2>
+        <a href="/work" class="group inline-flex min-h-11 items-center gap-2 text-sm font-medium text-sci hover:text-sci-dark sm:text-base">
+          View projects <span class="inline-block transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true">→</span>
+        </a>
+      </div>
       <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {previewProjects.map((project) => (
           <CaseCard
