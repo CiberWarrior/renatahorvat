@@ -42,9 +42,8 @@ const absoluteOgImage =
   ogImage.startsWith('http') ? ogImage : new URL(ogImage, Astro.url.origin).href;
 
 
-// Non-render-blocking font URL
-const fontCssUrl =
-  'https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap';
+// Fonts are served locally so font loading does not contact Google.
+const fontCssUrl = '/fonts/portfolio.css';
 ---
 
 <!DOCTYPE html>
@@ -75,18 +74,12 @@ const fontCssUrl =
     <!-- Sitemap -->
     <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
     
-    <!-- Fonts: preconnect + async load to avoid render-blocking (improves LCP/FCP) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fonts: local stylesheet + async load to avoid render-blocking (improves LCP/FCP) -->
     <link rel="preload" href={fontCssUrl} as="style">
     <link rel="stylesheet" href={fontCssUrl} media="print" onload="this.media='all'">
     <noscript>
       <link rel="stylesheet" href={fontCssUrl}>
     </noscript>
-
-    <!-- Resource Hints -->
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
 
     <!-- Page-specific LCP/critical preloads only (e.g. contact hero image); no global image preloads -->
     {preloadResources.map((r) => (
@@ -245,11 +238,7 @@ const fontCssUrl =
               }
             });
 
-            // Send page view after consent is granted
-            window.gtag('event', 'page_view', {
-              page_title: document.title,
-              page_location: window.location.href
-            });
+            // The config call sends the initial page view.
 
             // Track scroll depth - Optimized with throttling
             let maxScroll = 0;

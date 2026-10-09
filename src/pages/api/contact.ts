@@ -83,7 +83,7 @@ export const POST: APIRoute = async ({ request }) => {
     return json(400, {
       success: false,
       message:
-        'You must agree to the Privacy Policy to submit this form. Please check the consent checkbox.',
+        'Please confirm that you have read the Privacy Policy before submitting this form.',
     });
   }
 

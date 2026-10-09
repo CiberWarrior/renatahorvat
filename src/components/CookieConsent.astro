@@ -11,7 +11,7 @@
       <div class="flex-1">
         <h3 class="mb-1 font-serif text-lg font-medium text-ink">Cookie Consent</h3>
         <p class="max-w-3xl text-sm leading-relaxed text-ink-soft">
-          We use cookies to ensure proper website functionality and to analyse our website traffic.
+          We save your cookie preferences in your browser. Optional analytics cookies help us understand website traffic.
           By clicking "Accept All", you consent to the use of analytics cookies.
           You can manage your preferences or learn more in our <a href="/privacy-policy" class="font-medium text-sci underline underline-offset-2 hover:text-sci-dark">Privacy Policy</a>.
         </p>
@@ -22,15 +22,15 @@
             <label class="flex cursor-pointer items-start gap-3">
               <input type="checkbox" checked disabled class="mt-1 h-4 w-4 rounded border-rule text-sci focus:ring-sci">
               <div class="flex-1">
-                <div class="text-sm font-medium text-ink">Essential Cookies (Required)</div>
-                <div class="mt-0.5 text-xs text-ink-soft">Necessary for the website to function properly. Cannot be disabled.</div>
+                <div class="text-sm font-medium text-ink">Essential Storage (Required)</div>
+                <div class="mt-0.5 text-xs text-ink-soft">Saves your cookie preferences. This does not enable analytics.</div>
               </div>
             </label>
           </div>
 
           <div class="rounded-md border border-rule bg-surface p-3">
             <label class="flex cursor-pointer items-start gap-3">
-              <input type="checkbox" id="analytics-cookies" checked class="mt-1 h-4 w-4 rounded border-rule text-sci focus:ring-sci">
+              <input type="checkbox" id="analytics-cookies" class="mt-1 h-4 w-4 rounded border-rule text-sci focus:ring-sci">
               <div class="flex-1">
                 <div class="text-sm font-medium text-ink">Analytics Cookies</div>
                 <div class="mt-0.5 text-xs text-ink-soft">
@@ -121,38 +121,36 @@
     localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(consent));
   }
 
-  // Load Google Analytics dynamically
+  // The Layout defines a gtag queue even before the network script exists.
   function loadAnalytics() {
-    // Check if GA is already loaded
+    (window as any)['ga-disable-G-CY6VB6BVJL'] = false;
+    const analyticsScript = document.querySelector('script[src*="googletagmanager.com/gtag/js"]');
+    if (!analyticsScript) {
+      (window as any).loadGoogleAnalytics?.();
+      return;
+    }
     if (typeof window.gtag !== 'undefined') {
-      // GA already loaded - just update consent
-      // @ts-ignore - gtag function signature
-      window.gtag('consent', 'update', {
-        'analytics_storage': 'granted'
-      });
-      
-      // Send page view after consent is granted
-      // @ts-ignore - gtag function signature
-      window.gtag('event', 'page_view', {
-        page_title: document.title,
-        page_location: window.location.href
-      });
-    } else if (typeof (window as any).loadGoogleAnalytics === 'function') {
-      // GA not loaded yet - use dynamic loader from Layout.astro
-      (window as any).loadGoogleAnalytics();
+      window.gtag('consent', 'update', { analytics_storage: 'granted' });
     }
   }
 
-  // Disable Google Analytics
   function disableAnalytics() {
-    // Set GA disable flag to prevent any future loading
     (window as any)['ga-disable-G-CY6VB6BVJL'] = true;
-    
-    // If GA is already loaded, update consent to denied
-    if (typeof window.gtag !== 'undefined') {
-      window.gtag('consent', 'update', {
-        'analytics_storage': 'denied'
-      });
+    // Clear first-party GA cookies on this host and its parent domains.
+    const names = document.cookie.split(';').map(cookie => cookie.trim().split('=')[0]);
+    const hostParts = window.location.hostname.split('.');
+    for (const name of names.filter(name => name === '_ga' || name.startsWith('_ga_'))) {
+      document.cookie = `${name}=; Max-Age=0; path=/`;
+      for (let i = 0; i < hostParts.length - 1; i++) {
+        const domain = hostParts.slice(i).join('.');
+        document.cookie = `${name}=; Max-Age=0; path=/; domain=${domain}`;
+        document.cookie = `${name}=; Max-Age=0; path=/; domain=.${domain}`;
+      }
+    }
+    // A fresh page removes the loaded tag and pending callbacks entirely.
+    // The stored rejection prevents the Layout from loading it again.
+    if (document.querySelector('script[src*="googletagmanager.com/gtag/js"]')) {
+      window.location.reload();
     }
   }
 
