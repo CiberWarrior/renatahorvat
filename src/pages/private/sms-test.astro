@@ -8,11 +8,11 @@ import Footer from '../../components/Footer.astro';
   <Header />
   <section class="py-14 sm:py-16">
     <div class="mx-auto max-w-xl space-y-6 px-4 sm:px-6">
-      <p class="font-mono text-xs uppercase tracking-[.08em] text-ink-soft">Test page · not public</p>
+      <p class="font-mono text-xs uppercase tracking-[.08em] text-ink-soft">Practice page · SMS test</p>
       <h1 class="font-serif text-4xl font-medium text-ink">SMS test</h1>
-      <p class="text-ink-soft">Practice form: enter a name and a number, and an SMS with a WhatsApp link is sent through Twilio.</p>
+      <p class="text-ink-soft">Practice form: enter your details and a verified test number. The free Twilio trial sends a predefined appointment reminder, without your name or a WhatsApp link.</p>
 
-      <form id="sms-form" class="space-y-4" novalidate>
+      <form id="sms-form" class="space-y-4">
         <label class="block text-[15px] text-ink">First name
           <input name="firstName" required autocomplete="given-name" class="mt-1 w-full rounded-md border border-rule bg-surface px-3 py-2" />
         </label>
@@ -23,10 +23,10 @@ import Footer from '../../components/Footer.astro';
           <input name="phone" type="tel" required placeholder="+385981234567" autocomplete="tel" class="mt-1 w-full rounded-md border border-rule bg-surface px-3 py-2" />
         </label>
         <label class="flex items-start gap-2 text-sm text-ink-soft">
-          <input name="consent" type="checkbox" class="mt-1" />
-          <span>I agree to receive one test SMS on this number. The number is used only for this test.</span>
+          <input name="consent" type="checkbox" required class="mt-1" />
+          <span>I agree to receive a test SMS on this number through Twilio. The number is used for this test.</span>
         </label>
-        <button type="submit" class="rounded-md bg-sci px-6 py-3 font-medium text-white transition-colors hover:bg-sci-dark">Send SMS</button>
+        <button type="submit" class="rounded-md bg-sci px-6 py-3 font-medium text-white transition-colors hover:bg-sci-dark disabled:opacity-60 disabled:cursor-wait">Send SMS</button>
         <p id="sms-status" class="text-[15px]" role="status"></p>
       </form>
     </div>
@@ -35,9 +35,16 @@ import Footer from '../../components/Footer.astro';
   <script>
     const form = document.getElementById('sms-form') as HTMLFormElement | null;
     const status = document.getElementById('sms-status') as HTMLElement | null;
+    const button = form?.querySelector('button[type="submit"]') as HTMLButtonElement | null;
+    let pending = false;
     form?.addEventListener('submit', async (e) => {
       e.preventDefault();
-      if (!status) return;
+      if (!form || !status || pending || !form.reportValidity()) return;
+      pending = true;
+      if (button) {
+        button.disabled = true;
+        button.textContent = 'Sending…';
+      }
       const data = new FormData(form);
       status.textContent = 'Sending…';
       try {
@@ -52,9 +59,15 @@ import Footer from '../../components/Footer.astro';
           }),
         });
         const json = await res.json();
-        status.textContent = json.message;
+        status.textContent = typeof json.message === 'string' ? json.message : 'Unexpected server response. Check the logs before retrying.';
       } catch {
-        status.textContent = 'Something went wrong. Please try again.';
+        status.textContent = 'The request could not be completed. Check the logs before retrying.';
+      } finally {
+        pending = false;
+        if (button) {
+          button.disabled = false;
+          button.textContent = 'Send SMS';
+        }
       }
     });
   </script>
