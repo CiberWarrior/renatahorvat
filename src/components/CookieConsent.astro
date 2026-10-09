@@ -11,7 +11,7 @@
       <div class="flex-1">
         <h3 class="mb-1 font-serif text-lg font-medium text-ink">Cookie Consent</h3>
         <p class="max-w-3xl text-sm leading-relaxed text-ink-soft">
-          We use cookies to ensure proper website functionality and to analyze our website traffic.
+          We use cookies to ensure proper website functionality and to analyse our website traffic.
           By clicking "Accept All", you consent to the use of analytics cookies.
           You can manage your preferences or learn more in our <a href="/privacy-policy" class="font-medium text-sci underline underline-offset-2 hover:text-sci-dark">Privacy Policy</a>.
         </p>
@@ -47,9 +47,9 @@
         <button
           id="cookie-settings-btn"
           class="whitespace-nowrap rounded-md border border-rule bg-surface px-4 py-2 text-sm font-medium text-ink transition-colors hover:border-sci"
-          aria-label="Customize cookie preferences"
+          aria-label="Customise cookie preferences"
         >
-          Customize
+          Customise
         </button>
         <button
           id="cookie-reject-btn"
@@ -217,11 +217,11 @@
       settingsTrigger.classList.remove('hidden');
     });
 
-    // Customize - Toggle details
+    // Customise - Toggle details
     settingsBtn.addEventListener('click', function() {
       if (cookieDetails) {
         cookieDetails.classList.toggle('hidden');
-        settingsBtn.textContent = cookieDetails.classList.contains('hidden') ? 'Customize' : 'Save Settings';
+        settingsBtn.textContent = cookieDetails.classList.contains('hidden') ? 'Customise' : 'Save Settings';
         
         // If saving
         if (cookieDetails.classList.contains('hidden')) {

@@ -5,7 +5,7 @@ import Footer from '../components/Footer.astro';
 import ContactCta from '../components/ContactCta.astro';
 
 const pageTitle = "Pricing – Renata Horvat | Web Design Zagreb";
-const pageDescription = "Starting prices for websites from €500: research project pages, society and group websites and institutional sites. Conferences, e-textbooks and science figures are quoted after a first call. Zagreb, Croatia.";
+const pageDescription = "Starting prices for websites from €500: research project pages, society and group websites and institutional sites. Other websites, graphic design, illustration, advertising and social media management are quoted individually. Zagreb, Croatia.";
 const pageKeywords = "academic website pricing, scientific society website cost, conference website price, e-learning platform price, research project website, web design pricing Croatia, website cost Zagreb";
 
 // Each package has a defined scope (pages, rounds of changes), so the price stays predictable
@@ -28,7 +28,7 @@ const packages = [
   {
     name: 'Department or institutional website',
     price: '€1,800',
-    for: 'A larger site with several audiences.',
+    for: 'A larger website serving different audiences.',
     pages: 'Up to 10 pages',
     cta: 'pricing_institutional',
   },
@@ -45,7 +45,7 @@ const rows: { label: string; values: (string | boolean)[] }[] = [
   { label: 'News and events', values: [false, true, true] },
   { label: 'Membership information and forms', values: [false, true, true] },
   { label: 'Publication lists', values: [false, true, true] },
-  { label: 'Content structure for several audiences', values: [false, false, true] },
+  { label: 'Content structure for different audiences', values: [false, false, true] },
   { label: 'Analytics with event tracking', values: [false, false, true] },
   { label: 'Schema markup for search engines', values: [false, false, true] },
 ];
@@ -59,24 +59,39 @@ const scoped = [
   {
     name: 'E-textbooks & e-learning',
     text: 'Online course material with clear navigation, quizzes and diagrams.',
-    factors: ['Number of chapters and amount of material', 'Number of figures and diagrams', 'Quizzes and other interactive parts', 'Moving existing content online'],
+    factors: ['Number of chapters and amount of material', 'Number of figures and diagrams', 'Quizzes and other interactive features', 'Moving existing content online'],
   },
   {
-    name: 'Science figures & infographics',
+    name: 'Scientific figures & infographics',
     text: 'Diagrams for papers, posters, lectures and textbooks.',
-    factors: ['Number of figures', 'Simple diagram or detailed illustration', 'Delivery formats for print and web'],
+    factors: ['Number of figures', 'Simple diagram or detailed illustration', 'File formats for print and web'],
+  },
+  {
+    name: 'Graphic design & illustration',
+    text: 'Illustrations, ad designs and promotional materials for your organisation or business.',
+    factors: ['Type and number of materials', 'Level of detail', 'File formats for print and web'],
+  },
+  {
+    name: 'Digital advertising',
+    text: 'Ad design and campaign management for Facebook and Google Ads.',
+    factors: ['Advertising platforms', 'Number of campaigns and ad designs', 'Campaign duration'],
+  },
+  {
+    name: 'Social media management',
+    text: 'Day-to-day management of your social media accounts.',
+    factors: ['Number of accounts', 'Scope of account management', 'Duration of support'],
   },
 ];
 
 const afterLaunch = [
   'Content and software updates',
-  'Hosting and domain help',
+  'Help with hosting and domain names',
   'Design-only work for teams that already have a developer',
 ];
 
 const steps = [
-  { title: 'Free first call', text: 'We talk through what you need. No brief and no commitment required.' },
-  { title: 'Written quote', text: 'You get a tailored quote with the scope and the price, so you can compare it and plan your budget.' },
+  { title: 'Free initial consultation', text: 'We talk through what you need. You do not need a detailed brief, and there is no obligation to proceed.' },
+  { title: 'Written quote', text: 'You receive a tailored quote outlining the scope and price, so you can make an informed decision and plan your budget.' },
   { title: 'Build and handover', text: 'I build the site and hand it over so your team can keep it up to date.' },
 ];
 ---
@@ -96,7 +111,7 @@ const steps = [
         Starting prices for websites
       </h1>
       <p class="max-w-2xl text-lg leading-relaxed text-ink-soft">
-        Every project is different. The three packages below show where prices start for professional, business and institutional clients. Each has a defined scope, and larger projects get a tailored quote after our first call.
+        Every project is different. The three packages below give you a starting point for budgeting. Each has a defined scope. Business websites and projects outside these packages receive a tailored quote after an initial conversation.
       </p>
     </div>
   </section>
@@ -135,7 +150,7 @@ const steps = [
   <!-- Comparison -->
   <section class="border-t border-rule py-14 sm:py-16" aria-labelledby="compare-heading">
     <div class="mx-auto max-w-6xl px-4 sm:px-6">
-      <h2 id="compare-heading" class="mb-8 font-serif text-3xl font-medium text-ink sm:text-4xl">What is in each package</h2>
+      <h2 id="compare-heading" class="mb-8 font-serif text-3xl font-medium text-ink sm:text-4xl">What each package includes</h2>
       <div class="overflow-x-auto">
         <table class="w-full min-w-[560px] border-collapse text-left text-[15px]">
           <thead>
@@ -167,7 +182,7 @@ const steps = [
         </table>
       </div>
       <p class="mt-6 text-[15px] text-ink-soft">
-        Every project also includes a free first consultation, WCAG 2.1 AA accessibility and a fast, mobile-first build. Anything beyond the scope of a package is quoted separately. Prices in EUR, VAT not included.
+        Every project also includes a free initial consultation, WCAG 2.1 AA accessibility and a fast, mobile-first website. Work outside the package scope is quoted separately. All prices are in euros and exclude VAT.
       </p>
     </div>
   </section>
@@ -177,11 +192,11 @@ const steps = [
     <div class="mx-auto max-w-6xl px-4 sm:px-6">
       <div class="mb-8 max-w-2xl space-y-3">
         <h2 id="scoped-heading" class="font-serif text-3xl font-medium text-ink sm:text-4xl">Priced by scope</h2>
-        <p class="text-ink-soft">These projects vary too much for a fixed starting price. The price depends on the points below, and I'll send a quote once I know what you need.</p>
+        <p class="text-ink-soft">These projects are quoted individually. The price depends on the factors below. Once I understand your requirements, I will send you a tailored quote.</p>
       </div>
       <div class="grid border-t border-ink md:grid-cols-3">
         {scoped.map((item, i) => (
-          <div class={`grid min-w-0 content-start gap-3 border-b border-rule py-6 md:border-b-0 ${i > 0 ? 'md:border-l md:border-rule md:pl-8' : ''} ${i < scoped.length - 1 ? 'md:pr-8' : ''}`}>
+          <div class={`grid min-w-0 content-start gap-3 border-b border-rule py-6 md:border-b-0 ${i % 3 > 0 ? 'md:border-l md:border-rule md:pl-8' : ''} ${i % 3 < 2 ? 'md:pr-8' : ''}`}>
             <h3 class="font-serif text-xl font-medium text-ink">{item.name}</h3>
             <p class="text-[15px] leading-relaxed text-ink-soft">{item.text}</p>
             <div>
@@ -201,7 +216,7 @@ const steps = [
     <div class="mx-auto grid max-w-6xl gap-6 px-4 sm:px-6 md:grid-cols-[1fr_1.2fr] md:gap-16">
       <div class="space-y-3">
         <h2 id="after-heading" class="font-serif text-3xl font-medium text-ink sm:text-4xl">After launch</h2>
-        <p class="text-ink-soft">Support is priced separately and agreed with you, either as one-off help or as ongoing care.</p>
+        <p class="text-ink-soft">Support is agreed and priced separately, either as a one-off service or as ongoing maintenance.</p>
       </div>
       <ul class="list-disc space-y-2 pl-5 text-[15px] text-ink marker:text-sci md:self-center">
         {afterLaunch.map((item) => <li>{item}</li>)}
@@ -209,10 +224,10 @@ const steps = [
     </div>
   </section>
 
-  <!-- How a quote works -->
+  <!-- How to get a quote -->
   <section class="border-t border-rule py-14 sm:py-16" aria-labelledby="steps-heading">
     <div class="mx-auto max-w-6xl px-4 sm:px-6">
-      <h2 id="steps-heading" class="mb-8 font-serif text-3xl font-medium text-ink sm:text-4xl">How a quote works</h2>
+      <h2 id="steps-heading" class="mb-8 font-serif text-3xl font-medium text-ink sm:text-4xl">How to get a quote</h2>
       <ol class="grid gap-8 border-t border-ink pt-6 md:grid-cols-3 md:gap-0">
         {steps.map((step, i) => (
           <li class={`min-w-0 ${i > 0 ? 'md:border-l md:border-rule md:pl-8' : ''} ${i < steps.length - 1 ? 'md:pr-8' : ''}`}>
@@ -227,8 +242,8 @@ const steps = [
 
   <ContactCta
     location="prices_bottom"
-    heading="Not sure which option fits?"
-    text="Most projects start with a short conversation. No commitment and no pitch deck, just a chat about what you need."
+    heading="Not sure which option is right for you?"
+    text="Most projects start with a short conversation about what you need. You do not need a detailed brief, and there is no obligation to proceed."
   />
 
   <Footer />
