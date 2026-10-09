@@ -14,7 +14,6 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
     <div class="flex items-center justify-between gap-4">
       <a href="/" class="font-serif text-xl font-medium text-ink no-underline" onclick="if(typeof window.gtag !== 'undefined') window.gtag('event', 'logo_click', { logo_location: 'header' })">
         Renata Horvat
-        <span class="ml-2 hidden font-text text-sm font-normal text-ink-soft lg:inline">web design</span>
       </a>
 
       <!-- Desktop Navigation -->
@@ -43,7 +42,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 
       <!-- Mobile menu button -->
       <button
-        class="rounded p-2 text-ink md:hidden"
+        class="grid h-11 w-11 shrink-0 place-items-center rounded text-ink md:hidden"
         id="mobile-menu-button"
         aria-label="Toggle mobile navigation menu"
         aria-expanded="false"
