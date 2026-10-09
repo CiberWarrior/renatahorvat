@@ -3,7 +3,7 @@ import HeroMagic from './HeroMagic.astro';
 ---
 
 <section class="border-b border-rule py-8 sm:py-12 xl:py-20">
-  <div class="hero-layout mx-auto grid max-w-7xl gap-6 px-4 sm:px-6">
+  <div class="hero-layout mx-auto grid max-w-[90rem] gap-6 px-4 sm:px-6">
     <div class="hero-intro fade-up space-y-6">
       <p class="font-mono text-xs uppercase tracking-[.08em] text-ink-soft">Web designer &amp; developer · Zagreb</p>
 
@@ -45,13 +45,13 @@ import HeroMagic from './HeroMagic.astro';
   .hero-art { grid-area: art; width: 100%; margin: 0; }
   @media (min-width: 768px) {
     .hero-layout { grid-template-areas: 'intro' 'copy' 'art'; }
-    .hero-art { max-width: 960px; justify-self: center; }
+    .hero-art { max-width: 1040px; justify-self: center; }
   }
   @media (min-width: 1280px) {
     .hero-layout {
       grid-template-areas: 'intro art' 'copy art';
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
-      column-gap: 2.5rem;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
+      column-gap: 2rem;
     }
     .hero-intro { align-self: end; }
     .hero-copy { align-self: start; }
