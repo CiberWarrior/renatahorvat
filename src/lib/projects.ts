@@ -44,7 +44,7 @@ export const projects: Project[] = [
   {
     title: 'Bacteriology e-book',
     summary:
-      'Online textbook and lab manual for the bacteriology practical at the Faculty of Science, University of Zagreb, with step-by-step guides from aseptic technique to identifying bacteria.',
+      'Online textbook and laboratory manual for the bacteriology laboratory course at the Faculty of Science, University of Zagreb, with step-by-step guides covering aseptic technique and bacterial identification.',
     href: 'https://bakteriologija.biol.pmf.hr',
     tags: ['Education', 'Microbiology', 'E-learning'],
     icon: 'book',
@@ -52,7 +52,7 @@ export const projects: Project[] = [
     category: 'elearning',
     featured: true,
     image: '/images/work/bakteriologija.jpg',
-    role: 'Online textbook and lab manual for a university bacteriology practical.',
+    role: 'Online textbook and laboratory manual for a university bacteriology laboratory course.',
   },
   {
     title: 'Genetika e-book',
@@ -71,7 +71,7 @@ export const projects: Project[] = [
   {
     title: 'Botanical Garden Zagreb',
     summary:
-      'Official website for the University of Zagreb Botanical Garden, showcasing plant collections, educational programs, and visitor information.',
+      'Official website for the University of Zagreb Botanical Garden, showcasing plant collections, educational programmes, and visitor information.',
     href: 'https://botanickivrt.biol.pmf.hr',
     tags: ['Botany', 'Education', 'Nature', 'University'],
     icon: 'leaf',
@@ -81,7 +81,7 @@ export const projects: Project[] = [
   {
     title: 'IST 2027 - 19th International Symposium on Trichoptera',
     summary:
-      'Official website for the 19th International Symposium on Trichoptera, held in Zagreb, Croatia, in July 2027. Features programme, registration, abstract submission, venue information and a gallery of caddisflies.',
+      'Official website for the 19th International Symposium on Trichoptera, taking place in Zagreb, Croatia, in July 2027. Features programme, registration, abstract submission, venue information and a gallery of caddisflies.',
     href: 'https://trichoptera.biol.pmf.hr/',
     tags: ['Trichoptera', 'Entomology', 'Symposium', 'Zagreb', 'International'],
     icon: 'users',
@@ -94,7 +94,7 @@ export const projects: Project[] = [
   {
     title: 'ICD11 - XI. International Congress of Dipterology',
     summary:
-      'Official website for the XI. International Congress of Dipterology, held in Zagreb, Croatia. Features scientific program, registration, abstract submission, keynote speakers, and venue information.',
+      'Official website for the XI. International Congress of Dipterology, held in Zagreb, Croatia. Features scientific programme, registration, abstract submission, keynote speakers, and venue information.',
     href: 'https://icd11.biol.pmf.hr',
     tags: ['Dipterology', 'Entomology', 'Congress', 'Zagreb', 'International'],
     icon: 'users',
@@ -117,7 +117,7 @@ export const projects: Project[] = [
   {
     title: 'EOES 2025 - European Olympiad of Experimental Science',
     summary:
-      'Official website for the European Olympiad of Experimental Science 2025, hosted in Zagreb, Croatia. Features event information, registration, program details, and venue information.',
+      'Official website for the European Olympiad of Experimental Science 2025, hosted in Zagreb, Croatia. Features event information, registration, programme details, and venue information.',
     href: 'https://eoes2025.pmf.unizg.hr/',
     tags: ['Olympiad', 'Science', 'Education', 'Event', 'Zagreb'],
     icon: 'trophy',
@@ -163,7 +163,7 @@ export const projects: Project[] = [
   {
     title: 'IAA 2024 - International Association of Astacology Symposium',
     summary:
-      'Official website for the International Association of Astacology Symposium 2024, held in Zagreb, Croatia. Features scientific program, registration, abstracts, and keynote speakers.',
+      'Official website for the International Association of Astacology Symposium 2024, held in Zagreb, Croatia. Features scientific programme, registration, abstracts, and keynote speakers.',
     href: 'https://iaa24.biol.pmf.hr/',
     tags: ['Astacology', 'Crayfish', 'Symposium', 'Zagreb', 'Research'],
     icon: 'users',
@@ -216,7 +216,7 @@ export const projects: Project[] = [
   {
     title: 'ROTIFERA XVI 2022 - International Rotifer Symposium',
     summary:
-      'Official website for the 16th International Rotifer Symposium held in Zagreb, Croatia. Features scientific program, keynote speakers, abstracts, and international rotifer research community.',
+      'Official website for the 16th International Rotifer Symposium held in Zagreb, Croatia. Features the scientific programme, keynote speakers and abstracts, and connects the international rotifer research community.',
     href: 'https://www.rotiferaxvi.biol.pmf.hr/',
     tags: ['Rotifera', 'Symposium', 'Zagreb', 'Research', 'International'],
     icon: 'microscope',
@@ -226,7 +226,7 @@ export const projects: Project[] = [
   {
     title: 'ECCB 2022 - European Committee for Conservation of Bryophytes',
     summary:
-      'Official website for the 10th Conference of European Committee for Conservation of Bryophytes held in Zagreb, Croatia. Features scientific program, excursions, and bryophyte conservation research.',
+      'Official website for the 10th Conference of the European Committee for Conservation of Bryophytes held in Zagreb, Croatia. Features scientific programme, excursions, and bryophyte conservation research.',
     href: 'https://www.eccbmeeting.biol.pmf.hr/',
     tags: ['Bryophytes', 'Conservation', 'Conference', 'Zagreb', 'Research'],
     icon: 'leaf',
@@ -236,7 +236,7 @@ export const projects: Project[] = [
   {
     title: 'Bicikli Palko - Bicycle Service',
     summary:
-      'Professional bicycle service and repair shop established in 1990. Features racing bike assembly, wheel centering, diagnostics, and expert advice for all types of bicycles.',
+      'Professional bicycle service and repair shop established in 1990. Features racing bike assembly, wheel centring, diagnostics, and expert advice for all types of bicycles.',
     href: 'https://www.bicikli-palko.hr/',
     tags: ['Bicycle', 'Service', 'Repair', 'Racing', 'Croatia'],
     icon: 'bicycle',

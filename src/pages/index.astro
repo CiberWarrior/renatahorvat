@@ -20,22 +20,22 @@ const previewProjects = previews.flatMap(({ title, meta }) => {
 const services = [
   {
     title: 'Conference & congress websites',
-    text: 'For organising committees who need the site live before the call for abstracts.',
+    text: 'For organising committees that need a website ready before the call for abstracts.',
     items: ['Programme and speakers', 'Registration and abstract submission', 'Venue, travel and an archive after the event'],
   },
   {
     title: 'Society & research group websites',
-    text: 'Long-lived sites for news, membership, publications and outreach.',
+    text: 'Websites built to last, with news, membership information, publications and outreach.',
     items: ['Membership and events', 'Publication lists', 'Content your team can update'],
   },
   {
     title: 'E-textbooks & e-learning',
-    text: 'Course material students can read on a phone and come back to during revision.',
-    items: ['Chapter structure and navigation', 'Teaching diagrams in one consistent style'],
+    text: 'Course materials students can use on their phones and revisit when studying.',
+    items: ['Chapter structure and navigation', 'Educational diagrams in a consistent style'],
   },
   {
-    title: 'Science figures & infographics',
-    text: 'Got a paper, presentation or dataset that needs to make sense visually? On their own or as part of a bigger build.',
+    title: 'Scientific figures & infographics',
+    text: 'Clear visuals for papers, presentations and data, available as a standalone service or as part of a website project.',
     items: ['Publication-ready vector files', 'A consistent style across a series'],
   },
   {
@@ -87,7 +87,7 @@ const pageKeywords = "web designer Zagreb, web design Croatia, conference websit
         <h2 id="services-heading" class="font-serif text-4xl font-medium text-ink sm:text-[2.6rem]">What I build</h2>
         <a href="/prices" class="group font-medium text-sci hover:text-sci-dark">Pricing <span class="inline-block transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true">→</span></a>
       </div>
-      <p class="-mt-4 mb-8 max-w-2xl text-ink-soft">Mostly for universities, societies and congresses, and for small businesses that need a clear website.</p>
+      <p class="-mt-4 mb-8 max-w-2xl text-ink-soft">For universities, societies, conference organisers and small businesses that need a clear website.</p>
       <div class="grid border-t border-ink md:grid-cols-2">
         {services.map((service, i) => (
           <div class={`grid min-w-0 content-start gap-3 border-b border-rule py-7 ${services.length % 2 === 1 && i === services.length - 1 ? 'md:col-span-2' : i % 2 === 1 ? 'md:border-l md:pl-8' : 'md:pr-8'}`}>
@@ -136,7 +136,7 @@ const pageKeywords = "web designer Zagreb, web design Croatia, conference websit
           Research teams, societies and organisations come to me for websites and web apps that handle complex content, stay easy to maintain and keep serving their users long after launch.
         </p>
         <p class="leading-relaxed text-ink-soft">
-          My background is in science communication, so dense subject matter does not scare me. I turn it into something clear, readable and usable.
+          My background in science communication helps me turn complex subject matter into clear, readable and useful content.
         </p>
         <dl class="grid grid-cols-3 gap-4 border-t border-rule pt-6">
           <div>
