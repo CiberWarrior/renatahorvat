@@ -52,9 +52,21 @@ const featuredMeta: Record<string, string> = {
   'Herbarium Croaticum': 'Collection · Faculty of Science',
   'FEPS - Federation of European Phycological Societies': 'Society · Europe',
 };
+const featuredOrder = [
+  'Mirisni potpisi - Fragrant Signatures',
+  'Bacteriology e-book',
+  'ICD11 - XI. International Congress of Dipterology',
+  'IST 2027 - 19th International Symposium on Trichoptera',
+  'Genetika e-book',
+  'Herbarium Croaticum',
+];
+const featuredRank = (title: string) => {
+  const index = featuredOrder.indexOf(title);
+  return index < 0 ? featuredOrder.length : index;
+};
 const featured = portfolio.flatMap((p) =>
   p.featured && p.image ? [{ ...p, image: p.image, meta: featuredMeta[p.title] ?? '' }] : []
-);
+).sort((a, b) => featuredRank(a.title) - featuredRank(b.title));
 
 const groups: { category: ProjectCategory; name: string }[] = [
   { category: 'conference', name: 'Conferences & scientific events' },
