@@ -1,5 +1,5 @@
-<div class="hero-machine polished">
-<script is:inline>
+<!doctype html><html lang="hr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pipe Machine — rasterećen raspored</title><style>body{margin:0;padding:24px;background:#f5f7f4;color:#15211e;font-family:system-ui,sans-serif}main{max-width:1120px;margin:auto}h1{font:400 clamp(24px,4vw,34px) Georgia,serif;margin:0 0 12px}p{max-width:740px;color:#56645f;line-height:1.5}nav{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 24px}button{font:inherit;padding:10px 16px;min-height:44px;border:1px solid #b9cbc2;border-radius:8px;background:white;color:#1f6b5c;cursor:pointer}button:focus-visible{outline:3px solid #3573b7;outline-offset:3px}.hero-machine{max-width:1060px;margin:auto}@media(max-width:600px){body{padding:16px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}</style></head><body><main><h1>Pipe Machine — rasterećen raspored</h1><p>Manji monitor sada je ispod lijeve cijevi. Tri mjerača su dolje desno, iza spoja na cijevi; antenica ostaje lijevo.</p><nav aria-label="Kontrole prototipa"><button id="replay" type="button">Ponovi animaciju</button><button id="still" type="button">Pokaži završni prikaz</button></nav><div class="hero-machine polished">
+<script>
   // Runs during parsing, before the SVG can paint its static fallback.
   if (matchMedia('(prefers-reduced-motion: no-preference)').matches) {
     document.currentScript.parentElement.style.visibility = 'hidden';
@@ -219,7 +219,7 @@
 .hero-machine #rh-web .web-divider{stroke-width:1.8;stroke-linecap:butt}
 @media(prefers-reduced-motion:reduce){.hero-machine .arrival-highlights{display:none}}
 </style>
-<script is:inline>
+<script>
 const root = document.querySelector('.hero-machine');
 if (root) {
 
@@ -260,6 +260,7 @@ if(reduced.matches||typeof IntersectionObserver==='undefined')finish();else{root
 root.dataset.heroReady='true';
 root.style.removeProperty('visibility');
 
-
+document.getElementById("still")?.addEventListener("click",finish);
 }
 </script>
+<script>document.getElementById('replay').addEventListener('click',()=>location.reload());</script></main></body></html>
