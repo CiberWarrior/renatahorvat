@@ -33,15 +33,6 @@ const portfolioStructuredData = {
   }
 };
 
-const breadcrumbStructuredData = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://renatahorvat.com" },
-    { "@type": "ListItem", "position": 2, "name": "Work", "item": "https://renatahorvat.com/work" }
-  ]
-};
-
 const featuredMeta: Record<string, string> = {
   'Genetika e-book': 'E-textbook · Faculty of Science',
   'Bacteriology e-book': 'E-textbook · Faculty of Science',
@@ -90,7 +81,7 @@ const host = (href: string) => {
   title={pageTitle}
   description={pageDescription}
   keywords={pageKeywords}
-  structuredData={[portfolioStructuredData, breadcrumbStructuredData]}
+  structuredData={portfolioStructuredData}
   breadcrumbs={[
     { name: "Home", url: "https://renatahorvat.com" },
     { name: "Work", url: "https://renatahorvat.com/work" }

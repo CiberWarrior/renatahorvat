@@ -24,12 +24,14 @@ interface Props {
   noindex?: boolean;
 }
 
+const DEFAULT_OG_IMAGE = "/images/renatahorvat.jpg";
+
 const {
   title = "Renata Horvat – Web & Graphic Designer | Zagreb",
-  description = "Web and graphic designer in Zagreb with over 20 years of experience. Clear, fast websites for conferences, societies, universities and small businesses, from design to launch.",
+  description = "Web and graphic designer in Zagreb with over 20 years of experience. Clear, fast websites for conferences, societies, universities and small businesses.",
   keywords = "web designer Zagreb, web design Croatia, conference website, society website, university website, small business website, graphic designer Zagreb, Renata Horvat",
   canonical = Astro.url.href,
-  ogImage = "/images/renatahorvat.jpg",
+  ogImage = DEFAULT_OG_IMAGE,
   gaId = import.meta.env.PUBLIC_GA_ID || "G-XXXXXXXXXX",
   structuredData,
   breadcrumbs,
@@ -92,10 +94,15 @@ const fontCssUrl = '/fonts/portfolio.css';
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={absoluteOgImage} />
-    <meta property="og:image:width" content="800" />
-    <meta property="og:image:height" content="800" />
+    {ogImage === DEFAULT_OG_IMAGE && (
+      <>
+        <meta property="og:image:width" content="900" />
+        <meta property="og:image:height" content="900" />
+        <meta property="og:image:alt" content="Portrait of Renata Horvat" />
+      </>
+    )}
     <meta property="og:site_name" content="Renata Horvat Portfolio" />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale" content="en_GB" />
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -283,6 +290,7 @@ const fontCssUrl = '/fonts/portfolio.css';
     {
       "@context": "https://schema.org",
       "@type": "Person",
+      "@id": "https://renatahorvat.com/#person",
       "name": "Renata Horvat",
       "jobTitle": "Web & Graphic Designer",
       "description": "Web and graphic designer based in Zagreb with 20+ years building websites for conferences, societies, universities and small businesses.",
@@ -330,10 +338,13 @@ const fontCssUrl = '/fonts/portfolio.css';
         "Online udžbenici",
         "E-knjige dizajn"
       ],
-      "offers": {
-        "@type": "Service",
-        "name": "Design Services | Dizajn usluge",
-        "description": "Web design and build, graphic design, illustration, Facebook and Google Ads campaign management, and social media account management."
+      "makesOffer": {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Design Services | Dizajn usluge",
+          "description": "Web design and build, graphic design, illustration, Facebook and Google Ads campaign management, and social media account management."
+        }
       }
     }
     </script>
@@ -343,11 +354,11 @@ const fontCssUrl = '/fonts/portfolio.css';
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
+      "@id": "https://renatahorvat.com/#website",
       "name": "Renata Horvat Portfolio",
       "url": "https://renatahorvat.com",
       "author": {
-        "@type": "Person",
-        "name": "Renata Horvat"
+        "@id": "https://renatahorvat.com/#person"
       }
     }
     </script>
@@ -357,6 +368,7 @@ const fontCssUrl = '/fonts/portfolio.css';
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
+      "@id": "https://renatahorvat.com/#business",
       "name": "Renata Horvat Design Services",
       "description": "Web design, graphic design, illustration, digital advertising and social media management",
       "url": "https://renatahorvat.com",
@@ -370,9 +382,7 @@ const fontCssUrl = '/fonts/portfolio.css';
         "@type": "GeoCoordinates",
         "latitude": "45.8150",
         "longitude": "15.9819"
-      },
-      "openingHours": "Mo-Fr 09:00-17:00",
-      "priceRange": "$$"
+      }
     }
     </script>
 
