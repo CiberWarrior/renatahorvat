@@ -55,7 +55,7 @@ export const projects: Project[] = [
     role: 'Online textbook and practical manual for a university bacteriology course.',
   },
   {
-    title: 'Genetika e-book',
+    title: 'Genetics e-book',
     summary:
       'Comprehensive online genetics textbook for biology students at University of Zagreb, featuring interactive content and modern web design.',
     href: 'https://www.genetika.biol.pmf.hr',
