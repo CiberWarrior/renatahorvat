@@ -44,7 +44,7 @@ const hasOtherLanguage = getAlternates(Astro.url).length > 1;
           );
         })}
         <li>
-          <a href={pageHref('/contact', locale)} class="rounded-md bg-sci px-4 py-2 text-[15px] font-medium text-white transition-colors hover:bg-sci-dark">{t('nav.start')}</a>
+          <a href={pageHref('/quiz', locale)} class="whitespace-nowrap rounded-md bg-sci px-4 py-2 text-[15px] font-medium text-white transition-colors hover:bg-sci-dark">{t('nav.start')}</a>
         </li>
         {hasOtherLanguage && <li><LanguageSwitcher /></li>}
       </ul>
