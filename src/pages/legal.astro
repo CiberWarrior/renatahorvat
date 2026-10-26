@@ -3,203 +3,228 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
-const pageTitle = 'Legal Notice | Renata Horvat';
-const pageDescription = 'Legal Notice for CreativeStar - Business information, disclaimer, and legal details.';
-const lastUpdated = 'October 13, 2026';
+// English counterpart of src/pages/hr/legal.astro. When one version changes, update the other.
+const pageTitle = 'Business Details and Terms of Engagement | Renata Horvat';
+const pageDescription =
+  'Business details for CreativeStar and basic information about using this website and arranging collaboration.';
+const lastUpdated = '26 October 2026';
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
   <Header />
   <div class="py-14 sm:py-16">
     <div class="max-w-4xl mx-auto px-6">
-
-      <!-- Header -->
       <div class="mb-12">
         <h1 class="font-serif text-4xl font-medium text-ink sm:text-5xl mb-4">
-          Legal Notice
+          Business Details and Terms of Engagement
         </h1>
         <p class="text-ink-soft text-sm">
-          Last Updated: <span class="text-sci">{lastUpdated}</span>
+          Last updated: <span class="text-sci">{lastUpdated}</span>
         </p>
       </div>
 
-      <!-- Content -->
       <div class="max-w-none">
-
-        <!-- Intro -->
         <div class="bg-surface border border-rule rounded-lg p-8 mb-8">
           <p class="text-ink-soft leading-relaxed mb-0">
-            This Legal Notice provides information about the owner and operator of this website in accordance with applicable Croatian and EU law.
+            This page sets out the business details of CreativeStar and basic information about using the website and arranging collaboration.
           </p>
         </div>
 
-        <!-- 1. Business Information -->
         <section class="mb-12">
           <h2 class="font-serif text-2xl font-medium text-ink mb-4 flex items-baseline gap-3">
             <span class="font-mono text-sm text-sci">1.</span>
-            Business Information
+            Business details
           </h2>
           <div class="bg-surface border border-rule rounded-xl p-6">
             <div class="space-y-4 text-ink-soft">
-              <div class="flex flex-col sm:flex-row sm:items-start gap-2">
-                <strong class="text-ink min-w-[200px]">Business Name:</strong>
-                <span>CreativeStar obrt za računalne usluge, vl. Renata Horvat, Zagreb, Josipa Pupačića 4 <span class="whitespace-nowrap">(CreativeStar, computer services)</span></span>
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-start">
+                <strong class="min-w-[200px] text-ink">Business name:</strong>
+                <span>CreativeStar obrt za računalne usluge, vl. Renata Horvat, Zagreb, Josipa Pupačića 4</span>
               </div>
-              <div class="flex flex-col sm:flex-row sm:items-start gap-2">
-                <strong class="text-ink min-w-[200px]">Owner:</strong>
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-start">
+                <strong class="min-w-[200px] text-ink">Owner:</strong>
                 <span>Renata Horvat</span>
               </div>
-              <div class="flex flex-col sm:flex-row sm:items-start gap-2">
-                <strong class="text-ink min-w-[200px]">Address:</strong>
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-start">
+                <strong class="min-w-[200px] text-ink">Registered address:</strong>
                 <span>Josipa Pupačića 4, 10090 Zagreb, Croatia</span>
               </div>
-              <div class="flex flex-col sm:flex-row sm:items-start gap-2">
-                <strong class="text-ink min-w-[200px]">OIB (Tax ID):</strong>
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-start">
+                <strong class="min-w-[200px] text-ink">Croatian personal identification number (OIB):</strong>
                 <span>04904111520</span>
               </div>
-              <div class="flex flex-col sm:flex-row sm:items-start gap-2">
-                <strong class="text-ink min-w-[200px]">Register:</strong>
-                <span>Obrtni registar (Croatian Register of Crafts)</span>
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-start">
+                <strong class="min-w-[200px] text-ink">Register:</strong>
+                <span>Croatian Crafts Register (Obrtni registar)</span>
               </div>
-              <div class="flex flex-col sm:flex-row sm:items-start gap-2">
-                <strong class="text-ink min-w-[200px]">Registration No. (MBO):</strong>
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-start">
+                <strong class="min-w-[200px] text-ink">Craft registration number (MBO):</strong>
                 <span>99173433</span>
-              </div>            </div>
-          </div>
-        </section>
-
-        <!-- 2. Contact -->
-        <section class="mb-12">
-          <h2 class="font-serif text-2xl font-medium text-ink mb-4 flex items-baseline gap-3">
-            <span class="font-mono text-sm text-sci">2.</span>
-            Contact
-          </h2>
-          <div class="bg-surface border border-rule rounded-xl p-6">
-            <div class="space-y-2 text-ink-soft">
-              <p class="mb-0">
-                <strong class="text-ink">Email: </strong>
-                <a href="mailto:screatives.info@gmail.com" class="text-sci hover:text-sci-dark transition-colors duration-300">
+              </div>
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-start">
+                <strong class="min-w-[200px] text-ink">Email:</strong>
+                <a href="mailto:screatives.info@gmail.com" class="text-sci transition-colors duration-300 hover:text-sci-dark">
                   screatives.info@gmail.com
                 </a>
-              </p>
+              </div>
             </div>
           </div>
         </section>
 
-        <!-- 3. Disclaimer of Liability -->
         <section class="mb-12">
           <h2 class="font-serif text-2xl font-medium text-ink mb-4 flex items-baseline gap-3">
-            <span class="font-mono text-sm text-sci">3.</span>
-            Website Information
+            <span class="font-mono text-sm text-sci">2.</span>
+            Enquiries and arranging collaboration
           </h2>
           <div class="bg-surface border border-rule rounded-xl p-6">
-            <p class="text-ink-soft leading-relaxed mb-4">
-              This website presents our services and selected work. We take care to keep its content accurate and up to date. Project scope, deliverables, fees, payment terms and timescales are confirmed in an individual written proposal or agreement.
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              On this website I present my services and selected work. Through the contact form, project questionnaire or email you can send an enquiry and describe your needs.
             </p>
-            <p class="text-ink-soft leading-relaxed mb-0">
-              Submitting a contact enquiry does not place an order or create a service contract. Website updates do not change an existing agreement. Nothing in this notice excludes liability or statutory rights that cannot be excluded under applicable law.
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              Submitting an enquiry does not constitute an order and does not by itself create a contract for the provision of services.
+            </p>
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              Project scope, deliverables, price, payment terms and deadlines are agreed individually and confirmed in a written quotation or contract.
+            </p>
+            <p class="mb-0 leading-relaxed text-ink-soft">
+              Changes to the website content do not alter previously concluded contracts.
             </p>
           </div>
         </section>
 
-        <!-- 4. Copyright -->
+        <section class="mb-12">
+          <h2 class="font-serif text-2xl font-medium text-ink mb-4 flex items-baseline gap-3">
+            <span class="font-mono text-sm text-sci">3.</span>
+            Information and prices on the website
+          </h2>
+          <div class="bg-surface border border-rule rounded-xl p-6">
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              I aim to keep the information on the website accurate and up to date.
+            </p>
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              Starting prices listed in Pricing refer to the described scope of service. The final price depends on the project requirements and is stated in the individual quotation.
+            </p>
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              All prices are stated in euros. The business is not registered for VAT and does not charge VAT.
+            </p>
+            <p class="mb-0 leading-relaxed text-ink-soft">
+              Additional work and services outside the agreed scope are arranged separately before they are carried out.
+            </p>
+          </div>
+        </section>
+
         <section class="mb-12">
           <h2 class="font-serif text-2xl font-medium text-ink mb-4 flex items-baseline gap-3">
             <span class="font-mono text-sm text-sci">4.</span>
             Copyright
           </h2>
           <div class="bg-surface border border-rule rounded-xl p-6">
-            <p class="text-ink-soft leading-relaxed mb-4">
-              Unless otherwise indicated, original text, illustrations and design on this website belong to Renata Horvat / CreativeStar. Client materials, logos, photographs, fonts and other third-party content remain the property of their respective rights holders.
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              Unless otherwise stated, the original texts, illustrations and design of this website are the copyright works of Renata Horvat.
             </p>
-            <p class="text-ink-soft leading-relaxed mb-0">
-              Permission from the relevant rights holder is required for reuse, except where an applicable licence or the law permits it.
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              Client materials, logos, photographs, fonts and other third-party content belong to their respective rights holders and are used under the relevant permissions or licences.
+            </p>
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              Reuse of content requires the permission of the rights holder, except where use is allowed by law or an applicable licence.
+            </p>
+            <p class="mb-0 leading-relaxed text-ink-soft">
+              Rights to use materials produced for a client are governed by the individual quotation or contract.
             </p>
           </div>
         </section>
 
-        <!-- 5. External Links -->
         <section class="mb-12">
           <h2 class="font-serif text-2xl font-medium text-ink mb-4 flex items-baseline gap-3">
             <span class="font-mono text-sm text-sci">5.</span>
-            External Links
+            External links
           </h2>
           <div class="bg-surface border border-rule rounded-xl p-6">
-            <p class="text-ink-soft leading-relaxed mb-0">
-              Links to external websites are provided for reference. Their operators are responsible for their content and privacy practices. If you believe a link leads to unlawful content, please contact us so that we can review it and remove it where appropriate.
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              The website contains links to projects and other external sites. Their operators are responsible for their content and for processing personal data.
             </p>
-          </div>
-        </section>
-
-        <!-- 6. Governing Law -->
-        <section class="mb-12">
-          <h2 class="font-serif text-2xl font-medium text-ink mb-4 flex items-baseline gap-3">
-            <span class="font-mono text-sm text-sci">6.</span>
-            Governing Law
-          </h2>
-          <div class="bg-surface border border-rule rounded-xl p-6">
-            <p class="text-ink-soft leading-relaxed mb-0">
-              Croatian law applies, subject to any mandatory protections available under applicable law, including consumer protections. The competent court is determined by the applicable jurisdiction rules.
+            <p class="mb-0 leading-relaxed text-ink-soft">
+              If you notice a broken link or believe it leads to unlawful content, you can contact me at
+              <a href="mailto:screatives.info@gmail.com" class="text-sci underline underline-offset-2 hover:text-sci-dark">screatives.info@gmail.com</a>
+              so that I can review it.
             </p>
           </div>
         </section>
 
         <section class="mb-12" aria-labelledby="complaints-heading">
-          <h2 id="complaints-heading" class="font-serif text-2xl font-medium text-ink mb-4 flex items-baseline gap-3">
-            <span class="font-mono text-sm text-sci">7.</span>
-            Consumer Complaints
+          <h2 id="complaints-heading" class="mb-4 flex items-baseline gap-3 font-serif text-2xl font-medium text-ink">
+            <span class="font-mono text-sm text-sci">6.</span>
+            Written consumer complaints
           </h2>
-          <div class="bg-surface border border-rule rounded-xl p-6">
-            <p class="text-ink-soft leading-relaxed mb-4">
-              Consumers can submit a written complaint by email to <a href="mailto:screatives.info@gmail.com" class="text-sci underline underline-offset-2">screatives.info@gmail.com</a> or by post to CreativeStar, Renata Horvat, Josipa Pupačića 4, 10090 Zagreb, Croatia. Please include your contact details and a description of the issue.
+          <div class="rounded-xl border border-rule bg-surface p-6">
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              You can send a written complaint:
             </p>
-            <p class="text-ink-soft leading-relaxed mb-0">
-              Receipt will be acknowledged without delay. We will provide a written response within 15 days of receiving the complaint, stating whether we accept its grounds. Consumer complaint records are retained for one year from receipt, as required by Croatian law.
+            <ul class="mb-4 ml-4 list-inside list-disc space-y-2 text-ink-soft">
+              <li>
+                by email to
+                <a href="mailto:screatives.info@gmail.com" class="text-sci underline underline-offset-2 hover:text-sci-dark">screatives.info@gmail.com</a>;
+              </li>
+              <li>by post to CreativeStar, Renata Horvat, Josipa Pupačića 4, 10090 Zagreb, Croatia.</li>
+            </ul>
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              Please include a description of the issue and contact details for delivery of the reply.
+            </p>
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              I will acknowledge receipt of the complaint without delay. I will provide a written reply within 15 days of receiving the complaint, with a clear statement of whether I accept that it is well founded.
+            </p>
+            <p class="mb-0 leading-relaxed text-ink-soft">
+              I keep records of written consumer complaints for one year from receipt of the complaint, in accordance with the law.
             </p>
           </div>
         </section>
+
         <section class="mb-12" aria-labelledby="consumer-contracts-heading">
-          <h2 id="consumer-contracts-heading" class="font-serif text-2xl font-medium text-ink mb-4 flex items-baseline gap-3">
-            <span class="font-mono text-sm text-sci">8.</span>
-            Consumer Contracts
+          <h2 id="consumer-contracts-heading" class="mb-4 flex items-baseline gap-3 font-serif text-2xl font-medium text-ink">
+            <span class="font-mono text-sm text-sci">7.</span>
+            Contracting services with consumers
           </h2>
-          <div class="bg-surface border border-rule rounded-xl p-6">
-            <p class="text-ink-soft leading-relaxed mb-4">
-              If you commission a service as a consumer, mandatory consumer rights apply. For service contracts concluded at a distance or outside our business premises, a 14-day withdrawal period generally applies from the date the contract is concluded, subject to statutory exceptions.
+          <div class="rounded-xl border border-rule bg-surface p-6">
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              If you order a service as a natural person outside your trade, business or profession, consumer rights apply.
             </p>
-            <p class="text-ink-soft leading-relaxed mb-0">
-              Before concluding a consumer contract, we will provide the applicable terms, total price, withdrawal information and any required form in a format you can keep. Starting work during the withdrawal period requires your express request. Any payment for work completed before withdrawal, or loss of the withdrawal right after full performance, is subject to the conditions set by law. This website notice does not replace those project-specific documents.
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              Before concluding a contract I will provide you with information about the service, the total price, the terms of payment and performance, and the applicable right of withdrawal. I will provide the required information and forms in a durable medium, for example by email.
+            </p>
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              For distance contracts for services you generally have a right of withdrawal without giving reasons within 14 days of concluding the contract, subject to statutory conditions and exceptions.
+            </p>
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              If you want performance of the service to begin before that period expires, your express request is required. If you then exercise the right of withdrawal, any obligation to pay a proportionate amount for the service already provided depends on fulfilment of the statutory conditions.
+            </p>
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              The right of withdrawal is lost upon full performance of the service only if the statutory conditions are met, including your prior express consent and confirmation that you are aware of losing that right after full performance.
+            </p>
+            <p class="mb-0 leading-relaxed text-ink-soft">
+              This information does not replace the quotation, contract or notices provided for an individual project.
             </p>
           </div>
         </section>
 
-
+        <section class="mb-12">
+          <h2 class="mb-4 flex items-baseline gap-3 font-serif text-2xl font-medium text-ink">
+            <span class="font-mono text-sm text-sci">8.</span>
+            Governing law and statutory rights
+          </h2>
+          <div class="rounded-xl border border-rule bg-surface p-6">
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              The business is governed by Croatian law, subject to mandatory provisions of other applicable rules, including consumer protection.
+            </p>
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              The competent court is determined under the applicable rules on jurisdiction.
+            </p>
+            <p class="mb-0 leading-relaxed text-ink-soft">
+              This text does not exclude or limit liability or rights that cannot be excluded or limited under applicable law.
+            </p>
+          </div>
+        </section>
       </div>
     </div>
   </div>
   <Footer />
 </Layout>
-
-<style>
-  .prose {
-    max-width: none;
-  }
-
-  .prose h2 {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  .prose p {
-    margin-bottom: 1rem;
-  }
-
-  .prose ul {
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .prose li {
-    margin-bottom: 0.5rem;
-  }
-</style>
