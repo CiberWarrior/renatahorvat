@@ -35,7 +35,7 @@ const en = {
   'footer.message': 'Send a message →',
   'footer.location': 'Zagreb',
   'footer.privacy': 'Privacy Policy',
-  'footer.legal': 'Legal Notice',
+  'footer.legal': 'Business Details',
   'footer.cookies': 'Cookie Settings',
 
   'meta.etextbook': 'E-textbook · Faculty of Science',
@@ -169,7 +169,7 @@ const hr: Record<UiKey, string> = {
   'footer.message': 'Pošaljite poruku →',
   'footer.location': 'Zagreb',
   'footer.privacy': 'Politika privatnosti',
-  'footer.legal': 'Pravna napomena',
+  'footer.legal': 'Podaci o obrtu',
   'footer.cookies': 'Postavke kolačića',
 
   'meta.etextbook': 'E-udžbenik · Prirodoslovno-matematički fakultet',

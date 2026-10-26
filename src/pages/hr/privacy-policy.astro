@@ -7,15 +7,14 @@ import { getLocale, pageHref } from '../../i18n/utils';
 // Croatian translation of src/pages/privacy-policy.astro. When one version changes, update the other.
 const locale = getLocale(Astro.url);
 const pageTitle = 'Politika privatnosti | Renata Horvat';
-const pageDescription = 'Politika privatnosti za renatahorvat.com – saznajte kako prikupljamo, koristimo i štitimo vaše osobne podatke.';
-const lastUpdated = '13. listopada 2026.';
+const pageDescription = 'Politika privatnosti za renatahorvat.com – saznajte kako prikupljam, koristim i štitim vaše osobne podatke.';
+const lastUpdated = '26. listopada 2026.';
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
   <Header />
   <div class="py-14 sm:py-16">
     <div class="max-w-4xl mx-auto px-6">
-      <!-- Header -->
       <div class="mb-12">
         <h1 class="font-serif text-4xl font-medium text-ink sm:text-5xl mb-4">
           Politika privatnosti
@@ -25,18 +24,16 @@ const lastUpdated = '13. listopada 2026.';
         </p>
       </div>
 
-      <!-- Content -->
       <div class="max-w-none">
         <div class="bg-surface border border-rule rounded-lg p-8 mb-8">
           <p class="text-ink-soft leading-relaxed mb-0">
-            Ova Politika privatnosti objašnjava kako CreativeStar, obrt za računalne usluge, u vlasništvu Renate Horvat („mi”, „nas”, „naš”), prikuplja, koristi i štiti osobne podatke kada posjećujete ili koristite ovu web stranicu.
+            Ova politika privatnosti objašnjava kako prikupljam, koristim i štitim osobne podatke kada posjećujete web-stranicu renatahorvat.com ili mi se javite putem kontaktnog obrasca, upitnika o projektu, e-pošte ili WhatsAppa.
           </p>
           <p class="text-ink-soft leading-relaxed mt-4 mb-0">
-            Predani smo zaštiti vaše privatnosti i obradi osobnih podataka u skladu s Uredbom (EU) 2016/679 (Opća uredba o zaštiti podataka – GDPR) i hrvatskim Zakonom o provedbi Opće uredbe o zaštiti podataka.
+            Osobne podatke obrađujem u skladu s Općom uredbom o zaštiti podataka (GDPR) i primjenjivim hrvatskim propisima.
           </p>
         </div>
 
-        <!-- 1. Data Controller -->
         <section class="mb-12">
           <h2 class="font-serif text-2xl font-medium text-ink mb-4 flex items-baseline gap-3">
             <span class="font-mono text-sm text-sci">1.</span>
@@ -44,171 +41,332 @@ const lastUpdated = '13. listopada 2026.';
           </h2>
           <div class="bg-surface border border-rule rounded-xl p-6">
             <p class="text-ink-soft leading-relaxed mb-4">
-              <strong class="text-ink">Voditelj obrade:</strong> Renata Horvat, posluje kao CreativeStar
+              Za obradu osobnih podataka odgovorna je <strong class="text-ink">Renata Horvat, vlasnica obrta CreativeStar, obrt za računalne usluge</strong>.
             </p>
             <div class="space-y-2 text-ink-soft mb-4">
-              <p>Adresa: Josipa Pupačića 4, 10090 Zagreb, Hrvatska</p>
-              <p>OIB: 04904111520</p>
-              <p>E-pošta: <a href="mailto:screatives.info@gmail.com" class="text-sci hover:text-sci-dark">screatives.info@gmail.com</a></p>
+              <p><strong class="text-ink">Adresa:</strong> Josipa Pupačića 4, 10090 Zagreb, Hrvatska</p>
+              <p><strong class="text-ink">OIB:</strong> 04904111520</p>
+              <p>
+                <strong class="text-ink">E-pošta:</strong>
+                <a href="mailto:screatives.info@gmail.com" class="text-sci hover:text-sci-dark">screatives.info@gmail.com</a>
+              </p>
             </div>
             <p class="text-ink-soft leading-relaxed mb-0">
-              Za pitanja ili zahtjeve vezane uz privatnost koristite gornju adresu e-pošte. Kontaktni obrazac traži ime, adresu e-pošte i poruku kako bismo vam mogli odgovoriti. Možete nas kontaktirati i e-poštom. Molimo vas da ne navodite osjetljive osobne podatke koji nisu potrebni za vaš upit.
+              Na navedenu adresu e-pošte možete poslati pitanja o privatnosti i zahtjeve povezane sa svojim osobnim podacima.
             </p>
           </div>
         </section>
 
-        <!-- 2. Personal Data We Collect -->
         <section class="mb-12">
           <h2 class="font-serif text-2xl font-medium text-ink mb-4 flex items-baseline gap-3">
             <span class="font-mono text-sm text-sci">2.</span>
-            Osobni podaci koje prikupljamo
+            Koje podatke prikupljam?
           </h2>
-          <div class="bg-surface border border-rule rounded-xl p-6">
-            <p class="text-ink-soft leading-relaxed mb-4">
-              Možemo prikupljati sljedeće kategorije osobnih podataka:
-            </p>
-
-            <!-- Data you provide directly -->
-            <div class="mb-6">
-              <h3 class="text-lg font-semibold text-ink mb-3">a) Podaci koje nam sami dajete</h3>
-              <ul class="list-disc list-inside text-ink-soft space-y-2 ml-4">
-                <li>Ime i prezime</li>
-                <li>Adresa e-pošte</li>
-                <li>Odabrana vrsta projekta, poruka i sve druge informacije koje pošaljete putem kontaktnog obrasca ili e-poštom.</li>
-              </ul>
+          <div class="bg-surface border border-rule rounded-xl p-6 space-y-6">
+            <div>
+              <h3 class="text-lg font-semibold text-ink mb-3">Podaci koje mi sami dostavljate</h3>
+              <p class="text-ink-soft leading-relaxed mb-3">
+                Putem <strong class="text-ink">kontaktnog obrasca</strong> prikupljam vaše ime, adresu e-pošte i poruku.
+              </p>
+              <p class="text-ink-soft leading-relaxed mb-3">
+                Putem <strong class="text-ink">upitnika o projektu</strong> prikupljam vaše ime, adresu e-pošte i odgovore o vrsti projekta, kome je namijenjen, ciljevima i željenom početku rada. Ako ih dobrovoljno navedete, prikupljam i broj mobitela, adresu postojeće web-stranice te dodatnu napomenu.
+              </p>
+              <p class="text-ink-soft leading-relaxed mb-3">
+                Podaci iz obaju obrazaca dostavljaju mi se e-poštom putem usluge Resend. Odgovori iz upitnika uključeni su u sadržaj poruke. Web-stranica nema zasebnu bazu za pohranu tih upita.
+              </p>
+              <p class="text-ink-soft leading-relaxed mb-3">
+                Ako mi se javite <strong class="text-ink">e-poštom ili WhatsAppom</strong>, obrađujem podatke koje dostavite tijekom komunikacije.
+              </p>
+              <p class="text-ink-soft leading-relaxed mb-3">
+                Obavezna polja označena su u obrascu. Bez njih obrazac nije moguće poslati, a bez odgovarajućih kontaktnih podataka ne mogu vam odgovoriti. Ostale podatke navodite dobrovoljno.
+              </p>
+              <p class="text-ink-soft leading-relaxed mb-0">
+                Molim vas da ne šaljete osjetljive osobne podatke koji nisu potrebni za vaš upit.
+              </p>
             </div>
 
-            <!-- Data collected automatically -->
             <div>
-              <h3 class="text-lg font-semibold text-ink mb-3">b) Podaci koji se prikupljaju automatski</h3>
-              <ul class="list-disc list-inside text-ink-soft space-y-2 ml-4">
-                <li>IP adresa i tehnički podaci o zahtjevu koje obrađuju pružatelji hostinga</li>
-                <li>Vrsta i verzija preglednika</li>
-                <li>Podaci o uređaju</li>
-                <li>Posjećene stranice i vrijeme provedeno na web stranici</li>
-                <li>URL s kojeg ste došli</li>
-              </ul>
-              <p class="text-ink-soft leading-relaxed mt-3 text-sm">
-                Usluge hostinga obrađuju tehničke podatke radi isporuke i zaštite web stranice. Fontovi se poslužuju s ove web stranice i ne stvaraju zahtjeve prema Google Fontsu. Neobavezni Google Analytics prikuplja podatke o korištenju tek nakon što prihvatite analitičke kolačiće. Vercel Speed Insights mjeri performanse web stranice pomoću anonimnih metrika.
+              <h3 class="text-lg font-semibold text-ink mb-3">Tehnički podaci</h3>
+              <p class="text-ink-soft leading-relaxed mb-3">
+                Pružatelj hostinga obrađuje IP adresu i tehničke podatke o zahtjevima radi prikazivanja, održavanja i zaštite web-stranice.
+              </p>
+              <p class="text-ink-soft leading-relaxed mb-0">
+                Fontovi se poslužuju s ove web-stranice, bez slanja zahtjeva usluzi Google Fonts.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-semibold text-ink mb-3">Analitika posjećenosti</h3>
+              <p class="text-ink-soft leading-relaxed mb-0">
+                Ako prihvatite analitiku, <strong class="text-ink">Google Analytics 4</strong> prikuplja podatke o korištenju stranice, primjerice posjećene stranice, interakcije, podatke o pregledniku i uređaju te stranicu s koje ste došli.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-semibold text-ink mb-3">Mjerenje performansi</h3>
+              <p class="text-ink-soft leading-relaxed mb-3">
+                Za mjerenje brzine i performansi koristim <strong class="text-ink">Vercel Speed Insights</strong>, koji radi neovisno o prihvaćanju Google Analyticsa.
+              </p>
+              <p class="text-ink-soft leading-relaxed mb-0">
+                Prema dokumentaciji pružatelja, Speed Insights bilježi anonimne metrike performansi, poput vremena učitavanja, vrste uređaja i preglednika, bez povezivanja mjerenja s pojedinačnim posjetiteljem i bez rekonstrukcije njegova pregledavanja kroz više stranica.
               </p>
             </div>
           </div>
         </section>
 
-        <!-- 3. Purposes of Processing -->
         <section class="mb-12">
           <h2 class="font-serif text-2xl font-medium text-ink mb-4 flex items-baseline gap-3">
             <span class="font-mono text-sm text-sci">3.</span>
-            Svrhe obrade
+            Zašto koristim vaše podatke?
           </h2>
           <div class="bg-surface border border-rule rounded-xl p-6">
             <p class="text-ink-soft leading-relaxed mb-4">
-              Osobne podatke obrađujemo u sljedeće svrhe:
+              Osobne podatke koristim za:
             </p>
-            <ul class="list-disc list-inside text-ink-soft space-y-2 ml-4">
-              <li>Odgovaranje na upite i zahtjeve za komunikaciju.</li>
-              <li>Pružanje traženih informacija ili usluga (ponude, konzultacije o projektu).</li>
-              <li>Poboljšanje performansi web stranice i korisničkog iskustva.</li>
-              <li>Sigurnost web stranice i tehničko održavanje.</li>
-              <li>Statistička analiza (ako je dana privola).</li>
+            <ul class="list-disc list-inside text-ink-soft space-y-2 ml-4 mb-4">
+              <li>odgovaranje na upite i komunikaciju s vama;</li>
+              <li>razumijevanje vaših potreba i pripremu prijedloga suradnje ili ponude;</li>
+              <li>pružanje dogovorenih usluga;</li>
+              <li>zaštitu i održavanje web-stranice;</li>
+              <li>analizu posjećenosti uz vašu privolu;</li>
+              <li>ispunjavanje zakonskih obveza.</li>
             </ul>
+            <p class="text-ink-soft leading-relaxed mb-0">
+              Anonimne metrike performansi koristim za poboljšanje brzine i korisničkog iskustva.
+            </p>
           </div>
         </section>
 
-        <!-- 4. Legal Basis for Processing -->
         <section class="mb-12">
           <h2 class="font-serif text-2xl font-medium text-ink mb-4 flex items-baseline gap-3">
             <span class="font-mono text-sm text-sci">4.</span>
-            Pravna osnova obrade
+            Pravne osnove obrade
           </h2>
-          <div class="bg-surface border border-rule rounded-xl p-6">
-            <p class="text-ink-soft leading-relaxed mb-4">
-              Osobni podaci obrađuju se na jednoj ili više sljedećih pravnih osnova:
-            </p>
-            <ul class="list-disc list-inside text-ink-soft space-y-2 ml-4">
-              <li><strong class="text-ink">Privola (članak 6. stavak 1. točka (a) GDPR-a)</strong> – za neobavezne analitičke kolačiće. Privolu možete povući u Postavkama kolačića.</li>
-              <li><strong class="text-ink">Nužnost za izvršenje ugovora (članak 6. stavak 1. točka (b) GDPR-a)</strong> – za pripremu ponude ili druge radnje koje zatražite prije sklapanja ugovora te za pružanje dogovorenih usluga.</li>
-              <li><strong class="text-ink">Legitimni interesi (članak 6. stavak 1. točka (f) GDPR-a)</strong> – za odgovaranje na opće upite i održavanje sigurne, pouzdane web stranice. Na obradu temeljenu na tim interesima možete uložiti prigovor.</li>
-              <li><strong class="text-ink">Pravne obveze (članak 6. stavak 1. točka (c) GDPR-a)</strong> – za vođenje propisane porezne evidencije i postupanje po potrošačkim prigovorima. Potvrda da ste pročitali ovu politiku nije privola za analitiku ni marketing.</li>
-            </ul>
+          <div class="bg-surface border border-rule rounded-xl p-6 space-y-6">
+            <div>
+              <h3 class="text-lg font-semibold text-ink mb-3">Priprema i izvršavanje ugovora</h3>
+              <p class="text-ink-soft leading-relaxed mb-0">
+                Kada kao fizička osoba zatražite ponudu ili ugovorite uslugu, podatke potrebne za postupanje po vašem zahtjevu i pružanje usluge obrađujem radi poduzimanja radnji prije sklapanja ugovora odnosno njegova izvršavanja, na temelju članka 6. stavka 1. točke (b) GDPR-a.
+              </p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-ink mb-3">Legitimni interes</h3>
+              <p class="text-ink-soft leading-relaxed mb-3">
+                Podatke potrebne za odgovaranje na opće upite, poslovnu komunikaciju s predstavnicima organizacija te zaštitu i pouzdan rad web-stranice obrađujem na temelju članka 6. stavka 1. točke (f) GDPR-a.
+              </p>
+              <p class="text-ink-soft leading-relaxed mb-0">
+                Legitimni su interesi komunikacija sa zainteresiranim osobama, organizacija poslovanja i zaštita stranice od zlouporabe. Na takvu obradu imate pravo uložiti prigovor.
+              </p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-ink mb-3">Privola</h3>
+              <p class="text-ink-soft leading-relaxed mb-0">
+                Neobaveznu analitiku posjećenosti koristim na temelju vaše privole, u skladu s člankom 6. stavkom 1. točkom (a) GDPR-a. Svoj odabir možete promijeniti ili povući u Postavkama kolačića.
+              </p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-ink mb-3">Zakonska obveza</h3>
+              <p class="text-ink-soft leading-relaxed mb-3">
+                Podatke potrebne za propisane porezne evidencije i postupanje po potrošačkim prigovorima obrađujem radi ispunjavanja zakonskih obveza, na temelju članka 6. stavka 1. točke (c) GDPR-a.
+              </p>
+              <p class="text-ink-soft leading-relaxed mb-0">
+                Slanje upita ili potvrda da ste pročitali ovu politiku ne predstavljaju privolu za analitiku ili marketinške poruke.
+              </p>
+            </div>
           </div>
         </section>
 
-        <!-- 5. Data Retention -->
         <section class="mb-12">
           <h2 class="font-serif text-2xl font-medium text-ink mb-4 flex items-baseline gap-3">
             <span class="font-mono text-sm text-sci">5.</span>
-            Razdoblje čuvanja podataka
+            Koliko dugo čuvam podatke?
           </h2>
-          <div class="bg-surface border border-rule rounded-xl p-6">
-            <p class="text-ink-soft leading-relaxed mb-4">
-              Osobne podatke čuvamo samo onoliko dugo koliko je potrebno:
-            </p>
-            <ul class="list-disc list-inside text-ink-soft space-y-2 ml-4">
-              <li><strong class="text-ink">Upiti putem kontaktnog obrasca ili e-pošte:</strong> do 12 mjeseci nakon posljednje komunikacije, osim ako se uspostavi poslovni odnos.</li>
-              <li><strong class="text-ink">Računi i porezna evidencija:</strong> tijekom razdoblja čuvanja propisanog primjenjivim hrvatskim poreznim zakonodavstvom, uključujući Opći porezni zakon. Razdoblje ovisi o dokumentu i zakonskom početku računanja; evidencija se čuva dulje ako to zahtijeva poseban zakon.</li>
-              <li><strong class="text-ink">Potrošački prigovori:</strong> jednu godinu od zaprimanja, kako zahtijeva hrvatsko zakonodavstvo o zaštiti potrošača.</li>
-              <li><strong class="text-ink">Analitički podaci:</strong> prema razdoblju čuvanja podataka postavljenom u Google Analytics svojstvu. Standardne postavke čuvanja korisničkih podataka i podataka o događajima u GA4 su 2 ili 14 mjeseci; agregirana izvješća mogu se čuvati dulje.</li>
-            </ul>
+          <div class="bg-surface border border-rule rounded-xl p-6 space-y-6">
+            <div>
+              <h3 class="text-lg font-semibold text-ink mb-3">Upiti i komunikacija</h3>
+              <p class="text-ink-soft leading-relaxed mb-0">
+                Podatke iz upita i povezane komunikacije čuvam koliko je potrebno za odgovor i dogovor o mogućoj suradnji. Kada više nisu potrebni za te svrhe, brišem ih, osim ako ih je potrebno zadržati radi zakonskih obveza ili postavljanja, ostvarivanja ili obrane pravnih zahtjeva.
+              </p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-ink mb-3">Podaci o poslovnoj suradnji</h3>
+              <p class="text-ink-soft leading-relaxed mb-0">
+                Podatke potrebne za pružanje dogovorenih usluga čuvam tijekom suradnje, a nakon nje koliko je potrebno radi ispunjavanja zakonskih obveza te postavljanja, ostvarivanja ili obrane pravnih zahtjeva.
+              </p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-ink mb-3">Računi i porezna evidencija</h3>
+              <p class="text-ink-soft leading-relaxed mb-0">
+                Račune i poreznu dokumentaciju čuvam u rokovima propisanima primjenjivim propisima, ovisno o vrsti dokumentacije.
+              </p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-ink mb-3">Potrošački prigovori</h3>
+              <p class="text-ink-soft leading-relaxed mb-0">
+                Evidenciju potrošačkih prigovora čuvam godinu dana od primitka prigovora.
+              </p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-ink mb-3">Google Analytics 4</h3>
+              <p class="text-ink-soft leading-relaxed mb-3">
+                Podaci o događajima čuvaju se <strong class="text-ink">2 mjeseca</strong>, a korisnički podaci <strong class="text-ink">14 mjeseci</strong>. Rok čuvanja korisničkih podataka obnavlja se pri novoj aktivnosti korisnika.
+              </p>
+              <p class="text-ink-soft leading-relaxed mb-0">
+                Ti se rokovi ne primjenjuju na većinu standardnih izvješća temeljenih na agregiranim podacima. Trajanje kolačića u pregledniku uređuje se zasebno.
+              </p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-ink mb-3">Zapisi pružatelja usluga</h3>
+              <p class="text-ink-soft leading-relaxed mb-3">
+                Resend prema svojoj dokumentaciji na paketima Free, Pro i Scale čuva podatke o e-pošti i zapise dostave 30 dana. Taj rok ne određuje koliko dugo čuvam zaprimljenu poruku u svojem pretincu e-pošte.
+              </p>
+              <p class="text-ink-soft leading-relaxed mb-0">
+                Rokovi dostupnosti tehničkih zapisa kod Vercela ovise o vrsti zapisa, korištenom paketu i uključenim dodatnim uslugama. Više informacija dostupno je u
+                <a href="https://vercel.com/docs/logs/runtime" target="_blank" rel="noopener noreferrer" class="text-sci hover:text-sci-dark underline underline-offset-2">Vercelovoj dokumentaciji o zapisima</a>.
+              </p>
+            </div>
           </div>
         </section>
 
-        <!-- 6. Recipients of Personal Data -->
         <section class="mb-12">
           <h2 class="font-serif text-2xl font-medium text-ink mb-4 flex items-baseline gap-3">
             <span class="font-mono text-sm text-sci">6.</span>
-            Primatelji osobnih podataka
+            Tko može obrađivati podatke?
           </h2>
           <div class="bg-surface border border-rule rounded-xl p-6">
             <p class="text-ink-soft leading-relaxed mb-4">
-              Za rad web stranice i obradu upita koristimo sljedeće pružatelje usluga. Ovisno o usluzi i podacima, pružatelj može djelovati kao izvršitelj obrade ili kao neovisni voditelj obrade:
+              Za rad web-stranice i komunikaciju koristim sljedeće pružatelje usluga:
             </p>
-            <ul class="list-disc list-inside text-ink-soft space-y-2 ml-4">
-              <li><strong class="text-ink">Vercel:</strong> hosting web stranice, obrada zahtjeva i anonimno praćenje performansi putem Speed Insightsa.</li>
-              <li><strong class="text-ink">Resend:</strong> isporuka poruka iz kontaktnog obrasca, uključujući vaše ime, adresu e-pošte i poruku.</li>
-              <li><strong class="text-ink">Google:</strong> obrada e-pošte putem Gmaila i neobavezni Google Analytics 4 nakon privole za analitiku.</li>
-              <li>Tijela vlasti, ako to zahtijeva primjenjivo pravo.</li>
+            <ul class="list-disc list-inside text-ink-soft space-y-2 ml-4 mb-4">
+              <li><strong class="text-ink">Vercel</strong> — hosting web-stranice, obrada tehničkih zahtjeva i mjerenje performansi putem usluge Speed Insights.</li>
+              <li><strong class="text-ink">Resend</strong> — dostava poruka iz kontaktnog obrasca i upitnika, uključujući kontaktne podatke i sadržaj koji pošaljete.</li>
+              <li><strong class="text-ink">Google</strong> — komunikacija putem Gmaila i analiza posjećenosti putem Google Analyticsa 4 nakon vaše privole.</li>
             </ul>
-            <p class="text-ink-soft leading-relaxed mt-4 mb-0">
-              Vaše osobne podatke ne prodajemo, ne iznajmljujemo niti njima trgujemo. Ako nas odlučite kontaktirati putem WhatsAppa, ta usluga obrađuje podatke prema vlastitim uvjetima privatnosti. Vanjske poveznice na projekte vode vas na web stranice kojima upravljaju drugi.
+            <p class="text-ink-soft leading-relaxed mb-3">
+              Ovisno o usluzi i svrsi obrade, pružatelji mogu djelovati kao izvršitelji obrade ili kao samostalni voditelji obrade za pojedine postupke.
+            </p>
+            <p class="text-ink-soft leading-relaxed mb-3">
+              Ako me kontaktirate putem <strong class="text-ink">WhatsAppa</strong>, pružatelj te usluge također obrađuje podatke prema svojim pravilima privatnosti.
+            </p>
+            <p class="text-ink-soft leading-relaxed mb-3">
+              Podatke mogu dostaviti nadležnim tijelima kada to zahtijeva zakon.
+            </p>
+            <p class="text-ink-soft leading-relaxed mb-3">
+              Osobne podatke ne prodajem niti iznajmljujem.
+            </p>
+            <p class="text-ink-soft leading-relaxed mb-0">
+              Vanjske poveznice vode na web-stranice drugih upravitelja. Na njima vrijede njihova pravila privatnosti.
             </p>
           </div>
         </section>
 
-        <!-- 7. Cookies and Analytics -->
         <section class="mb-12">
           <h2 class="font-serif text-2xl font-medium text-ink mb-4 flex items-baseline gap-3">
             <span class="font-mono text-sm text-sci">7.</span>
-            Kolačići i analitika
+            Kolačići i postavke privatnosti
           </h2>
-          <div class="bg-surface border border-rule rounded-xl p-6">
-            <p class="text-ink-soft leading-relaxed mb-4">
-              Ova web stranica pohranjuje vaše odabire o kolačićima u vašem pregledniku i koristi neobavezne kolačiće za analizu korištenja web stranice.
-            </p>
-            <ul class="list-disc list-inside text-ink-soft space-y-2 ml-4 mb-4">
-              <li><strong class="text-ink">Nužna pohrana:</strong> vaše postavke spremaju se u lokalnu pohranu vašeg preglednika. Ona bilježi vaš odabir i njegov datum; ne zahtijeva privolu za analitiku i ostaje dok je ne promijenite ili obrišete.</li>
-              <li><strong class="text-ink">Analitički kolačići:</strong> Google Analytics 4 učitava se tek nakon što to odaberete. Koristi kolačiće kao što su <code>_ga</code> i <code>_ga_*</code> za razlikovanje posjeta i analizu korištenja. GA4 ne bilježi niti pohranjuje pojedinačne IP adrese; to ne znači da hosting ili drugi pružatelji nikada ne obrađuju IP adresu.</li>
-            </ul>
+          <div class="bg-surface border border-rule rounded-xl p-6 space-y-6">
             <p class="text-ink-soft leading-relaxed mb-0">
-              Privolu za analitiku možete u svakom trenutku promijeniti ili povući otvaranjem Postavki kolačića putem gumba postavki ili poveznice u podnožju. Odbijanje analitike ne sprječava vas da koristite web stranicu ili nas kontaktirate. Pohranjene kolačiće i postavke možete obrisati i u svom pregledniku.
+              Kolačići su male datoteke koje web-stranica pohranjuje u preglednik. Lokalna pohrana zaseban je način spremanja podataka u pregledniku.
             </p>
+
+            <div>
+              <h3 class="text-lg font-semibold text-ink mb-3">Pamćenje vašeg odabira</h3>
+              <p class="text-ink-soft leading-relaxed mb-3">
+                Odabir analitike, datum odabira i verzija postavki spremaju se u lokalnu pohranu preglednika pod nazivom <code class="text-ink">cookie_consent_preferences</code>.
+              </p>
+              <p class="text-ink-soft leading-relaxed mb-0">
+                Ta pohrana služi pamćenju vašeg odabira i ne koristi se za analitiku. Nema automatski rok isteka. Zapis možete promijeniti putem Postavki kolačića ili izbrisati u pregledniku. Ako se uvede nova verzija postavki privole, prethodni odabir više se ne primjenjuje i traži se novi.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-semibold text-ink mb-3">Analitički kolačići</h3>
+              <p class="text-ink-soft leading-relaxed mb-4">
+                Google Analytics 4 učitava se nakon što prihvatite analitiku.
+              </p>
+              <div class="overflow-x-auto">
+                <table class="w-full min-w-[28rem] border-collapse text-left text-sm text-ink-soft">
+                  <thead>
+                    <tr class="border-b border-rule">
+                      <th class="py-2 pr-4 font-semibold text-ink">Kolačić</th>
+                      <th class="py-2 pr-4 font-semibold text-ink">Svrha</th>
+                      <th class="py-2 font-semibold text-ink">Zadano trajanje prema Googleovoj dokumentaciji</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="border-b border-rule align-top">
+                      <td class="py-3 pr-4"><code class="text-ink">_ga</code></td>
+                      <td class="py-3 pr-4">Razlikovanje korisnika preglednika</td>
+                      <td class="py-3">2 godine</td>
+                    </tr>
+                    <tr class="align-top">
+                      <td class="py-3 pr-4"><code class="text-ink">_ga_*</code></td>
+                      <td class="py-3 pr-4">Održavanje podataka o sesiji</td>
+                      <td class="py-3">2 godine</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="text-ink-soft leading-relaxed mt-4 mb-0">
+                U kodu web-stranice nije postavljen poseban rok trajanja ovih kolačića. Preglednik može ograničiti njihovo stvarno trajanje, a možete ih i ranije izbrisati.
+              </p>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-semibold text-ink mb-3">Promjena ili povlačenje privole</h3>
+              <p class="text-ink-soft leading-relaxed mb-3">
+                Analitiku možete odbiti i nastaviti koristiti web-stranicu i obrasce.
+              </p>
+              <p class="text-ink-soft leading-relaxed mb-3">
+                Svoj odabir možete promijeniti ili povući putem poveznice <strong class="text-ink">Postavke kolačića</strong> u podnožju stranice. Nakon povlačenja privole analitika se onemogućuje i pokreće se brisanje GA kolačića dostupnih stranici.
+              </p>
+              <p class="text-ink-soft leading-relaxed mb-3">
+                Povlačenje privole ne utječe na zakonitost obrade provedene prije povlačenja.
+              </p>
+              <p class="text-ink-soft leading-relaxed mb-0">
+                Pohranjene kolačiće i lokalne postavke možete obrisati i u pregledniku.
+              </p>
+            </div>
           </div>
         </section>
 
-        <!-- 8. Transfers Outside the EU -->
         <section class="mb-12">
           <h2 class="font-serif text-2xl font-medium text-ink mb-4 flex items-baseline gap-3">
             <span class="font-mono text-sm text-sci">8.</span>
-            Prijenosi izvan EU-a
+            Prijenos podataka izvan Europskog gospodarskog prostora
           </h2>
           <div class="bg-surface border border-rule rounded-xl p-6">
             <p class="text-ink-soft leading-relaxed mb-4">
-              Naši pružatelji usluga mogu obrađivati podatke izvan Europskog gospodarskog prostora, među ostalim i u Sjedinjenim Američkim Državama. Gdje je potrebno, prijenosi se provode uz primjenjive zaštitne mjere, kao što su odluka o primjerenosti koja obuhvaća primatelja ili standardne ugovorne klauzule Europske komisije i sve potrebne dodatne mjere. Obratite nam se za informacije o zaštitnim mjerama relevantnim za vaše podatke.
+              Korištenje usluga Vercela, Resenda i Googlea može uključivati obradu osobnih podataka izvan Europskog gospodarskog prostora, uključujući Sjedinjene Američke Države.
+            </p>
+            <p class="text-ink-soft leading-relaxed mb-3">
+              Vercel i Resend u svojim dodacima o obradi podataka predviđaju standardne ugovorne klauzule Europske komisije za prijenose na koje se one primjenjuju.
+            </p>
+            <p class="text-ink-soft leading-relaxed mb-4">
+              Google u svojim pravilima o međunarodnim prijenosima navodi odluke o primjerenosti, uključujući okvir EU–SAD za zaštitu podataka za obuhvaćene prijenose, te standardne ugovorne klauzule kada su potrebne.
+            </p>
+            <p class="text-ink-soft leading-relaxed mb-2">
+              Dodatne informacije dostupne su u dokumentima pružatelja:
+            </p>
+            <ul class="list-disc list-inside text-ink-soft space-y-2 ml-4 mb-4">
+              <li>
+                <a href="https://vercel.com/legal/dpa" target="_blank" rel="noopener noreferrer" class="text-sci hover:text-sci-dark underline underline-offset-2">Vercel — dodatak o obradi podataka</a>
+              </li>
+              <li>
+                <a href="https://resend.com/security/gdpr" target="_blank" rel="noopener noreferrer" class="text-sci hover:text-sci-dark underline underline-offset-2">Resend — zaštita podataka i međunarodni prijenosi</a>
+              </li>
+              <li>
+                <a href="https://policies.google.com/privacy/frameworks?hl=hr" target="_blank" rel="noopener noreferrer" class="text-sci hover:text-sci-dark underline underline-offset-2">Google — pravni okviri za prijenos podataka</a>
+              </li>
+            </ul>
+            <p class="text-ink-soft leading-relaxed mb-0">
+              Za pitanja o primjenjivim zaštitnim mjerama i načinu dobivanja njihove kopije možete mi pisati na
+              <a href="mailto:screatives.info@gmail.com" class="text-sci hover:text-sci-dark">screatives.info@gmail.com</a>.
             </p>
           </div>
         </section>
 
-        <!-- 9. Your Rights -->
         <section class="mb-12">
           <h2 class="font-serif text-2xl font-medium text-ink mb-4 flex items-baseline gap-3">
             <span class="font-mono text-sm text-sci">9.</span>
@@ -216,72 +374,77 @@ const lastUpdated = '13. listopada 2026.';
           </h2>
           <div class="bg-surface border border-rule rounded-xl p-6">
             <p class="text-ink-soft leading-relaxed mb-4">
-              Prema GDPR-u imate sljedeća prava, podložno uvjetima i iznimkama koje se primjenjuju na svako pravo:
+              Ovisno o pravnoj osnovi i okolnostima obrade, imate pravo:
             </p>
-            <ul class="list-disc list-inside text-ink-soft space-y-2 ml-4">
-              <li>Pravo na pristup — dobiti potvrdu obrađuju li se vaši podaci i primiti njihovu kopiju.</li>
-              <li>Pravo na ispravak — zatražiti ispravak netočnih ili nepotpunih podataka.</li>
-              <li>Pravo na brisanje („pravo na zaborav”) — zatražiti brisanje vaših podataka ako ih nije potrebno čuvati zbog zakonske obveze.</li>
-              <li>Pravo na ograničenje obrade — zatražiti da se obrada u određenim okolnostima ograniči.</li>
-              <li>Pravo na prenosivost podataka — primiti svoje podatke u strukturiranom, strojno čitljivom formatu.</li>
-              <li>Pravo na prigovor — uložiti prigovor na obradu temeljenu na legitimnom interesu (čl. 21. GDPR-a).</li>
-              <li>Pravo na povlačenje privole u bilo kojem trenutku, bez utjecaja na zakonitost prethodne obrade.</li>
+            <ul class="list-disc list-inside text-ink-soft space-y-2 ml-4 mb-4">
+              <li>zatražiti pristup svojim osobnim podacima i njihovu kopiju;</li>
+              <li>zatražiti ispravak netočnih ili dopunu nepotpunih podataka;</li>
+              <li>zatražiti brisanje podataka kada su ispunjeni propisani uvjeti;</li>
+              <li>zatražiti ograničenje obrade;</li>
+              <li>ostvariti prenosivost podataka kada su ispunjeni propisani uvjeti;</li>
+              <li>uložiti prigovor na obradu temeljenu na legitimnom interesu;</li>
+              <li>povući privolu za obradu koja se temelji na privoli.</li>
             </ul>
-            <div class="mt-6 p-4 bg-sci-soft border border-sci/30 rounded-lg">
-              <p class="text-ink-soft text-sm mb-4">
-                Na zahtjeve u vezi sa zaštitom podataka obično odgovaramo u roku od jednog mjeseca. Ako GDPR dopušta produljenje, obavijestit ćemo vas unutar tog mjeseca i objasniti razloge. Svoja prava možete ostvariti tako da nam pišete na:
-                <a href="mailto:screatives.info@gmail.com" class="text-sci hover:text-sci-dark font-semibold">screatives.info@gmail.com</a>
-              </p>
+            <p class="text-ink-soft leading-relaxed mb-4">
+              Pojedina prava podliježu zakonskim uvjetima i iznimkama. Primjerice, određene podatke potrebno je zadržati radi ispunjavanja zakonskih obveza.
+            </p>
+            <p class="text-ink-soft leading-relaxed mb-4">
+              Zahtjev možete poslati na
+              <a href="mailto:screatives.info@gmail.com" class="text-sci hover:text-sci-dark">screatives.info@gmail.com</a>.
+            </p>
+            <p class="text-ink-soft leading-relaxed mb-4">
+              Odgovaram bez nepotrebnog odgađanja, najkasnije u roku od mjesec dana od primitka zahtjeva. Ako je zbog složenosti ili broja zahtjeva potrebno zakonom dopušteno produljenje, o tome i razlozima obavijestit ću vas unutar prvog mjeseca.
+            </p>
+            <div class="p-4 bg-sci-soft border border-sci/30 rounded-lg">
               <p class="text-ink-soft text-sm mb-0">
-                Ako smatrate da su vaša prava povrijeđena, imate pravo podnijeti pritužbu nadzornom tijelu:
-                <strong class="text-ink">Agencija za zaštitu osobnih podataka (AZOP)</strong><br>
-                Ulica Metela Ožegovića 16, HR – 10 000 Zagreb, Hrvatska<br>
-                E-pošta: <a href="mailto:azop@azop.hr" class="text-sci hover:text-sci-dark">azop@azop.hr</a><br>
-                Web: <a href="https://www.azop.hr" target="_blank" rel="noopener noreferrer" class="text-sci hover:text-sci-dark">www.azop.hr</a>
+                Ako smatrate da obrada vaših osobnih podataka nije u skladu s propisima, možete podnijeti pritužbu nadzornom tijelu:
+                <br /><br />
+                <strong class="text-ink">Agencija za zaštitu osobnih podataka (AZOP)</strong><br />
+                Ulica Metela Ožegovića 16, 10000 Zagreb, Hrvatska<br />
+                E-pošta: <a href="mailto:azop@azop.hr" class="text-sci hover:text-sci-dark">azop@azop.hr</a><br />
+                Web: <a href="https://azop.hr/" target="_blank" rel="noopener noreferrer" class="text-sci hover:text-sci-dark">azop.hr</a>
               </p>
             </div>
           </div>
         </section>
 
-        <!-- 10. Data Security -->
         <section class="mb-12">
           <h2 class="font-serif text-2xl font-medium text-ink mb-4 flex items-baseline gap-3">
             <span class="font-mono text-sm text-sci">10.</span>
-            Sigurnost podataka
+            Zaštita podataka
           </h2>
           <div class="bg-surface border border-rule rounded-xl p-6">
-            <p class="text-ink-soft leading-relaxed mb-4">
-              Primjenjujemo odgovarajuće tehničke i organizacijske mjere za zaštitu vaših podataka. Iako nastojimo postići najvišu sigurnost, nijedna metoda prijenosa putem interneta nije 100 % sigurna.
+            <p class="text-ink-soft leading-relaxed mb-3">
+              Primjenjujem odgovarajuće tehničke i organizacijske mjere za zaštitu osobnih podataka od neovlaštenog pristupa, gubitka, izmjene i zlouporabe.
+            </p>
+            <p class="text-ink-soft leading-relaxed mb-0">
+              Nijedna metoda internetskog prijenosa ili elektroničke pohrane ne može jamčiti potpunu sigurnost.
             </p>
           </div>
         </section>
 
-        <!-- 11. Changes to This Privacy Policy -->
         <section class="mb-12">
           <h2 class="font-serif text-2xl font-medium text-ink mb-4 flex items-baseline gap-3">
             <span class="font-mono text-sm text-sci">11.</span>
-            Izmjene ove Politike privatnosti
+            Izmjene politike privatnosti
           </h2>
           <div class="bg-surface border border-rule rounded-xl p-6">
-            <p class="text-ink-soft leading-relaxed mb-4">
-              Zadržavamo pravo ažuriranja ove politike. Sve izmjene bit će objavljene na ovoj stranici s ažuriranim datumom revizije.
+            <p class="text-ink-soft leading-relaxed mb-3">
+              Ovu politiku ažuriram kada se promijene način obrade podataka, korištene usluge ili primjenjivi zahtjevi.
+            </p>
+            <p class="text-ink-soft leading-relaxed mb-0">
+              Aktualna verzija i datum posljednjeg ažuriranja dostupni su na ovoj stranici.
             </p>
           </div>
         </section>
 
-        <!-- Bottom CTA -->
         <div class="mt-12 text-center">
           <a
             href={pageHref('/contact', locale)}
             class="inline-flex items-center gap-2 rounded-md bg-sci px-6 py-3 font-medium text-white transition-colors hover:bg-sci-dark"
           >
             Pitanja? Javite se
-            <svg
-              class="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
             </svg>
           </a>

@@ -3,178 +3,226 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
-// Croatian translation of src/pages/legal.astro. When one version changes, update the other.
-const pageTitle = 'Pravna napomena | Renata Horvat';
-const pageDescription = 'Pravna napomena za CreativeStar – podaci o poslovanju, odricanje od odgovornosti i pravni podaci.';
-const lastUpdated = '13. listopada 2026.';
+// Croatian counterpart of src/pages/legal.astro. When one version changes, update the other.
+const pageTitle = 'Podaci o obrtu i uvjeti suradnje | Renata Horvat';
+const pageDescription =
+  'Podaci o obrtu CreativeStar i osnovne informacije o korištenju web-stranice te dogovaranju suradnje.';
+const lastUpdated = '26. listopada 2026.';
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
   <Header />
   <div class="py-14 sm:py-16">
     <div class="max-w-4xl mx-auto px-6">
-
-      <!-- Header -->
       <div class="mb-12">
         <h1 class="font-serif text-4xl font-medium text-ink sm:text-5xl mb-4">
-          Pravna napomena
+          Podaci o obrtu i uvjeti suradnje
         </h1>
         <p class="text-ink-soft text-sm">
           Posljednje ažuriranje: <span class="text-sci">{lastUpdated}</span>
         </p>
       </div>
 
-      <!-- Content -->
       <div class="max-w-none">
-
-        <!-- Intro -->
         <div class="bg-surface border border-rule rounded-lg p-8 mb-8">
           <p class="text-ink-soft leading-relaxed mb-0">
-            Ova Pravna napomena sadrži podatke o vlasniku i upravitelju ove web stranice u skladu s primjenjivim hrvatskim i europskim pravom.
+            Na ovoj stranici nalaze se podaci o obrtu CreativeStar te osnovne informacije o korištenju web-stranice i dogovaranju suradnje.
           </p>
         </div>
 
-        <!-- 1. Business Information -->
         <section class="mb-12">
           <h2 class="font-serif text-2xl font-medium text-ink mb-4 flex items-baseline gap-3">
             <span class="font-mono text-sm text-sci">1.</span>
-            Podaci o poslovanju
+            Podaci o obrtu
           </h2>
           <div class="bg-surface border border-rule rounded-xl p-6">
             <div class="space-y-4 text-ink-soft">
-              <div class="flex flex-col sm:flex-row sm:items-start gap-2">
-                <strong class="text-ink min-w-[200px]">Naziv obrta:</strong>
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-start">
+                <strong class="min-w-[200px] text-ink">Naziv obrta:</strong>
                 <span>CreativeStar obrt za računalne usluge, vl. Renata Horvat, Zagreb, Josipa Pupačića 4</span>
               </div>
-              <div class="flex flex-col sm:flex-row sm:items-start gap-2">
-                <strong class="text-ink min-w-[200px]">Vlasnica:</strong>
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-start">
+                <strong class="min-w-[200px] text-ink">Vlasnica:</strong>
                 <span>Renata Horvat</span>
               </div>
-              <div class="flex flex-col sm:flex-row sm:items-start gap-2">
-                <strong class="text-ink min-w-[200px]">Adresa:</strong>
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-start">
+                <strong class="min-w-[200px] text-ink">Sjedište:</strong>
                 <span>Josipa Pupačića 4, 10090 Zagreb, Hrvatska</span>
               </div>
-              <div class="flex flex-col sm:flex-row sm:items-start gap-2">
-                <strong class="text-ink min-w-[200px]">OIB (porezni identifikacijski broj):</strong>
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-start">
+                <strong class="min-w-[200px] text-ink">OIB:</strong>
                 <span>04904111520</span>
               </div>
-              <div class="flex flex-col sm:flex-row sm:items-start gap-2">
-                <strong class="text-ink min-w-[200px]">Registar:</strong>
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-start">
+                <strong class="min-w-[200px] text-ink">Registar:</strong>
                 <span>Obrtni registar</span>
               </div>
-              <div class="flex flex-col sm:flex-row sm:items-start gap-2">
-                <strong class="text-ink min-w-[200px]">Matični broj (MBO):</strong>
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-start">
+                <strong class="min-w-[200px] text-ink">Matični broj obrta (MBO):</strong>
                 <span>99173433</span>
-              </div>            </div>
-          </div>
-        </section>
-
-        <!-- 2. Contact -->
-        <section class="mb-12">
-          <h2 class="font-serif text-2xl font-medium text-ink mb-4 flex items-baseline gap-3">
-            <span class="font-mono text-sm text-sci">2.</span>
-            Kontakt
-          </h2>
-          <div class="bg-surface border border-rule rounded-xl p-6">
-            <div class="space-y-2 text-ink-soft">
-              <p class="mb-0">
-                <strong class="text-ink">E-pošta: </strong>
-                <a href="mailto:screatives.info@gmail.com" class="text-sci hover:text-sci-dark transition-colors duration-300">
+              </div>
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-start">
+                <strong class="min-w-[200px] text-ink">E-pošta:</strong>
+                <a href="mailto:screatives.info@gmail.com" class="text-sci transition-colors duration-300 hover:text-sci-dark">
                   screatives.info@gmail.com
                 </a>
-              </p>
+              </div>
             </div>
           </div>
         </section>
 
-        <!-- 3. Disclaimer of Liability -->
         <section class="mb-12">
           <h2 class="font-serif text-2xl font-medium text-ink mb-4 flex items-baseline gap-3">
-            <span class="font-mono text-sm text-sci">3.</span>
-            Informacije na web stranici
+            <span class="font-mono text-sm text-sci">2.</span>
+            Upiti i dogovaranje suradnje
           </h2>
           <div class="bg-surface border border-rule rounded-xl p-6">
-            <p class="text-ink-soft leading-relaxed mb-4">
-              Ova web stranica predstavlja naše usluge i odabrane radove. Nastojimo da njezin sadržaj bude točan i ažuran. Opseg projekta, isporuke, naknade, uvjeti plaćanja i rokovi potvrđuju se u pojedinačnoj pisanoj ponudi ili ugovoru.
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              Na ovoj web-stranici predstavljam svoje usluge i odabrane radove. Putem kontaktnog obrasca, upitnika o projektu ili e-pošte možete poslati upit i opisati svoje potrebe.
             </p>
-            <p class="text-ink-soft leading-relaxed mb-0">
-              Slanje upita ne predstavlja narudžbu niti stvara ugovor o pružanju usluge. Izmjene web stranice ne mijenjaju postojeći ugovor. Ništa u ovoj napomeni ne isključuje odgovornost ni zakonska prava koja se prema primjenjivom pravu ne mogu isključiti.
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              Slanje upita ne predstavlja narudžbu niti samo po sebi stvara ugovor o pružanju usluge.
+            </p>
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              Opseg projekta, sadržaj isporuke, cijena, uvjeti plaćanja i rokovi dogovaraju se pojedinačno te potvrđuju pisanom ponudom ili ugovorom.
+            </p>
+            <p class="mb-0 leading-relaxed text-ink-soft">
+              Izmjene sadržaja web-stranice ne mijenjaju prethodno sklopljene ugovore.
             </p>
           </div>
         </section>
 
-        <!-- 4. Copyright -->
+        <section class="mb-12">
+          <h2 class="font-serif text-2xl font-medium text-ink mb-4 flex items-baseline gap-3">
+            <span class="font-mono text-sm text-sci">3.</span>
+            Informacije i cijene na web-stranici
+          </h2>
+          <div class="bg-surface border border-rule rounded-xl p-6">
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              Nastojim da informacije na web-stranici budu točne i ažurne.
+            </p>
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              Početne cijene navedene u Cjeniku odnose se na opisani opseg usluge. Konačna cijena ovisi o zahtjevima projekta i navodi se u pojedinačnoj ponudi.
+            </p>
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              Sve cijene izražene su u eurima. Obrt nije u sustavu PDV-a te se PDV ne obračunava.
+            </p>
+            <p class="mb-0 leading-relaxed text-ink-soft">
+              Dodatni radovi i usluge izvan dogovorenog opsega zasebno se dogovaraju prije njihove izvedbe.
+            </p>
+          </div>
+        </section>
+
         <section class="mb-12">
           <h2 class="font-serif text-2xl font-medium text-ink mb-4 flex items-baseline gap-3">
             <span class="font-mono text-sm text-sci">4.</span>
             Autorska prava
           </h2>
           <div class="bg-surface border border-rule rounded-xl p-6">
-            <p class="text-ink-soft leading-relaxed mb-4">
-              Osim ako je drugačije navedeno, izvorni tekstovi, ilustracije i dizajn na ovoj web stranici pripadaju Renati Horvat / CreativeStaru. Materijali klijenata, logotipi, fotografije, fontovi i drugi sadržaji trećih strana ostaju vlasništvo njihovih nositelja prava.
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              Osim ako je drugačije navedeno, izvorni tekstovi, ilustracije i dizajn ove web-stranice autorski su radovi Renate Horvat.
             </p>
-            <p class="text-ink-soft leading-relaxed mb-0">
-              Za ponovno korištenje potrebno je dopuštenje nositelja prava, osim ako to dopušta primjenjiva licencija ili zakon.
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              Materijali klijenata, logotipi, fotografije, fontovi i drugi sadržaji trećih osoba pripadaju njihovim nositeljima prava i koriste se prema odgovarajućim dopuštenjima ili licencijama.
+            </p>
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              Za ponovno korištenje sadržaja potrebno je dopuštenje nositelja prava, osim kada je korištenje dopušteno zakonom ili primjenjivom licencijom.
+            </p>
+            <p class="mb-0 leading-relaxed text-ink-soft">
+              Prava korištenja materijala izrađenih za klijenta uređuju se pojedinačnom ponudom ili ugovorom.
             </p>
           </div>
         </section>
 
-        <!-- 5. External Links -->
         <section class="mb-12">
           <h2 class="font-serif text-2xl font-medium text-ink mb-4 flex items-baseline gap-3">
             <span class="font-mono text-sm text-sci">5.</span>
             Vanjske poveznice
           </h2>
           <div class="bg-surface border border-rule rounded-xl p-6">
-            <p class="text-ink-soft leading-relaxed mb-0">
-              Poveznice na vanjske web stranice navedene su radi informiranja. Za njihov sadržaj i postupanje s privatnošću odgovorni su njihovi upravitelji. Ako smatrate da poveznica vodi na nezakonit sadržaj, obratite nam se kako bismo je pregledali i, ako je prikladno, uklonili.
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              Web-stranica sadržava poveznice na projekte i druge vanjske stranice. Za njihov sadržaj i obradu osobnih podataka odgovorni su njihovi upravitelji.
             </p>
-          </div>
-        </section>
-
-        <!-- 6. Governing Law -->
-        <section class="mb-12">
-          <h2 class="font-serif text-2xl font-medium text-ink mb-4 flex items-baseline gap-3">
-            <span class="font-mono text-sm text-sci">6.</span>
-            Mjerodavno pravo
-          </h2>
-          <div class="bg-surface border border-rule rounded-xl p-6">
-            <p class="text-ink-soft leading-relaxed mb-0">
-              Primjenjuje se hrvatsko pravo, uz obveznu zaštitu koju pruža primjenjivo pravo, uključujući zaštitu potrošača. Nadležni sud određuje se prema primjenjivim pravilima o nadležnosti.
+            <p class="mb-0 leading-relaxed text-ink-soft">
+              Ako primijetite neispravnu poveznicu ili smatrate da vodi na nezakonit sadržaj, možete mi se javiti na
+              <a href="mailto:screatives.info@gmail.com" class="text-sci underline underline-offset-2 hover:text-sci-dark">screatives.info@gmail.com</a>
+              kako bih je provjerila.
             </p>
           </div>
         </section>
 
         <section class="mb-12" aria-labelledby="complaints-heading">
-          <h2 id="complaints-heading" class="font-serif text-2xl font-medium text-ink mb-4 flex items-baseline gap-3">
-            <span class="font-mono text-sm text-sci">7.</span>
-            Potrošački prigovori
+          <h2 id="complaints-heading" class="mb-4 flex items-baseline gap-3 font-serif text-2xl font-medium text-ink">
+            <span class="font-mono text-sm text-sci">6.</span>
+            Pisani prigovori potrošača
           </h2>
-          <div class="bg-surface border border-rule rounded-xl p-6">
-            <p class="text-ink-soft leading-relaxed mb-4">
-              Potrošači mogu podnijeti pisani prigovor e-poštom na <a href="mailto:screatives.info@gmail.com" class="text-sci underline underline-offset-2">screatives.info@gmail.com</a> ili poštom na adresu CreativeStar, Renata Horvat, Josipa Pupačića 4, 10090 Zagreb, Hrvatska. Molimo navedite svoje kontaktne podatke i opis problema.
+          <div class="rounded-xl border border-rule bg-surface p-6">
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              Pisani prigovor možete poslati:
             </p>
-            <p class="text-ink-soft leading-relaxed mb-0">
-              Primitak prigovora potvrdit ćemo bez odgode. Pisani odgovor dat ćemo u roku od 15 dana od primitka prigovora, navodeći prihvaćamo li njegove razloge. Evidencija potrošačkih prigovora čuva se jednu godinu od primitka, kako zahtijeva hrvatsko pravo.
+            <ul class="mb-4 ml-4 list-inside list-disc space-y-2 text-ink-soft">
+              <li>
+                e-poštom na
+                <a href="mailto:screatives.info@gmail.com" class="text-sci underline underline-offset-2 hover:text-sci-dark">screatives.info@gmail.com</a>;
+              </li>
+              <li>poštom na adresu CreativeStar, Renata Horvat, Josipa Pupačića 4, 10090 Zagreb, Hrvatska.</li>
+            </ul>
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              Molim vas da navedete opis problema i kontaktne podatke za dostavu odgovora.
+            </p>
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              Primitak prigovora potvrdit ću bez odgode. Pisani odgovor dostavit ću u roku od 15 dana od primitka prigovora, uz jasno očitovanje prihvaćam li njegovu osnovanost.
+            </p>
+            <p class="mb-0 leading-relaxed text-ink-soft">
+              Evidenciju pisanih potrošačkih prigovora čuvam godinu dana od primitka prigovora, u skladu sa zakonom.
             </p>
           </div>
         </section>
+
         <section class="mb-12" aria-labelledby="consumer-contracts-heading">
-          <h2 id="consumer-contracts-heading" class="font-serif text-2xl font-medium text-ink mb-4 flex items-baseline gap-3">
-            <span class="font-mono text-sm text-sci">8.</span>
-            Potrošački ugovori
+          <h2 id="consumer-contracts-heading" class="mb-4 flex items-baseline gap-3 font-serif text-2xl font-medium text-ink">
+            <span class="font-mono text-sm text-sci">7.</span>
+            Ugovaranje usluga s potrošačima
           </h2>
-          <div class="bg-surface border border-rule rounded-xl p-6">
-            <p class="text-ink-soft leading-relaxed mb-4">
-              Ako uslugu naručujete kao potrošač, primjenjuju se obvezna prava potrošača. Za ugovore o uslugama sklopljene na daljinu ili izvan naših poslovnih prostorija u pravilu se primjenjuje rok od 14 dana za odustanak od ugovora, računajući od dana sklapanja ugovora, uz zakonske iznimke.
+          <div class="rounded-xl border border-rule bg-surface p-6">
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              Ako uslugu naručujete kao fizička osoba izvan svoje poslovne ili profesionalne djelatnosti, primjenjuju se prava potrošača.
             </p>
-            <p class="text-ink-soft leading-relaxed mb-0">
-              Prije sklapanja potrošačkog ugovora dostavit ćemo vam primjenjive uvjete, ukupnu cijenu, informacije o odustanku i sve potrebne obrasce u obliku koji možete sačuvati. Početak rada tijekom roka za odustanak zahtijeva vaš izričit zahtjev. Svako plaćanje za rad obavljen prije odustanka, odnosno gubitak prava na odustanak nakon potpunog izvršenja, podliježe uvjetima propisanim zakonom. Ova napomena na web stranici ne zamjenjuje dokumente specifične za pojedini projekt.
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              Prije sklapanja ugovora dostavit ću vam informacije o usluzi, ukupnoj cijeni, uvjetima plaćanja i izvršenja te primjenjivom pravu na jednostrani raskid. Potrebne informacije i obrasce dostavit ću u obliku koji možete sačuvati, primjerice e-poštom.
+            </p>
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              Za ugovore o uslugama sklopljene na daljinu u pravilu imate pravo na jednostrani raskid bez navođenja razloga u roku od 14 dana od sklapanja ugovora, uz zakonske uvjete i iznimke.
+            </p>
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              Ako želite da pružanje usluge započne prije isteka tog roka, potreban je vaš izričit zahtjev. Ako nakon toga iskoristite pravo na raskid, obveza plaćanja razmjernog dijela već pružene usluge ovisi o ispunjenju zakonskih uvjeta.
+            </p>
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              Pravo na jednostrani raskid zbog potpunog izvršenja usluge prestaje samo ako su ispunjeni zakonski uvjeti, uključujući vaš prethodni izričit pristanak i potvrdu da ste upoznati s gubitkom tog prava nakon potpunog izvršenja.
+            </p>
+            <p class="mb-0 leading-relaxed text-ink-soft">
+              Ove informacije ne zamjenjuju ponudu, ugovor ni obavijesti koje se dostavljaju za pojedini projekt.
             </p>
           </div>
         </section>
 
-
+        <section class="mb-12">
+          <h2 class="mb-4 flex items-baseline gap-3 font-serif text-2xl font-medium text-ink">
+            <span class="font-mono text-sm text-sci">8.</span>
+            Mjerodavno pravo i zakonska prava
+          </h2>
+          <div class="rounded-xl border border-rule bg-surface p-6">
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              Na poslovanje obrta primjenjuje se hrvatsko pravo, uz poštovanje obveznih odredbi drugih primjenjivih propisa, uključujući zaštitu potrošača.
+            </p>
+            <p class="mb-4 leading-relaxed text-ink-soft">
+              Nadležni sud određuje se prema primjenjivim pravilima o nadležnosti.
+            </p>
+            <p class="mb-0 leading-relaxed text-ink-soft">
+              Ovaj tekst ne isključuje niti ograničava odgovornost ili prava koja se prema primjenjivom pravu ne mogu isključiti ili ograničiti.
+            </p>
+          </div>
+        </section>
       </div>
     </div>
   </div>
