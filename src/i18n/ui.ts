@@ -19,12 +19,8 @@ const en = {
   'hero.titleStart': 'Websites that tell ',
   'hero.titleEmphasis': 'your story',
   'hero.caption': 'From first idea to finished website.',
-  'hero.p1':
-    'My favourite part of the work is seeing a collection of texts, photographs and ideas begin to take shape. I plan the structure, work out how to present the content and build a website that suits the project and the people who will use it.',
-  'hero.p2':
-    'I work with universities, researchers, associations and small businesses. Some need to showcase their work; others need event registration, online learning materials or a searchable collection. Those different needs shape my approach to each project.',
-  'hero.p3':
-    'I also create illustrations and promotional materials and manage digital advertising, so our collaboration can include the materials you need to promote your project beyond the website.',
+  'hero.text':
+    'I design and build websites for researchers, educators, institutions and small businesses. From your initial materials through to launch, I help you identify what matters, organise your content and present what you do.',
   'hero.viewWork': 'See selected work',
   'hero.talk': 'Talk about a project',
 
@@ -158,12 +154,8 @@ const hr: Record<UiKey, string> = {
   'hero.titleStart': 'Web-stranice koje pričaju ',
   'hero.titleEmphasis': 'vašu priču',
   'hero.caption': 'Od prve ideje do gotove web-stranice.',
-  'hero.p1':
-    'Najviše volim dio posla u kojem se iz mnoštva tekstova, fotografija i ideja počinje slagati smislena cjelina. Razrađujem strukturu, uređujem način predstavljanja sadržaja i izrađujem web-stranicu koja odgovara projektu i ljudima koji će je koristiti.',
-  'hero.p2':
-    'Radim s fakultetima, istraživačima, udrugama i malim tvrtkama. Neki trebaju predstaviti svoj rad, drugi omogućiti prijave na događanje, objaviti nastavne materijale ili učiniti zbirku dostupnom za pretraživanje. Upravo te razlike određuju kako pristupam svakom projektu.',
-  'hero.p3':
-    'Bavim se i ilustracijom, promotivnim materijalima i digitalnim oglašavanjem, pa suradnja može obuhvatiti i materijale kojima ćete projekt predstaviti izvan samog weba.',
+  'hero.text':
+    'Osmišljavam i izrađujem web-stranice za istraživače, edukatore, ustanove i male tvrtke. Od prvih materijala do objave, pomažem vam razraditi što je važno, organizirati sadržaj i predstaviti ono što radite.',
   'hero.viewWork': 'Pogledajte odabrane radove',
   'hero.talk': 'Razgovarajmo o projektu',
 
