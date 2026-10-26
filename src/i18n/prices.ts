@@ -173,7 +173,7 @@ const hr: PricesContent = {
   eyebrow: 'Cjenik',
   heading: 'Cijene web stranica od 500 €',
   intro:
-    'Svaki projekt je drugačiji, pa vam ova tri paketa služe kao polazište za planiranje proračuna. Namijenjeni su istraživačkim projektima, društvima i ustanovama. Za web stranice malih tvrtki i ostale projekte pripremam individualnu ponudu nakon kratkog razgovora.',
+    'Svaki projekt je drugačiji, pa vam ova tri paketa služe kao polazište za planiranje budžeta. Namijenjeni su istraživačkim projektima, društvima i ustanovama. Za web stranice malih tvrtki i ostale projekte pripremam individualnu ponudu nakon kratkog razgovora.',
   packagesHeading: 'Paketi web stranica',
   mostCommon: 'Najčešći izbor',
   from: 'od ',
@@ -284,7 +284,7 @@ const hr: PricesContent = {
     },
     {
       title: 'Pisana ponuda',
-      text: 'Dobivate ponudu prilagođenu vašem projektu s opisom opsega i cijenom, kako biste mogli informirano odlučiti i isplanirati proračun.',
+      text: 'Dobivate ponudu prilagođenu vašem projektu s opisom opsega i cijenom, kako biste mogli informirano odlučiti i isplanirati budžet.',
     },
     {
       title: 'Izrada i predaja',

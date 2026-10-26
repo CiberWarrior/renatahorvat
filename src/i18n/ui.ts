@@ -137,7 +137,7 @@ export type UiKey = keyof typeof en;
 
 // Croatian draft: formal "Vi" form, feminine job title. To be reviewed by Renata.
 const hr: Record<UiKey, string> = {
-  'skip.main': 'Preskoči na glavni sadržaj',
+  'skip.main': 'Preskočite na glavni sadržaj',
 
   'nav.home': 'Početna',
   'nav.work': 'Radovi',
@@ -145,27 +145,27 @@ const hr: Record<UiKey, string> = {
   'nav.contact': 'Kontakt',
   'nav.main': 'Glavni izbornik',
   'nav.start': 'Pokrenite projekt',
-  'nav.toggle': 'Otvori ili zatvori izbornik',
+  'nav.toggle': 'Otvorite ili zatvorite izbornik',
   'nav.mobile': 'Mobilni izbornik',
   'nav.language': 'Jezik',
 
-  'hero.eyebrow': 'Web i grafička dizajnerica · Zagreb',
-  'hero.titleStart': 'Web stranice koje pričaju ',
+  'hero.eyebrow': 'Dizajnerica web-stranica i grafičkih materijala · Zagreb',
+  'hero.titleStart': 'Web-stranice koje pričaju ',
   'hero.titleEmphasis': 'vašu priču',
-  'hero.caption': 'Od prve ideje do gotove web stranice.',
+  'hero.caption': 'Od prve ideje do gotove web-stranice.',
   'hero.text':
-    'Dizajniram i izrađujem jasne, prepoznatljive web stranice za istraživače, edukatore, organizacije i male tvrtke.',
+    'Dizajniram i izrađujem jasne, prepoznatljive web-stranice za istraživače, edukatore, organizacije i male tvrtke.',
   'hero.viewWork': 'Pogledajte odabrane radove',
   'hero.talk': 'Razgovarajmo o projektu',
 
-  'cta.heading': 'Imate projekt na umu?',
-  'cta.text': 'Pošaljite mi nekoliko redaka o svom projektu, čak i ako je riječ tek o ranoj ideji.',
+  'cta.heading': 'Imate ideju za projekt?',
+  'cta.text': 'Pošaljite mi nekoliko redaka o svom projektu, čak i ako je vaša ideja još u začetku.',
   'cta.button': 'Napišite mi',
 
-  'card.visit': '{title}: posjetite web stranicu (otvara se u novoj kartici)',
+  'card.visit': '{title}: posjetite web-stranicu (otvara se u novoj kartici)',
 
   'footer.tagline':
-    'Web dizajn, grafički dizajn, ilustracija, digitalno oglašavanje i društvene mreže, Zagreb.',
+    'Web-dizajn, grafički dizajn, ilustracija, digitalno oglašavanje i vođenje društvenih mreža. Zagreb.',
   'footer.message': 'Pošaljite poruku →',
   'footer.location': 'Zagreb',
   'footer.privacy': 'Politika privatnosti',
@@ -198,9 +198,9 @@ const hr: Record<UiKey, string> = {
   'work.cta.text':
     'Pošaljite mi nekoliko redaka o svom projektu ili ideji. Zajedno možemo dogovoriti sljedeće korake.',
 
-  'home.title': 'Renata Horvat – Web i grafička dizajnerica | Zagreb',
+  'home.title': 'Renata Horvat – Dizajnerica web-stranica i grafičkih materijala | Zagreb',
   'home.description':
-    'Web i grafička dizajnerica iz Zagreba s više od 20 godina iskustva. Jasne, brze web stranice za konferencije, društva, sveučilišta i male tvrtke.',
+    'Dizajnerica web-stranica i grafičkih materijala iz Zagreba s više od 20 godina iskustva. Jasne, brze web-stranice za konferencije, društva, sveučilišta i male tvrtke.',
   'home.keywords':
     'web dizajner Zagreb, web dizajn Hrvatska, web stranica za konferenciju, web stranica za društvo, web stranica za sveučilište, web stranica za malu tvrtku, grafički dizajner Zagreb, Renata Horvat',
 
@@ -213,12 +213,12 @@ const hr: Record<UiKey, string> = {
   'home.services.heading': 'Što radim',
   'home.services.pricing': 'Cjenik',
   'home.services.intro':
-    'Web stranice, vizualni materijali i digitalno oglašavanje za akademske organizacije i male tvrtke.',
-  'home.services.web.title': 'Web dizajn i izrada',
+    'Web-stranice, vizualni materijali i digitalno oglašavanje za akademske ustanove i male tvrtke.',
+  'home.services.web.title': 'Dizajn i izrada web-stranica',
   'home.services.web.text':
-    'Jasne, prepoznatljive web stranice za istraživače, edukatore, organizacije i male tvrtke.',
-  'home.services.web.item1': 'Web stranice tvrtki, konferencija i društava',
-  'home.services.web.item2': 'Online udžbenici i obrazovni sadržaji',
+    'Jasne, prepoznatljive web-stranice za istraživače, edukatore, organizacije i male tvrtke.',
+  'home.services.web.item1': 'Web-stranice tvrtki, konferencija i društava',
+  'home.services.web.item2': 'Mrežni udžbenici i obrazovni sadržaji',
   'home.services.web.item3': 'Pretražive zbirke i istraživački alati',
   'home.services.graphic.title': 'Grafički dizajn i ilustracija',
   'home.services.graphic.text':
@@ -229,17 +229,17 @@ const hr: Record<UiKey, string> = {
   'home.services.ads.title': 'Digitalno oglašavanje i društvene mreže',
   'home.services.ads.text':
     'Dizajn oglasa, vođenje kampanja i svakodnevno upravljanje profilima na društvenim mrežama.',
-  'home.services.ads.item1': 'Facebook Ads kampanje',
-  'home.services.ads.item2': 'Google Ads kampanje',
+  'home.services.ads.item1': 'Oglasne kampanje na Facebooku',
+  'home.services.ads.item2': 'Oglasne kampanje na Googleu',
   'home.services.ads.item3': 'Upravljanje profilima na društvenim mrežama',
 
   'home.about.portraitAlt': 'Portret Renate Horvat',
-  'home.about.caption': 'Zagreb · 20+ godina',
-  'home.about.heading': 'Jasan pristup. Kreativno oko.',
+  'home.about.caption': 'Zagreb · više od 20 godina iskustva',
+  'home.about.heading': 'Jasan pristup. Kreativan pogled.',
   'home.about.p1':
-    'Renata sam, web i grafička dizajnerica iz Zagreba, s više od 20 godina iskustva u radu sa sveučilištima, organizacijama i malim tvrtkama.',
+    'Ja sam Renata, dizajnerica web-stranica i grafičkih materijala iz Zagreba s više od 20 godina iskustva u radu sa sveučilištima, organizacijama i malim tvrtkama.',
   'home.about.p2':
-    'Uz web stranice radim ilustracije, promotivne materijale, Facebook i Google Ads kampanje te svakodnevno upravljam društvenim mrežama.',
+    'Uz web-stranice radim ilustracije, promotivne materijale, oglasne kampanje na Facebooku i Googleu te svakodnevno upravljam društvenim mrežama.',
   'home.about.p3':
     'Iskustvo u znanstvenoj komunikaciji pomaže mi složene ideje pretvoriti u jasne poruke i prepoznatljive vizuale.',
   'home.about.years': 'Godine',
@@ -249,22 +249,22 @@ const hr: Record<UiKey, string> = {
   'cookie.dialog': 'Postavke kolačića',
   'cookie.title': 'Pristanak na kolačiće',
   'cookie.text1':
-    'Vaše postavke kolačića spremamo u vašem pregledniku. Neobavezni analitički kolačići pomažu nam razumjeti posjećenost web stranice.',
-  'cookie.text2': 'Klikom na „Prihvati sve” pristajete na korištenje analitičkih kolačića.',
-  'cookie.text3': 'Postavkama možete upravljati ili saznati više u našoj',
+    'Vaše postavke kolačića spremamo u vašem pregledniku. Neobavezni analitički kolačići pomažu nam razumjeti posjećenost web-stranice.',
+  'cookie.text2': 'Klikom na „Prihvatite sve” pristajete na korištenje analitičkih kolačića.',
+  'cookie.text3': 'Postavke kolačića možete prilagoditi. Više informacija pronađite u',
   'cookie.policyLink': 'Politici privatnosti',
   'cookie.essential.title': 'Nužna pohrana (obavezna)',
   'cookie.essential.text': 'Sprema vaše postavke kolačića. Ne uključuje analitiku.',
   'cookie.analytics.title': 'Analitički kolačići',
   'cookie.analytics.text':
-    'Pomažu nam razumjeti kako posjetitelji koriste našu web stranicu (Google Analytics).',
-  'cookie.customise': 'Prilagodi',
-  'cookie.customise.label': 'Prilagodi postavke kolačića',
-  'cookie.reject': 'Odbij sve',
-  'cookie.reject.label': 'Odbij sve neobavezne kolačiće',
-  'cookie.accept': 'Prihvati sve',
-  'cookie.accept.label': 'Prihvati sve kolačiće',
-  'cookie.open': 'Otvori postavke kolačića',
+    'Pomažu nam razumjeti kako posjetitelji koriste našu web-stranicu (Google Analytics).',
+  'cookie.customise': 'Prilagodite',
+  'cookie.customise.label': 'Prilagodite postavke kolačića',
+  'cookie.reject': 'Odbijte sve',
+  'cookie.reject.label': 'Odbijte sve neobavezne kolačiće',
+  'cookie.accept': 'Prihvatite sve',
+  'cookie.accept.label': 'Prihvatite sve kolačiće',
+  'cookie.open': 'Otvorite postavke kolačića',
 };
 
 export const ui: Record<Locale, Record<UiKey, string>> = { en, hr };
