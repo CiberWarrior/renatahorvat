@@ -51,6 +51,30 @@ export interface ContactContent {
   responseText: string;
   firstHeading: string;
   firstText: string;
+  quiz: {
+    title: string;
+    description: string;
+    heading: string;
+    intro: string;
+    step: string;
+    back: string;
+    detailsHeading: string;
+    detailsIntro: string;
+    detailsProgress: string;
+    summaryTitle: string;
+    phoneLabel: string;
+    phonePlaceholder: string;
+    websiteLabel: string;
+    websitePlaceholder: string;
+    noteLabel: string;
+    notePlaceholder: string;
+    summaryHeading: string;
+    questions: {
+      id: string;
+      question: string;
+      answers: { label: string; projectType?: string }[];
+    }[];
+  };
   script: ContactScriptMessages;
 }
 
@@ -101,6 +125,70 @@ const en: ContactContent = {
   responseText: 'Within a day or two. I reply personally.',
   firstHeading: 'First conversation',
   firstText: 'Free, with no commitment.',
+  quiz: {
+    title: 'Quiz – Renata Horvat | Web Designer Zagreb',
+    description: 'Answer four short questions about your project and send them to Renata Horvat.',
+    heading: 'Have an idea?\nLet\'s give it a direction.',
+    intro: 'Answer four short questions and let\'s find out what you need.',
+    step: 'Question {current} of {total}',
+    back: 'Back',
+    detailsHeading: 'Please enter your contact details.',
+    detailsIntro: 'I will get back to you with a personalised proposal.',
+    detailsProgress: 'Last step',
+    summaryTitle: 'Your answers',
+    phoneLabel: 'Phone number',
+    phonePlaceholder: '091 234 5678',
+    websiteLabel: 'Current website',
+    websitePlaceholder: 'https://',
+    noteLabel: 'Anything else?',
+    notePlaceholder: 'Optional. A sentence or two is enough.',
+    summaryHeading: 'Quiz',
+    questions: [
+      {
+        id: 'need',
+        question: 'What do you need?',
+        answers: [
+          { label: 'Website', projectType: 'Website' },
+          { label: 'Website redesign', projectType: 'Website' },
+          { label: 'Graphic design', projectType: 'Graphic design' },
+          { label: 'Illustration', projectType: 'Illustration' },
+          { label: 'Help choosing the right option', projectType: 'Not sure yet' },
+        ],
+      },
+      {
+        id: 'audience',
+        question: 'Who is the project for?',
+        answers: [
+          { label: 'Company or sole trader' },
+          { label: 'Research project' },
+          { label: 'Society' },
+          { label: 'Institution' },
+          { label: 'Personal project' },
+        ],
+      },
+      {
+        id: 'goal',
+        question: 'What do you want to achieve?',
+        answers: [
+          { label: 'Present work' },
+          { label: 'Receive enquiries' },
+          { label: 'Announce an event' },
+          { label: 'Publish learning resources' },
+          { label: 'Something else' },
+        ],
+      },
+      {
+        id: 'start',
+        question: 'When would you like to start?',
+        answers: [
+          { label: 'As soon as possible' },
+          { label: 'In the next month' },
+          { label: 'In a few months' },
+          { label: 'I am still exploring options' },
+        ],
+      },
+    ],
+  },
   script: {
     nameRequired: 'Please enter your name.',
     nameShort: 'Your name must be at least 2 characters long.',
@@ -164,6 +252,70 @@ const hr: ContactContent = {
   responseText: 'U roku od dan-dva. Odgovaram osobno.',
   firstHeading: 'Prvi razgovor',
   firstText: 'Besplatan i bez obveze.',
+  quiz: {
+    title: 'Kviz – Renata Horvat | Web dizajnerica Zagreb',
+    description: 'Odgovorite na četiri kratka pitanja o projektu i pošaljite ih Renati Horvat.',
+    heading: 'Imate ideju? Dajmo joj smjer.',
+    intro: 'Odgovorite na četiri kratka pitanja i otkrijmo što vam treba.',
+    step: 'Pitanje {current} od {total}',
+    back: 'Natrag',
+    detailsHeading: 'Molim, upišite podatke za kontakt.',
+    detailsIntro: 'Javiti ću vam se s personaliziranim prijedlogom.',
+    detailsProgress: 'Zadnji korak',
+    summaryTitle: 'Vaši odgovori',
+    phoneLabel: 'Broj mobitela',
+    phonePlaceholder: '091 234 5678',
+    websiteLabel: 'Trenutna web-stranica',
+    websitePlaceholder: 'https://',
+    noteLabel: 'Želite li dodati još nešto?',
+    notePlaceholder: 'Neobavezno. Dovoljna je rečenica ili dvije.',
+    summaryHeading: 'Kviz',
+    questions: [
+      {
+        id: 'need',
+        question: 'Što vam treba?',
+        answers: [
+          { label: 'Web-stranica', projectType: 'Website' },
+          { label: 'Redizajn postojeće stranice', projectType: 'Website' },
+          { label: 'Grafički dizajn', projectType: 'Graphic design' },
+          { label: 'Ilustracija', projectType: 'Illustration' },
+          { label: 'Pomoć pri odabiru', projectType: 'Not sure yet' },
+        ],
+      },
+      {
+        id: 'audience',
+        question: 'Za koga je projekt?',
+        answers: [
+          { label: 'Tvrtku ili obrt' },
+          { label: 'Istraživački projekt' },
+          { label: 'Društvo' },
+          { label: 'Ustanovu' },
+          { label: 'Osobni projekt' },
+        ],
+      },
+      {
+        id: 'goal',
+        question: 'Što želite postići?',
+        answers: [
+          { label: 'Predstaviti rad' },
+          { label: 'Primati upite' },
+          { label: 'Najaviti događanje' },
+          { label: 'Objaviti obrazovne sadržaje' },
+          { label: 'Nešto drugo' },
+        ],
+      },
+      {
+        id: 'start',
+        question: 'Kada biste željeli započeti?',
+        answers: [
+          { label: 'Što prije' },
+          { label: 'U sljedećih mjesec dana' },
+          { label: 'Za nekoliko mjeseci' },
+          { label: 'Zasad istražujem mogućnosti' },
+        ],
+      },
+    ],
+  },
   script: {
     nameRequired: 'Unesite svoje ime.',
     nameShort: 'Ime mora imati najmanje 2 znaka.',
