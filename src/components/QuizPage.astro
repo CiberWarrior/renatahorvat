@@ -11,9 +11,10 @@ const q = c.quiz;
 const t = useTranslations(locale);
 const pagePath = (path: string) => new URL(localizePath(path, locale), Astro.site).href;
 
+const headingLines = q.heading.split('\n');
 const breadcrumbs = [
   { name: t('nav.home'), url: locale === 'hr' ? pagePath('/') : 'https://renatahorvat.com' },
-  { name: q.heading, url: pagePath('/quiz') },
+  { name: headingLines.join(' '), url: pagePath('/quiz') },
 ];
 ---
 
@@ -23,7 +24,11 @@ const breadcrumbs = [
   <section class="border-b border-rule py-14 sm:py-16">
     <div class="mx-auto max-w-2xl space-y-5 px-4 sm:px-6">
       <p class="font-mono text-xs uppercase tracking-[.08em] text-ink-soft">Quiz</p>
-      <h1 class="font-serif text-4xl font-medium leading-tight text-balance text-ink sm:text-5xl">{q.heading}</h1>
+      <h1 class="font-serif text-4xl font-medium leading-tight text-ink sm:text-5xl">
+        {headingLines.map((line) => (
+          <span class="block">{line}</span>
+        ))}
+      </h1>
       <p class="text-lg leading-relaxed text-ink-soft">{q.intro}</p>
     </div>
   </section>

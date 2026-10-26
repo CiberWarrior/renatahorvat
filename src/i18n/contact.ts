@@ -128,7 +128,7 @@ const en: ContactContent = {
   quiz: {
     title: 'Quiz – Renata Horvat | Web Designer Zagreb',
     description: 'Answer four short questions about your project and send them to Renata Horvat.',
-    heading: 'Have an idea? Let\'s give it a direction.',
+    heading: 'Have an idea?\nLet\'s give it a direction.',
     intro: 'Answer four short questions and let\'s find out what you need.',
     step: 'Question {current} of {total}',
     back: 'Back',
