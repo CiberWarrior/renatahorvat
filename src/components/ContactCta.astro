@@ -1,10 +1,13 @@
 ---
 import DiatomLong from './DiatomLong.astro';
+import { getLocale, pageHref, useTranslations } from '../i18n/utils';
 
 interface Props { heading?: string; text?: string; location: string; illustration?: boolean; }
+const locale = getLocale(Astro.url);
+const t = useTranslations(locale);
 const {
-  heading = 'Have a project in mind?',
-  text = "Send me a few lines about your project, even if it's just an early idea.",
+  heading = t('cta.heading'),
+  text = t('cta.text'),
   location,
   illustration = false,
 } = Astro.props as Props;
@@ -19,11 +22,11 @@ const {
       <p class="max-w-xl text-lg text-paper/75">{text}</p>
       <div>
         <a
-          href="/contact"
+          href={pageHref('/contact', locale)}
           class="group inline-flex items-center gap-2 rounded-md bg-paper px-6 py-3 font-medium text-ink transition-colors hover:bg-sci-soft"
           onclick={`if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: 'get_in_touch', cta_location: '${location}' })`}
         >
-          Write to me <span class="inline-block transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true">→</span>
+          {t('cta.button')} <span class="inline-block transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true">→</span>
         </a>
       </div>
     </div>
