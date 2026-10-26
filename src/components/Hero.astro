@@ -25,11 +25,9 @@ const t = useTranslations(locale);
     </figure>
 
     <div class="hero-copy fade-up space-y-4 sm:space-y-6">
-      <div class="max-w-xl space-y-3 text-base leading-relaxed text-pretty text-ink-soft sm:space-y-4 sm:text-lg">
-        <p>{t('hero.p1')}</p>
-        <p>{t('hero.p2')}</p>
-        <p>{t('hero.p3')}</p>
-      </div>
+      <p class="max-w-xl text-[15px] leading-relaxed text-pretty text-ink-soft">
+        {t('hero.text')}
+      </p>
 
       <div class="flex flex-col items-start gap-2 pt-1 sm:gap-3 sm:pt-2 sm:flex-row sm:flex-wrap sm:items-stretch">
         <a href="#work" class="group inline-flex whitespace-nowrap w-fit max-w-full min-h-11 items-center justify-center gap-2 sm:w-auto sm:max-w-none rounded-md bg-sci px-4 py-2 text-sm font-medium sm:px-6 sm:py-3 sm:text-base text-white transition-colors hover:bg-sci-dark" onclick="if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: 'view_projects', cta_location: 'hero' })">
