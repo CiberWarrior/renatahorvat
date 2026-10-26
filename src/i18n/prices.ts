@@ -167,13 +167,13 @@ const en: PricesContent = {
 const hr: PricesContent = {
   title: 'Cjenik – Renata Horvat | Web dizajn Zagreb',
   description:
-    'Cijene web stranica od 500 € za istraživačke projekte, društva i ustanove. Ostale web stranice, dizajn i oglašavanje ponuđeni su individualno. Zagreb, Hrvatska.',
+    'Cijene web stranica od 500 € za istraživačke projekte, društva i ustanove. Za ostale web stranice, dizajn i oglašavanje izrađujem individualnu ponudu. Zagreb, Hrvatska.',
   keywords:
     'cijena akademske web stranice, cijena web stranice znanstvenog društva, cijena web stranice konferencije, cijena platforme za e-učenje, web stranica istraživačkog projekta, cijene web dizajna Hrvatska, cijena web stranice Zagreb',
   eyebrow: 'Cjenik',
-  heading: 'Početne cijene web stranica',
+  heading: 'Cijene web stranica od 500 €',
   intro:
-    'Svaki je projekt drukčiji. Tri paketa u nastavku namijenjena su istraživačkim projektima, društvima i ustanovama te daju polaznu točku za planiranje proračuna. Web stranice malih tvrtki i ostali projekti ponuđeni su individualno nakon kratkog razgovora.',
+    'Svaki projekt je drugačiji, pa vam ova tri paketa služe kao polazište za planiranje proračuna. Namijenjeni su istraživačkim projektima, društvima i ustanovama. Za web stranice malih tvrtki i ostale projekte pripremam individualnu ponudu nakon kratkog razgovora.',
   packagesHeading: 'Paketi web stranica',
   mostCommon: 'Najčešći izbor',
   from: 'od ',
@@ -205,7 +205,7 @@ const hr: PricesContent = {
   rows: [
     { label: 'Stranice', values: ['1', 'Do 5', 'Do 10'] },
     { label: 'Krugovi izmjena nakon što vidite dizajn', values: ['2', '2', '2'] },
-    { label: 'Kontakt obrazac', values: [true, true, true] },
+    { label: 'Kontaktni obrazac', values: [true, true, true] },
     { label: 'Logotipi financijera i zahvale', values: [true, true, true] },
     { label: 'Povezivanje vaše web adrese', values: [true, true, true] },
     { label: 'Sadržaj koji vaš tim može sam ažurirati', values: [false, true, true] },
@@ -217,13 +217,13 @@ const hr: PricesContent = {
     { label: 'Dodatna podešavanja kako bi Google lakše razumio stranicu', values: [false, false, true] },
   ],
   notes: [
-    'Svaki paket uključuje besplatne početne konzultacije i brzu web stranicu koja dobro radi na mobitelima i prati smjernice pristupačnosti (WCAG 2.1 AA), kako bi je mogle koristiti i osobe s invaliditetom.',
-    'Rad izvan opsega paketa ponuđen je zasebno. Sve cijene izražene su u eurima. Hrvatski PDV se ne obračunava. Za međunarodne klijente primjenjivi PDV tretman navodi se na računu.',
+    'Svaki paket uključuje besplatne početne konzultacije i brzu web stranicu koja dobro radi na mobitelima i slijedi smjernice pristupačnosti (WCAG 2.1 AA), kako bi je mogle koristiti i osobe s invaliditetom.',
+    'Za rad izvan opsega paketa izrađuje se zasebna ponuda. Sve cijene izražene su u eurima. Hrvatski PDV se ne obračunava. Za međunarodne klijente način obračuna PDV-a navodi se na računu.',
     'Budžet za oglašavanje odvojen je od naknade za dizajn i vođenje kampanja te se dogovara prije početka rada.',
   ],
   scopedHeading: 'Projekti s individualnom ponudom',
   scopedIntro:
-    'Cijena ovisi o čimbenicima u nastavku. Kad razumijem vaše zahtjeve, poslat ću vam ponudu prilagođenu vašem projektu.',
+    'Cijena ovisi o čimbenicima u nastavku. Kad upoznam vaše potrebe, poslat ću vam ponudu prilagođenu vašem projektu.',
   dependsOn: 'Cijena ovisi o',
   scoped: [
     {
@@ -272,7 +272,7 @@ const hr: PricesContent = {
   afterText: 'Podrška se dogovara i naplaćuje zasebno, kao jednokratna usluga ili kontinuirano održavanje.',
   afterLaunch: [
     'Ažuriranje sadržaja i softvera',
-    'Pomoć oko hostinga i domena',
+    'Pomoć s hostingom i domenama',
     'Samo dizajn za timove koji već imaju programera',
   ],
   stepsHeading: 'Kako do ponude',
@@ -280,7 +280,7 @@ const hr: PricesContent = {
   steps: [
     {
       title: 'Besplatne početne konzultacije',
-      text: 'Razgovaramo o tome što trebate. Ne treba vam detaljan opis projekta i nema obveze nastaviti suradnju.',
+      text: 'Razgovaramo o tome što trebate. Ne treba vam detaljan opis projekta i ne obvezujete se na nastavak suradnje.',
     },
     {
       title: 'Pisana ponuda',
@@ -288,11 +288,11 @@ const hr: PricesContent = {
     },
     {
       title: 'Izrada i predaja',
-      text: 'Izrađujem web stranicu i predajem je tako da je vaš tim može održavati ažurnom.',
+      text: 'Izrađujem web stranicu i predajem vam je tako da je vaš tim može sam ažurirati.',
     },
   ],
   ctaHeading: 'Niste sigurni koja je opcija prava za vas?',
-  ctaText: 'Recite mi nekoliko riječi o svom projektu, a ja ću predložiti opciju koja najbolje odgovara.',
+  ctaText: 'Napišite mi nekoliko riječi o svom projektu, a ja ću vam predložiti opciju koja vam najbolje odgovara.',
 };
 
 export const pricesContent: Record<Locale, PricesContent> = { en, hr };
