@@ -5,7 +5,7 @@ import Footer from "../components/Footer.astro";
 import CaseCard from "../components/CaseCard.astro";
 import ContactCta from "../components/ContactCta.astro";
 import { portfolio, type ProjectCategory } from "../lib/projects";
-import { projectRolesHr, projectSummariesHr } from "../i18n/projects";
+import { projectRolesHr, projectSummariesHr, projectTitlesHr } from "../i18n/projects";
 import { getLocale, localizePath, pluralForm, useTranslations } from "../i18n/utils";
 import type { UiKey } from "../i18n/ui";
 
@@ -34,7 +34,7 @@ const portfolioStructuredData = {
       "position": index + 1,
       "item": {
         "@type": "CreativeWork",
-        "name": project.title,
+        "name": locale === 'hr' ? projectTitlesHr[project.title] ?? project.title : project.title,
         "description": locale === 'hr' ? projectSummariesHr[project.title] ?? project.summary : project.summary,
         "url": project.href || undefined
       }
@@ -125,7 +125,7 @@ const host = (href: string) => {
       <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
         {featured.map((project) => (
           <CaseCard
-            title={project.title}
+            title={locale === 'hr' ? projectTitlesHr[project.title] ?? project.title : project.title}
             href={project.href}
             image={project.image}
             role={project.role}
@@ -160,7 +160,7 @@ const host = (href: string) => {
                     class="group flex items-baseline justify-between gap-3 rounded-sm py-1.5 text-[15px] leading-snug text-ink transition-colors hover:text-sci"
                     onclick={`if(typeof window.gtag !== 'undefined') window.gtag('event', 'project_view', { project_title: ${JSON.stringify(project.title)}, project_url: ${JSON.stringify(project.href)} })`}
                   >
-                    <span>{project.title}</span>
+                    <span>{locale === 'hr' ? projectTitlesHr[project.title] ?? project.title : project.title}</span>
                     <span class="shrink-0 text-ink-soft/60 transition-colors group-hover:text-sci" aria-hidden="true">↗</span>
                   </a>
                 </li>

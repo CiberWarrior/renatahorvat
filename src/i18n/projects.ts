@@ -1,5 +1,5 @@
 // Croatian versions of project descriptions, keyed by the project title in src/lib/projects.ts.
-// Titles are project names and stay unchanged. Projects missing here show the English text.
+// Most titles are project names and stay unchanged. A few projects have a Croatian name, see projectTitlesHr. Projects missing here show the English text.
 export const projectRolesHr: Record<string, string> = {
   'IST 2027 - 19th International Symposium on Trichoptera':
     'Web-stranica simpozija s programom, registracijom, sažecima i lokacijom.',
@@ -40,4 +40,13 @@ export const projectSummariesHr: Record<string, string> = {
     'Službena web-stranica Europske olimpijade eksperimentalnih znanosti 2025., održane u Zagrebu. Sadrži informacije o događaju, registraciju, detalje programa i informacije o lokaciji.',
   'Herbarium Croaticum':
     'Digitalna baza herbarija s hrvatskim biljnim zbirkama i botaničkim primjercima Prirodoslovno-matematičkog fakulteta Sveučilišta u Zagrebu.',
+};
+
+// Croatian display names for projects whose Croatian site uses a different name.
+export const projectTitlesHr: Record<string, string> = {
+  'Algology Fieldwork Manual': 'Terenska nastava iz algologije',
+  'Bacteriology e-book': 'Bakteriološki praktikum',
+  'Genetics e-book': 'Mrežni udžbenik iz genetike',
+  'Botanical Garden Zagreb': 'Botanički vrt',
+  'Healthy Grape Vine - Virus Elimination': 'Zdrava loza',
 };
