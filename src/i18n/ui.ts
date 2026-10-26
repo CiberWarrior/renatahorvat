@@ -118,6 +118,7 @@ const en = {
     'We save your cookie preferences in your browser. Optional analytics cookies help us understand website traffic.',
   'cookie.text2': 'By clicking "Accept All", you consent to the use of analytics cookies.',
   'cookie.text3': 'You can manage your preferences or learn more in our',
+  'cookie.policyLink': 'Privacy Policy',
   'cookie.essential.title': 'Essential Storage (Required)',
   'cookie.essential.text': 'Saves your cookie preferences. This does not enable analytics.',
   'cookie.analytics.title': 'Analytics Cookies',
@@ -158,7 +159,7 @@ const hr: Record<UiKey, string> = {
   'hero.talk': 'Razgovarajmo o projektu',
 
   'cta.heading': 'Imate projekt na umu?',
-  'cta.text': 'Pošaljite mi nekoliko redaka o svom projektu, čak i ako je tek rana ideja.',
+  'cta.text': 'Pošaljite mi nekoliko redaka o svom projektu, čak i ako je riječ tek o ranoj ideji.',
   'cta.button': 'Napišite mi',
 
   'card.visit': '{title}: posjetite web stranicu (otvara se u novoj kartici)',
@@ -236,7 +237,7 @@ const hr: Record<UiKey, string> = {
   'home.about.caption': 'Zagreb · 20+ godina',
   'home.about.heading': 'Jasan pristup. Kreativno oko.',
   'home.about.p1':
-    'Ja sam Renata, web i grafička dizajnerica iz Zagreba, s više od 20 godina iskustva u radu sa sveučilištima, organizacijama i malim tvrtkama.',
+    'Renata sam, web i grafička dizajnerica iz Zagreba, s više od 20 godina iskustva u radu sa sveučilištima, organizacijama i malim tvrtkama.',
   'home.about.p2':
     'Uz web stranice radim ilustracije, promotivne materijale, Facebook i Google Ads kampanje te svakodnevno upravljam društvenim mrežama.',
   'home.about.p3':
@@ -249,9 +250,10 @@ const hr: Record<UiKey, string> = {
   'cookie.title': 'Pristanak na kolačiće',
   'cookie.text1':
     'Vaše postavke kolačića spremamo u vašem pregledniku. Neobavezni analitički kolačići pomažu nam razumjeti posjećenost web stranice.',
-  'cookie.text2': 'Klikom na "Prihvati sve" pristajete na korištenje analitičkih kolačića.',
+  'cookie.text2': 'Klikom na „Prihvati sve” pristajete na korištenje analitičkih kolačića.',
   'cookie.text3': 'Postavkama možete upravljati ili saznati više u našoj',
-  'cookie.essential.title': 'Nužna pohrana (obavezno)',
+  'cookie.policyLink': 'Politici privatnosti',
+  'cookie.essential.title': 'Nužna pohrana (obavezna)',
   'cookie.essential.text': 'Sprema vaše postavke kolačića. Ne uključuje analitiku.',
   'cookie.analytics.title': 'Analitički kolačići',
   'cookie.analytics.text':

@@ -21,7 +21,7 @@ export const projectRolesHr: Record<string, string> = {
 // Longer descriptions, used in the structured data of the Work page.
 export const projectSummariesHr: Record<string, string> = {
   'Algology Fieldwork Manual':
-    'Online priručnik za studente biologije preddiplomskog studija o terenskom radu u algologiji, Biološki odsjek Prirodoslovno-matematičkog fakulteta Sveučilišta u Zagrebu.',
+    'Online priručnik o terenskom radu u algologiji za studente preddiplomskog studija biologije, Biološki odsjek Prirodoslovno-matematičkog fakulteta Sveučilišta u Zagrebu.',
   'Mirisni potpisi - Fragrant Signatures':
     'Web stranica priručnika o izradi prirodnih parfema: predstavljanje knjige, sadržaj i recenzije, edukacije i događanja, na hrvatskom i engleskom jeziku, s online narudžbom.',
   'Bacteriology e-book':
@@ -31,13 +31,13 @@ export const projectSummariesHr: Record<string, string> = {
   'Botanical Garden Zagreb':
     'Službena web stranica Botaničkog vrta Sveučilišta u Zagrebu: biljne zbirke, edukativni programi i informacije za posjetitelje.',
   'IST 2027 - 19th International Symposium on Trichoptera':
-    'Službena web stranica 19. međunarodnog simpozija o tularima (Trichoptera), koji će se u srpnju 2027. održati u Zagrebu, Hrvatska. Sadrži program, registraciju, prijavu sažetaka, informacije o lokaciji i galeriju tulara.',
+    'Službena web stranica 19. međunarodnog simpozija o tularima (Trichoptera), koji će se u srpnju 2027. održati u Zagrebu. Sadrži program, registraciju, prijavu sažetaka, informacije o lokaciji i galeriju tulara.',
   'ICD11 - XI. International Congress of Dipterology':
-    'Službena web stranica XI. međunarodnog kongresa dipterologije, održanog u Zagrebu, Hrvatska. Sadrži znanstveni program, registraciju, prijavu sažetaka, uvodne predavače i informacije o lokaciji.',
+    'Službena web stranica XI. međunarodnog kongresa dipterologije, održanog u Zagrebu. Sadrži znanstveni program, registraciju, prijavu sažetaka, uvodne predavače i informacije o lokaciji.',
   '15th Croatian Biological Congress':
     'Moderna web stranica konferencije sa sustavom registracije, profilima predavača i interaktivnim rasporedom.',
   'EOES 2025 - European Olympiad of Experimental Science':
-    'Službena web stranica Europske olimpijade eksperimentalnih znanosti 2025., održane u Zagrebu, Hrvatska. Sadrži informacije o događaju, registraciju, detalje programa i informacije o lokaciji.',
+    'Službena web stranica Europske olimpijade eksperimentalnih znanosti 2025., održane u Zagrebu. Sadrži informacije o događaju, registraciju, detalje programa i informacije o lokaciji.',
   'Herbarium Croaticum':
     'Digitalna baza herbarija s hrvatskim biljnim zbirkama i botaničkim primjercima Prirodoslovno-matematičkog fakulteta Sveučilišta u Zagrebu.',
 };

@@ -116,11 +116,11 @@ const en: ContactContent = {
   },
 };
 
-// Croatian draft. Feminine/masculine forms are avoided where possible; the consent line uses "pročitao/la".
+// Croatian draft. Feminine/masculine forms are avoided where possible; the consent line uses "pročitao/pročitala".
 const hr: ContactContent = {
   title: 'Kontakt – Renata Horvat | Web dizajnerica Zagreb',
   description:
-    'Kontaktirajte Renatu Horvat, web dizajnericu iz Zagreba, u vezi web stranice, dizajna, ilustracije, oglašavanja ili projekta za društvene mreže. Prvi razgovor je besplatan.',
+    'Kontaktirajte Renatu Horvat, web dizajnericu iz Zagreba, u vezi s web stranicom, dizajnom, ilustracijom, oglašavanjem ili projektom za društvene mreže. Prvi razgovor je besplatan.',
   keywords:
     'kontakt Renata Horvat, web dizajnerica Zagreb, web dizajn Hrvatska, web stranica za konferenciju, web stranica za društvo, web stranica za sveučilište, web stranica za malu tvrtku, grafički dizajner Zagreb, Renata Horvat',
   schemaName: 'Kontaktirajte Renatu Horvat',
@@ -129,7 +129,7 @@ const hr: ContactContent = {
   heading: 'Razgovarajmo o vašem projektu',
   intro:
     'Ne treba vam detaljan opis projekta. Imate li projekt na umu ili tek ranu ideju, pošaljite mi poruku pa ćemo o tome razgovarati.',
-  formLabel: 'Kontakt obrazac',
+  formLabel: 'Kontaktni obrazac',
   successTitle: 'Poruka je poslana',
   successText: 'Hvala. Javit ću vam se uskoro.',
   errorTitle: 'Poruka nije poslana',
@@ -150,8 +150,8 @@ const hr: ContactContent = {
     { value: 'Not sure yet', label: 'Još ne znam' },
   ],
   messageLabel: 'Poruka',
-  messagePlaceholder: 'Recite mi što imate na umu, čak i ako je to tek ideja.',
-  consentBefore: 'Pročitao/la sam ',
+  messagePlaceholder: 'Napišite mi što imate na umu, čak i ako je to tek ideja.',
+  consentBefore: 'Pročitao/pročitala sam ',
   consentLink: 'Politiku privatnosti',
   consentAfter:
     '. Vaši se podaci koriste za odgovor na vaš upit, kako je objašnjeno u politici. ',
@@ -161,7 +161,7 @@ const hr: ContactContent = {
   whatsapp: 'Pošaljite mi poruku na WhatsAppu',
   email: 'E-pošta',
   responseHeading: 'Vrijeme odgovora',
-  responseText: 'Unutar dan-dva. Odgovaram osobno.',
+  responseText: 'U roku od dan-dva. Odgovaram osobno.',
   firstHeading: 'Prvi razgovor',
   firstText: 'Besplatan i bez obveze.',
   script: {
@@ -173,7 +173,7 @@ const hr: ContactContent = {
     messageShort: 'Poruka mora imati najmanje 10 znakova.',
     messageLong: 'Poruka ne smije biti dulja od 1000 znakova.',
     gdprRequired: 'Prije slanja potvrdite da ste pročitali Politiku privatnosti.',
-    sendFailed: 'Poruka nije mogla biti poslana. Pokušajte ponovno.',
+    sendFailed: 'Poruku nije bilo moguće poslati. Pokušajte ponovno.',
     tryAgain: 'Pokušajte ponovno ili mi pišite na screatives.info@gmail.com.',
     useServerMessage: false,
   },
