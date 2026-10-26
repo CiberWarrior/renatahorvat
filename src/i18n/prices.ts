@@ -171,9 +171,9 @@ const hr: PricesContent = {
   keywords:
     'cijena akademske web stranice, cijena web stranice znanstvenog društva, cijena web stranice konferencije, cijena platforme za e-učenje, web stranica istraživačkog projekta, cijene web dizajna Hrvatska, cijena web stranice Zagreb',
   eyebrow: 'Cjenik',
-  heading: 'Početne cijene web stranica',
+  heading: 'Cijene web stranica od 500 €',
   intro:
-    'Svaki je projekt drukčiji. Tri paketa u nastavku namijenjena su istraživačkim projektima, društvima i ustanovama te daju polaznu točku za planiranje proračuna. Za web stranice malih tvrtki i ostale projekte izrađujem individualnu ponudu nakon kratkog razgovora.',
+    'Svaki projekt je drugačiji, pa vam ova tri paketa služe kao polazište za planiranje proračuna. Namijenjeni su istraživačkim projektima, društvima i ustanovama. Za web stranice malih tvrtki i ostale projekte pripremam individualnu ponudu nakon kratkog razgovora.',
   packagesHeading: 'Paketi web stranica',
   mostCommon: 'Najčešći izbor',
   from: 'od ',
