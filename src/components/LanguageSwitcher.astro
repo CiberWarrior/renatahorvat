@@ -1,0 +1,23 @@
+---
+import { localeMeta } from '../i18n/config';
+import { getAlternates, getLocale, useTranslations } from '../i18n/utils';
+
+interface Props { class?: string; fullName?: boolean; }
+const { class: className = '', fullName = false } = Astro.props as Props;
+
+const locale = getLocale(Astro.url);
+const t = useTranslations(locale);
+const other = getAlternates(Astro.url).find((alt) => alt.locale !== locale);
+---
+
+{other && (
+  <a
+    href={other.path}
+    lang={other.locale}
+    hreflang={other.hreflang}
+    aria-label={`${t('nav.language')}: ${localeMeta[other.locale].name}`}
+    class={`${fullName ? 'text-ink' : 'font-mono text-xs uppercase tracking-[.06em] text-ink-soft'} transition-colors hover:text-sci ${className}`.trim()}
+  >
+    {fullName ? localeMeta[other.locale].name : localeMeta[other.locale].short}
+  </a>
+)}

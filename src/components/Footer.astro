@@ -1,5 +1,9 @@
 ---
-const hideMessageLink = Astro.url.pathname.replace(/\/$/, '') === '/contact';
+import { getLocale, pageHref, stripLocale, useTranslations } from '../i18n/utils';
+
+const locale = getLocale(Astro.url);
+const t = useTranslations(locale);
+const hideMessageLink = stripLocale(Astro.url.pathname) === '/contact';
 ---
 
 <footer class="border-t border-rule bg-paper font-text text-ink">
@@ -7,22 +11,22 @@ const hideMessageLink = Astro.url.pathname.replace(/\/$/, '') === '/contact';
     <div class="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
       <div>
         <p class="font-serif text-2xl font-medium">Renata Horvat</p>
-        <p class="mt-2 max-w-md text-ink-soft">Web design, graphic design, illustration, digital advertising and social media, based in Zagreb.</p>
+        <p class="mt-2 max-w-md text-ink-soft">{t('footer.tagline')}</p>
       </div>
       {!hideMessageLink && (
         <div class="flex flex-col gap-1 text-[15px] md:items-end">
-          <a href="/contact" class="font-medium text-sci hover:text-sci-dark">Send a message →</a>
+          <a href={pageHref('/contact', locale)} class="font-medium text-sci hover:text-sci-dark">{t('footer.message')}</a>
           <a href="mailto:screatives.info@gmail.com" class="break-all text-ink-soft hover:text-sci">screatives.info@gmail.com</a>
         </div>
       )}
     </div>
 
     <div class="mt-12 flex flex-col gap-3 border-t border-rule pt-6 text-sm text-ink-soft md:flex-row md:items-center md:justify-between">
-      <p>© {new Date().getFullYear()} Renata Horvat · Zagreb</p>
+      <p>© {new Date().getFullYear()} Renata Horvat · {t('footer.location')}</p>
       <div class="flex flex-wrap items-center gap-4">
-        <a href="/privacy-policy" class="hover:text-sci">Privacy Policy</a>
-        <a href="/legal" class="hover:text-sci">Legal Notice</a>
-        <button id="footer-cookie-settings" class="cursor-pointer hover:text-sci">Cookie Settings</button>
+        <a href={pageHref('/privacy-policy', locale)} class="hover:text-sci">{t('footer.privacy')}</a>
+        <a href={pageHref('/legal', locale)} class="hover:text-sci">{t('footer.legal')}</a>
+        <button id="footer-cookie-settings" class="cursor-pointer hover:text-sci">{t('footer.cookies')}</button>
       </div>
     </div>
   </div>

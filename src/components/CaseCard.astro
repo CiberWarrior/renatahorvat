@@ -1,8 +1,10 @@
 ---
 import type { ProjectCategory } from '../lib/projects';
+import { getLocale, useTranslations } from '../i18n/utils';
 
 interface Props { title: string; href: string; image: string; role?: string; summary: string; meta: string; category: ProjectCategory; }
 const { title, href, image, role, summary, meta, category } = Astro.props as Props;
+const t = useTranslations(getLocale(Astro.url));
 
 // One colour per kind of project, so the dot carries information
 const categoryColor: Record<ProjectCategory, string> = {
@@ -24,7 +26,7 @@ try {
   href={href}
   target="_blank"
   rel="noopener noreferrer"
-  aria-label={`${title}: visit the website (opens in a new tab)`}
+  aria-label={t('card.visit', { title })}
   data-reveal
   class="group flex min-w-0 flex-col rounded-xl border border-rule bg-surface p-2 transition-[border-color,box-shadow,transform] duration-300 hover:border-sci/50 hover:shadow-[0_14px_30px_-18px_rgb(21_33_30/.45)] motion-safe:hover:-translate-y-0.5"
   onclick={`if(typeof window.gtag !== 'undefined') window.gtag('event', 'project_view', { project_title: ${JSON.stringify(title)}, project_url: ${JSON.stringify(href)} })`}
