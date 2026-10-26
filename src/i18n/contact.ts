@@ -216,7 +216,7 @@ const hr: ContactContent = {
   eyebrow: 'Kontakt',
   heading: 'Razgovarajmo o vašem projektu',
   intro:
-    'Ne treba vam detaljan opis projekta. Imate li projekt na umu ili tek ranu ideju, pošaljite mi poruku pa ćemo o tome razgovarati.',
+    'Ne treba vam detaljan opis projekta. Napišite mi što zamišljate, što vam treba ili oko čega se još dvoumite. Zajedno ćemo pronaći rješenje.',
   formLabel: 'Kontaktni obrazac',
   successTitle: 'Poruka je poslana',
   successText: 'Hvala. Javit ću vam se uskoro.',
