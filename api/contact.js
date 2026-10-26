@@ -10,18 +10,10 @@ function escapeHtml(str) {
 }
 
 export default async function handler(req, res) {
-  // Set CORS headers
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
-  // Handle preflight requests
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
-  }
-
+  // The form is served from the same origin, so no CORS headers are needed.
   // Only allow POST requests
   if (req.method !== 'POST') {
+    res.setHeader('Allow', 'POST');
     return res.status(405).json({
       success: false,
       message: 'Method not allowed'
@@ -42,25 +34,44 @@ export default async function handler(req, res) {
 
     const resend = new Resend(apiKey);
 
-    // Get form data
-    const { name, email, message, gdprConsent } = req.body;
+    // Get form data (only plain strings are accepted)
+    const input = req.body && typeof req.body === 'object' ? req.body : {};
+    const name = typeof input.name === 'string' ? input.name.replace(/[\r\n]+/g, ' ').trim() : '';
+    const email = typeof input.email === 'string' ? input.email.replace(/[\r\n]+/g, '').trim() : '';
+    const message = typeof input.message === 'string' ? input.message.trim() : '';
+    const gdprConsent = input.gdprConsent === true;
+
+    // Honeypot: real visitors never fill this hidden field. Pretend success so bots do not retry.
+    if (typeof input._gotcha === 'string' && input._gotcha.trim() !== '') {
+      return res.status(200).json({
+        success: true,
+        message: 'Thank you! Your message has been sent successfully.'
+      });
+    }
 
     // Validate required fields with specific messages
-    if (!name || !name.trim()) {
+    if (!name) {
       return res.status(400).json({
         success: false,
         message: 'Name is required.'
       });
     }
 
-    if (name.trim().length < 2) {
+    if (name.length < 2) {
       return res.status(400).json({
         success: false,
         message: 'Name must be at least 2 characters long.'
       });
     }
 
-    if (!email || !email.trim()) {
+    if (name.length > 100) {
+      return res.status(400).json({
+        success: false,
+        message: 'Name cannot exceed 100 characters.'
+      });
+    }
+
+    if (!email) {
       return res.status(400).json({
         success: false,
         message: 'Email address is required. Please enter your email address.'
@@ -69,7 +80,7 @@ export default async function handler(req, res) {
 
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
+    if (email.length > 254 || !emailRegex.test(email)) {
       return res.status(400).json({
         success: false,
         message: 'Please enter a valid email address. Format should be: example@domain.com'
