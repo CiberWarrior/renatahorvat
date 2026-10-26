@@ -208,9 +208,9 @@ const en: ContactContent = {
 const hr: ContactContent = {
   title: 'Kontakt – Renata Horvat | Web dizajnerica Zagreb',
   description:
-    'Kontaktirajte Renatu Horvat, web dizajnericu iz Zagreba, u vezi s web stranicom, dizajnom, ilustracijom, oglašavanjem ili projektom za društvene mreže. Prvi razgovor je besplatan.',
+    'Kontaktirajte Renatu Horvat, web dizajnericu iz Zagreba, u vezi s web-stranicom, dizajnom, ilustracijom, oglašavanjem ili projektom za društvene mreže. Prvi razgovor je besplatan.',
   keywords:
-    'kontakt Renata Horvat, web dizajnerica Zagreb, web dizajn Hrvatska, web stranica za konferenciju, web stranica za društvo, web stranica za sveučilište, web stranica za malu tvrtku, grafički dizajner Zagreb, Renata Horvat',
+    'kontakt Renata Horvat, web dizajnerica Zagreb, web dizajn Hrvatska, web-stranica za konferenciju, web-stranica za društvo, web-stranica za sveučilište, web-stranica za malu tvrtku, grafički dizajner Zagreb, Renata Horvat',
   schemaName: 'Kontaktirajte Renatu Horvat',
   schemaJobTitle: 'Web i grafička dizajnerica',
   eyebrow: 'Kontakt',
@@ -228,8 +228,8 @@ const hr: ContactContent = {
   typeLabel: 'O kakvom je projektu riječ?',
   optional: '(neobavezno)',
   types: [
-    { value: 'Website', label: 'Web stranica' },
-    { value: 'Conference site', label: 'Web stranica konferencije' },
+    { value: 'Website', label: 'Web-stranica' },
+    { value: 'Conference site', label: 'Web-stranica konferencije' },
     { value: 'E-learning', label: 'E-učenje' },
     { value: 'Graphic design', label: 'Grafički dizajn' },
     { value: 'Illustration', label: 'Ilustracija' },
@@ -239,10 +239,10 @@ const hr: ContactContent = {
   ],
   messageLabel: 'Poruka',
   messagePlaceholder: 'Napišite mi što imate na umu, čak i ako je to tek ideja.',
-  consentBefore: 'Pročitao/pročitala sam ',
-  consentLink: 'Politiku privatnosti',
+  consentBefore: 'Slažem se s obradom podataka prema ',
+  consentLink: 'Politici privatnosti',
   consentAfter:
-    '. Vaši se podaci koriste za odgovor na vaš upit, kako je objašnjeno u politici. ',
+    '. Podaci se koriste samo za odgovor na vaš upit. ',
   submit: 'Pošaljite poruku',
   sending: 'Šaljem…',
   directHeading: 'Radije biste me kontaktirali izravno?',
@@ -260,7 +260,7 @@ const hr: ContactContent = {
     step: 'Pitanje {current} od {total}',
     back: 'Natrag',
     detailsHeading: 'Molim, upišite podatke za kontakt.',
-    detailsIntro: 'Javiti ću vam se s personaliziranim prijedlogom.',
+    detailsIntro: 'Javit ću vam se s prijedlogom prilagođenim vama.',
     detailsProgress: 'Zadnji korak',
     summaryTitle: 'Vaši odgovori',
     phoneLabel: 'Broj mobitela',
