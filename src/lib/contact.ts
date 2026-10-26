@@ -4,6 +4,6 @@ export const WHATSAPP_MESSAGE = 'Hello Renata, I found your website and would li
 export const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
 // Same number, Croatian pre-filled text (no gendered wording)
-export const WHATSAPP_MESSAGE_HR = 'Pozdrav Renata, javljam se preko vaše web stranice zbog razgovora o projektu.';
+export const WHATSAPP_MESSAGE_HR = 'Pozdrav Renata, javljam se preko vaše web-stranice zbog razgovora o projektu.';
 export const getWhatsappUrl = (locale: string) =>
   `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(locale === 'hr' ? WHATSAPP_MESSAGE_HR : WHATSAPP_MESSAGE)}`;

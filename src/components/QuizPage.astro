@@ -23,7 +23,7 @@ const breadcrumbs = [
 
   <section class="border-b border-rule py-14 sm:py-16">
     <div class="mx-auto max-w-2xl space-y-5 px-4 sm:px-6">
-      <p class="font-mono text-xs uppercase tracking-[.08em] text-ink-soft">Quiz</p>
+      <p class="font-mono text-xs uppercase tracking-[.08em] text-ink-soft">{locale === 'hr' ? 'Kviz' : 'Quiz'}</p>
       <h1 class="font-serif text-4xl font-medium leading-tight text-ink sm:text-5xl">
         {headingLines.map((line) => (
           <span class="block">{line}</span>

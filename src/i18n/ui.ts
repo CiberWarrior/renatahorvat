@@ -15,12 +15,12 @@ const en = {
   'nav.mobile': 'Mobile navigation',
   'nav.language': 'Language',
 
-  'hero.eyebrow': 'Web & graphic designer · Zagreb',
+  'hero.eyebrow': 'Web designer · Zagreb',
   'hero.titleStart': 'Websites that tell ',
   'hero.titleEmphasis': 'your story',
   'hero.caption': 'From first idea to finished website.',
   'hero.text':
-    'I design and build clear, distinctive websites for researchers, educators, organisations and small businesses.',
+    'I build clear websites for researchers, educators, institutions and small businesses, and turn complex ideas into messages anyone can understand.',
   'hero.viewWork': 'See selected work',
   'hero.talk': 'Talk about a project',
 
@@ -31,7 +31,7 @@ const en = {
   'card.visit': '{title}: visit the website (opens in a new tab)',
 
   'footer.tagline':
-    'Web design, graphic design, illustration, digital advertising and social media, based in Zagreb.',
+    'Websites, plus illustrations, ads and social media. Zagreb.',
   'footer.message': 'Send a message →',
   'footer.location': 'Zagreb',
   'footer.privacy': 'Privacy Policy',
@@ -64,9 +64,9 @@ const en = {
   'work.cta.text':
     'Send me a few lines about your project or idea. We can work out the next steps together.',
 
-  'home.title': 'Renata Horvat – Web & Graphic Designer | Zagreb',
+  'home.title': 'Renata Horvat – Web Designer | Zagreb',
   'home.description':
-    'Web and graphic designer in Zagreb with over 20 years of experience. Clear, fast websites for conferences, societies, universities and small businesses.',
+    'Web designer in Zagreb with over 20 years of experience. Clear, fast websites for conferences, societies, universities and small businesses.',
   'home.keywords':
     'web designer Zagreb, web design Croatia, conference website, society website, university website, small business website, graphic designer Zagreb, Renata Horvat',
 
@@ -79,7 +79,7 @@ const en = {
   'home.services.heading': 'What I do',
   'home.services.pricing': 'Pricing',
   'home.services.intro':
-    'Websites, visual materials and digital advertising for academic organisations and small businesses.',
+    'Websites are my main work. Alongside them I also do visuals and ads, when your project needs them.',
   'home.services.web.title': 'Web design & build',
   'home.services.web.text':
     'Clear, distinctive websites for researchers, educators, organisations and small businesses.',
@@ -101,9 +101,9 @@ const en = {
 
   'home.about.portraitAlt': 'Portrait of Renata Horvat',
   'home.about.caption': 'Zagreb · 20+ years',
-  'home.about.heading': 'A clear approach. A creative eye.',
+  'home.about.heading': 'I turn complex ideas into clear websites.',
   'home.about.p1':
-    "I'm Renata, a web and graphic designer based in Zagreb, with over 20 years of experience working with universities, organisations and small businesses.",
+    "I'm Renata, a web designer based in Zagreb. For over 20 years I've worked with universities, scientific societies and small businesses. My background in science communication helps me turn complex ideas into clear messages and distinctive visuals.",
   'home.about.p2':
     'Alongside websites, my work includes illustrations, promotional materials, Facebook and Google Ads campaigns and day-to-day social media management.',
   'home.about.p3':
@@ -144,17 +144,17 @@ const hr: Record<UiKey, string> = {
   'nav.pricing': 'Cjenik',
   'nav.contact': 'Kontakt',
   'nav.main': 'Glavni izbornik',
-  'nav.start': 'Ispunite kviz',
+  'nav.start': 'Riješite kviz',
   'nav.toggle': 'Otvorite ili zatvorite izbornik',
   'nav.mobile': 'Mobilni izbornik',
   'nav.language': 'Jezik',
 
-  'hero.eyebrow': 'Dizajnerica web-stranica i grafičkih materijala · Zagreb',
+  'hero.eyebrow': 'Dizajnerica web-stranica · Zagreb',
   'hero.titleStart': 'Web-stranice koje pričaju ',
   'hero.titleEmphasis': 'vašu priču',
   'hero.caption': 'Od prve ideje do gotove web-stranice.',
   'hero.text':
-    'Dizajniram i izrađujem jasne, prepoznatljive web-stranice za istraživače, edukatore, organizacije i male tvrtke.',
+    'Izrađujem jasne web-stranice za istraživače, edukatore, ustanove i male tvrtke, a složene ideje pretvaram u poruke koje svatko razumije.',
   'hero.viewWork': 'Pogledajte odabrane radove',
   'hero.talk': 'Razgovarajmo o projektu',
 
@@ -165,7 +165,7 @@ const hr: Record<UiKey, string> = {
   'card.visit': '{title}: posjetite web-stranicu (otvara se u novoj kartici)',
 
   'footer.tagline':
-    'Web-dizajn, grafički dizajn, ilustracija, digitalno oglašavanje i vođenje društvenih mreža. Zagreb.',
+    'Web-stranice, uz ilustracije, oglase i društvene mreže. Zagreb.',
   'footer.message': 'Pošaljite poruku →',
   'footer.location': 'Zagreb',
   'footer.privacy': 'Politika privatnosti',
@@ -182,12 +182,12 @@ const hr: Record<UiKey, string> = {
 
   'work.title': 'Radovi – Renata Horvat | Portfolio web dizajna, Hrvatska',
   'work.description':
-    'Odabrani projekti Renate Horvat: web stranice i platforme za konferencije, znanstvena društva, sveučilišta i male tvrtke.',
+    'Odabrani projekti Renate Horvat: web-stranice i platforme za konferencije, znanstvena društva, sveučilišta i male tvrtke.',
   'work.keywords':
-    'web dizajner Zagreb, web dizajn Hrvatska, web stranica za konferenciju, web stranica za društvo, web stranica za sveučilište, web stranica za malu tvrtku, grafički dizajner Zagreb, Renata Horvat, portfolio',
+    'web dizajner Zagreb, web dizajn Hrvatska, web-stranica za konferenciju, web-stranica za društvo, web-stranica za sveučilište, web-stranica za malu tvrtku, grafički dizajner Zagreb, Renata Horvat, portfolio',
   'work.heading': 'Odabrani radovi',
   'work.intro':
-    'Web stranice i online platforme za sveučilišta, konferencije, znanstvena društva i organizacije.',
+    'Web-stranice i online platforme za sveučilišta, konferencije, znanstvena društva i organizacije.',
   'work.featured': 'Izdvojeno',
   'work.all': 'Svi projekti',
   'work.group.conference': 'Konferencije i znanstveni skupovi',
@@ -198,11 +198,11 @@ const hr: Record<UiKey, string> = {
   'work.cta.text':
     'Pošaljite mi nekoliko redaka o svom projektu ili ideji. Zajedno možemo dogovoriti sljedeće korake.',
 
-  'home.title': 'Renata Horvat – Dizajnerica web-stranica i grafičkih materijala | Zagreb',
+  'home.title': 'Renata Horvat – Dizajnerica web-stranica | Zagreb',
   'home.description':
-    'Dizajnerica web-stranica i grafičkih materijala iz Zagreba s više od 20 godina iskustva. Jasne, brze web-stranice za konferencije, društva, sveučilišta i male tvrtke.',
+    'Dizajnerica web-stranica iz Zagreba s više od 20 godina iskustva. Jasne, brze web-stranice za konferencije, društva, sveučilišta i male tvrtke.',
   'home.keywords':
-    'web dizajner Zagreb, web dizajn Hrvatska, web stranica za konferenciju, web stranica za društvo, web stranica za sveučilište, web stranica za malu tvrtku, grafički dizajner Zagreb, Renata Horvat',
+    'web dizajner Zagreb, web dizajn Hrvatska, web-stranica za konferenciju, web-stranica za društvo, web-stranica za sveučilište, web-stranica za malu tvrtku, grafički dizajner Zagreb, Renata Horvat',
 
   'home.work.heading': 'Odabrani radovi',
   'home.work.all': 'Pogledajte projekte',
@@ -213,7 +213,7 @@ const hr: Record<UiKey, string> = {
   'home.services.heading': 'Što radim',
   'home.services.pricing': 'Cjenik',
   'home.services.intro':
-    'Web-stranice, vizualni materijali i digitalno oglašavanje za akademske ustanove i male tvrtke.',
+    'Web-stranice su moj glavni posao. Uz njih radim i vizuale te oglase, kad vašem projektu zatrebaju.',
   'home.services.web.title': 'Dizajn i izrada web-stranica',
   'home.services.web.text':
     'Jasne, prepoznatljive web-stranice za istraživače, edukatore, organizacije i male tvrtke.',
@@ -235,16 +235,16 @@ const hr: Record<UiKey, string> = {
 
   'home.about.portraitAlt': 'Portret Renate Horvat',
   'home.about.caption': 'Zagreb · više od 20 godina iskustva',
-  'home.about.heading': 'Jasan pristup. Kreativan pogled.',
+  'home.about.heading': 'Složene ideje pretvaram u jasne web-stranice.',
   'home.about.p1':
-    'Ja sam Renata, dizajnerica web-stranica i grafičkih materijala iz Zagreba s više od 20 godina iskustva u radu sa sveučilištima, organizacijama i malim tvrtkama.',
+    'Ja sam Renata, dizajnerica web-stranica iz Zagreba. Više od 20 godina radim sa sveučilištima, znanstvenim društvima i malim tvrtkama. Iskustvo u znanstvenoj komunikaciji pomaže mi složene ideje pretvoriti u jasne poruke i prepoznatljive vizuale.',
   'home.about.p2':
     'Uz web-stranice radim ilustracije, promotivne materijale, oglasne kampanje na Facebooku i Googleu te svakodnevno upravljam društvenim mrežama.',
   'home.about.p3':
     'Iskustvo u znanstvenoj komunikaciji pomaže mi složene ideje pretvoriti u jasne poruke i prepoznatljive vizuale.',
-  'home.about.years': 'Godine',
-  'home.about.projects': 'Projekti',
-  'home.about.institutions': 'Institucije',
+  'home.about.years': 'godina',
+  'home.about.projects': 'projekata',
+  'home.about.institutions': 'institucija',
 
   'cookie.dialog': 'Postavke kolačića',
   'cookie.title': 'Pristanak na kolačiće',
