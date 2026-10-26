@@ -19,14 +19,19 @@ const en = {
   'hero.titleStart': 'Websites that tell ',
   'hero.titleEmphasis': 'your story',
   'hero.caption': 'From first idea to finished website.',
-  'hero.text':
-    'I build clear websites for researchers, educators, institutions and small businesses, and turn complex ideas into messages anyone can understand.',
+  'hero.p1':
+    'My favourite part of the work is seeing a collection of texts, photographs and ideas begin to take shape. I plan the structure, work out how to present the content and build a website that suits the project and the people who will use it.',
+  'hero.p2':
+    'I work with universities, researchers, associations and small businesses. Some need to showcase their work; others need event registration, online learning materials or a searchable collection. Those different needs shape my approach to each project.',
+  'hero.p3':
+    'I also create illustrations and promotional materials and manage digital advertising, so our collaboration can include the materials you need to promote your project beyond the website.',
   'hero.viewWork': 'See selected work',
   'hero.talk': 'Talk about a project',
 
   'cta.heading': 'Have a project in mind?',
-  'cta.text': "Send me a few lines about your project, even if it's just an early idea.",
-  'cta.button': 'Write to me',
+  'cta.text':
+    "You don't need to have everything worked out. Send me a link to your existing website, any materials you have, or a few lines about your idea. I'll suggest a suitable approach and prepare a quote with a clear scope and price.",
+  'cta.button': "Let's talk about your project",
 
   'card.visit': '{title}: visit the website (opens in a new tab)',
 
@@ -153,14 +158,19 @@ const hr: Record<UiKey, string> = {
   'hero.titleStart': 'Web-stranice koje pričaju ',
   'hero.titleEmphasis': 'vašu priču',
   'hero.caption': 'Od prve ideje do gotove web-stranice.',
-  'hero.text':
-    'Izrađujem jasne web-stranice za istraživače, edukatore, ustanove i male tvrtke, a složene ideje pretvaram u poruke koje svatko razumije.',
+  'hero.p1':
+    'Najviše volim dio posla u kojem se iz mnoštva tekstova, fotografija i ideja počinje slagati smislena cjelina. Razrađujem strukturu, uređujem način predstavljanja sadržaja i izrađujem web-stranicu koja odgovara projektu i ljudima koji će je koristiti.',
+  'hero.p2':
+    'Radim s fakultetima, istraživačima, udrugama i malim tvrtkama. Neki trebaju predstaviti svoj rad, drugi omogućiti prijave na događanje, objaviti nastavne materijale ili učiniti zbirku dostupnom za pretraživanje. Upravo te razlike određuju kako pristupam svakom projektu.',
+  'hero.p3':
+    'Bavim se i ilustracijom, promotivnim materijalima i digitalnim oglašavanjem, pa suradnja može obuhvatiti i materijale kojima ćete projekt predstaviti izvan samog weba.',
   'hero.viewWork': 'Pogledajte odabrane radove',
   'hero.talk': 'Razgovarajmo o projektu',
 
-  'cta.heading': 'Imate ideju za projekt?',
-  'cta.text': 'Pošaljite mi nekoliko redaka o svom projektu, čak i ako je vaša ideja još u začetku.',
-  'cta.button': 'Napišite mi',
+  'cta.heading': 'Imate projekt na umu?',
+  'cta.text':
+    'Ne morate imati sve razrađeno. Pošaljite mi poveznicu na postojeću stranicu, materijale ili nekoliko rečenica o ideji. Predložit ću vam što ima smisla napraviti i pripremiti ponudu s jasnim opsegom i cijenom.',
+  'cta.button': 'Razgovarajmo o vašem projektu',
 
   'card.visit': '{title}: posjetite web-stranicu (otvara se u novoj kartici)',
 
