@@ -36,10 +36,15 @@ export const POST: APIRoute = async ({ request }) => {
     );
   }
 
-  const name = typeof body.name === 'string' ? body.name.trim() : '';
-  const email = typeof body.email === 'string' ? body.email.trim() : '';
+  const name = typeof body.name === 'string' ? body.name.replace(/[\r\n]+/g, ' ').trim() : '';
+  const email = typeof body.email === 'string' ? body.email.replace(/[\r\n]+/g, '').trim() : '';
   const message = typeof body.message === 'string' ? body.message.trim() : '';
   const gdprConsent = body.gdprConsent === true;
+
+  // Honeypot: real visitors never fill this hidden field. Pretend success so bots do not retry.
+  if (typeof body._gotcha === 'string' && body._gotcha.trim() !== '') {
+    return json(200, { success: true, message: 'Thank you! Your message has been sent successfully.' });
+  }
 
   if (!name) {
     return json(400, { success: false, message: 'Name is required.' });
@@ -47,13 +52,16 @@ export const POST: APIRoute = async ({ request }) => {
   if (name.length < 2) {
     return json(400, { success: false, message: 'Name must be at least 2 characters long.' });
   }
+  if (name.length > 100) {
+    return json(400, { success: false, message: 'Name cannot exceed 100 characters.' });
+  }
   if (!email) {
     return json(400, {
       success: false,
       message: 'Email address is required. Please enter your email address.',
     });
   }
-  if (!emailRegex.test(email)) {
+  if (email.length > 254 || !emailRegex.test(email)) {
     return json(400, {
       success: false,
       message:
