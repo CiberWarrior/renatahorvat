@@ -84,6 +84,7 @@ const en: PricesContent = {
     { label: 'Extra setup to help Google understand the site', values: [false, false, true] },
   ],
   notes: [
+    'Each website package includes a website that works well on phones.',
     'Work outside the package scope is quoted separately. All prices are stated in euros. Croatian VAT is not charged. For international clients, the applicable VAT treatment is specified on the invoice.',
     'Advertising spend is separate from design and campaign management fees and is agreed before work begins.',
   ],
@@ -214,6 +215,7 @@ const hr: PricesContent = {
     { label: 'Dodatna podešavanja kako bi Google lakše razumio stranicu', values: [false, false, true] },
   ],
   notes: [
+    'Svaki paket uključuje web stranicu koja dobro radi na mobitelima.',
     'Za rad izvan opsega paketa izrađuje se zasebna ponuda. Sve cijene izražene su u eurima. Hrvatski PDV se ne obračunava. Za međunarodne klijente način obračuna PDV-a navodi se na računu.',
     'Budžet za oglašavanje odvojen je od naknade za dizajn i vođenje kampanja te se dogovara prije početka rada.',
   ],
