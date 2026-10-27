@@ -11,6 +11,8 @@ export interface CaseStudy {
   facts: { label: string; value: string }[];
   coversHeading: string;
   covers: string[];
+  /** Optional client quote. Only add text the client has actually written and agreed to publish. */
+  testimonial?: { quote: string; by: string };
   visit: string;
   back: string;
 }
@@ -333,6 +335,64 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
         'Plaketu Zdravko Lorković za doprinos biologiji',
         'Educatio Biologiae, podršku poučavanju biologije',
         'Predavanja i stručne skupove',
+      ],
+      visit: 'Posjetite web-stranicu',
+      back: 'Svi radovi',
+    },
+  },
+  genetika: {
+    href: 'https://www.genetika.biol.pmf.hr',
+    image: '/images/work/genetika.jpg',
+    en: {
+      title: 'Genetics e-book',
+      metaTitle: 'Genetics Online Textbook | Renata Horvat',
+      description:
+        'Case study: online genetics textbook for biology students at the Faculty of Science, University of Zagreb, with 20 chapters, summaries, review sections and quizzes.',
+      eyebrow: 'Case study · E-textbook · Faculty of Science',
+      lead: 'An online genetics textbook for undergraduate biology students at the Faculty of Science, University of Zagreb, also intended for students of related fields such as medicine, agronomy and veterinary science.',
+      imageAlt: 'Home page of the online genetics textbook',
+      imageCredit: 'Screenshot of the website. The text is by the author; the design, WordPress build and diagrams are my work.',
+      facts: [
+        { label: 'Project', value: 'Online textbook' },
+        { label: 'Name', value: 'Mrežni udžbenik iz genetike' },
+        { label: 'Author', value: 'Mirjana Pavlica, Faculty of Science, University of Zagreb' },
+        { label: 'Language', value: 'Croatian' },
+        { label: 'My role', value: 'Web design, WordPress build and educational diagrams' },
+      ],
+      coversHeading: 'What the website covers',
+      covers: [
+        'A preface and 20 chapters, from the history of genetics and Mendel’s laws to recombinant DNA technology',
+        'Every chapter ends with a summary, a review section and a quiz',
+        'Topics from chromosomes, DNA replication and gene expression to population and evolutionary genetics',
+        'A glossary',
+        'A list of references',
+      ],
+      visit: 'Visit the website',
+      back: 'All work',
+    },
+    hr: {
+      title: 'Mrežni udžbenik iz genetike',
+      metaTitle: 'Mrežni udžbenik iz genetike | Renata Horvat',
+      description:
+        'Studija slučaja: mrežni udžbenik iz genetike za studente biologije na Prirodoslovno-matematičkom fakultetu Sveučilišta u Zagrebu, s 20 poglavlja, sažecima, ponavljanjem i kvizovima.',
+      eyebrow: 'Studija slučaja · E-udžbenik · PMF',
+      lead: 'Mrežni udžbenik iz genetike za studente preddiplomskih studija biologije na Prirodoslovno-matematičkom fakultetu Sveučilišta u Zagrebu, namijenjen i studentima srodnih struka poput medicinske, agronomske i veterinarske.',
+      imageAlt: 'Početna stranica mrežnog udžbenika iz genetike',
+      imageCredit: 'Snimka zaslona web-stranice. Tekst je djelo autorice; dizajn, izrada u WordPressu i dijagrami su moj rad.',
+      facts: [
+        { label: 'Projekt', value: 'Mrežni udžbenik' },
+        { label: 'Naziv', value: 'Mrežni udžbenik iz genetike' },
+        { label: 'Autorica', value: 'Mirjana Pavlica, Prirodoslovno-matematički fakultet Sveučilišta u Zagrebu' },
+        { label: 'Jezik', value: 'Hrvatski' },
+        { label: 'Moja uloga', value: 'Web dizajn, izrada u WordPressu i edukativni dijagrami' },
+      ],
+      coversHeading: 'Što web-stranica sadrži',
+      covers: [
+        'Predgovor i 20 poglavlja, od povijesti genetike i Mendelovih zakona do tehnologije rekombinantne DNA',
+        'Svako poglavlje završava sažetkom, ponavljanjem i kvizom',
+        'Teme od kromosoma, replikacije DNA i ekspresije gena do populacijske i evolucijske genetike',
+        'Rječnik',
+        'Popis literature',
       ],
       visit: 'Posjetite web-stranicu',
       back: 'Svi radovi',

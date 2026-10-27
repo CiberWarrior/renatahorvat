@@ -68,7 +68,7 @@ export const projects: Project[] = [
     featured: true,
     image: '/images/work/genetika.jpg',
     role: 'Web design, WordPress build and educational diagrams for a university textbook.',
-    // caseStudySlug: 'genetika-ebook',
+    caseStudySlug: 'genetika',
   },
   {
     title: 'Botanical Garden Zagreb',

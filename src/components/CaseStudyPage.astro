@@ -77,6 +77,13 @@ const structuredData = {
               {c.covers.map((item) => <li>{item}</li>)}
             </ul>
           </div>
+
+          {c.testimonial && (
+            <blockquote class="max-w-2xl border-l-2 border-sci pl-5">
+              <p class="font-serif text-2xl leading-snug text-ink">“{c.testimonial.quote}”</p>
+              <footer class="mt-3 text-sm text-ink-soft">{c.testimonial.by}</footer>
+            </blockquote>
+          )}
         </div>
 
         <dl class="grid content-start border-t border-ink">
