@@ -39,7 +39,6 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
           value:
             'ICDXI Organizing Committee and the Croatian Association of Freshwater Ecologists (CAFE), under the auspices of the Dipterists Society',
         },
-        { label: 'My role', value: 'Web design and development, email campaign in Mailchimp' },
       ],
       coversHeading: 'What the website covers',
       covers: [
@@ -71,7 +70,6 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
           value:
             'Organizacijski odbor ICDXI i Croatian Association of Freshwater Ecologists (CAFE), pod pokroviteljstvom Dipterists Society',
         },
-        { label: 'Moja uloga', value: 'Dizajn i izrada web stranice, e-mail kampanja u Mailchimpu' },
       ],
       coversHeading: 'Što web stranica sadrži',
       covers: [
@@ -106,7 +104,6 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
           label: 'Organisers',
           value: 'Croatian Biological Society, co-organised by the University of Zagreb and the Faculty of Science',
         },
-        { label: 'My role', value: 'Member of the Technical Committee; web design and development' },
       ],
       coversHeading: 'What the website covers',
       covers: [
@@ -138,7 +135,6 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
           label: 'Organizatori',
           value: 'Hrvatsko biološko društvo, uz suorganizaciju Sveučilišta u Zagrebu i Prirodoslovno-matematičkog fakulteta',
         },
-        { label: 'Moja uloga', value: 'Članica tehničkog odbora; dizajn i izrada web stranice' },
       ],
       coversHeading: 'Što web stranica sadrži',
       covers: [
@@ -171,7 +167,6 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
         { label: 'Handbook', value: 'Mirisni potpisi – Priručnik za kreiranje prirodnih parfema (Fragrant Signatures)' },
         { label: 'Author', value: 'Slobodanka Poštić' },
         { label: 'Languages', value: 'Croatian and English' },
-        { label: 'My role', value: 'Web design and development' },
       ],
       coversHeading: 'What the website covers',
       covers: [
@@ -200,7 +195,6 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
         { label: 'Priručnik', value: 'Mirisni potpisi – Priručnik za kreiranje prirodnih parfema (Fragrant Signatures)' },
         { label: 'Autorica', value: 'Slobodanka Poštić' },
         { label: 'Jezici', value: 'Hrvatski i engleski' },
-        { label: 'Moja uloga', value: 'Dizajn i izrada web stranice' },
       ],
       coversHeading: 'Što web stranica sadrži',
       covers: [
@@ -233,7 +227,6 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
         { label: 'Name', value: 'Mrežni udžbenik iz bakteriologije' },
         { label: 'For', value: 'Biology students, free of charge' },
         { label: 'Language', value: 'Croatian' },
-        { label: 'My role', value: 'Web design and development' },
       ],
       coversHeading: 'What the website covers',
       covers: [
@@ -261,7 +254,6 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
         { label: 'Naziv', value: 'Mrežni udžbenik iz bakteriologije' },
         { label: 'Za koga', value: 'Studenti biologije, besplatno' },
         { label: 'Jezik', value: 'Hrvatski' },
-        { label: 'Moja uloga', value: 'Dizajn i izrada web stranice' },
       ],
       coversHeading: 'Što web stranica sadrži',
       covers: [
@@ -292,7 +284,6 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
         { label: 'Project', value: 'Society website, congress websites and competition registration' },
         { label: 'Society', value: 'Croatian Biological Society (HBD-SBC), a voluntary, non-profit association of biologists' },
         { label: 'Language', value: 'Croatian' },
-        { label: 'My role', value: 'Web design and development' },
       ],
       coversHeading: 'What the website covers',
       covers: [
@@ -319,7 +310,6 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
         { label: 'Projekt', value: 'Web stranica društva, web stranice kongresa i prijave za natjecanja' },
         { label: 'Društvo', value: 'Hrvatsko biološko društvo (HBD-SBC), dobrovoljna neprofitna udruga biologa' },
         { label: 'Jezik', value: 'Hrvatski' },
-        { label: 'Moja uloga', value: 'Dizajn i izrada web stranice' },
       ],
       coversHeading: 'Što web stranica sadrži',
       covers: [
@@ -351,7 +341,6 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
         { label: 'Name', value: 'Mrežni udžbenik iz genetike' },
         { label: 'Author', value: 'Mirjana Pavlica, Faculty of Science, University of Zagreb' },
         { label: 'Language', value: 'Croatian' },
-        { label: 'My role', value: 'Web design, WordPress build, illustrations and instructional design' },
       ],
       coversHeading: 'What the website covers',
       covers: [
@@ -384,7 +373,6 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
         { label: 'Naziv', value: 'Mrežni udžbenik iz genetike' },
         { label: 'Autorica', value: 'Mirjana Pavlica, Prirodoslovno-matematički fakultet Sveučilišta u Zagrebu' },
         { label: 'Jezik', value: 'Hrvatski' },
-        { label: 'Moja uloga', value: 'Web dizajn, izrada u WordPressu, ilustracije i instrukcijski dizajn' },
       ],
       coversHeading: 'Što web stranica sadrži',
       covers: [
@@ -424,7 +412,6 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
         },
         { label: 'Institution', value: 'Faculty of Science, University of Zagreb' },
         { label: 'Language', value: 'Croatian' },
-        { label: 'My role', value: 'Web design and development' },
       ],
       coversHeading: 'What the website covers',
       covers: [
@@ -454,7 +441,6 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
         },
         { label: 'Ustanova', value: 'Prirodoslovno-matematički fakultet Sveučilišta u Zagrebu' },
         { label: 'Jezik', value: 'Hrvatski' },
-        { label: 'Moja uloga', value: 'Dizajn i izrada web stranice' },
       ],
       coversHeading: 'Što web stranica sadrži',
       covers: [
@@ -484,7 +470,6 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
         { label: 'Project', value: 'Federation website' },
         { label: 'Organisation', value: 'Federation of European Phycological Societies (FEPS), uniting 11 phycological societies in Europe' },
         { label: 'Language', value: 'English' },
-        { label: 'My role', value: 'Web design and development' },
       ],
       coversHeading: 'What the website covers',
       covers: [
@@ -511,7 +496,6 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
         { label: 'Projekt', value: 'Web stranica saveza' },
         { label: 'Organizacija', value: 'Federation of European Phycological Societies (FEPS), koja ujedinjuje 11 fikoloških društava u Europi' },
         { label: 'Jezik', value: 'Engleski' },
-        { label: 'Moja uloga', value: 'Dizajn i izrada web stranice' },
       ],
       coversHeading: 'Što web stranica sadrži',
       covers: [
@@ -545,7 +529,6 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
           value: 'Microscopic slides and wet samples, with type material for 16 described species',
         },
         { label: 'Language', value: 'English' },
-        { label: 'My role', value: 'Web design and development' },
       ],
       coversHeading: 'What the website covers',
       covers: [
@@ -574,7 +557,6 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
           value: 'Mikroskopski preparati i mokri uzorci, s tipskim materijalom za 16 opisanih vrsta',
         },
         { label: 'Jezik', value: 'Engleski' },
-        { label: 'Moja uloga', value: 'Dizajn i izrada web stranice' },
       ],
       coversHeading: 'Što web stranica sadrži',
       covers: [
