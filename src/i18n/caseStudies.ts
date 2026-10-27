@@ -7,6 +7,7 @@ export interface CaseStudy {
   eyebrow: string;
   lead: string;
   imageAlt: string;
+  imageCredit: string;
   facts: { label: string; value: string }[];
   coversHeading: string;
   covers: string[];
@@ -27,6 +28,7 @@ export const caseStudies: Record<string, { href: string; image: string; en: Case
       eyebrow: 'Case study · Congress · Zagreb 2027',
       lead: 'A website for the 11th International Congress of Dipterology, taking place in Zagreb, Croatia, from 11 to 16 July 2027.',
       imageAlt: 'Home page of the ICD11 congress website',
+      imageCredit: 'Screenshot of the website. The logo and photographs are not my work.',
       facts: [
         { label: 'Project', value: 'Congress website' },
         { label: 'Event', value: '11th International Congress of Dipterology (ICDXI)' },
@@ -59,6 +61,7 @@ export const caseStudies: Record<string, { href: string; image: string; en: Case
       eyebrow: 'Studija slučaja · Kongres · Zagreb 2027.',
       lead: 'Web-stranica XI. međunarodnog kongresa dipterologije, koji se održava u Zagrebu od 11. do 16. srpnja 2027.',
       imageAlt: 'Početna stranica web-stranice kongresa ICD11',
+      imageCredit: 'Snimka zaslona web-stranice. Logotip i fotografije nisu moj rad.',
       facts: [
         { label: 'Projekt', value: 'Web-stranica kongresa' },
         { label: 'Događaj', value: 'XI. međunarodni kongres dipterologije (ICDXI)' },
