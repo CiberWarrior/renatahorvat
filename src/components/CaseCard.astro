@@ -55,7 +55,7 @@ try {
     <div class="mt-auto flex items-center justify-between gap-3 border-t border-rule pt-3">
       <span class="truncate font-mono text-xs text-ink-soft">{caseHref ? t('card.case') : siteHost}</span>
       <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-rule text-ink-soft transition-colors duration-300 group-hover:border-sci group-hover:bg-sci group-hover:text-white" aria-hidden="true">
-        <svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11 11 5M6 5h5v5" /></svg>
+        <svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d={caseHref ? 'M3 8h10M9 4l4 4-4 4' : 'M5 11 11 5M6 5h5v5'} /></svg>
       </span>
     </div>
   </div>
