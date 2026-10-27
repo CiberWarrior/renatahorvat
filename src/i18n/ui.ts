@@ -28,7 +28,7 @@ const en = {
   'cta.button': 'Send an enquiry',
 
   'card.visit': '{title}: visit the website (opens in a new tab)',
-  'card.case': 'Read the case study',
+  'card.case': 'About the project',
 
   'footer.location': 'Zagreb',
   'footer.privacy': 'Privacy Policy',
@@ -155,7 +155,7 @@ const hr: Record<UiKey, string> = {
   'cta.button': 'Pošaljite upit',
 
   'card.visit': '{title}: posjetite web stranicu (otvara se u novoj kartici)',
-  'card.case': 'Pročitajte studiju slučaja',
+  'card.case': 'O projektu',
 
   'footer.location': 'Zagreb',
   'footer.privacy': 'Politika privatnosti',
