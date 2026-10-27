@@ -64,9 +64,6 @@ const whatsappUrl = getWhatsappUrl(locale);
       <p class="max-w-2xl text-[15px] leading-relaxed text-ink-soft">
         {c.intro}
       </p>
-      <p>
-        <a href={pageHref('/quiz', locale)} class="font-medium text-sci hover:text-sci-dark">{t('nav.start')} <span aria-hidden="true">→</span></a>
-      </p>
     </div>
   </section>
 
@@ -152,6 +149,22 @@ const whatsappUrl = getWhatsappUrl(locale);
             </span>
           </button>
         </form>
+        <div class="mt-6">
+          <a
+            href={pageHref('/quiz', locale)}
+            class="group inline-flex min-h-12 items-center justify-center gap-3 rounded-md border border-sci/40 bg-surface py-2 pl-2.5 pr-5 font-medium text-ink transition-colors hover:border-sci hover:bg-sci-soft hover:text-sci"
+          >
+            <span class="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-sci-soft transition-colors group-hover:bg-surface" aria-hidden="true">
+              <svg viewBox="-15 -15 30 30" class="h-6 w-6 transition-transform duration-300 motion-safe:group-hover:rotate-12 motion-safe:group-hover:scale-110" focusable="false">
+                <defs>
+                  <linearGradient id="contact-quiz-star" x2=".4" y2="1"><stop stop-color="#bd00fa" /><stop offset=".48" stop-color="#4338ff" /><stop offset="1" stop-color="#00cedf" /></linearGradient>
+                </defs>
+                <path d="M0 -11 Q2 -11 4 -4 L11 -3 Q14 -2 10 2 L6 6 L7 12 Q7 14 3 12 L0 10 L-7 13 Q-10 14 -9 9 L-7 3 L-12 -2 Q-14 -5 -9 -5 L-4 -5Z" fill="url(#contact-quiz-star)" />
+              </svg>
+            </span>
+            {t('nav.start')} <span class="inline-block transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true">→</span>
+          </a>
+        </div>
       </div>
 
       <aside class="space-y-6 self-start lg:sticky lg:top-24">
@@ -169,10 +182,6 @@ const whatsappUrl = getWhatsappUrl(locale);
           </div>
         </div>
         <div class="space-y-5 border-l border-rule pl-5 text-[15px]">
-          <div>
-            <h2 class="font-mono text-xs uppercase tracking-[.08em] text-ink-soft">{c.responseHeading}</h2>
-            <p class="mt-1 text-ink">{c.responseText}</p>
-          </div>
           <div>
             <h2 class="font-mono text-xs uppercase tracking-[.08em] text-ink-soft">{c.firstHeading}</h2>
             <p class="mt-1 text-ink">{c.firstText}</p>
