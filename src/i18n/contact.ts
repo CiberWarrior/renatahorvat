@@ -54,6 +54,7 @@ export interface ContactContent {
     description: string;
     heading: string;
     intro: string;
+    submit: string;
     step: string;
     back: string;
     detailsHeading: string;
@@ -122,13 +123,14 @@ const en: ContactContent = {
   firstHeading: 'First conversation',
   firstText: 'With no commitment.',
   quiz: {
-    title: 'Quiz – Renata Horvat | Web Designer Zagreb',
-    description: 'Answer four short questions about your project and send them to Renata Horvat.',
+    title: 'Project quiz | Renata Horvat',
+    description: 'Answer four short questions about your project.',
     heading: 'Have an idea?\nLet\'s give it a direction.',
-    intro: 'Answer four short questions and let\'s find out what you need.',
+    intro: 'Answer four short questions about your project.',
+    submit: 'Send answers',
     step: 'Question {current} of {total}',
     back: 'Back',
-    detailsHeading: 'Please enter your contact details.',
+    detailsHeading: 'Just your contact details now.',
     detailsIntro: 'I will get back to you.',
     detailsProgress: 'Last step',
     summaryTitle: 'Your answers',
@@ -146,8 +148,12 @@ const en: ContactContent = {
         answers: [
           { label: 'Website', projectType: 'Website' },
           { label: 'Website redesign', projectType: 'Website' },
+          { label: 'Conference or event', projectType: 'Conference or event' },
+          { label: 'E-textbook or e-learning', projectType: 'E-textbook or e-learning' },
           { label: 'Graphic design', projectType: 'Graphic design' },
           { label: 'Illustration', projectType: 'Illustration' },
+          { label: 'Advertising', projectType: 'Advertising' },
+          { label: 'Social media', projectType: 'Social media' },
           { label: 'Help choosing the right option', projectType: 'Not sure yet' },
         ],
       },
@@ -155,10 +161,11 @@ const en: ContactContent = {
         id: 'audience',
         question: 'Who is the project for?',
         answers: [
-          { label: 'Company or sole trader' },
           { label: 'Research project' },
-          { label: 'Society' },
+          { label: 'Faculty or university' },
+          { label: 'Society or association' },
           { label: 'Institution' },
+          { label: 'Company or sole trader' },
           { label: 'Personal project' },
         ],
       },
@@ -247,13 +254,14 @@ const hr: ContactContent = {
   firstHeading: 'Prvi razgovor',
   firstText: 'Bez obveze.',
   quiz: {
-    title: 'Kviz – Renata Horvat | Web dizajnerica Zagreb',
-    description: 'Odgovorite na četiri kratka pitanja o projektu i pošaljite ih Renati Horvat.',
+    title: 'Kviz o projektu | Renata Horvat',
+    description: 'Odgovorite na četiri kratka pitanja o projektu.',
     heading: 'Imate ideju? Dajmo joj smjer.',
-    intro: 'Odgovorite na četiri kratka pitanja i otkrijmo što vam treba.',
+    intro: 'Odgovorite na četiri kratka pitanja o projektu.',
+    submit: 'Pošaljite odgovore',
     step: 'Pitanje {current} od {total}',
     back: 'Natrag',
-    detailsHeading: 'Molim, upišite podatke za kontakt.',
+    detailsHeading: 'Još samo vaši kontakt podaci.',
     detailsIntro: 'Javit ću vam se.',
     detailsProgress: 'Zadnji korak',
     summaryTitle: 'Vaši odgovori',
@@ -271,8 +279,12 @@ const hr: ContactContent = {
         answers: [
           { label: 'Web stranica', projectType: 'Website' },
           { label: 'Redizajn postojeće stranice', projectType: 'Website' },
+          { label: 'Konferencija ili skup', projectType: 'Conference or event' },
+          { label: 'E-udžbenik ili e-učenje', projectType: 'E-textbook or e-learning' },
           { label: 'Grafički dizajn', projectType: 'Graphic design' },
           { label: 'Ilustracija', projectType: 'Illustration' },
+          { label: 'Oglašavanje', projectType: 'Advertising' },
+          { label: 'Društvene mreže', projectType: 'Social media' },
           { label: 'Pomoć pri odabiru', projectType: 'Not sure yet' },
         ],
       },
@@ -280,10 +292,11 @@ const hr: ContactContent = {
         id: 'audience',
         question: 'Za koga je projekt?',
         answers: [
-          { label: 'Tvrtku ili obrt' },
           { label: 'Istraživački projekt' },
-          { label: 'Društvo' },
+          { label: 'Fakultet ili sveučilište' },
+          { label: 'Društvo ili udrugu' },
           { label: 'Ustanovu' },
+          { label: 'Tvrtku ili obrt' },
           { label: 'Osobni projekt' },
         ],
       },
