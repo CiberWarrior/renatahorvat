@@ -18,7 +18,7 @@ export default defineConfig({
   compressHTML: true,
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('admin') && !page.includes('private'),
+      filter: (page) => !page.includes('admin') && !page.includes('private') && !page.includes('/quiz'),
       i18n: {
         defaultLocale: 'en',
         locales: { en: 'en-GB', hr: 'hr-HR' }
