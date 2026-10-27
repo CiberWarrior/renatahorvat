@@ -39,7 +39,7 @@ const en: PricesContent = {
   keywords:
     'academic website pricing, scientific society website cost, conference website price, e-learning platform price, research project website, web design pricing Croatia, website cost Zagreb',
   eyebrow: 'Pricing',
-  heading: 'A website for your project',
+  heading: 'Prices and packages',
   intro:
     'Every project is different. The three packages below are for research projects, societies and institutions, and give you a starting point for budgeting. Small business websites and other projects are quoted individually after a short conversation.',
   packagesHeading: 'Website packages',
@@ -170,7 +170,7 @@ const hr: PricesContent = {
   keywords:
     'cijena akademske web-stranice, cijena web-stranice znanstvenog društva, cijena web-stranice konferencije, cijena platforme za e-učenje, web-stranica istraživačkog projekta, cijene web dizajna Hrvatska, cijena web-stranice Zagreb',
   eyebrow: 'Cjenik',
-  heading: 'Web-stranica za vaš projekt',
+  heading: 'Cijene i paketi',
   intro:
     'Svaki projekt ima svoje ciljeve, sadržaj i zahtjeve. Ova tri paketa daju vam okvirni pregled mogućnosti i troškova kako biste lakše planirali budžet. Osmišljeni su za istraživačke projekte, znanstvena društva i ustanove, a opseg izrade prilagođavam vašim potrebama. Za web-stranice malih tvrtki i druge projekte pripremam individualnu ponudu nakon kratkog razgovora o tome što želite postići.',
   packagesHeading: 'Paketi web-stranica',
