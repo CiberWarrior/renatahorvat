@@ -168,7 +168,7 @@ export const caseStudies: Record<string, { href: string; image: string; en: Case
       eyebrow: 'Case study · Handbook · HR / EN',
       lead: 'A bilingual website, in Croatian and English, for the handbook on creating natural perfumes and the related education.',
       imageAlt: 'Home page of the Mirisni potpisi website',
-      imageCredit: 'Screenshot of the website. The book cover is not my work.'
+      imageCredit: 'Screenshot of the website. The book cover is not my work.',
       facts: [
         { label: 'Project', value: 'Handbook website' },
         { label: 'Handbook', value: 'Mirisni potpisi – Priručnik za kreiranje prirodnih parfema (Fragrant Signatures)' },
