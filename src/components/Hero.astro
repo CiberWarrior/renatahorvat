@@ -27,10 +27,7 @@ const t = useTranslations(locale);
       </p>
 
       <div class="flex flex-col items-start gap-2 pt-1 sm:gap-3 sm:pt-2 sm:flex-row sm:flex-wrap sm:items-stretch">
-        <a href="#work" class="group inline-flex whitespace-nowrap w-fit max-w-full min-h-11 items-center justify-center gap-2 sm:w-auto sm:max-w-none rounded-md bg-sci px-4 py-2 text-sm font-medium sm:px-6 sm:py-3 sm:text-base text-white transition-colors hover:bg-sci-dark" onclick="if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: 'view_projects', cta_location: 'hero' })">
-          {t('hero.viewWork')} <span class="inline-block transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true">→</span>
-        </a>
-        <a href={pageHref('/contact', locale)} class="group inline-flex whitespace-nowrap w-fit max-w-full min-h-11 items-center justify-center gap-2 sm:w-auto sm:max-w-none rounded-md border border-rule bg-surface px-4 py-2 text-sm font-medium sm:px-6 sm:py-3 sm:text-base text-ink transition-colors hover:border-sci" onclick="if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: 'get_in_touch', cta_location: 'hero' })">
+        <a href={pageHref('/contact', locale)} class="group inline-flex whitespace-nowrap w-fit max-w-full min-h-11 items-center justify-center gap-2 sm:w-auto sm:max-w-none rounded-md bg-sci px-4 py-2 text-sm font-medium sm:px-6 sm:py-3 sm:text-base text-white transition-colors hover:bg-sci-dark" onclick="if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: 'get_in_touch', cta_location: 'hero' })">
           {t('hero.talk')} <span class="inline-block transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true">→</span>
         </a>
       </div>
@@ -55,7 +52,15 @@ const t = useTranslations(locale);
       column-gap: 2rem;
     }
     .hero-intro { align-self: end; }
+    .hero-intro h1 { white-space: nowrap; max-width: none; font-size: 3.25rem; }
     .hero-copy { align-self: start; }
-    .hero-art { align-self: center; }
+    /* The drawing grows into the free margin on the right (never past the viewport edge). */
+    .hero-art {
+      align-self: center;
+      justify-self: stretch;
+      width: auto;
+      max-width: none;
+      margin-right: calc(-1 * clamp(0px, (100vw - 72rem) / 2, 12rem));
+    }
   }
 </style>
