@@ -120,7 +120,7 @@ const en: ContactContent = {
   directHeading: 'Prefer to contact me directly?',
   whatsapp: 'Message me on WhatsApp',
   email: 'Email',
-  quizLink: 'Prefer to answer a few questions instead',
+  quizLink: 'Fill in the survey',
   firstHeading: 'First conversation',
   firstText: 'With no commitment.',
   quiz: {
@@ -246,7 +246,7 @@ const hr: ContactContent = {
   directHeading: 'Radije biste me kontaktirali izravno?',
   whatsapp: 'Pošaljite mi poruku na WhatsAppu',
   email: 'E-pošta',
-  quizLink: 'Radije odgovorite na nekoliko pitanja',
+  quizLink: 'Ispunite anketu',
   firstHeading: 'Prvi razgovor',
   firstText: 'Bez obveze.',
   quiz: {
