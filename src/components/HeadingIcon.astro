@@ -1,28 +1,33 @@
 ---
-// Small decorative icons taken from the hero machine drawing (umbrella and rocket).
+// Small decorative icons from the hero machine drawing (umbrella and rocket), set in a soft frame.
 // Static by default; they move a little when the heading is hovered (parent needs class "group").
 interface Props { name: 'umbrella' | 'rocket'; }
 const { name } = Astro.props as Props;
 ---
 
-{name === 'umbrella' && (
-  <svg viewBox="-40 -44 80 86" class="h-9 w-9 shrink-0 origin-bottom transition-transform duration-300 motion-safe:group-hover:-rotate-6" aria-hidden="true" focusable="false">
-    <path d="M0 -34 V34" fill="none" stroke="#1f6b5c" stroke-width="3" stroke-linecap="round" />
-    <path d="M-35 0 Q-22.75 -32 0 -32 Q22.75 -32 35 0 Q23.45 -10 11.667 0 Q0 -12 -11.667 0 Q-23.45 -10 -35 0Z" fill="#ae86ef" stroke="#1f6b5c" stroke-width="3" stroke-linejoin="round" />
-    <path d="M0 -32 Q-11.667 -19 -11.667 0 M0 -32 Q11.667 -19 11.667 0" stroke="#1f6b5c" stroke-width="2.4" stroke-linecap="round" fill="none" />
-    <circle cx="0" cy="-35" r="4.5" fill="#ad00ed" />
-  </svg>
-)}
-{name === 'rocket' && (
-  <svg viewBox="-30 -44 60 106" class="h-9 w-auto shrink-0 transition-transform duration-300 motion-safe:group-hover:-translate-y-1" aria-hidden="true" focusable="false">
-    <path d="M-8 34 Q-11 46 0 58 Q11 46 8 34Z" fill="#ad8aed" stroke="#1f6b5c" stroke-width="3" stroke-linejoin="round" />
-    <path d="M-4 34 Q-5 43 0 49 Q5 43 4 34Z" fill="#00c9df" />
-    <path d="M-13 8 Q-26 15 -26 33 L-11 25 M13 8 Q26 15 26 33 L11 25" fill="#b9a0ef" stroke="#1f6b5c" stroke-width="3" stroke-linejoin="round" />
-    <path d="M-13 28 V-7 Q-13 -27 0 -40 Q13 -27 13 -7 V28Z" fill="#e4e8f5" stroke="#1f6b5c" stroke-width="3" stroke-linejoin="round" />
-    <path d="M-12.1 -17 Q-8 -30 0 -38 Q8 -30 12.1 -17Z" fill="#ae8bea" />
-    <path d="M-12.1 -17 H12.1" stroke="#1f6b5c" stroke-width="2" />
-    <circle cx="0" cy="0" r="8" fill="#00c9df" stroke="#1f6b5c" stroke-width="3" />
-    <circle cx="0" cy="0" r="3.5" fill="#b7f1ee" />
-    <rect x="-11" y="26" width="22" height="8" rx="3" fill="#b9a0ef" stroke="#1f6b5c" stroke-width="3" />
-  </svg>
-)}
+<span class="grid h-14 w-14 shrink-0 place-items-center rounded-2xl border border-sci/30 bg-sci-soft sm:h-16 sm:w-16" aria-hidden="true">
+  {name === 'umbrella' && (
+    <svg viewBox="0 0 120 120" class="h-10 w-10 origin-bottom transition-transform duration-300 sm:h-11 sm:w-11 motion-safe:group-hover:-rotate-6" focusable="false">
+      <defs>
+        <linearGradient id="heading-umbrella-gradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b08cf5" /><stop offset="1" stop-color="#7c56e8" /></linearGradient>
+      </defs>
+      <path d="M60 62 V96 Q60 107 51 107 Q45 107 45 100" fill="none" stroke="#15211e" stroke-width="4.5" stroke-linecap="round" />
+      <path d="M10 62 A50 50 0 0 1 110 62 Q97.5 52 85 62 Q72.5 52 60 62 Q47.5 52 35 62 Q22.5 52 10 62Z" fill="url(#heading-umbrella-gradient)" />
+      <path d="M60 12 Q38 30 35 62 Q47.5 52 60 62 Q72.5 52 85 62 Q82 30 60 12Z" fill="#fff" fill-opacity=".22" />
+      <circle cx="60" cy="11" r="3.4" fill="#15211e" />
+    </svg>
+  )}
+  {name === 'rocket' && (
+    <svg viewBox="-30 -44 60 106" class="h-10 w-auto transition-transform duration-300 sm:h-11 motion-safe:group-hover:-translate-y-0.5" focusable="false">
+      <path d="M-8 34 Q-11 46 0 58 Q11 46 8 34Z" fill="#ad8aed" stroke="#1f6b5c" stroke-width="3" stroke-linejoin="round" />
+      <path d="M-4 34 Q-5 43 0 49 Q5 43 4 34Z" fill="#00c9df" />
+      <path d="M-13 8 Q-26 15 -26 33 L-11 25 M13 8 Q26 15 26 33 L11 25" fill="#b9a0ef" stroke="#1f6b5c" stroke-width="3" stroke-linejoin="round" />
+      <path d="M-13 28 V-7 Q-13 -27 0 -40 Q13 -27 13 -7 V28Z" fill="#e4e8f5" stroke="#1f6b5c" stroke-width="3" stroke-linejoin="round" />
+      <path d="M-12.1 -17 Q-8 -30 0 -38 Q8 -30 12.1 -17Z" fill="#ae8bea" />
+      <path d="M-12.1 -17 H12.1" stroke="#1f6b5c" stroke-width="2" />
+      <circle cx="0" cy="0" r="8" fill="#00c9df" stroke="#1f6b5c" stroke-width="3" />
+      <circle cx="0" cy="0" r="3.5" fill="#b7f1ee" />
+      <rect x="-11" y="26" width="22" height="8" rx="3" fill="#b9a0ef" stroke="#1f6b5c" stroke-width="3" />
+    </svg>
+  )}
+</span>
