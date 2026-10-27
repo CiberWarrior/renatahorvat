@@ -78,7 +78,7 @@ const en = {
   'meta.handbook': 'Handbook · Education · HR / EN',
   'meta.collection': 'Collection · Faculty of Science',
 
-  'home.services.heading': 'What I do',
+  'home.services.heading': 'What do I do?',
   'home.services.pricing': 'Pricing',
   'home.services.intro':
     'Websites are my main work. Alongside them I also do visuals and ads, when your project needs them.',
