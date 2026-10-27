@@ -156,7 +156,7 @@ const en: PricesContent = {
     },
     {
       title: 'Build and launch',
-      text: 'I build the website and publish it once you have approved it. What the handover includes depends on the project and is agreed in the quote.',
+      text: 'I build the website and publish it once you have approved it.',
     },
   ],
   ctaHeading: 'Not sure which option is right for you?',
@@ -288,7 +288,7 @@ const hr: PricesContent = {
     },
     {
       title: 'Izrada i objava',
-      text: 'Izrađujem web-stranicu i objavljujem je nakon vašeg odobrenja. Što sve ulazi u predaju ovisi o projektu i dogovaramo to u ponudi.',
+      text: 'Izrađujem web-stranicu i objavljujem je nakon vašeg odobrenja.',
     },
   ],
   ctaHeading: 'Niste sigurni koja je opcija prava za vas?',
