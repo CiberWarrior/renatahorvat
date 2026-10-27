@@ -16,8 +16,8 @@ const en = {
   'nav.language': 'Language',
 
   'hero.eyebrow': 'Web designer · Zagreb',
-  'hero.titleStart': 'Websites that tell ',
-  'hero.titleEmphasis': 'your story',
+  'hero.titleStart': 'Websites for researchers, educators and ',
+  'hero.titleEmphasis': 'institutions',
   'hero.caption': 'From first idea to finished website.',
   'hero.text':
     'I design and build websites for researchers, educators, institutions and small businesses. From your initial materials through to launch, I help you identify what matters, organise your content and present what you do.',
@@ -147,8 +147,8 @@ const hr: Record<UiKey, string> = {
   'nav.language': 'Jezik',
 
   'hero.eyebrow': 'Dizajnerica web-stranica · Zagreb',
-  'hero.titleStart': 'Web-stranice koje pričaju ',
-  'hero.titleEmphasis': 'vašu priču',
+  'hero.titleStart': 'Web-stranice za istraživače, edukatore i ',
+  'hero.titleEmphasis': 'ustanove',
   'hero.caption': 'Od prve ideje do gotove web-stranice.',
   'hero.text':
     'Osmišljavam i izrađujem web-stranice za istraživače, edukatore, ustanove i male tvrtke. Od prvih materijala do objave pomažem vam razraditi što je važno, organizirati sadržaj i predstaviti ono što radite.',
