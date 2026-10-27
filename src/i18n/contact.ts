@@ -47,7 +47,6 @@ export interface ContactContent {
   directHeading: string;
   whatsapp: string;
   email: string;
-  quizLink: string;
   firstHeading: string;
   firstText: string;
   quiz: {
@@ -120,7 +119,6 @@ const en: ContactContent = {
   directHeading: 'Prefer to contact me directly?',
   whatsapp: 'Message me on WhatsApp',
   email: 'Email',
-  quizLink: 'Fill in the survey',
   firstHeading: 'First conversation',
   firstText: 'With no commitment.',
   quiz: {
@@ -246,7 +244,6 @@ const hr: ContactContent = {
   directHeading: 'Radije biste me kontaktirali izravno?',
   whatsapp: 'Pošaljite mi poruku na WhatsAppu',
   email: 'E-pošta',
-  quizLink: 'Ispunite anketu',
   firstHeading: 'Prvi razgovor',
   firstText: 'Bez obveze.',
   quiz: {
