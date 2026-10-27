@@ -38,7 +38,7 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
           value:
             'ICDXI Organizing Committee and the Croatian Association of Freshwater Ecologists (CAFE), under the auspices of the Dipterists Society',
         },
-        { label: 'My role', value: 'Web design and development, abstract submission page text, email campaign in Mailchimp' },
+        { label: 'My role', value: 'Web design and development, email campaign in Mailchimp' },
       ],
       coversHeading: 'What the website covers',
       covers: [
@@ -71,7 +71,7 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
           value:
             'Organizacijski odbor ICDXI i Croatian Association of Freshwater Ecologists (CAFE), pod pokroviteljstvom Dipterists Society',
         },
-        { label: 'Moja uloga', value: 'Dizajn i izrada web-stranice, tekst stranice za prijavu sažetaka, e-mail kampanja u Mailchimpu' },
+        { label: 'Moja uloga', value: 'Dizajn i izrada web-stranice, e-mail kampanja u Mailchimpu' },
       ],
       coversHeading: 'Što web-stranica sadrži',
       covers: [
