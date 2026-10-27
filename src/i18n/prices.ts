@@ -42,7 +42,7 @@ const en: PricesContent = {
   heading: 'Prices and packages',
   intro:
     'Every project is different. The three packages below are for research projects, societies and institutions, and give you a starting point for budgeting. Small business websites and other projects are quoted individually after a short conversation.',
-  packagesHeading: 'Website packages',
+  packagesHeading: 'Choose a starting point',
   mostCommon: 'Most common',
   from: 'from ',
   quote: 'Ask for a quote',
@@ -173,7 +173,7 @@ const hr: PricesContent = {
   heading: 'Cijene i paketi',
   intro:
     'Svaki projekt ima svoje ciljeve, sadržaj i zahtjeve. Ova tri paketa daju vam okvirni pregled mogućnosti i troškova kako biste lakše planirali budžet. Osmišljeni su za istraživačke projekte, znanstvena društva i ustanove, a opseg izrade prilagođavam vašim potrebama. Za web stranice malih tvrtki i druge projekte pripremam individualnu ponudu nakon kratkog razgovora o tome što želite postići.',
-  packagesHeading: 'Paketi web stranica',
+  packagesHeading: 'Odaberite polazište',
   mostCommon: 'Najčešći izbor',
   from: 'od ',
   quote: 'Zatražite ponudu',
