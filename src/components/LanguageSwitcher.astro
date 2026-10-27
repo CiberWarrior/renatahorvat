@@ -7,17 +7,30 @@ const { class: className = '', fullName = false } = Astro.props as Props;
 
 const locale = getLocale(Astro.url);
 const t = useTranslations(locale);
-const other = getAlternates(Astro.url).find((alt) => alt.locale !== locale);
+// Both languages are always shown in the same order; the current one is highlighted.
+const options = getAlternates(Astro.url)
+  .sort((a, b) => (a.locale === 'hr' ? -1 : 1) - (b.locale === 'hr' ? -1 : 1))
+  .map((alt) => ({ ...alt, label: fullName ? localeMeta[alt.locale].name : localeMeta[alt.locale].short }));
+
+const segment = fullName ? 'px-4 py-2.5 text-sm' : 'px-3 py-1.5 text-xs';
 ---
 
-{other && (
-  <a
-    href={other.path}
-    lang={other.locale}
-    hreflang={other.hreflang}
-    aria-label={`${t('nav.language')}: ${localeMeta[other.locale].name}`}
-    class={`${fullName ? 'text-ink' : 'font-mono text-xs uppercase tracking-[.06em] text-ink-soft'} transition-colors hover:text-sci ${className}`.trim()}
+{options.length > 1 && (
+  <div
+    role="group"
+    aria-label={t('nav.language')}
+    class={`inline-flex items-center gap-0.5 rounded-full border border-rule bg-surface p-0.5 font-mono uppercase tracking-[.06em] ${className}`.trim()}
   >
-    {fullName ? localeMeta[other.locale].name : localeMeta[other.locale].short}
-  </a>
+    {options.map((option) => option.locale === locale ? (
+      <span aria-current="true" lang={option.locale} class={`${segment} rounded-full bg-sci font-medium text-white`}>{option.label}</span>
+    ) : (
+      <a
+        href={option.path}
+        lang={option.locale}
+        hreflang={option.hreflang}
+        aria-label={`${t('nav.language')}: ${localeMeta[option.locale].name}`}
+        class={`${segment} rounded-full text-ink-soft transition-colors hover:bg-sci-soft hover:text-sci`}
+      >{option.label}</a>
+    ))}
+  </div>
 )}

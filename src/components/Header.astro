@@ -20,12 +20,12 @@ const hasOtherLanguage = getAlternates(Astro.url).length > 1;
 <header class="sticky top-0 z-50 border-b border-rule bg-paper/95 font-text text-ink backdrop-blur">
   <nav class="mx-auto max-w-6xl px-4 py-4 sm:px-6" aria-label={t('nav.main')}>
     <div class="flex items-center justify-between gap-4">
-      <a href={pageHref('/', locale)} class="font-serif text-xl font-medium text-ink no-underline" onclick="if(typeof window.gtag !== 'undefined') window.gtag('event', 'logo_click', { logo_location: 'header' })">
+      <a href={pageHref('/', locale)} class="whitespace-nowrap font-serif text-xl font-medium text-ink no-underline" onclick="if(typeof window.gtag !== 'undefined') window.gtag('event', 'logo_click', { logo_location: 'header' })">
         Renata Horvat
       </a>
 
       <!-- Desktop Navigation -->
-      <ul class="hidden items-center gap-7 md:flex">
+      <ul class="hidden items-center gap-4 md:flex lg:gap-7">
         {navItems.map((item) => {
           const isActive = item.path === '/'
             ? currentPath === '/'
@@ -35,7 +35,7 @@ const hasOtherLanguage = getAlternates(Astro.url).length > 1;
               <a
                 href={item.href}
                 aria-current={isActive ? 'page' : undefined}
-                class={`text-[15px] underline-offset-[6px] transition-colors hover:text-sci ${isActive ? 'text-ink underline decoration-sci decoration-2' : 'text-ink-soft'}`}
+                class={`text-[13px] font-medium uppercase tracking-[.08em] underline-offset-[8px] transition-colors hover:text-sci ${isActive ? 'text-ink underline decoration-sci decoration-2' : 'text-ink-soft'}`}
                 onclick={`if(typeof window.gtag !== 'undefined') window.gtag('event', 'navigation_click', { nav_item: '${item.label}', nav_location: 'desktop_header' })`}
               >
                 {item.text}
@@ -44,7 +44,7 @@ const hasOtherLanguage = getAlternates(Astro.url).length > 1;
           );
         })}
         <li>
-          <a href={pageHref('/quiz', locale)} class="whitespace-nowrap rounded-md bg-sci px-4 py-2 text-[15px] font-medium text-white transition-colors hover:bg-sci-dark">{t('nav.start')}</a>
+          <a href={pageHref('/quiz', locale)} class="whitespace-nowrap rounded-md bg-sci px-3 py-2 text-[13px] lg:px-4 font-medium uppercase tracking-[.08em] text-white transition-colors hover:bg-sci-dark">{t('nav.start')}</a>
         </li>
         {hasOtherLanguage && <li><LanguageSwitcher /></li>}
       </ul>
@@ -75,7 +75,7 @@ const hasOtherLanguage = getAlternates(Astro.url).length > 1;
               <a
                 href={item.href}
                 aria-current={isActiveMobile ? 'page' : undefined}
-                class={`mobile-nav-link block py-3 text-base ${isActiveMobile ? 'font-medium text-sci' : 'text-ink'}`}
+                class={`mobile-nav-link block py-3 text-sm font-medium uppercase tracking-[.08em] ${isActiveMobile ? 'font-medium text-sci' : 'text-ink'}`}
                 onclick={`if(typeof window.gtag !== 'undefined') window.gtag('event', 'navigation_click', { nav_item: '${item.label}', nav_location: 'mobile_header' })`}
               >
                 {item.text}
@@ -83,7 +83,7 @@ const hasOtherLanguage = getAlternates(Astro.url).length > 1;
             </li>
           );
         })}
-        {hasOtherLanguage && <li><LanguageSwitcher fullName class="block py-3 text-base" /></li>}
+        {hasOtherLanguage && <li><LanguageSwitcher fullName class="my-3" /></li>}
       </ul>
     </div>
   </nav>
