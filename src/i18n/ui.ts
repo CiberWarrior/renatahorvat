@@ -63,7 +63,7 @@ const en = {
 
   'home.title': 'Website Design in Zagreb | Renata Horvat',
   'home.description':
-    'Website design in Zagreb: clear, fast websites for scientists, educators, institutions and small businesses. Over 20 years of experience.',
+    'Website design in Zagreb: clear websites for scientists, educators, institutions and small businesses. Over 20 years of experience.',
   'home.keywords':
     'web designer Zagreb, web design Croatia, conference website, society website, university website, small business website, graphic designer Zagreb, Renata Horvat',
 
@@ -190,7 +190,7 @@ const hr: Record<UiKey, string> = {
 
   'home.title': 'Izrada web stranica Zagreb | Renata Horvat',
   'home.description':
-    'Izrada web stranica u Zagrebu: jasne i brze web stranice za znanstvenike, edukatore, ustanove i male tvrtke. Više od 20 godina iskustva.',
+    'Izrada web stranica u Zagrebu: jasne web stranice za znanstvenike, edukatore, ustanove i male tvrtke. Više od 20 godina iskustva.',
   'home.keywords':
     'web dizajner Zagreb, web dizajn Hrvatska, web stranica za konferenciju, web stranica za društvo, web stranica za sveučilište, web stranica za malu tvrtku, grafički dizajner Zagreb, Renata Horvat',
 
