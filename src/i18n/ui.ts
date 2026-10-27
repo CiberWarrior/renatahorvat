@@ -142,11 +142,11 @@ const hr: Record<UiKey, string> = {
   'nav.mobile': 'Mobilni izbornik',
   'nav.language': 'Jezik',
 
-  'hero.eyebrow': 'Izrada web-stranica · Zagreb',
+  'hero.eyebrow': 'Izrada web stranica · Zagreb',
   'hero.titleStart': 'Od ideje do ',
   'hero.titleEmphasis': 'weba',
   'hero.text':
-    'Osmišljavam i izrađujem web-stranice za znanstvenike, edukatore, ustanove i male tvrtke. Od prvih materijala do objave pomažem vam razraditi što je važno, organizirati sadržaj i predstaviti ono što radite.',
+    'Osmišljavam i izrađujem web stranice za znanstvenike, edukatore, ustanove i male tvrtke. Od prvih materijala do objave pomažem vam razraditi što je važno, organizirati sadržaj i predstaviti ono što radite.',
   'hero.talk': 'Razgovarajmo o projektu',
 
   'cta.heading': 'Imate projekt na umu?',
@@ -154,7 +154,7 @@ const hr: Record<UiKey, string> = {
     'Ne morate imati sve razrađeno. Pošaljite mi poveznicu na postojeću stranicu, materijale ili nekoliko rečenica o ideji. Predložit ću vam što ima smisla napraviti i pripremiti ponudu s jasnim opsegom i cijenom.',
   'cta.button': 'Pošaljite upit',
 
-  'card.visit': '{title}: posjetite web-stranicu (otvara se u novoj kartici)',
+  'card.visit': '{title}: posjetite web stranicu (otvara se u novoj kartici)',
   'card.case': 'Pročitajte studiju slučaja',
 
   'footer.location': 'Zagreb',
@@ -170,14 +170,14 @@ const hr: Record<UiKey, string> = {
   'unit.projects.few': 'projekta',
   'unit.projects.many': 'projekata',
 
-  'work.title': 'Radovi – izrada web-stranica | Renata Horvat',
+  'work.title': 'Radovi – izrada web stranica | Renata Horvat',
   'work.description':
-    'Odabrani projekti Renate Horvat: web-stranice i platforme za konferencije, znanstvena društva, sveučilišta i male tvrtke.',
+    'Odabrani projekti Renate Horvat: web stranice i platforme za konferencije, znanstvena društva, sveučilišta i male tvrtke.',
   'work.keywords':
-    'web dizajner Zagreb, web dizajn Hrvatska, web-stranica za konferenciju, web-stranica za društvo, web-stranica za sveučilište, web-stranica za malu tvrtku, grafički dizajner Zagreb, Renata Horvat, portfolio',
+    'web dizajner Zagreb, web dizajn Hrvatska, web stranica za konferenciju, web stranica za društvo, web stranica za sveučilište, web stranica za malu tvrtku, grafički dizajner Zagreb, Renata Horvat, portfolio',
   'work.heading': 'Odabrani radovi',
   'work.intro':
-    'Web-stranice i online platforme za sveučilišta, konferencije, znanstvena društva i organizacije.',
+    'Web stranice i online platforme za sveučilišta, konferencije, znanstvena društva i organizacije.',
   'work.featured': 'Izdvojeno',
   'work.all': 'Projekti po područjima',
   'work.group.conference': 'Konferencije i znanstveni skupovi',
@@ -188,11 +188,11 @@ const hr: Record<UiKey, string> = {
   'work.cta.text':
     'Pošaljite mi nekoliko redaka o svom projektu ili ideji. Zajedno možemo dogovoriti sljedeće korake.',
 
-  'home.title': 'Izrada web-stranica Zagreb | Renata Horvat',
+  'home.title': 'Izrada web stranica Zagreb | Renata Horvat',
   'home.description':
-    'Izrada web-stranica u Zagrebu: jasne i brze web-stranice za znanstvenike, edukatore, ustanove i male tvrtke. Više od 20 godina iskustva.',
+    'Izrada web stranica u Zagrebu: jasne i brze web stranice za znanstvenike, edukatore, ustanove i male tvrtke. Više od 20 godina iskustva.',
   'home.keywords':
-    'web dizajner Zagreb, web dizajn Hrvatska, web-stranica za konferenciju, web-stranica za društvo, web-stranica za sveučilište, web-stranica za malu tvrtku, grafički dizajner Zagreb, Renata Horvat',
+    'web dizajner Zagreb, web dizajn Hrvatska, web stranica za konferenciju, web stranica za društvo, web stranica za sveučilište, web stranica za malu tvrtku, grafički dizajner Zagreb, Renata Horvat',
 
   'home.work.heading': 'Odabrani radovi',
   'home.work.all': 'Pogledajte sve radove',
@@ -203,11 +203,11 @@ const hr: Record<UiKey, string> = {
   'home.services.heading': 'Što radim?',
   'home.services.pricing': 'Cjenik',
   'home.services.intro':
-    'Web-stranice su moj glavni posao. Uz njih radim i vizuale te oglase, kad vašem projektu zatrebaju.',
-  'home.services.web.title': 'Dizajn i izrada web-stranica',
+    'Web stranice su moj glavni posao. Uz njih radim i vizuale te oglase, kad vašem projektu zatrebaju.',
+  'home.services.web.title': 'Dizajn i izrada web stranica',
   'home.services.web.text':
-    'Jasne, prepoznatljive web-stranice za znanstvenike, edukatore, ustanove i male tvrtke.',
-  'home.services.web.item1': 'Web-stranice tvrtki, konferencija i društava',
+    'Jasne, prepoznatljive web stranice za znanstvenike, edukatore, ustanove i male tvrtke.',
+  'home.services.web.item1': 'Web stranice tvrtki, konferencija i društava',
   'home.services.web.item2': 'Mrežni udžbenici i obrazovni sadržaji',
   'home.services.web.item3': 'Pretražive zbirke i istraživački alati',
   'home.services.graphic.title': 'Grafički dizajn i ilustracija',
@@ -225,7 +225,7 @@ const hr: Record<UiKey, string> = {
 
   'home.about.portraitAlt': 'Portret Renate Horvat',
   'home.about.caption': 'Zagreb',
-  'home.about.heading': 'Složene ideje pretvaram u jasne web-stranice.',
+  'home.about.heading': 'Složene ideje pretvaram u jasne web stranice.',
   'home.about.p1':
     'Više od 20 godina radim sa sveučilištima, znanstvenim društvima i malim tvrtkama. Iskustvo u znanstvenoj komunikaciji pomaže mi da sadržaj bude jasan i vizualno prepoznatljiv.',
   'home.about.years': 'godina',
@@ -235,7 +235,7 @@ const hr: Record<UiKey, string> = {
   'cookie.dialog': 'Postavke kolačića',
   'cookie.title': 'Pristanak na kolačiće',
   'cookie.text1':
-    'Vaše postavke kolačića spremamo u vašem pregledniku. Neobavezni analitički kolačići pomažu nam razumjeti posjećenost web-stranice.',
+    'Vaše postavke kolačića spremamo u vašem pregledniku. Neobavezni analitički kolačići pomažu nam razumjeti posjećenost web stranice.',
   'cookie.text2': 'Klikom na „Prihvatite sve” pristajete na korištenje analitičkih kolačića.',
   'cookie.text3': 'Postavke kolačića možete prilagoditi. Više informacija pronađite u',
   'cookie.policyLink': 'Politici privatnosti',
@@ -243,7 +243,7 @@ const hr: Record<UiKey, string> = {
   'cookie.essential.text': 'Sprema vaše postavke kolačića. Ne uključuje analitiku.',
   'cookie.analytics.title': 'Analitički kolačići',
   'cookie.analytics.text':
-    'Pomažu nam razumjeti kako posjetitelji koriste našu web-stranicu (Google Analytics).',
+    'Pomažu nam razumjeti kako posjetitelji koriste našu web stranicu (Google Analytics).',
   'cookie.customise': 'Prilagodite',
   'cookie.customise.label': 'Prilagodite postavke kolačića',
   'cookie.reject': 'Odbijte sve',

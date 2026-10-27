@@ -206,11 +206,11 @@ const en: ContactContent = {
 
 // Croatian draft. Feminine/masculine forms are avoided where possible; the consent line uses "pročitao/pročitala".
 const hr: ContactContent = {
-  title: 'Kontakt – izrada web-stranica | Renata Horvat',
+  title: 'Kontakt – izrada web stranica | Renata Horvat',
   description:
-    'Kontaktirajte Renatu Horvat, web dizajnericu iz Zagreba, u vezi s web-stranicom, dizajnom, ilustracijom, oglašavanjem ili projektom za društvene mreže. Prvi razgovor je besplatan.',
+    'Kontaktirajte Renatu Horvat, web dizajnericu iz Zagreba, u vezi s web stranicom, dizajnom, ilustracijom, oglašavanjem ili projektom za društvene mreže. Prvi razgovor je besplatan.',
   keywords:
-    'kontakt Renata Horvat, web dizajnerica Zagreb, web dizajn Hrvatska, web-stranica za konferenciju, web-stranica za društvo, web-stranica za sveučilište, web-stranica za malu tvrtku, grafički dizajner Zagreb, Renata Horvat',
+    'kontakt Renata Horvat, web dizajnerica Zagreb, web dizajn Hrvatska, web stranica za konferenciju, web stranica za društvo, web stranica za sveučilište, web stranica za malu tvrtku, grafički dizajner Zagreb, Renata Horvat',
   schemaName: 'Kontaktirajte Renatu Horvat',
   schemaJobTitle: 'Web i grafička dizajnerica',
   eyebrow: 'Kontakt',
@@ -228,8 +228,8 @@ const hr: ContactContent = {
   typeLabel: 'O kakvom je projektu riječ?',
   optional: '(neobavezno)',
   types: [
-    { value: 'Website', label: 'Web-stranica' },
-    { value: 'Conference site', label: 'Web-stranica konferencije' },
+    { value: 'Website', label: 'Web stranica' },
+    { value: 'Conference site', label: 'Web stranica konferencije' },
     { value: 'E-learning', label: 'E-učenje' },
     { value: 'Graphic design', label: 'Grafički dizajn' },
     { value: 'Illustration', label: 'Ilustracija' },
@@ -265,7 +265,7 @@ const hr: ContactContent = {
     summaryTitle: 'Vaši odgovori',
     phoneLabel: 'Broj mobitela',
     phonePlaceholder: '091 234 5678',
-    websiteLabel: 'Trenutna web-stranica',
+    websiteLabel: 'Trenutna web stranica',
     websitePlaceholder: 'https://',
     noteLabel: 'Želite li dodati još nešto?',
     notePlaceholder: 'Neobavezno. Dovoljna je rečenica ili dvije.',
@@ -275,7 +275,7 @@ const hr: ContactContent = {
         id: 'need',
         question: 'Što vam treba?',
         answers: [
-          { label: 'Web-stranica', projectType: 'Website' },
+          { label: 'Web stranica', projectType: 'Website' },
           { label: 'Redizajn postojeće stranice', projectType: 'Website' },
           { label: 'Grafički dizajn', projectType: 'Graphic design' },
           { label: 'Ilustracija', projectType: 'Illustration' },
