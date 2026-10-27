@@ -10,8 +10,6 @@ export interface CaseStudy {
   facts: { label: string; value: string }[];
   coversHeading: string;
   covers: string[];
-  extraHeading: string;
-  extra: string;
   visit: string;
   back: string;
 }
@@ -50,9 +48,6 @@ export const caseStudies: Record<string, { href: string; image: string; en: Case
         'Newsletter sign-up, so interested delegates can follow the news',
         'Practical information and contact',
       ],
-      extraHeading: 'The logo',
-      extra:
-        'The congress logo combines symbols of Zagreb, the Lotrščak Tower and the Manduševac well, with a Chironomus midge emerging from the well. The website explains the logo and offers it for download.',
       visit: 'Visit the website',
       back: 'All work',
     },
@@ -85,9 +80,6 @@ export const caseStudies: Record<string, { href: string; image: string; en: Case
         'Prijavu na newsletter, da zainteresirani sudionici prate novosti',
         'Praktične informacije i kontakt',
       ],
-      extraHeading: 'Logotip',
-      extra:
-        'Logotip kongresa spaja simbole Zagreba, Kulu Lotrščak i zdenac Manduševac, s kukcem roda Chironomus koji izlazi iz zdenca. Web-stranica objašnjava logotip i nudi ga za preuzimanje.',
       visit: 'Posjetite web-stranicu',
       back: 'Svi radovi',
     },
