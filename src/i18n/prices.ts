@@ -155,8 +155,8 @@ const en: PricesContent = {
       text: 'You receive a tailored quote outlining the scope and price, so you can make an informed decision and plan your budget.',
     },
     {
-      title: 'Build and handover',
-      text: 'I build the site and hand it over so your team can keep it up to date.',
+      title: 'Build and launch',
+      text: 'I build the website and publish it once you have approved it. What the handover includes depends on the project and is agreed in the quote.',
     },
   ],
   ctaHeading: 'Not sure which option is right for you?',
@@ -287,8 +287,8 @@ const hr: PricesContent = {
       text: 'Dobivate ponudu prilagođenu vašem projektu s opisom opsega i cijenom, kako biste mogli informirano odlučiti i isplanirati budžet.',
     },
     {
-      title: 'Izrada i predaja',
-      text: 'Izrađujem web-stranicu i predajem vam je tako da je vaš tim može sam ažurirati.',
+      title: 'Izrada i objava',
+      text: 'Izrađujem web-stranicu i objavljujem je nakon vašeg odobrenja. Što sve ulazi u predaju ovisi o projektu i dogovaramo to u ponudi.',
     },
   ],
   ctaHeading: 'Niste sigurni koja je opcija prava za vas?',
