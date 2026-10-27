@@ -1,0 +1,28 @@
+---
+// Small decorative icons taken from the hero machine drawing (umbrella and rocket).
+// Static by default; they move a little when the heading is hovered (parent needs class "group").
+interface Props { name: 'umbrella' | 'rocket'; }
+const { name } = Astro.props as Props;
+---
+
+{name === 'umbrella' && (
+  <svg viewBox="-40 -44 80 86" class="h-9 w-9 shrink-0 origin-bottom transition-transform duration-300 motion-safe:group-hover:-rotate-6" aria-hidden="true" focusable="false">
+    <path d="M0 -34 V34" fill="none" stroke="#1f6b5c" stroke-width="3" stroke-linecap="round" />
+    <path d="M-35 0 Q-22.75 -32 0 -32 Q22.75 -32 35 0 Q23.45 -10 11.667 0 Q0 -12 -11.667 0 Q-23.45 -10 -35 0Z" fill="#ae86ef" stroke="#1f6b5c" stroke-width="3" stroke-linejoin="round" />
+    <path d="M0 -32 Q-11.667 -19 -11.667 0 M0 -32 Q11.667 -19 11.667 0" stroke="#1f6b5c" stroke-width="2.4" stroke-linecap="round" fill="none" />
+    <circle cx="0" cy="-35" r="4.5" fill="#ad00ed" />
+  </svg>
+)}
+{name === 'rocket' && (
+  <svg viewBox="-30 -44 60 106" class="h-9 w-auto shrink-0 transition-transform duration-300 motion-safe:group-hover:-translate-y-1" aria-hidden="true" focusable="false">
+    <path d="M-8 34 Q-11 46 0 58 Q11 46 8 34Z" fill="#ad8aed" stroke="#1f6b5c" stroke-width="3" stroke-linejoin="round" />
+    <path d="M-4 34 Q-5 43 0 49 Q5 43 4 34Z" fill="#00c9df" />
+    <path d="M-13 8 Q-26 15 -26 33 L-11 25 M13 8 Q26 15 26 33 L11 25" fill="#b9a0ef" stroke="#1f6b5c" stroke-width="3" stroke-linejoin="round" />
+    <path d="M-13 28 V-7 Q-13 -27 0 -40 Q13 -27 13 -7 V28Z" fill="#e4e8f5" stroke="#1f6b5c" stroke-width="3" stroke-linejoin="round" />
+    <path d="M-12.1 -17 Q-8 -30 0 -38 Q8 -30 12.1 -17Z" fill="#ae8bea" />
+    <path d="M-12.1 -17 H12.1" stroke="#1f6b5c" stroke-width="2" />
+    <circle cx="0" cy="0" r="8" fill="#00c9df" stroke="#1f6b5c" stroke-width="3" />
+    <circle cx="0" cy="0" r="3.5" fill="#b7f1ee" />
+    <rect x="-11" y="26" width="22" height="8" rx="3" fill="#b9a0ef" stroke="#1f6b5c" stroke-width="3" />
+  </svg>
+)}

@@ -79,7 +79,7 @@ const pageKeywords = t('home.keywords');
         <h2 id="services-heading" class="font-serif text-4xl font-medium text-ink sm:text-[2.6rem]">{t('home.services.heading')}</h2>
         <a href={pageHref('/prices', locale)} class="group font-medium text-sci hover:text-sci-dark">{t('home.services.pricing')} <span class="inline-block transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true">→</span></a>
       </div>
-      <p class="-mt-4 mb-8 max-w-2xl text-ink-soft">{t('home.services.intro')}</p>
+      <p class="-mt-4 mb-8 max-w-2xl text-[15px] leading-relaxed text-ink-soft">{t('home.services.intro')}</p>
       <div class="grid border-t border-ink md:grid-cols-2">
         {services.map((service, i) => (
           <div class={`grid min-w-0 content-start gap-3 border-b border-rule py-7 ${services.length % 2 === 1 && i === services.length - 1 ? 'md:col-span-2' : i % 2 === 1 ? 'md:border-l md:pl-8' : 'md:pr-8'}`}>
@@ -121,7 +121,7 @@ const pageKeywords = t('home.keywords');
         <h2 id="about-heading" class="font-serif text-3xl font-medium leading-tight text-balance text-ink sm:text-4xl">
           {t('home.about.heading')}
         </h2>
-        <p class="text-lg leading-relaxed text-ink">
+        <p class="text-[15px] leading-relaxed text-ink">
           {t('home.about.p1')}
         </p>
         <dl class="grid grid-cols-3 gap-4 border-t border-rule pt-6">
