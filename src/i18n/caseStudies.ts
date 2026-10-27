@@ -287,6 +287,7 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
   },
   'hbd-sbc': {
     href: 'https://www.hbd-sbc.hr',
+    image: '/images/work/hbd-sbc.jpg',
     en: {
       title: 'Croatian Biological Society (HBD-SBC)',
       metaTitle: 'Croatian Biological Society Website | Renata Horvat',
@@ -294,6 +295,8 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
         'Case study: website of the Croatian Biological Society, with congress websites held every three years and online registration and uploads for student biology competitions.',
       eyebrow: 'Case study · Society · Croatia',
       lead: 'The website of the Croatian Biological Society, which also hosts the pages for the Croatian Biological Congress and the registration for student biology competitions.',
+      imageAlt: 'Home page of the Croatian Biological Society website',
+      imageCredit: 'Screenshot of the website.',
       facts: [
         { label: 'Project', value: 'Society website, congress websites and competition registration' },
         { label: 'Society', value: 'Croatian Biological Society (HBD-SBC), a voluntary, non-profit association of biologists' },
@@ -320,6 +323,8 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
         'Studija slučaja: web-stranica Hrvatskog biološkog društva, s web-stranicama kongresa koji se održava svake tri godine te online prijavom i učitavanjem radova za natjecanja učenika iz biologije.',
       eyebrow: 'Studija slučaja · Društvo · Hrvatska',
       lead: 'Web-stranica Hrvatskog biološkog društva, na kojoj su i stranice Hrvatskog biološkog kongresa te prijave za natjecanja učenika iz biologije.',
+      imageAlt: 'Početna stranica web-stranice Hrvatskog biološkog društva',
+      imageCredit: 'Snimka zaslona web-stranice.',
       facts: [
         { label: 'Projekt', value: 'Web-stranica društva, web-stranice kongresa i prijave za natjecanja' },
         { label: 'Društvo', value: 'Hrvatsko biološko društvo (HBD-SBC), dobrovoljna neprofitna udruga biologa' },
