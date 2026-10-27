@@ -33,7 +33,6 @@ const en = {
 
   'footer.tagline':
     'Websites, illustrations, ads and social media. Zagreb.',
-  'footer.message': 'Send a message →',
   'footer.location': 'Zagreb',
   'footer.privacy': 'Privacy Policy',
   'footer.legal': 'Business Details',
@@ -164,7 +163,6 @@ const hr: Record<UiKey, string> = {
 
   'footer.tagline':
     'Web-stranice, ilustracije, oglasi i društvene mreže. Zagreb.',
-  'footer.message': 'Pošaljite poruku →',
   'footer.location': 'Zagreb',
   'footer.privacy': 'Politika privatnosti',
   'footer.legal': 'Podaci o obrtu',

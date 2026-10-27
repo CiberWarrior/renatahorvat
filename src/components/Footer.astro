@@ -1,9 +1,8 @@
 ---
-import { getLocale, pageHref, stripLocale, useTranslations } from '../i18n/utils';
+import { getLocale, pageHref, useTranslations } from '../i18n/utils';
 
 const locale = getLocale(Astro.url);
 const t = useTranslations(locale);
-const hideMessageLink = stripLocale(Astro.url.pathname) === '/contact';
 ---
 
 <footer class="border-t border-rule bg-paper font-text text-ink">
@@ -13,12 +12,6 @@ const hideMessageLink = stripLocale(Astro.url.pathname) === '/contact';
         <p class="font-serif text-2xl font-medium">Renata Horvat</p>
         <p class="mt-2 max-w-md text-ink-soft">{t('footer.tagline')}</p>
       </div>
-      {!hideMessageLink && (
-        <div class="flex flex-col gap-1 text-[15px] md:items-end">
-          <a href={pageHref('/contact', locale)} class="font-medium text-sci hover:text-sci-dark">{t('footer.message')}</a>
-          <a href="mailto:screatives.info@gmail.com" class="break-all text-ink-soft hover:text-sci">screatives.info@gmail.com</a>
-        </div>
-      )}
     </div>
 
     <div class="mt-12 flex flex-col gap-3 border-t border-rule pt-6 text-sm text-ink-soft md:flex-row md:items-center md:justify-between">
