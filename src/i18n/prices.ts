@@ -66,7 +66,7 @@ const en: PricesContent = {
       pages: 'Up to 10 pages',
     },
   ],
-  compareHeading: 'What each package includes',
+  compareHeading: 'What does each package include?',
   featureColumn: 'Feature',
   included: 'Included',
   notIncluded: 'Not included',
@@ -143,7 +143,7 @@ const en: PricesContent = {
     'Help with hosting and domain names',
     'Design-only work for teams that already have a developer',
   ],
-  stepsHeading: 'How to get a quote',
+  stepsHeading: 'How do you get a quote?',
   step: 'Step',
   steps: [
     {
@@ -198,7 +198,7 @@ const hr: PricesContent = {
       pages: 'Do 10 stranica',
     },
   ],
-  compareHeading: 'Što uključuje svaki paket',
+  compareHeading: 'Što uključuje svaki paket?',
   featureColumn: 'Značajka',
   included: 'Uključeno',
   notIncluded: 'Nije uključeno',
@@ -275,7 +275,7 @@ const hr: PricesContent = {
     'Pomoć s hostingom i domenama',
     'Samo dizajn za timove koji već imaju programera',
   ],
-  stepsHeading: 'Kako do ponude',
+  stepsHeading: 'Kako do ponude?',
   step: 'Korak',
   steps: [
     {
