@@ -57,7 +57,7 @@ const en = {
   'work.intro':
     'Websites and online platforms for universities, conferences, scientific societies and organisations.',
   'work.featured': 'Featured',
-  'work.all': 'All projects',
+  'work.all': 'Projects by area',
   'work.group.conference': 'Conferences & scientific events',
   'work.group.society': 'Societies & collections',
   'work.group.elearning': 'E-textbooks',
@@ -189,7 +189,7 @@ const hr: Record<UiKey, string> = {
   'work.intro':
     'Web-stranice i online platforme za sveučilišta, konferencije, znanstvena društva i organizacije.',
   'work.featured': 'Izdvojeno',
-  'work.all': 'Svi projekti',
+  'work.all': 'Projekti po područjima',
   'work.group.conference': 'Konferencije i znanstveni skupovi',
   'work.group.society': 'Društva i zbirke',
   'work.group.elearning': 'E-udžbenici',
