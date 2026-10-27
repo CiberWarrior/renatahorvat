@@ -51,6 +51,4 @@ export const projectTitlesHr: Record<string, string> = {
   'Healthy Grape Vine - Virus Elimination': 'Zdrava loza',
   'Croatian Botanical Society': 'Hrvatsko botaničko društvo',
   'Croatian Society of Plant Biologists (HDBB)': 'Hrvatsko društvo za biljnu biologiju (HDBB)',
-  'Croatian Biological Society (HBD-SBC)': 'Hrvatsko biološko društvo (HBD-SBC)',
-  'Croatian National Diatom Collection': 'Hrvatska nacionalna zbirka dijatomeja',
 };
