@@ -78,7 +78,7 @@ const en = {
   'meta.handbook': 'Handbook · Education · HR / EN',
   'meta.collection': 'Collection · Faculty of Science',
 
-  'home.services.heading': 'What I do',
+  'home.services.heading': 'What do I do?',
   'home.services.pricing': 'Pricing',
   'home.services.intro':
     'Websites are my main work. Alongside them I also do visuals and ads, when your project needs them.',
@@ -210,7 +210,7 @@ const hr: Record<UiKey, string> = {
   'meta.handbook': 'Priručnik · Edukacija · HR / EN',
   'meta.collection': 'Zbirka · PMF',
 
-  'home.services.heading': 'Što radim',
+  'home.services.heading': 'Što radim?',
   'home.services.pricing': 'Cjenik',
   'home.services.intro':
     'Web-stranice su moj glavni posao. Uz njih radim i vizuale te oglase, kad vašem projektu zatrebaju.',
