@@ -72,7 +72,6 @@ const en: PricesContent = {
   notIncluded: 'Not included',
   rows: [
     { label: 'Pages', values: ['1', 'Up to 5', 'Up to 10'] },
-    { label: 'Rounds of revisions after you see the design', values: ['2', '2', '2'] },
     { label: 'Contact form', values: [true, true, true] },
     { label: 'Logos', values: [true, true, true] },
     { label: 'Connecting your own web address', values: [true, true, true] },
@@ -202,7 +201,6 @@ const hr: PricesContent = {
   notIncluded: 'Nije uključeno',
   rows: [
     { label: 'Stranice', values: ['1', 'Do 5', 'Do 10'] },
-    { label: 'Krugovi izmjena nakon što vidite dizajn', values: ['2', '2', '2'] },
     { label: 'Kontaktni obrazac', values: [true, true, true] },
     { label: 'Logotipi', values: [true, true, true] },
     { label: 'Povezivanje vaše web adrese', values: [true, true, true] },
