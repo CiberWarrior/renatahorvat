@@ -154,9 +154,9 @@ const host = (href: string) => {
               {group.items.map((project) => (
                 <li>
                   <a
-                    href={project.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href={project.caseStudySlug ? pageHref(`/work/${project.caseStudySlug}`, locale) : project.href}
+                    target={project.caseStudySlug ? undefined : '_blank'}
+                    rel={project.caseStudySlug ? undefined : 'noopener noreferrer'}
                     title={host(project.href)}
                     class="group flex items-baseline justify-between gap-3 rounded-sm py-1.5 text-[15px] leading-snug text-ink transition-colors hover:text-sci"
                     onclick={`if(typeof window.gtag !== 'undefined') window.gtag('event', 'project_view', { project_title: ${JSON.stringify(project.title)}, project_url: ${JSON.stringify(project.href)} })`}

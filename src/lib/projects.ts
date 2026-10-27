@@ -199,6 +199,7 @@ export const projects: Project[] = [
   },
   {
     title: 'Croatian Biological Society (HBD-SBC)',
+    caseStudySlug: 'hbd-sbc',
     summary:
       'Official website of the Croatian Biological Society, supporting scientific work in biology, education advancement, and nature conservation. Features congresses, competitions, and professional activities.',
     href: 'https://www.hbd-sbc.hr/',

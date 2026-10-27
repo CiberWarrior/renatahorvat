@@ -6,8 +6,8 @@ export interface CaseStudy {
   description: string;
   eyebrow: string;
   lead: string;
-  imageAlt: string;
-  imageCredit: string;
+  imageAlt?: string;
+  imageCredit?: string;
   facts: { label: string; value: string }[];
   coversHeading: string;
   covers: string[];
@@ -16,7 +16,7 @@ export interface CaseStudy {
 }
 
 // Facts here come from the live website (icd11.biol.pmf.hr). No results or numbers are claimed.
-export const caseStudies: Record<string, { href: string; image: string; en: CaseStudy; hr: CaseStudy }> = {
+export const caseStudies: Record<string, { href: string; image?: string; en: CaseStudy; hr: CaseStudy }> = {
   icd11: {
     href: 'https://icd11.biol.pmf.hr',
     image: '/images/work/icd11.jpg',
@@ -278,6 +278,61 @@ export const caseStudies: Record<string, { href: string; image: string; en: Case
         'Svako poglavlje kao samostalnu cjelinu s jasnim ciljevima',
         'Provjeru znanja iz svih poglavlja',
         'Rječnik i pretragu',
+      ],
+      visit: 'Posjetite web-stranicu',
+      back: 'Svi radovi',
+    },
+  },
+  'hbd-sbc': {
+    href: 'https://www.hbd-sbc.hr',
+    en: {
+      title: 'Croatian Biological Society (HBD-SBC)',
+      metaTitle: 'Croatian Biological Society Website | Renata Horvat',
+      description:
+        'Case study: website of the Croatian Biological Society, with congress websites held every three years and online registration and uploads for student biology competitions.',
+      eyebrow: 'Case study · Society · Croatia',
+      lead: 'The website of the Croatian Biological Society, which also hosts the pages for the Croatian Biological Congress and the registration for student biology competitions.',
+      facts: [
+        { label: 'Project', value: 'Society website, congress websites and competition registration' },
+        { label: 'Society', value: 'Croatian Biological Society (HBD-SBC), a voluntary, non-profit association of biologists' },
+        { label: 'Language', value: 'Croatian' },
+        { label: 'My role', value: 'Web design and development' },
+      ],
+      coversHeading: 'What the website covers',
+      covers: [
+        'News, information about the society, membership and contact',
+        'The Croatian Biological Congress, held every three years, with a website for each congress',
+        'Student competitions in biology, where students register and upload their work online',
+        'Bioznalac, student research',
+        'The Zdravko Lorković plaque, awarded for contributions to biology',
+        'Educatio Biologiae, support for teaching biology',
+        'Lectures and expert meetings',
+      ],
+      visit: 'Visit the website',
+      back: 'All work',
+    },
+    hr: {
+      title: 'Hrvatsko biološko društvo (HBD-SBC)',
+      metaTitle: 'Web-stranica Hrvatskog biološkog društva | Renata Horvat',
+      description:
+        'Studija slučaja: web-stranica Hrvatskog biološkog društva, s web-stranicama kongresa koji se održava svake tri godine te online prijavom i učitavanjem radova za natjecanja učenika iz biologije.',
+      eyebrow: 'Studija slučaja · Društvo · Hrvatska',
+      lead: 'Web-stranica Hrvatskog biološkog društva, na kojoj su i stranice Hrvatskog biološkog kongresa te prijave za natjecanja učenika iz biologije.',
+      facts: [
+        { label: 'Projekt', value: 'Web-stranica društva, web-stranice kongresa i prijave za natjecanja' },
+        { label: 'Društvo', value: 'Hrvatsko biološko društvo (HBD-SBC), dobrovoljna neprofitna udruga biologa' },
+        { label: 'Jezik', value: 'Hrvatski' },
+        { label: 'Moja uloga', value: 'Dizajn i izrada web-stranice' },
+      ],
+      coversHeading: 'Što web-stranica sadrži',
+      covers: [
+        'Novosti, informacije o društvu, članstvo i kontakt',
+        'Hrvatski biološki kongres, koji se održava svake tri godine, s web-stranicom za svaki kongres',
+        'Natjecanja učenika iz biologije, na kojima se učenici prijavljuju i učitavaju radove online',
+        'Bioznalac, učenička istraživanja',
+        'Plaketu Zdravko Lorković za doprinos biologiji',
+        'Educatio Biologiae, podršku poučavanju biologije',
+        'Predavanja i stručne skupove',
       ],
       visit: 'Posjetite web-stranicu',
       back: 'Svi radovi',

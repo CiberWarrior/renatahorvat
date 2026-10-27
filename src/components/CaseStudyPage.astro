@@ -62,12 +62,14 @@ const structuredData = {
     <section class="py-14 sm:py-16">
       <div class="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-[1.3fr_1fr] lg:gap-16">
         <div class="space-y-12">
-          <figure class="space-y-2">
-            <div class="overflow-hidden rounded-xl border border-rule bg-surface p-2">
-              <img src={study.image} alt={c.imageAlt} width="1600" height="771" decoding="async" class="aspect-[16/9] w-full rounded-lg object-cover object-top" />
-            </div>
-            <figcaption class="text-sm text-ink-soft">{c.imageCredit}</figcaption>
-          </figure>
+          {study.image && (
+            <figure class="space-y-2">
+              <div class="overflow-hidden rounded-xl border border-rule bg-surface p-2">
+                <img src={study.image} alt={c.imageAlt ?? ''} width="1600" height="771" decoding="async" class="aspect-[16/9] w-full rounded-lg object-cover object-top" />
+              </div>
+              {c.imageCredit && <figcaption class="text-sm text-ink-soft">{c.imageCredit}</figcaption>}
+            </figure>
+          )}
 
           <div class="space-y-4">
             <h2 class="font-serif text-3xl font-medium text-ink">{c.coversHeading}</h2>
