@@ -66,7 +66,7 @@ const en: PricesContent = {
       pages: 'Up to 10 pages',
     },
   ],
-  compareHeading: 'What does each package include?',
+  compareHeading: 'What does a package usually include?',
   featureColumn: 'Feature',
   included: 'Included',
   notIncluded: 'Not included',
@@ -84,8 +84,7 @@ const en: PricesContent = {
     { label: 'Extra setup to help Google understand the site', values: [false, false, true] },
   ],
   notes: [
-    'I build websites so that they work well on phones.',
-    'Work outside the package scope is quoted separately. All prices are stated in euros.',
+    'The exact scope is agreed for each project. Work outside the package scope is quoted separately. All prices are stated in euros.',
     'Advertising spend is separate from design and campaign management fees and is agreed before work begins.',
   ],
   scopedHeading: 'Projects quoted individually',
@@ -150,8 +149,8 @@ const en: PricesContent = {
       text: 'We talk through what you need. You do not need a detailed brief, and there is no obligation to proceed.',
     },
     {
-      title: 'Written quote',
-      text: 'You receive a tailored quote outlining the scope and price, so you can make an informed decision and plan your budget.',
+      title: 'Quote',
+      text: 'After we talk, I prepare a quote for your project so you can decide and plan your budget more easily.',
     },
     {
       title: 'Build and launch',
@@ -159,7 +158,7 @@ const en: PricesContent = {
     },
   ],
   ctaHeading: 'Not sure which option is right for you?',
-  ctaText: "Tell me a little about your project and I'll suggest the option that fits best.",
+  ctaText: 'Tell me a few words about your project and we will work out together what makes sense.',
 };
 
 // Croatian draft. Amounts are the same as in English; only the number format is Croatian (1.000 €).
@@ -197,7 +196,7 @@ const hr: PricesContent = {
       pages: 'Do 10 stranica',
     },
   ],
-  compareHeading: 'Što uključuje svaki paket?',
+  compareHeading: 'Što paket obično uključuje?',
   featureColumn: 'Značajka',
   included: 'Uključeno',
   notIncluded: 'Nije uključeno',
@@ -215,8 +214,7 @@ const hr: PricesContent = {
     { label: 'Dodatna podešavanja kako bi Google lakše razumio stranicu', values: [false, false, true] },
   ],
   notes: [
-    'Web stranice izrađujem tako da dobro rade na mobitelima.',
-    'Za rad izvan opsega paketa izrađuje se zasebna ponuda. Sve cijene izražene su u eurima.',
+    'Točan opseg dogovaramo za svaki projekt. Za rad izvan opsega paketa izrađuje se zasebna ponuda. Sve cijene izražene su u eurima.',
     'Budžet za oglašavanje odvojen je od naknade za dizajn i vođenje kampanja te se dogovara prije početka rada.',
   ],
   scopedHeading: 'Projekti s individualnom ponudom',
@@ -281,8 +279,8 @@ const hr: PricesContent = {
       text: 'Razgovaramo o tome što trebate. Ne treba vam detaljan opis projekta i ne obvezujete se na nastavak suradnje.',
     },
     {
-      title: 'Pisana ponuda',
-      text: 'Dobivate ponudu prilagođenu vašem projektu s opisom opsega i cijenom, kako biste mogli informirano odlučiti i isplanirati budžet.',
+      title: 'Ponuda',
+      text: 'Nakon razgovora pripremam ponudu za vaš projekt, da lakše odlučite i planirate budžet.',
     },
     {
       title: 'Izrada i objava',
@@ -290,7 +288,7 @@ const hr: PricesContent = {
     },
   ],
   ctaHeading: 'Niste sigurni koja je opcija prava za vas?',
-  ctaText: 'Napišite mi nekoliko riječi o svom projektu, a ja ću vam predložiti opciju koja vam najbolje odgovara.',
+  ctaText: 'Napišite mi nekoliko riječi o svom projektu, a zajedno ćemo vidjeti što ima smisla.',
 };
 
 export const pricesContent: Record<Locale, PricesContent> = { en, hr };
