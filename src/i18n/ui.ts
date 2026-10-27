@@ -76,7 +76,7 @@ const en = {
   'home.services.heading': 'What do I do?',
   'home.services.pricing': 'Pricing',
   'home.services.intro':
-    'Websites are my main work. Alongside them I also do visuals and ads, when your project needs them.',
+    'Websites are my main work. Alongside them I also do illustrations and ads, when your project needs them.',
   'home.services.web.title': 'Web design & build',
   'home.services.web.text':
     'Clear, distinctive websites for scientists, educators, institutions and small businesses.',
@@ -203,7 +203,7 @@ const hr: Record<UiKey, string> = {
   'home.services.heading': 'Što radim?',
   'home.services.pricing': 'Cjenik',
   'home.services.intro':
-    'Web stranice su moj glavni posao. Uz njih radim i vizuale te oglase, kad vašem projektu zatrebaju.',
+    'Web stranice su moj glavni posao. Uz njih radim ilustracije i oglase, kad vašem projektu zatrebaju.',
   'home.services.web.title': 'Dizajn i izrada web stranica',
   'home.services.web.text':
     'Jasne, prepoznatljive web stranice za znanstvenike, edukatore, ustanove i male tvrtke.',
