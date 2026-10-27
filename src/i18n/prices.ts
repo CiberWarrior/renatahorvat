@@ -164,16 +164,16 @@ const en: PricesContent = {
 
 // Croatian draft. Amounts are the same as in English; only the number format is Croatian (1.000 €).
 const hr: PricesContent = {
-  title: 'Cjenik izrade web-stranica | Renata Horvat',
+  title: 'Cjenik izrade web stranica | Renata Horvat',
   description:
-    'Cijene web-stranica od 500 € za istraživačke projekte, društva i ustanove. Za ostale web-stranice, dizajn i oglašavanje izrađujem individualnu ponudu. Zagreb, Hrvatska.',
+    'Cijene web stranica od 500 € za istraživačke projekte, društva i ustanove. Za ostale web stranice, dizajn i oglašavanje izrađujem individualnu ponudu. Zagreb, Hrvatska.',
   keywords:
-    'cijena akademske web-stranice, cijena web-stranice znanstvenog društva, cijena web-stranice konferencije, cijena platforme za e-učenje, web-stranica istraživačkog projekta, cijene web dizajna Hrvatska, cijena web-stranice Zagreb',
+    'cijena akademske web stranice, cijena web stranice znanstvenog društva, cijena web stranice konferencije, cijena platforme za e-učenje, web stranica istraživačkog projekta, cijene web dizajna Hrvatska, cijena web stranice Zagreb',
   eyebrow: 'Cjenik',
-  heading: 'Web-stranica prema mjeri vašeg projekta',
+  heading: 'Web stranica prema mjeri vašeg projekta',
   intro:
-    'Svaki projekt ima svoje ciljeve, sadržaj i zahtjeve. Ova tri paketa daju vam okvirni pregled mogućnosti i troškova kako biste lakše planirali budžet. Osmišljeni su za istraživačke projekte, znanstvena društva i ustanove, a opseg izrade prilagođavam vašim potrebama. Za web-stranice malih tvrtki i druge projekte pripremam individualnu ponudu nakon kratkog razgovora o tome što želite postići.',
-  packagesHeading: 'Paketi web-stranica',
+    'Svaki projekt ima svoje ciljeve, sadržaj i zahtjeve. Ova tri paketa daju vam okvirni pregled mogućnosti i troškova kako biste lakše planirali budžet. Osmišljeni su za istraživačke projekte, znanstvena društva i ustanove, a opseg izrade prilagođavam vašim potrebama. Za web stranice malih tvrtki i druge projekte pripremam individualnu ponudu nakon kratkog razgovora o tome što želite postići.',
+  packagesHeading: 'Paketi web stranica',
   mostCommon: 'Najčešći izbor',
   from: 'od ',
   quote: 'Zatražite ponudu',
@@ -185,15 +185,15 @@ const hr: PricesContent = {
       pages: '1 stranica',
     },
     {
-      name: 'Web-stranica društva ili istraživačke skupine',
+      name: 'Web stranica društva ili istraživačke skupine',
       price: '1.000 €',
-      for: 'Višestranična web-stranica za znanstveno društvo ili istraživačku skupinu.',
+      for: 'Višestranična web stranica za znanstveno društvo ili istraživačku skupinu.',
       pages: 'Do 5 stranica',
     },
     {
-      name: 'Web-stranica odsjeka ili ustanove',
+      name: 'Web stranica odsjeka ili ustanove',
       price: '1.800 €',
-      for: 'Veća web-stranica za različite skupine posjetitelja.',
+      for: 'Veća web stranica za različite skupine posjetitelja.',
       pages: 'Do 10 stranica',
     },
   ],
@@ -215,7 +215,7 @@ const hr: PricesContent = {
     { label: 'Dodatna podešavanja kako bi Google lakše razumio stranicu', values: [false, false, true] },
   ],
   notes: [
-    'Svaki paket uključuje besplatne početne konzultacije i brzu web-stranicu koja dobro radi na mobitelima i slijedi smjernice pristupačnosti (WCAG 2.1 AA), kako bi je mogle koristiti i osobe s invaliditetom.',
+    'Svaki paket uključuje besplatne početne konzultacije i brzu web stranicu koja dobro radi na mobitelima i slijedi smjernice pristupačnosti (WCAG 2.1 AA), kako bi je mogle koristiti i osobe s invaliditetom.',
     'Za rad izvan opsega paketa izrađuje se zasebna ponuda. Sve cijene izražene su u eurima. Hrvatski PDV se ne obračunava. Za međunarodne klijente način obračuna PDV-a navodi se na računu.',
     'Budžet za oglašavanje odvojen je od naknade za dizajn i vođenje kampanja te se dogovara prije početka rada.',
   ],
@@ -225,7 +225,7 @@ const hr: PricesContent = {
   dependsOn: 'Cijena ovisi o',
   scoped: [
     {
-      name: 'Web-stranice konferencija i kongresa',
+      name: 'Web stranice konferencija i kongresa',
       text: 'Program, predavači, registracija i prijava sažetaka.',
       factors: [
         'Registraciji i online plaćanju',
@@ -286,7 +286,7 @@ const hr: PricesContent = {
     },
     {
       title: 'Izrada i objava',
-      text: 'Izrađujem web-stranicu i objavljujem je nakon vašeg odobrenja.',
+      text: 'Izrađujem web stranicu i objavljujem je nakon vašeg odobrenja.',
     },
   ],
   ctaHeading: 'Niste sigurni koja je opcija prava za vas?',
