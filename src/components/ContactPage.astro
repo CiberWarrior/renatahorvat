@@ -155,11 +155,14 @@ const whatsappUrl = getWhatsappUrl(locale);
             class="group inline-flex min-h-12 items-center justify-center gap-3 rounded-md border border-sci/40 bg-surface py-2 pl-2.5 pr-5 font-medium text-ink transition-colors hover:border-sci hover:bg-sci-soft hover:text-sci"
           >
             <span class="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-sci-soft transition-colors group-hover:bg-surface" aria-hidden="true">
-              <svg viewBox="-15 -15 30 30" class="h-6 w-6 transition-transform duration-300 motion-safe:group-hover:rotate-12 motion-safe:group-hover:scale-110" focusable="false">
+              <svg viewBox="0 0 32 32" class="h-6 w-6 transition-transform duration-300 motion-safe:group-hover:-rotate-6 motion-safe:group-hover:scale-110" focusable="false">
                 <defs>
-                  <linearGradient id="contact-quiz-star" x2=".4" y2="1"><stop stop-color="#bd00fa" /><stop offset=".48" stop-color="#4338ff" /><stop offset="1" stop-color="#00cedf" /></linearGradient>
+                  <linearGradient id="contact-quiz-bulb" x1="0" y1="0" x2=".5" y2="1"><stop stop-color="#bd00fa" /><stop offset=".5" stop-color="#4338ff" /><stop offset="1" stop-color="#00cedf" /></linearGradient>
                 </defs>
-                <path d="M0 -11 Q2 -11 4 -4 L11 -3 Q14 -2 10 2 L6 6 L7 12 Q7 14 3 12 L0 10 L-7 13 Q-10 14 -9 9 L-7 3 L-12 -2 Q-14 -5 -9 -5 L-4 -5Z" fill="url(#contact-quiz-star)" />
+                <path d="M16 3C10.5 3 6.5 7 6.5 12c0 3.2 1.7 5.4 3.3 7 1 1 1.4 1.8 1.4 3v1h9.6v-1c0-1.2.4-2 1.4-3 1.6-1.6 3.3-3.8 3.3-7C25.5 7 21.5 3 16 3Z" fill="url(#contact-quiz-bulb)" />
+                <path d="M11.6 11.2c.3-2.4 2-4 3.9-4.4" fill="none" stroke="#fff" stroke-opacity=".65" stroke-width="1.7" stroke-linecap="round" />
+                <rect x="11.5" y="24.2" width="9" height="2.4" rx="1.2" fill="#15211e" />
+                <rect x="13" y="27.4" width="6" height="2.2" rx="1.1" fill="#15211e" />
               </svg>
             </span>
             {t('nav.start')} <span class="inline-block transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true">→</span>
