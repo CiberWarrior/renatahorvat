@@ -16,11 +16,10 @@ const en = {
   'nav.language': 'Language',
 
   'hero.eyebrow': 'Web design · Zagreb',
-  'hero.titleStart': 'Websites for researchers, educators and ',
-  'hero.titleEmphasis': 'institutions',
-  'hero.caption': 'From first idea to finished website.',
+  'hero.titleStart': 'From idea to ',
+  'hero.titleEmphasis': 'website',
   'hero.text':
-    'I design and build websites for researchers, educators, institutions and small businesses. From your initial materials through to launch, I help you identify what matters, organise your content and present what you do.',
+    'I design and build websites for scientists, educators, institutions and small businesses. From your initial materials through to launch, I help you identify what matters, organise your content and present what you do.',
   'hero.viewWork': 'See selected work',
   'hero.talk': 'Talk about a project',
 
@@ -68,7 +67,7 @@ const en = {
 
   'home.title': 'Website Design in Zagreb | Renata Horvat',
   'home.description':
-    'Website design in Zagreb: clear, fast websites for researchers, educators, institutions and small businesses. Over 20 years of experience.',
+    'Website design in Zagreb: clear, fast websites for scientists, educators, institutions and small businesses. Over 20 years of experience.',
   'home.keywords':
     'web designer Zagreb, web design Croatia, conference website, society website, university website, small business website, graphic designer Zagreb, Renata Horvat',
 
@@ -84,7 +83,7 @@ const en = {
     'Websites are my main work. Alongside them I also do visuals and ads, when your project needs them.',
   'home.services.web.title': 'Web design & build',
   'home.services.web.text':
-    'Clear, distinctive websites for researchers, educators, institutions and small businesses.',
+    'Clear, distinctive websites for scientists, educators, institutions and small businesses.',
   'home.services.web.item1': 'Business, conference and society websites',
   'home.services.web.item2': 'Online textbooks and learning resources',
   'home.services.web.item3': 'Searchable collections and research tools',
@@ -148,11 +147,10 @@ const hr: Record<UiKey, string> = {
   'nav.language': 'Jezik',
 
   'hero.eyebrow': 'Izrada web-stranica · Zagreb',
-  'hero.titleStart': 'Web-stranice za istraživače, edukatore i ',
-  'hero.titleEmphasis': 'ustanove',
-  'hero.caption': 'Od prve ideje do gotove web-stranice.',
+  'hero.titleStart': 'Od ideje do ',
+  'hero.titleEmphasis': 'weba',
   'hero.text':
-    'Osmišljavam i izrađujem web-stranice za istraživače, edukatore, ustanove i male tvrtke. Od prvih materijala do objave pomažem vam razraditi što je važno, organizirati sadržaj i predstaviti ono što radite.',
+    'Osmišljavam i izrađujem web-stranice za znanstvenike, edukatore, ustanove i male tvrtke. Od prvih materijala do objave pomažem vam razraditi što je važno, organizirati sadržaj i predstaviti ono što radite.',
   'hero.viewWork': 'Pogledajte odabrane radove',
   'hero.talk': 'Razgovarajmo o projektu',
 
@@ -200,7 +198,7 @@ const hr: Record<UiKey, string> = {
 
   'home.title': 'Izrada web-stranica Zagreb | Renata Horvat',
   'home.description':
-    'Izrada web-stranica u Zagrebu: jasne i brze web-stranice za istraživače, edukatore, ustanove i male tvrtke. Više od 20 godina iskustva.',
+    'Izrada web-stranica u Zagrebu: jasne i brze web-stranice za znanstvenike, edukatore, ustanove i male tvrtke. Više od 20 godina iskustva.',
   'home.keywords':
     'web dizajner Zagreb, web dizajn Hrvatska, web-stranica za konferenciju, web-stranica za društvo, web-stranica za sveučilište, web-stranica za malu tvrtku, grafički dizajner Zagreb, Renata Horvat',
 
@@ -216,7 +214,7 @@ const hr: Record<UiKey, string> = {
     'Web-stranice su moj glavni posao. Uz njih radim i vizuale te oglase, kad vašem projektu zatrebaju.',
   'home.services.web.title': 'Dizajn i izrada web-stranica',
   'home.services.web.text':
-    'Jasne, prepoznatljive web-stranice za istraživače, edukatore, ustanove i male tvrtke.',
+    'Jasne, prepoznatljive web-stranice za znanstvenike, edukatore, ustanove i male tvrtke.',
   'home.services.web.item1': 'Web-stranice tvrtki, konferencija i društava',
   'home.services.web.item2': 'Mrežni udžbenici i obrazovni sadržaji',
   'home.services.web.item3': 'Pretražive zbirke i istraživački alati',
