@@ -15,7 +15,7 @@ const en = {
   'nav.mobile': 'Mobile navigation',
   'nav.language': 'Language',
 
-  'hero.eyebrow': 'Web designer · Zagreb',
+  'hero.eyebrow': 'Web design · Zagreb',
   'hero.titleStart': 'Websites for researchers, educators and ',
   'hero.titleEmphasis': 'institutions',
   'hero.caption': 'From first idea to finished website.',
@@ -146,7 +146,7 @@ const hr: Record<UiKey, string> = {
   'nav.mobile': 'Mobilni izbornik',
   'nav.language': 'Jezik',
 
-  'hero.eyebrow': 'Dizajnerica web-stranica · Zagreb',
+  'hero.eyebrow': 'Izrada web-stranica · Zagreb',
   'hero.titleStart': 'Web-stranice za istraživače, edukatore i ',
   'hero.titleEmphasis': 'ustanove',
   'hero.caption': 'Od prve ideje do gotove web-stranice.',
