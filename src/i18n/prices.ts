@@ -33,7 +33,7 @@ export interface PricesContent {
 }
 
 const en: PricesContent = {
-  title: 'Pricing – Renata Horvat | Web Design Zagreb',
+  title: 'Website Design Pricing | Renata Horvat',
   description:
     'Website prices from €500 for research projects, societies and institutions. Other websites, design and advertising are quoted individually. Zagreb, Croatia.',
   keywords:
@@ -165,7 +165,7 @@ const en: PricesContent = {
 
 // Croatian draft. Amounts are the same as in English; only the number format is Croatian (1.000 €).
 const hr: PricesContent = {
-  title: 'Cjenik – Renata Horvat | Web dizajn Zagreb',
+  title: 'Cjenik izrade web-stranica | Renata Horvat',
   description:
     'Cijene web-stranica od 500 € za istraživačke projekte, društva i ustanove. Za ostale web-stranice, dizajn i oglašavanje izrađujem individualnu ponudu. Zagreb, Hrvatska.',
   keywords:

@@ -47,7 +47,7 @@ const en = {
   'unit.projects.few': 'projects',
   'unit.projects.many': 'projects',
 
-  'work.title': 'Work – Renata Horvat | Web Design Portfolio Croatia',
+  'work.title': 'Work – Website Design Portfolio | Renata Horvat',
   'work.description':
     'Selected projects by Renata Horvat: websites and platforms for conferences, scientific societies, universities and small businesses.',
   'work.keywords':
@@ -65,9 +65,9 @@ const en = {
   'work.cta.text':
     'Send me a few lines about your project or idea. We can work out the next steps together.',
 
-  'home.title': 'Renata Horvat – Web Designer | Zagreb',
+  'home.title': 'Website Design in Zagreb | Renata Horvat',
   'home.description':
-    'Web designer in Zagreb with over 20 years of experience. Clear, fast websites for researchers, educators, institutions and small businesses.',
+    'Website design in Zagreb: clear, fast websites for researchers, educators, institutions and small businesses. Over 20 years of experience.',
   'home.keywords':
     'web designer Zagreb, web design Croatia, conference website, society website, university website, small business website, graphic designer Zagreb, Renata Horvat',
 
@@ -178,7 +178,7 @@ const hr: Record<UiKey, string> = {
   'unit.projects.few': 'projekta',
   'unit.projects.many': 'projekata',
 
-  'work.title': 'Radovi – Renata Horvat | Portfolio web dizajna, Hrvatska',
+  'work.title': 'Radovi – izrada web-stranica | Renata Horvat',
   'work.description':
     'Odabrani projekti Renate Horvat: web-stranice i platforme za konferencije, znanstvena društva, sveučilišta i male tvrtke.',
   'work.keywords':
@@ -196,9 +196,9 @@ const hr: Record<UiKey, string> = {
   'work.cta.text':
     'Pošaljite mi nekoliko redaka o svom projektu ili ideji. Zajedno možemo dogovoriti sljedeće korake.',
 
-  'home.title': 'Renata Horvat – Dizajnerica web-stranica | Zagreb',
+  'home.title': 'Izrada web-stranica Zagreb | Renata Horvat',
   'home.description':
-    'Dizajnerica web-stranica iz Zagreba s više od 20 godina iskustva. Jasne, brze web-stranice za istraživače, edukatore, ustanove i male tvrtke.',
+    'Izrada web-stranica u Zagrebu: jasne i brze web-stranice za istraživače, edukatore, ustanove i male tvrtke. Više od 20 godina iskustva.',
   'home.keywords':
     'web dizajner Zagreb, web dizajn Hrvatska, web-stranica za konferenciju, web-stranica za društvo, web-stranica za sveučilište, web-stranica za malu tvrtku, grafički dizajner Zagreb, Renata Horvat',
 
