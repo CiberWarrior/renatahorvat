@@ -6,7 +6,7 @@ import Footer from '../components/Footer.astro';
 import CaseCard from '../components/CaseCard.astro';
 import ContactCta from '../components/ContactCta.astro';
 import { projects } from '../lib/projects';
-import { projectRolesHr } from '../i18n/projects';
+import { projectRolesHr, projectTitlesHr } from '../i18n/projects';
 import { getLocale, pageHref, useTranslations } from '../i18n/utils';
 
 const locale = getLocale(Astro.url);
@@ -21,7 +21,8 @@ const previewProjects = previews.flatMap(({ title, meta }) => {
   const project = projects.find((p) => p.title === title);
   if (!project?.image) return [];
   const role = locale === 'hr' ? projectRolesHr[title] ?? project.role : project.role;
-  return [{ ...project, image: project.image, role, meta }];
+  const displayTitle = locale === 'hr' ? projectTitlesHr[title] ?? title : title;
+  return [{ ...project, displayTitle, image: project.image, role, meta }];
 });
 
 const services = (['web', 'graphic', 'ads'] as const).map((key) => ({
@@ -57,7 +58,7 @@ const pageKeywords = t('home.keywords');
       <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {previewProjects.map((project) => (
           <CaseCard
-            title={project.title}
+            title={project.displayTitle}
             href={project.href}
             caseHref={project.caseStudySlug ? pageHref(`/work/${project.caseStudySlug}`, locale) : undefined}
             image={project.image}
