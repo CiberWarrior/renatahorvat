@@ -139,6 +139,7 @@ export const projects: Project[] = [
     category: 'other',
     featured: true,
     image: '/images/work/herbarium.jpg',
+    caseStudySlug: 'herbarium',
     role: 'A searchable website presenting the collections and work of a university herbarium.',
   },
   {
@@ -162,6 +163,7 @@ export const projects: Project[] = [
     category: 'society',
     featured: true,
     image: '/images/work/feps.jpg',
+    caseStudySlug: 'feps',
     role: 'Society website for news, membership and symposia across Europe.',
   },
   {
@@ -195,6 +197,7 @@ export const projects: Project[] = [
     category: 'society',
     featured: true,
     image: '/images/work/diatoms.jpg',
+    caseStudySlug: 'diatoms',
     role: 'Digital collection of Croatian diatoms: species database, specimens and research materials.',
   },
   {
