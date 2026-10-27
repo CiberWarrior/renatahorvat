@@ -20,7 +20,6 @@ const en = {
   'hero.titleEmphasis': 'website',
   'hero.text':
     'I design and build websites for scientists, educators, institutions and small businesses. From your initial materials through to launch, I help you identify what matters, organise your content and present what you do.',
-  'hero.viewWork': 'See selected work',
   'hero.talk': 'Talk about a project',
 
   'cta.heading': 'Have a project in mind?',
@@ -151,7 +150,6 @@ const hr: Record<UiKey, string> = {
   'hero.titleEmphasis': 'weba',
   'hero.text':
     'Osmišljavam i izrađujem web-stranice za znanstvenike, edukatore, ustanove i male tvrtke. Od prvih materijala do objave pomažem vam razraditi što je važno, organizirati sadržaj i predstaviti ono što radite.',
-  'hero.viewWork': 'Pogledajte odabrane radove',
   'hero.talk': 'Razgovarajmo o projektu',
 
   'cta.heading': 'Imate projekt na umu?',
