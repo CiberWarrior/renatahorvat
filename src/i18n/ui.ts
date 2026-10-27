@@ -19,7 +19,7 @@ const en = {
   'hero.titleStart': 'From idea to ',
   'hero.titleEmphasis': 'website',
   'hero.text':
-    'I design and build websites for researchers, educators, institutions and small businesses. From your initial materials through to launch, I help you identify what matters, organise your content and present what you do.',
+    'I design and build websites for scientists, educators, institutions and small businesses. From your initial materials through to launch, I help you identify what matters, organise your content and present what you do.',
   'hero.viewWork': 'See selected work',
   'hero.talk': 'Talk about a project',
 
@@ -67,7 +67,7 @@ const en = {
 
   'home.title': 'Website Design in Zagreb | Renata Horvat',
   'home.description':
-    'Website design in Zagreb: clear, fast websites for researchers, educators, institutions and small businesses. Over 20 years of experience.',
+    'Website design in Zagreb: clear, fast websites for scientists, educators, institutions and small businesses. Over 20 years of experience.',
   'home.keywords':
     'web designer Zagreb, web design Croatia, conference website, society website, university website, small business website, graphic designer Zagreb, Renata Horvat',
 
@@ -83,7 +83,7 @@ const en = {
     'Websites are my main work. Alongside them I also do visuals and ads, when your project needs them.',
   'home.services.web.title': 'Web design & build',
   'home.services.web.text':
-    'Clear, distinctive websites for researchers, educators, institutions and small businesses.',
+    'Clear, distinctive websites for scientists, educators, institutions and small businesses.',
   'home.services.web.item1': 'Business, conference and society websites',
   'home.services.web.item2': 'Online textbooks and learning resources',
   'home.services.web.item3': 'Searchable collections and research tools',
