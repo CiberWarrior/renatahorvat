@@ -30,7 +30,6 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
       eyebrow: 'Case study · Congress · Zagreb 2027',
       lead: 'A website for the 11th International Congress of Dipterology, taking place in Zagreb, Croatia, from 11 to 16 July 2027.',
       imageAlt: 'Home page of the ICD11 congress website',
-      imageCredit: 'The logo and photographs are not my work.',
       facts: [
         { label: 'Project', value: 'Congress website' },
         { label: 'Event', value: '11th International Congress of Dipterology (ICDXI)' },
@@ -63,7 +62,6 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
       eyebrow: 'Studija slučaja · Kongres · Zagreb 2027.',
       lead: 'Web stranica XI. međunarodnog kongresa dipterologije, koji se održava u Zagrebu od 11. do 16. srpnja 2027.',
       imageAlt: 'Početna stranica web stranice kongresa ICD11',
-      imageCredit: 'Logotip i fotografije nisu moj rad.',
       facts: [
         { label: 'Projekt', value: 'Web stranica kongresa' },
         { label: 'Događaj', value: 'XI. međunarodni kongres dipterologije (ICDXI)' },
@@ -100,7 +98,6 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
       eyebrow: 'Case study · Symposium · Zagreb 2027',
       lead: 'A website for the 19th International Symposium on Trichoptera, taking place in Zagreb, Croatia, from 19 to 23 July 2027.',
       imageAlt: 'Home page of the IST 2027 symposium website',
-      imageCredit: 'The logo is not my work.',
       facts: [
         { label: 'Project', value: 'Symposium website' },
         { label: 'Event', value: '19th International Symposium on Trichoptera (IST 2027)' },
@@ -133,7 +130,6 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
       eyebrow: 'Studija slučaja · Simpozij · Zagreb 2027.',
       lead: 'Web stranica 19. međunarodnog simpozija o Trichopterama, koji se održava u Zagrebu od 19. do 23. srpnja 2027.',
       imageAlt: 'Početna stranica web stranice simpozija IST 2027',
-      imageCredit: 'Logotip nije moj rad.',
       facts: [
         { label: 'Projekt', value: 'Web stranica simpozija' },
         { label: 'Događaj', value: '19. međunarodni simpozij o Trichopterama (IST 2027)' },
@@ -170,7 +166,6 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
       eyebrow: 'Case study · Handbook · HR / EN',
       lead: 'A bilingual website, in Croatian and English, for the handbook on creating natural perfumes and the related education.',
       imageAlt: 'Home page of the Mirisni potpisi website',
-      imageCredit: 'The book cover is not my work.',
       facts: [
         { label: 'Project', value: 'Handbook website' },
         { label: 'Handbook', value: 'Mirisni potpisi – Priručnik za kreiranje prirodnih parfema (Fragrant Signatures)' },
@@ -200,7 +195,6 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
       eyebrow: 'Studija slučaja · Priručnik · HR / EN',
       lead: 'Dvojezična web stranica, na hrvatskom i engleskom, za priručnik o izradi prirodnih parfema i povezanu edukaciju.',
       imageAlt: 'Početna stranica web stranice Mirisni potpisi',
-      imageCredit: 'Naslovnica knjige nije moj rad.',
       facts: [
         { label: 'Projekt', value: 'Web stranica priručnika' },
         { label: 'Priručnik', value: 'Mirisni potpisi – Priručnik za kreiranje prirodnih parfema (Fragrant Signatures)' },
@@ -234,7 +228,6 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
       eyebrow: 'Case study · E-textbook · Faculty of Science',
       lead: 'An online textbook and laboratory manual for the bacteriology course at the Faculty of Science, University of Zagreb.',
       imageAlt: 'Home page of the online bacteriology textbook',
-      imageCredit: 'The text is based on a textbook; the design and build are my work.',
       facts: [
         { label: 'Project', value: 'Online textbook and laboratory manual' },
         { label: 'Name', value: 'Mrežni udžbenik iz bakteriologije' },
@@ -263,7 +256,6 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
       eyebrow: 'Studija slučaja · E-udžbenik · PMF',
       lead: 'Mrežni udžbenik i praktikum za kolegij bakteriologije na Prirodoslovno-matematičkom fakultetu Sveučilišta u Zagrebu.',
       imageAlt: 'Početna stranica mrežnog udžbenika iz bakteriologije',
-      imageCredit: 'Tekst se temelji na udžbeniku; dizajn i izrada su moj rad.',
       facts: [
         { label: 'Projekt', value: 'Mrežni udžbenik i praktikum' },
         { label: 'Naziv', value: 'Mrežni udžbenik iz bakteriologije' },
@@ -354,7 +346,6 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
       eyebrow: 'Case study · E-textbook · Faculty of Science',
       lead: 'An online genetics textbook for undergraduate biology students at the Faculty of Science, University of Zagreb, also intended for students of related fields such as medicine, agronomy and veterinary science.',
       imageAlt: 'Home page of the online genetics textbook',
-      imageCredit: 'The text is by the author; the design, WordPress build and most of the illustrations are my work.',
       facts: [
         { label: 'Project', value: 'Online textbook' },
         { label: 'Name', value: 'Mrežni udžbenik iz genetike' },
@@ -388,7 +379,6 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
       eyebrow: 'Studija slučaja · E-udžbenik · PMF',
       lead: 'Mrežni udžbenik iz genetike za studente preddiplomskih studija biologije na Prirodoslovno-matematičkom fakultetu Sveučilišta u Zagrebu, namijenjen i studentima srodnih struka poput medicinske, agronomske i veterinarske.',
       imageAlt: 'Početna stranica mrežnog udžbenika iz genetike',
-      imageCredit: 'Tekst je djelo autorice; dizajn, izrada u WordPressu i većina ilustracija su moj rad.',
       facts: [
         { label: 'Projekt', value: 'Mrežni udžbenik' },
         { label: 'Naziv', value: 'Mrežni udžbenik iz genetike' },
