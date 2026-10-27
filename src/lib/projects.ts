@@ -53,6 +53,7 @@ export const projects: Project[] = [
     category: 'elearning',
     featured: true,
     image: '/images/work/bakteriologija.jpg',
+    caseStudySlug: 'bakteriologija',
     role: 'Online textbook and practical manual for a university bacteriology course.',
   },
   {
