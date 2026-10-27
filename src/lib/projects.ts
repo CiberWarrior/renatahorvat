@@ -102,6 +102,7 @@ export const projects: Project[] = [
     category: 'conference',
     featured: true,
     image: '/images/work/icd11.jpg',
+    caseStudySlug: 'icd11',
     role: 'Congress site for the programme, registration, abstracts and speakers.',
   },
   {

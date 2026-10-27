@@ -30,6 +30,7 @@ const en = {
   'cta.button': 'Send an enquiry',
 
   'card.visit': '{title}: visit the website (opens in a new tab)',
+  'card.case': 'Read the case study',
 
   'footer.tagline':
     'Websites, illustrations, ads and social media. Zagreb.',
@@ -161,6 +162,7 @@ const hr: Record<UiKey, string> = {
   'cta.button': 'Pošaljite upit',
 
   'card.visit': '{title}: posjetite web-stranicu (otvara se u novoj kartici)',
+  'card.case': 'Pročitajte studiju slučaja',
 
   'footer.tagline':
     'Web-stranice, ilustracije, oglasi i društvene mreže. Zagreb.',
