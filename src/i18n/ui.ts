@@ -30,8 +30,6 @@ const en = {
   'card.visit': '{title}: visit the website (opens in a new tab)',
   'card.case': 'Read the case study',
 
-  'footer.tagline':
-    'Websites, illustrations, ads and social media. Zagreb.',
   'footer.location': 'Zagreb',
   'footer.privacy': 'Privacy Policy',
   'footer.legal': 'Business Details',
@@ -159,8 +157,6 @@ const hr: Record<UiKey, string> = {
   'card.visit': '{title}: posjetite web-stranicu (otvara se u novoj kartici)',
   'card.case': 'Pročitajte studiju slučaja',
 
-  'footer.tagline':
-    'Web-stranice, ilustracije, oglasi i društvene mreže. Zagreb.',
   'footer.location': 'Zagreb',
   'footer.privacy': 'Politika privatnosti',
   'footer.legal': 'Podaci o obrtu',
