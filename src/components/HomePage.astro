@@ -59,6 +59,7 @@ const pageKeywords = t('home.keywords');
           <CaseCard
             title={project.title}
             href={project.href}
+            caseHref={project.caseStudySlug ? pageHref(`/work/${project.caseStudySlug}`, locale) : undefined}
             image={project.image}
             role={project.role}
             summary={project.summary}

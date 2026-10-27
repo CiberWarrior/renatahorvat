@@ -39,6 +39,7 @@ export const projects: Project[] = [
     category: 'elearning',
     featured: true,
     image: '/images/work/fragrant-signatures.jpg',
+    caseStudySlug: 'mirisni-potpisi',
     role: 'Bilingual website for a handbook and courses on natural perfume making.',
   },
   {
@@ -89,6 +90,7 @@ export const projects: Project[] = [
     category: 'conference',
     featured: true,
     image: '/images/work/trichoptera.jpg',
+    caseStudySlug: 'ist2027',
     role: 'Symposium website for the programme, registration, abstracts and venue.',
   },
   {

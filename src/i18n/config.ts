@@ -18,4 +18,4 @@ export const localeMeta: Record<
  * Until then the language switcher and hreflang tags stay hidden, and links
  * on Croatian pages fall back to the English page.
  */
-export const croatianPages: string[] = ['/', '/work', '/prices', '/contact', '/quiz', '/privacy-policy', '/legal', '/work/icd11'];
+export const croatianPages: string[] = ['/', '/work', '/prices', '/contact', '/quiz', '/privacy-policy', '/legal', '/work/icd11', '/work/ist2027', '/work/mirisni-potpisi'];
