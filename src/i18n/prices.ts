@@ -85,7 +85,7 @@ const en: PricesContent = {
   ],
   notes: [
     'I build websites so that they work well on phones.',
-    'Work outside the package scope is quoted separately. All prices are stated in euros. Croatian VAT is not charged. For international clients, the applicable VAT treatment is specified on the invoice.',
+    'Work outside the package scope is quoted separately. All prices are stated in euros.',
     'Advertising spend is separate from design and campaign management fees and is agreed before work begins.',
   ],
   scopedHeading: 'Projects quoted individually',
@@ -216,7 +216,7 @@ const hr: PricesContent = {
   ],
   notes: [
     'Web stranice izrađujem tako da dobro rade na mobitelima.',
-    'Za rad izvan opsega paketa izrađuje se zasebna ponuda. Sve cijene izražene su u eurima. Hrvatski PDV se ne obračunava. Za međunarodne klijente način obračuna PDV-a navodi se na računu.',
+    'Za rad izvan opsega paketa izrađuje se zasebna ponuda. Sve cijene izražene su u eurima.',
     'Budžet za oglašavanje odvojen je od naknade za dizajn i vođenje kampanja te se dogovara prije početka rada.',
   ],
   scopedHeading: 'Projekti s individualnom ponudom',
