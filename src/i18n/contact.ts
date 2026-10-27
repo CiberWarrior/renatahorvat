@@ -47,8 +47,7 @@ export interface ContactContent {
   directHeading: string;
   whatsapp: string;
   email: string;
-  responseHeading: string;
-  responseText: string;
+  quizLink: string;
   firstHeading: string;
   firstText: string;
   quiz: {
@@ -81,7 +80,7 @@ export interface ContactContent {
 const en: ContactContent = {
   title: 'Contact – Website Design Zagreb | Renata Horvat',
   description:
-    'Contact Renata Horvat, web designer in Zagreb, about a website, design, illustration, advertising or social media project.',
+    'Website design in Zagreb: get in touch with an idea or a question about a website, design, illustration, advertising or social media.',
   keywords:
     'contact Renata Horvat, web designer Zagreb, web design Croatia, conference website, society website, university website, small business website, graphic designer Zagreb, Renata Horvat',
   schemaName: 'Contact Renata Horvat',
@@ -102,8 +101,8 @@ const en: ContactContent = {
   optional: '(optional)',
   types: [
     { value: 'Website', label: 'Website' },
-    { value: 'Conference site', label: 'Conference site' },
-    { value: 'E-learning', label: 'E-learning' },
+    { value: 'Conference or event', label: 'Conference or event' },
+    { value: 'E-textbook or e-learning', label: 'E-textbook or e-learning' },
     { value: 'Graphic design', label: 'Graphic design' },
     { value: 'Illustration', label: 'Illustration' },
     { value: 'Advertising', label: 'Advertising' },
@@ -121,8 +120,7 @@ const en: ContactContent = {
   directHeading: 'Prefer to contact me directly?',
   whatsapp: 'Message me on WhatsApp',
   email: 'Email',
-  responseHeading: 'Response time',
-  responseText: 'Within a day or two. I reply personally.',
+  quizLink: 'Prefer to answer a few questions instead',
   firstHeading: 'First conversation',
   firstText: 'With no commitment.',
   quiz: {
@@ -208,7 +206,7 @@ const en: ContactContent = {
 const hr: ContactContent = {
   title: 'Kontakt – izrada web stranica | Renata Horvat',
   description:
-    'Kontaktirajte Renatu Horvat, web dizajnericu iz Zagreba, u vezi s web stranicom, dizajnom, ilustracijom, oglašavanjem ili projektom za društvene mreže.',
+    'Izrada web stranica u Zagrebu: javite se s idejom ili pitanjem o web stranici, dizajnu, ilustraciji, oglašavanju ili društvenim mrežama.',
   keywords:
     'kontakt Renata Horvat, web dizajnerica Zagreb, web dizajn Hrvatska, web stranica za konferenciju, web stranica za društvo, web stranica za sveučilište, web stranica za malu tvrtku, grafički dizajner Zagreb, Renata Horvat',
   schemaName: 'Kontaktirajte Renatu Horvat',
@@ -216,7 +214,7 @@ const hr: ContactContent = {
   eyebrow: 'Kontakt',
   heading: 'Razgovarajmo o vašem projektu',
   intro:
-    'Ne treba vam detaljan opis projekta. Napišite mi što zamišljate, što vam treba ili oko čega se još dvoumite. Zajedno ćemo pronaći rješenje.',
+    'Ne treba vam detaljan opis projekta. Napišite mi što zamišljate, što vam treba ili oko čega se još dvoumite. Zajedno ćemo vidjeti što ima smisla.',
   formLabel: 'Kontaktni obrazac',
   successTitle: 'Poruka je poslana',
   successText: 'Hvala. Javit ću vam se uskoro.',
@@ -229,8 +227,8 @@ const hr: ContactContent = {
   optional: '(neobavezno)',
   types: [
     { value: 'Website', label: 'Web stranica' },
-    { value: 'Conference site', label: 'Web stranica konferencije' },
-    { value: 'E-learning', label: 'E-učenje' },
+    { value: 'Conference or event', label: 'Konferencija ili skup' },
+    { value: 'E-textbook or e-learning', label: 'E-udžbenik ili e-učenje' },
     { value: 'Graphic design', label: 'Grafički dizajn' },
     { value: 'Illustration', label: 'Ilustracija' },
     { value: 'Advertising', label: 'Oglašavanje' },
@@ -248,8 +246,7 @@ const hr: ContactContent = {
   directHeading: 'Radije biste me kontaktirali izravno?',
   whatsapp: 'Pošaljite mi poruku na WhatsAppu',
   email: 'E-pošta',
-  responseHeading: 'Vrijeme odgovora',
-  responseText: 'U roku od dan-dva. Odgovaram osobno.',
+  quizLink: 'Radije odgovorite na nekoliko pitanja',
   firstHeading: 'Prvi razgovor',
   firstText: 'Bez obveze.',
   quiz: {

@@ -64,9 +64,6 @@ const whatsappUrl = getWhatsappUrl(locale);
       <p class="max-w-2xl text-[15px] leading-relaxed text-ink-soft">
         {c.intro}
       </p>
-      <p>
-        <a href={pageHref('/quiz', locale)} class="font-medium text-sci hover:text-sci-dark">{t('nav.start')} <span aria-hidden="true">→</span></a>
-      </p>
     </div>
   </section>
 
@@ -152,6 +149,9 @@ const whatsappUrl = getWhatsappUrl(locale);
             </span>
           </button>
         </form>
+        <p class="mt-8 text-[15px]">
+          <a href={pageHref('/quiz', locale)} class="font-medium text-sci hover:text-sci-dark">{c.quizLink} <span aria-hidden="true">→</span></a>
+        </p>
       </div>
 
       <aside class="space-y-6 self-start lg:sticky lg:top-24">
@@ -169,10 +169,6 @@ const whatsappUrl = getWhatsappUrl(locale);
           </div>
         </div>
         <div class="space-y-5 border-l border-rule pl-5 text-[15px]">
-          <div>
-            <h2 class="font-mono text-xs uppercase tracking-[.08em] text-ink-soft">{c.responseHeading}</h2>
-            <p class="mt-1 text-ink">{c.responseText}</p>
-          </div>
           <div>
             <h2 class="font-mono text-xs uppercase tracking-[.08em] text-ink-soft">{c.firstHeading}</h2>
             <p class="mt-1 text-ink">{c.firstText}</p>
