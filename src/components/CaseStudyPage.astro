@@ -80,7 +80,7 @@ const structuredData = {
 
           {c.testimonial && (
             <blockquote class="max-w-2xl border-l-2 border-sci pl-5">
-              <p class="font-serif text-2xl leading-snug text-ink">“{c.testimonial.quote}”</p>
+              {c.testimonial.quote.map((paragraph) => <p class="font-serif text-xl leading-snug text-ink [&:not(:first-child)]:mt-3">{paragraph}</p>)}
               <footer class="mt-3 text-sm text-ink-soft">{c.testimonial.by}</footer>
             </blockquote>
           )}

@@ -12,7 +12,7 @@ export interface CaseStudy {
   coversHeading: string;
   covers: string[];
   /** Optional client quote. Only add text the client has actually written and agreed to publish. */
-  testimonial?: { quote: string; by: string };
+  testimonial?: { quote: string[]; by: string };
   visit: string;
   back: string;
 }
@@ -351,13 +351,13 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
       eyebrow: 'Case study · E-textbook · Faculty of Science',
       lead: 'An online genetics textbook for undergraduate biology students at the Faculty of Science, University of Zagreb, also intended for students of related fields such as medicine, agronomy and veterinary science.',
       imageAlt: 'Home page of the online genetics textbook',
-      imageCredit: 'Screenshot of the website. The text is by the author; the design, WordPress build and diagrams are my work.',
+      imageCredit: 'Screenshot of the website. The text is by the author; the design, WordPress build and most of the illustrations are my work.',
       facts: [
         { label: 'Project', value: 'Online textbook' },
         { label: 'Name', value: 'Mrežni udžbenik iz genetike' },
         { label: 'Author', value: 'Mirjana Pavlica, Faculty of Science, University of Zagreb' },
         { label: 'Language', value: 'Croatian' },
-        { label: 'My role', value: 'Web design, WordPress build and educational diagrams' },
+        { label: 'My role', value: 'Web design, WordPress build, illustrations and instructional design' },
       ],
       coversHeading: 'What the website covers',
       covers: [
@@ -367,6 +367,13 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
         'A glossary',
         'A list of references',
       ],
+      testimonial: {
+        quote: [
+          'Renata drew most of the illustrations and improved the content based on her many years of experience in applying instructional design.',
+          'By working on this electronic textbook, we wanted to give students the chance to learn on the move, and to approach topics in genetics in line with new technologies.',
+        ],
+        by: 'Mirjana Pavlica, author of the textbook (translated from Croatian)',
+      },
       visit: 'Visit the website',
       back: 'All work',
     },
@@ -378,13 +385,13 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
       eyebrow: 'Studija slučaja · E-udžbenik · PMF',
       lead: 'Mrežni udžbenik iz genetike za studente preddiplomskih studija biologije na Prirodoslovno-matematičkom fakultetu Sveučilišta u Zagrebu, namijenjen i studentima srodnih struka poput medicinske, agronomske i veterinarske.',
       imageAlt: 'Početna stranica mrežnog udžbenika iz genetike',
-      imageCredit: 'Snimka zaslona web-stranice. Tekst je djelo autorice; dizajn, izrada u WordPressu i dijagrami su moj rad.',
+      imageCredit: 'Snimka zaslona web-stranice. Tekst je djelo autorice; dizajn, izrada u WordPressu i većina ilustracija su moj rad.',
       facts: [
         { label: 'Projekt', value: 'Mrežni udžbenik' },
         { label: 'Naziv', value: 'Mrežni udžbenik iz genetike' },
         { label: 'Autorica', value: 'Mirjana Pavlica, Prirodoslovno-matematički fakultet Sveučilišta u Zagrebu' },
         { label: 'Jezik', value: 'Hrvatski' },
-        { label: 'Moja uloga', value: 'Web dizajn, izrada u WordPressu i edukativni dijagrami' },
+        { label: 'Moja uloga', value: 'Web dizajn, izrada u WordPressu, ilustracije i instrukcijski dizajn' },
       ],
       coversHeading: 'Što web-stranica sadrži',
       covers: [
@@ -394,6 +401,13 @@ export const caseStudies: Record<string, { href: string; image?: string; en: Cas
         'Rječnik',
         'Popis literature',
       ],
+      testimonial: {
+        quote: [
+          'Renata je nacrtala većinu ilustracija te unaprijedila sadržaj na osnovu svojeg dugogodišnjeg iskustva u primjeni instrukcijskog dizajna.',
+          'Radom na ovom elektroničkom udžbeniku željeli smo omogućiti studentima učenje u pokretu, pristup temama iz genetike shodno novim tehnologijama.',
+        ],
+        by: 'Mirjana Pavlica, autorica udžbenika',
+      },
       visit: 'Posjetite web-stranicu',
       back: 'Svi radovi',
     },
