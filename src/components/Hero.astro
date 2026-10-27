@@ -48,11 +48,19 @@ const t = useTranslations(locale);
   @media (min-width: 1280px) {
     .hero-layout {
       grid-template-areas: 'intro art' 'copy art';
-      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.7fr);
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
       column-gap: 2rem;
     }
     .hero-intro { align-self: end; }
+    .hero-intro h1 { white-space: nowrap; max-width: none; font-size: 3.25rem; }
     .hero-copy { align-self: start; }
-    .hero-art { align-self: center; }
+    /* The drawing grows into the free margin on the right (never past the viewport edge). */
+    .hero-art {
+      align-self: center;
+      justify-self: stretch;
+      width: auto;
+      max-width: none;
+      margin-right: calc(-1 * clamp(0px, (100vw - 72rem) / 2, 12rem));
+    }
   }
 </style>
