@@ -79,7 +79,7 @@ export interface ContactContent {
 }
 
 const en: ContactContent = {
-  title: 'Contact – Renata Horvat | Web Designer Zagreb',
+  title: 'Contact – Website Design Zagreb | Renata Horvat',
   description:
     'Contact Renata Horvat, web designer in Zagreb, about a website, design, illustration, advertising or social media project. The first conversation is free.',
   keywords:
@@ -206,7 +206,7 @@ const en: ContactContent = {
 
 // Croatian draft. Feminine/masculine forms are avoided where possible; the consent line uses "pročitao/pročitala".
 const hr: ContactContent = {
-  title: 'Kontakt – Renata Horvat | Web dizajnerica Zagreb',
+  title: 'Kontakt – izrada web-stranica | Renata Horvat',
   description:
     'Kontaktirajte Renatu Horvat, web dizajnericu iz Zagreba, u vezi s web-stranicom, dizajnom, ilustracijom, oglašavanjem ili projektom za društvene mreže. Prvi razgovor je besplatan.',
   keywords:

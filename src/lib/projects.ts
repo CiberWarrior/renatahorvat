@@ -39,6 +39,7 @@ export const projects: Project[] = [
     category: 'elearning',
     featured: true,
     image: '/images/work/fragrant-signatures.jpg',
+    caseStudySlug: 'mirisni-potpisi',
     role: 'Bilingual website for a handbook and courses on natural perfume making.',
   },
   {
@@ -52,6 +53,7 @@ export const projects: Project[] = [
     category: 'elearning',
     featured: true,
     image: '/images/work/bakteriologija.jpg',
+    caseStudySlug: 'bakteriologija',
     role: 'Online textbook and practical manual for a university bacteriology course.',
   },
   {
@@ -66,7 +68,7 @@ export const projects: Project[] = [
     featured: true,
     image: '/images/work/genetika.jpg',
     role: 'Web design, WordPress build and educational diagrams for a university textbook.',
-    // caseStudySlug: 'genetika-ebook',
+    caseStudySlug: 'genetika',
   },
   {
     title: 'Botanical Garden Zagreb',
@@ -89,6 +91,7 @@ export const projects: Project[] = [
     category: 'conference',
     featured: true,
     image: '/images/work/trichoptera.jpg',
+    caseStudySlug: 'ist2027',
     role: 'Symposium website for the programme, registration, abstracts and venue.',
   },
   {
@@ -102,6 +105,7 @@ export const projects: Project[] = [
     category: 'conference',
     featured: true,
     image: '/images/work/icd11.jpg',
+    caseStudySlug: 'icd11',
     role: 'Congress site for the programme, registration, abstracts and speakers.',
   },
   {
@@ -195,6 +199,7 @@ export const projects: Project[] = [
   },
   {
     title: 'Croatian Biological Society (HBD-SBC)',
+    caseStudySlug: 'hbd-sbc',
     summary:
       'Official website of the Croatian Biological Society, supporting scientific work in biology, education advancement, and nature conservation. Features congresses, competitions, and professional activities.',
     href: 'https://www.hbd-sbc.hr/',

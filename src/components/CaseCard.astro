@@ -2,8 +2,9 @@
 import type { ProjectCategory } from '../lib/projects';
 import { getLocale, useTranslations } from '../i18n/utils';
 
-interface Props { title: string; href: string; image: string; role?: string; summary: string; meta: string; category: ProjectCategory; }
-const { title, href, image, role, summary, meta, category } = Astro.props as Props;
+interface Props { title: string; href: string; image: string; role?: string; summary: string; meta: string; category: ProjectCategory; caseHref?: string; }
+const { title, href, image, role, summary, meta, category, caseHref } = Astro.props as Props;
+const displayTitle = title.replace(' - ', ' – ');
 const t = useTranslations(getLocale(Astro.url));
 
 // One colour per kind of project, so the dot carries information
@@ -23,10 +24,10 @@ try {
 ---
 
 <a
-  href={href}
-  target="_blank"
-  rel="noopener noreferrer"
-  aria-label={t('card.visit', { title })}
+  href={caseHref ?? href}
+  target={caseHref ? undefined : '_blank'}
+  rel={caseHref ? undefined : 'noopener noreferrer'}
+  aria-label={caseHref ? title : t('card.visit', { title })}
   data-reveal
   class="group flex min-w-0 flex-col rounded-xl border border-rule bg-surface p-2 transition-[border-color,box-shadow,transform] duration-300 hover:border-sci/50 hover:shadow-[0_14px_30px_-18px_rgb(21_33_30/.45)] motion-safe:hover:-translate-y-0.5"
   onclick={`if(typeof window.gtag !== 'undefined') window.gtag('event', 'project_view', { project_title: ${JSON.stringify(title)}, project_url: ${JSON.stringify(href)} })`}
@@ -48,11 +49,11 @@ try {
       <span class="h-2 w-2 shrink-0 rounded-full" style={`background:${categoryColor[category]}`} aria-hidden="true"></span>
       {meta}
     </p>
-    <h3 class="mt-2 font-serif text-[1.2rem] font-medium leading-snug text-balance text-ink">{title}</h3>
+    <h3 class="mt-2 font-serif text-[1.2rem] font-medium leading-snug text-balance text-ink">{displayTitle}</h3>
     <p class="mt-1.5 mb-4 text-sm leading-relaxed text-ink-soft">{role || summary}</p>
 
     <div class="mt-auto flex items-center justify-between gap-3 border-t border-rule pt-3">
-      <span class="truncate font-mono text-xs text-ink-soft">{siteHost}</span>
+      <span class="truncate font-mono text-xs text-ink-soft">{caseHref ? t('card.case') : siteHost}</span>
       <span class="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-rule text-ink-soft transition-colors duration-300 group-hover:border-sci group-hover:bg-sci group-hover:text-white" aria-hidden="true">
         <svg class="h-3.5 w-3.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11 11 5M6 5h5v5" /></svg>
       </span>

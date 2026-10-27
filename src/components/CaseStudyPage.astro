@@ -1,0 +1,104 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import ContactCta from './ContactCta.astro';
+import { caseStudies } from '../i18n/caseStudies';
+import { getLocale, localizePath, pageHref, useTranslations } from '../i18n/utils';
+
+interface Props { slug: string; }
+const { slug } = Astro.props as Props;
+const locale = getLocale(Astro.url);
+const t = useTranslations(locale);
+const study = caseStudies[slug];
+const c = study[locale];
+const pagePath = (path: string) => new URL(localizePath(path, locale), Astro.site).href;
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  name: c.title,
+  description: c.description,
+  url: pagePath(`/work/${slug}`),
+  sameAs: study.href,
+  inLanguage: 'en',
+  creator: { '@id': 'https://renatahorvat.com/#person' },
+};
+---
+
+<Layout
+  title={c.metaTitle}
+  description={c.description}
+  ogImage={study.image}
+  structuredData={structuredData}
+  breadcrumbs={[
+    { name: t('nav.home'), url: locale === 'hr' ? pagePath('/') : 'https://renatahorvat.com' },
+    { name: t('nav.work'), url: pagePath('/work') },
+    { name: c.title, url: pagePath(`/work/${slug}`) },
+  ]}
+>
+  <Header />
+
+  <article>
+    <section class="border-b border-rule py-14 sm:py-16">
+      <div class="mx-auto max-w-6xl space-y-6 px-4 sm:px-6">
+        <p class="font-mono text-xs uppercase tracking-[.08em] text-ink-soft">{c.eyebrow}</p>
+        <h1 class="max-w-3xl font-serif text-4xl font-medium leading-tight text-balance text-ink sm:text-5xl">{c.title}</h1>
+        <p class="max-w-2xl text-lg leading-relaxed text-ink-soft">{c.lead}</p>
+        <div class="flex flex-wrap items-center gap-x-6 gap-y-3">
+          <a
+            href={study.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex min-h-11 items-center gap-2 rounded-md bg-sci px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-sci-dark"
+          >
+            {c.visit} <span aria-hidden="true">↗</span>
+          </a>
+          <a href={pageHref('/work', locale)} class="inline-flex min-h-11 items-center text-sm font-medium text-sci hover:text-sci-dark">← {c.back}</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-14 sm:py-16">
+      <div class="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-[1.3fr_1fr] lg:gap-16">
+        <div class="space-y-12">
+          {study.image && (
+            <figure class="space-y-2">
+              <div class="overflow-hidden rounded-xl border border-rule bg-surface p-2">
+                <img src={study.image} alt={c.imageAlt ?? ''} width="1600" height="771" decoding="async" class="aspect-[16/9] w-full rounded-lg object-cover object-top" />
+              </div>
+              {c.imageCredit && <figcaption class="text-sm text-ink-soft">{c.imageCredit}</figcaption>}
+            </figure>
+          )}
+
+          <div class="space-y-4">
+            <h2 class="font-serif text-3xl font-medium text-ink">{c.coversHeading}</h2>
+            <ul class="list-disc space-y-2 pl-5 text-[15px] leading-relaxed text-ink marker:text-sci">
+              {c.covers.map((item) => <li>{item}</li>)}
+            </ul>
+          </div>
+
+          {c.testimonial && (
+            <blockquote class="max-w-2xl border-l-2 border-sci pl-5">
+              {c.testimonial.quote.map((paragraph) => <p class="font-serif text-xl leading-snug text-ink [&:not(:first-child)]:mt-3">{paragraph}</p>)}
+              <footer class="mt-3 text-sm text-ink-soft">{c.testimonial.by}</footer>
+            </blockquote>
+          )}
+        </div>
+
+        <dl class="grid content-start border-t border-ink">
+          {c.facts.map((fact) => (
+            <div class="grid gap-1 border-b border-rule py-4">
+              <dt class="font-mono text-xs uppercase tracking-[.08em] text-ink-soft">{fact.label}</dt>
+              <dd class="text-[15px] leading-relaxed text-ink">{fact.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+  </article>
+
+  <ContactCta location="case_study_bottom" illustration heading={t('work.cta.heading')} text={t('work.cta.text')} />
+
+  <Footer />
+</Layout>

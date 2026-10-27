@@ -110,10 +110,10 @@ const fontCssUrl = '/fonts/portfolio.css';
       <>
         <meta property="og:image:width" content="900" />
         <meta property="og:image:height" content="900" />
-        <meta property="og:image:alt" content="Portrait of Renata Horvat" />
+        <meta property="og:image:alt" content={t('home.about.portraitAlt')} />
       </>
     )}
-    <meta property="og:site_name" content="Renata Horvat Portfolio" />
+    <meta property="og:site_name" content="Renata Horvat" />
     <meta property="og:locale" content={localeMeta[locale].ogLocale} />
     {hasAlternates && alternates.filter((alt) => alt.locale !== locale).map((alt) => (
       <meta property="og:locale:alternate" content={localeMeta[alt.locale].ogLocale} />
@@ -370,7 +370,7 @@ const fontCssUrl = '/fonts/portfolio.css';
       "@context": "https://schema.org",
       "@type": "WebSite",
       "@id": "https://renatahorvat.com/#website",
-      "name": "Renata Horvat Portfolio",
+      "name": "Renata Horvat",
       "url": "https://renatahorvat.com",
       "author": {
         "@id": "https://renatahorvat.com/#person"
