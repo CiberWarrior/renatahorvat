@@ -84,7 +84,7 @@ const en: PricesContent = {
     { label: 'Extra setup to help Google understand the site', values: [false, false, true] },
   ],
   notes: [
-    'Each website package includes a free initial consultation and a fast website that works well on phones and follows accessibility guidelines (WCAG 2.1 AA), so people with disabilities can use it too.',
+    'Each website package includes a fast website that works well on phones and follows accessibility guidelines (WCAG 2.1 AA), so people with disabilities can use it too.',
     'Work outside the package scope is quoted separately. All prices are stated in euros. Croatian VAT is not charged. For international clients, the applicable VAT treatment is specified on the invoice.',
     'Advertising spend is separate from design and campaign management fees and is agreed before work begins.',
   ],
@@ -146,7 +146,7 @@ const en: PricesContent = {
   step: 'Step',
   steps: [
     {
-      title: 'Free initial consultation',
+      title: 'Initial conversation',
       text: 'We talk through what you need. You do not need a detailed brief, and there is no obligation to proceed.',
     },
     {
@@ -215,7 +215,7 @@ const hr: PricesContent = {
     { label: 'Dodatna podešavanja kako bi Google lakše razumio stranicu', values: [false, false, true] },
   ],
   notes: [
-    'Svaki paket uključuje besplatne početne konzultacije i brzu web stranicu koja dobro radi na mobitelima i slijedi smjernice pristupačnosti (WCAG 2.1 AA), kako bi je mogle koristiti i osobe s invaliditetom.',
+    'Svaki paket uključuje brzu web stranicu koja dobro radi na mobitelima i slijedi smjernice pristupačnosti (WCAG 2.1 AA), kako bi je mogle koristiti i osobe s invaliditetom.',
     'Za rad izvan opsega paketa izrađuje se zasebna ponuda. Sve cijene izražene su u eurima. Hrvatski PDV se ne obračunava. Za međunarodne klijente način obračuna PDV-a navodi se na računu.',
     'Budžet za oglašavanje odvojen je od naknade za dizajn i vođenje kampanja te se dogovara prije početka rada.',
   ],
@@ -277,7 +277,7 @@ const hr: PricesContent = {
   step: 'Korak',
   steps: [
     {
-      title: 'Besplatne početne konzultacije',
+      title: 'Početni razgovor',
       text: 'Razgovaramo o tome što trebate. Ne treba vam detaljan opis projekta i ne obvezujete se na nastavak suradnje.',
     },
     {

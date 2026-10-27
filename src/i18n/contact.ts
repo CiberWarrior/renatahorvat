@@ -81,7 +81,7 @@ export interface ContactContent {
 const en: ContactContent = {
   title: 'Contact – Website Design Zagreb | Renata Horvat',
   description:
-    'Contact Renata Horvat, web designer in Zagreb, about a website, design, illustration, advertising or social media project. The first conversation is free.',
+    'Contact Renata Horvat, web designer in Zagreb, about a website, design, illustration, advertising or social media project.',
   keywords:
     'contact Renata Horvat, web designer Zagreb, web design Croatia, conference website, society website, university website, small business website, graphic designer Zagreb, Renata Horvat',
   schemaName: 'Contact Renata Horvat',
@@ -124,7 +124,7 @@ const en: ContactContent = {
   responseHeading: 'Response time',
   responseText: 'Within a day or two. I reply personally.',
   firstHeading: 'First conversation',
-  firstText: 'Free, with no commitment.',
+  firstText: 'With no commitment.',
   quiz: {
     title: 'Quiz – Renata Horvat | Web Designer Zagreb',
     description: 'Answer four short questions about your project and send them to Renata Horvat.',
@@ -208,7 +208,7 @@ const en: ContactContent = {
 const hr: ContactContent = {
   title: 'Kontakt – izrada web stranica | Renata Horvat',
   description:
-    'Kontaktirajte Renatu Horvat, web dizajnericu iz Zagreba, u vezi s web stranicom, dizajnom, ilustracijom, oglašavanjem ili projektom za društvene mreže. Prvi razgovor je besplatan.',
+    'Kontaktirajte Renatu Horvat, web dizajnericu iz Zagreba, u vezi s web stranicom, dizajnom, ilustracijom, oglašavanjem ili projektom za društvene mreže.',
   keywords:
     'kontakt Renata Horvat, web dizajnerica Zagreb, web dizajn Hrvatska, web stranica za konferenciju, web stranica za društvo, web stranica za sveučilište, web stranica za malu tvrtku, grafički dizajner Zagreb, Renata Horvat',
   schemaName: 'Kontaktirajte Renatu Horvat',
@@ -251,7 +251,7 @@ const hr: ContactContent = {
   responseHeading: 'Vrijeme odgovora',
   responseText: 'U roku od dan-dva. Odgovaram osobno.',
   firstHeading: 'Prvi razgovor',
-  firstText: 'Besplatan i bez obveze.',
+  firstText: 'Bez obveze.',
   quiz: {
     title: 'Kviz – Renata Horvat | Web dizajnerica Zagreb',
     description: 'Odgovorite na četiri kratka pitanja o projektu i pošaljite ih Renati Horvat.',
