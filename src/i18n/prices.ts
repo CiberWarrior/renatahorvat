@@ -20,8 +20,7 @@ export interface PricesContent {
   notes: string[];
   scopedHeading: string;
   scopedIntro: string;
-  dependsOn: string;
-  scoped: { name: string; text: string; factors: string[] }[];
+  scoped: { name: string; text: string }[];
   afterHeading: string;
   afterText: string;
   afterLaunch: string[];
@@ -29,7 +28,7 @@ export interface PricesContent {
   step: string;
   steps: { title: string; text: string }[];
   ctaHeading: string;
-  ctaText: string;
+  ctaButton: string;
 }
 
 const en: PricesContent = {
@@ -41,14 +40,14 @@ const en: PricesContent = {
   eyebrow: 'Pricing',
   heading: 'Prices and packages',
   intro:
-    'Every project is different. These three packages give a rough overview of what is possible and what it costs, so you can plan your budget. For other websites and projects I prepare an individual quote after a short conversation.',
+    'Every project is different. See the packages I offer below, and for other websites and projects I prepare an individual quote after a short conversation.',
   packagesHeading: 'Website packages',
   mostCommon: 'Most common',
   from: 'from ',
   quote: 'Ask for a quote',
   packages: [
     {
-      name: 'Research project page',
+      name: 'Research project website',
       price: '€500',
       for: 'A single page for a research project, grant or lab.',
       pages: '1 page',
@@ -60,7 +59,7 @@ const en: PricesContent = {
       pages: 'Up to 5 pages',
     },
     {
-      name: 'Department or institutional website',
+      name: 'Institutional website',
       price: '€1,800',
       for: 'A larger website serving different audiences.',
       pages: 'Up to 10 pages',
@@ -88,49 +87,31 @@ const en: PricesContent = {
   ],
   scopedHeading: 'Projects quoted individually',
   scopedIntro:
-    'The price depends on the factors below. Once I understand your requirements, I will send you a tailored quote.',
-  dependsOn: 'The price depends on',
+    'After an introductory meeting I will send you a quote tailored to your project.',
   scoped: [
     {
       name: 'Conference & congress websites',
       text: 'Programme, speakers, registration and abstract submission.',
-      factors: [
-        'Registration and online payment',
-        'Abstract submission and review',
-        'Size of the programme and number of speakers',
-        'Number of languages',
-        'Archive after the event',
-      ],
     },
     {
       name: 'E-textbooks & e-learning',
       text: 'Online course material with clear navigation, quizzes and diagrams.',
-      factors: [
-        'Number of chapters and amount of material',
-        'Number of figures and diagrams',
-        'Quizzes and other interactive features',
-        'Moving existing content online',
-      ],
     },
     {
       name: 'Scientific figures & infographics',
       text: 'Diagrams for papers, posters, lectures and textbooks.',
-      factors: ['Number of figures', 'Simple diagram or detailed illustration', 'File formats for print and web'],
     },
     {
       name: 'Graphic design & illustration',
       text: 'Illustrations, ad designs and promotional materials for your organisation or business.',
-      factors: ['Type and number of materials', 'Level of detail', 'File formats for print and web'],
     },
     {
       name: 'Digital advertising',
       text: 'Ad design and campaign management for Facebook and Google Ads.',
-      factors: ['Advertising platforms', 'Number of campaigns and ad designs', 'Campaign duration'],
     },
     {
       name: 'Social media management',
       text: 'Day-to-day management of your social media accounts.',
-      factors: ['Number of accounts', 'Scope of account management', 'Duration of support'],
     },
   ],
   afterHeading: 'After launch',
@@ -157,7 +138,7 @@ const en: PricesContent = {
     },
   ],
   ctaHeading: 'Not sure which option is right for you?',
-  ctaText: 'Tell me a few words about your project and we will work out together what makes sense.',
+  ctaButton: 'Take the quiz',
 };
 
 // Croatian draft. Amounts are the same as in English; only the number format is Croatian (1.000 €).
@@ -170,14 +151,14 @@ const hr: PricesContent = {
   eyebrow: 'Cjenik',
   heading: 'Cijene i paketi',
   intro:
-    'Svaki projekt je drugačiji. Ova tri paketa daju okvirni pregled mogućnosti i troškova kako biste lakše planirali budžet. Za ostale web stranice i projekte pripremam individualnu ponudu nakon kratkog razgovora.',
+    'Svaki projekt je drugačiji. U nastavku pogledajte pakete koje nudim, a za ostale web stranice i projekte pripremam individualnu ponudu nakon kratkog razgovora.',
   packagesHeading: 'Paketi web stranica',
   mostCommon: 'Najčešći izbor',
   from: 'od ',
   quote: 'Zatražite ponudu',
   packages: [
     {
-      name: 'Stranica istraživačkog projekta',
+      name: 'Web stranica istraživačkog projekta',
       price: '500 €',
       for: 'Jedna stranica za istraživački projekt, grant ili laboratorij.',
       pages: '1 stranica',
@@ -189,7 +170,7 @@ const hr: PricesContent = {
       pages: 'Do 5 stranica',
     },
     {
-      name: 'Web stranica odsjeka ili ustanove',
+      name: 'Web stranica ustanove',
       price: '1.800 €',
       for: 'Veća web stranica za različite skupine posjetitelja.',
       pages: 'Do 10 stranica',
@@ -217,49 +198,31 @@ const hr: PricesContent = {
   ],
   scopedHeading: 'Projekti s individualnom ponudom',
   scopedIntro:
-    'Cijena ovisi o čimbenicima u nastavku. Kad upoznam vaše potrebe, poslat ću vam ponudu prilagođenu vašem projektu.',
-  dependsOn: 'Cijena ovisi o',
+    'Nakon informativnog sastanka poslat ću vam ponudu prilagođenu vašem projektu.',
   scoped: [
     {
       name: 'Web stranice konferencija i kongresa',
       text: 'Program, predavači, registracija i prijava sažetaka.',
-      factors: [
-        'Registraciji i online plaćanju',
-        'Prijavi i recenziji sažetaka',
-        'Opsegu programa i broju predavača',
-        'Broju jezika',
-        'Arhivi nakon događanja',
-      ],
     },
     {
       name: 'E-udžbenici i e-učenje',
       text: 'Online nastavni materijali s jasnom navigacijom, kvizovima i dijagramima.',
-      factors: [
-        'Broju poglavlja i količini materijala',
-        'Broju slika i dijagrama',
-        'Kvizovima i drugim interaktivnim mogućnostima',
-        'Prebacivanju postojećeg sadržaja online',
-      ],
     },
     {
       name: 'Znanstveni prikazi i infografike',
       text: 'Dijagrami za radove, postere, predavanja i udžbenike.',
-      factors: ['Broju prikaza', 'Jednostavnom dijagramu ili detaljnoj ilustraciji', 'Formatima datoteka za tisak i web'],
     },
     {
       name: 'Grafički dizajn i ilustracija',
       text: 'Ilustracije, dizajn oglasa i promotivni materijali za vašu organizaciju ili tvrtku.',
-      factors: ['Vrsti i broju materijala', 'Razini detalja', 'Formatima datoteka za tisak i web'],
     },
     {
       name: 'Digitalno oglašavanje',
       text: 'Dizajn oglasa i vođenje kampanja za Facebook i Google Ads.',
-      factors: ['Platformama za oglašavanje', 'Broju kampanja i dizajna oglasa', 'Trajanju kampanje'],
     },
     {
       name: 'Upravljanje društvenim mrežama',
       text: 'Svakodnevno upravljanje vašim profilima na društvenim mrežama.',
-      factors: ['Broju profila', 'Opsegu upravljanja profilima', 'Trajanju podrške'],
     },
   ],
   afterHeading: 'Nakon objave',
@@ -286,7 +249,7 @@ const hr: PricesContent = {
     },
   ],
   ctaHeading: 'Niste sigurni koja je opcija prava za vas?',
-  ctaText: 'Napišite mi nekoliko riječi o svom projektu, a zajedno ćemo vidjeti što ima smisla.',
+  ctaButton: 'Riješite kviz',
 };
 
 export const pricesContent: Record<Locale, PricesContent> = { en, hr };

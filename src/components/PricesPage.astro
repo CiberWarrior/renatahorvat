@@ -41,26 +41,26 @@ const packages = c.packages.map((pkg, i) => ({ ...pkg, ...packageMeta[i] }));
   </section>
 
   <!-- Packages -->
-  <section class="py-14 sm:py-16" aria-labelledby="packages-heading">
+  <section class="pb-14 pt-12 sm:pb-16 sm:pt-14" aria-labelledby="packages-heading">
     <div class="mx-auto max-w-6xl px-4 sm:px-6">
       <h2 id="packages-heading" class="sr-only">{c.packagesHeading}</h2>
-      <div class="grid gap-10 border-t border-ink pt-8 md:grid-cols-3 md:gap-0">
-        {packages.map((pkg, i) => (
-          <article class={`flex min-w-0 flex-col gap-3 ${i > 0 ? 'md:border-l md:border-rule md:pl-6 lg:pl-8' : ''} ${i < packages.length - 1 ? 'md:pr-6 lg:pr-8' : ''}`}>
-            <div class={`min-h-6 items-center ${pkg.common ? 'flex' : 'hidden md:flex'}`}>
-              {pkg.common && (
-                <span class="rounded-full bg-sci-soft px-2.5 py-0.5 font-mono text-[11px] uppercase tracking-[.06em] text-sci">{c.mostCommon}</span>
-              )}
-            </div>
+      <div class="grid gap-8 md:grid-cols-3 md:gap-6">
+        {packages.map((pkg) => (
+          <article class={`relative flex min-w-0 flex-col gap-4 rounded-2xl border p-6 sm:p-7 ${pkg.common ? 'border-sci bg-surface/70 shadow-[0_24px_40px_-30px_rgb(21_33_30/.55)] ring-1 ring-sci/25' : 'border-rule bg-surface/50'}`}>
+            {pkg.common && (
+              <span class="absolute -top-3 left-6 rounded-full bg-sci px-3 py-1 font-mono text-[11px] uppercase tracking-[.06em] text-white">{c.mostCommon}</span>
+            )}
             <h3 class="font-serif text-2xl font-medium leading-tight text-ink md:min-h-[3.5rem]">{pkg.name}</h3>
-            <p class="text-[15px] text-ink-soft md:min-h-[3rem]">{pkg.for}</p>
-            <p class="font-serif text-4xl text-ink">
-              <span class="font-text text-base text-ink-soft">{c.from}</span>{pkg.price}
-            </p>
-            <p class="font-mono text-xs uppercase tracking-[.06em] text-sci md:min-h-8">{pkg.pages}</p>
+            <p class="text-[15px] leading-relaxed text-ink-soft md:min-h-[4.5rem]">{pkg.for}</p>
+            <div class="border-t border-rule pt-4">
+              <p class="font-serif text-5xl leading-none text-ink">
+                <span class="font-text text-base text-ink-soft">{c.from}</span>{pkg.price}
+              </p>
+              <p class="mt-3 inline-block rounded-full bg-sci-soft px-3 py-1 font-mono text-xs uppercase tracking-[.06em] text-sci">{pkg.pages}</p>
+            </div>
             <a
               href={pageHref('/contact', locale)}
-              class={`group mt-3 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md px-5 py-2.5 md:px-4 lg:px-5 font-medium transition-colors ${pkg.common ? 'bg-sci text-white hover:bg-sci-dark' : 'border border-rule bg-surface text-ink hover:border-sci'}`}
+              class={`group mt-auto inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md px-5 py-3 font-medium transition-colors ${pkg.common ? 'bg-sci text-white hover:bg-sci-dark' : 'border border-rule bg-surface text-ink hover:border-sci hover:text-sci'}`}
               onclick={`if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: '${pkg.cta}', cta_location: 'prices_page' })`}
             >
               {c.quote} <span class="inline-block transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true">→</span>
@@ -125,12 +125,6 @@ const packages = c.packages.map((pkg, i) => ({ ...pkg, ...packageMeta[i] }));
           <div class={`grid min-w-0 content-start gap-3 border-b border-rule py-6 md:border-b-0 ${i % 3 > 0 ? 'md:border-l md:border-rule md:pl-8' : ''} ${i % 3 < 2 ? 'md:pr-8' : ''}`}>
             <h3 class="font-serif text-xl font-medium text-ink">{item.name}</h3>
             <p class="text-[15px] leading-relaxed text-ink-soft">{item.text}</p>
-            <div>
-              <p class="mb-1.5 font-mono text-[11px] uppercase tracking-[.08em] text-ink-soft">{c.dependsOn}</p>
-              <ul class="list-disc space-y-1 pl-5 text-[15px] text-ink marker:text-sci">
-                {item.factors.map((f) => <li>{f}</li>)}
-              </ul>
-            </div>
           </div>
         ))}
       </div>
@@ -169,7 +163,9 @@ const packages = c.packages.map((pkg, i) => ({ ...pkg, ...packageMeta[i] }));
   <ContactCta
     location="prices_bottom"
     heading={c.ctaHeading}
-    text={c.ctaText}
+    text=""
+    button={c.ctaButton}
+    href={pageHref('/quiz', locale)}
   />
 
   <Footer />
