@@ -109,15 +109,15 @@ const en = {
   'cookie.dialog': 'Cookie preferences',
   'cookie.title': 'Cookie Consent',
   'cookie.text1':
-    'We save your cookie preferences in your browser. Optional analytics cookies help us understand website traffic.',
+    'I save your cookie preferences in your browser. Optional analytics cookies help me understand website traffic.',
   'cookie.text2': 'By clicking "Accept All", you consent to the use of analytics cookies.',
-  'cookie.text3': 'You can manage your preferences or learn more in our',
+  'cookie.text3': 'You can manage your preferences or learn more in the',
   'cookie.policyLink': 'Privacy Policy',
   'cookie.essential.title': 'Essential Storage (Required)',
   'cookie.essential.text': 'Saves your cookie preferences. This does not enable analytics.',
   'cookie.analytics.title': 'Analytics Cookies',
   'cookie.analytics.text':
-    'Help us understand how visitors interact with our website (Google Analytics).',
+    'Help me understand how visitors interact with my website (Google Analytics).',
   'cookie.customise': 'Customise',
   'cookie.customise.label': 'Customise cookie preferences',
   'cookie.save': 'Save settings',
@@ -239,7 +239,7 @@ const hr: Record<UiKey, string> = {
   'cookie.dialog': 'Postavke kolačića',
   'cookie.title': 'Pristanak na kolačiće',
   'cookie.text1':
-    'Vaše postavke kolačića spremamo u vašem pregledniku. Neobavezni analitički kolačići pomažu nam razumjeti posjećenost web stranice.',
+    'Vaše postavke kolačića spremam u vašem pregledniku. Neobavezni analitički kolačići pomažu mi razumjeti posjećenost web stranice.',
   'cookie.text2': 'Klikom na „Prihvatite sve” pristajete na korištenje analitičkih kolačića.',
   'cookie.text3': 'Postavke kolačića možete prilagoditi. Više informacija pronađite u',
   'cookie.policyLink': 'Politici privatnosti',
@@ -247,7 +247,7 @@ const hr: Record<UiKey, string> = {
   'cookie.essential.text': 'Sprema vaše postavke kolačića. Ne uključuje analitiku.',
   'cookie.analytics.title': 'Analitički kolačići',
   'cookie.analytics.text':
-    'Pomažu nam razumjeti kako posjetitelji koriste našu web stranicu (Google Analytics).',
+    'Pomažu mi razumjeti kako posjetitelji koriste moju web stranicu (Google Analytics).',
   'cookie.customise': 'Prilagodite',
   'cookie.customise.label': 'Prilagodite postavke kolačića',
   'cookie.save': 'Spremi postavke',
