@@ -59,7 +59,7 @@ const en: PricesContent = {
       pages: 'Up to 5 pages',
     },
     {
-      name: 'Department or institutional website',
+      name: 'Institutional website',
       price: '€1,800',
       for: 'A larger website serving different audiences.',
       pages: 'Up to 10 pages',
@@ -170,7 +170,7 @@ const hr: PricesContent = {
       pages: 'Do 5 stranica',
     },
     {
-      name: 'Web stranica odsjeka ili ustanove',
+      name: 'Web stranica ustanove',
       price: '1.800 €',
       for: 'Veća web stranica za različite skupine posjetitelja.',
       pages: 'Do 10 stranica',
