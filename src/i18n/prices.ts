@@ -11,7 +11,6 @@ export interface PricesContent {
   mostCommon: string;
   from: string;
   quote: string;
-  priceNote: string;
   packages: { name: string; price: string; for: string; pages: string }[];
   compareHeading: string;
   featureColumn: string;
@@ -46,7 +45,6 @@ const en: PricesContent = {
   mostCommon: 'Most common',
   from: 'from ',
   quote: 'Ask for a quote',
-  priceNote: 'The price includes a conversation about what you want to say, organising your content and making sure everything looks tidy and clear.',
   packages: [
     {
       name: 'Research project website',
@@ -158,7 +156,6 @@ const hr: PricesContent = {
   mostCommon: 'Najčešći izbor',
   from: 'od ',
   quote: 'Zatražite ponudu',
-  priceNote: 'U cijenu ulazi razgovor o tome što želite reći, slaganje sadržaja i briga da sve izgleda uredno i jasno.',
   packages: [
     {
       name: 'Web stranica istraživačkog projekta',
