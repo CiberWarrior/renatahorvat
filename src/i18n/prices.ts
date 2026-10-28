@@ -47,7 +47,7 @@ const en: PricesContent = {
   quote: 'Ask for a quote',
   packages: [
     {
-      name: 'Research project page',
+      name: 'Research project website',
       price: '€500',
       for: 'A single page for a research project, grant or lab.',
       pages: '1 page',
@@ -158,7 +158,7 @@ const hr: PricesContent = {
   quote: 'Zatražite ponudu',
   packages: [
     {
-      name: 'Stranica istraživačkog projekta',
+      name: 'Web stranica istraživačkog projekta',
       price: '500 €',
       for: 'Jedna stranica za istraživački projekt, grant ili laboratorij.',
       pages: '1 stranica',
