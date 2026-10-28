@@ -50,6 +50,10 @@ const t = useTranslations(locale);
       <div class="grid w-full grid-cols-2 gap-2 sm:flex sm:w-auto">
         <button
           id="cookie-settings-btn"
+          data-text-customise={t('cookie.customise')}
+          data-text-save={t('cookie.save')}
+          data-label-customise={t('cookie.customise.label')}
+          data-label-save={t('cookie.save.label')}
           class="col-span-2 whitespace-nowrap rounded-md border border-rule bg-surface px-4 py-2 text-sm font-medium text-ink transition-colors hover:border-sci"
           aria-label={t('cookie.customise.label')}
         >
@@ -223,7 +227,9 @@ const t = useTranslations(locale);
     settingsBtn.addEventListener('click', function() {
       if (cookieDetails) {
         cookieDetails.classList.toggle('hidden');
-        settingsBtn.textContent = cookieDetails.classList.contains('hidden') ? 'Customise' : 'Save Settings';
+        const isHidden = cookieDetails.classList.contains('hidden');
+        settingsBtn.textContent = isHidden ? settingsBtn.dataset.textCustomise ?? '' : settingsBtn.dataset.textSave ?? '';
+        settingsBtn.setAttribute('aria-label', (isHidden ? settingsBtn.dataset.labelCustomise : settingsBtn.dataset.labelSave) ?? '');
         
         // If saving
         if (cookieDetails.classList.contains('hidden')) {
