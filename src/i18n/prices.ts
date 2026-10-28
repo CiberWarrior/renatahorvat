@@ -20,8 +20,7 @@ export interface PricesContent {
   notes: string[];
   scopedHeading: string;
   scopedIntro: string;
-  dependsOn: string;
-  scoped: { name: string; text: string; factors: string[] }[];
+  scoped: { name: string; text: string }[];
   afterHeading: string;
   afterText: string;
   afterLaunch: string[];
@@ -89,48 +88,30 @@ const en: PricesContent = {
   scopedHeading: 'Projects quoted individually',
   scopedIntro:
     'After an introductory meeting I will send you a quote tailored to your project.',
-  dependsOn: 'The price depends on',
   scoped: [
     {
       name: 'Conference & congress websites',
       text: 'Programme, speakers, registration and abstract submission.',
-      factors: [
-        'Registration and online payment',
-        'Abstract submission and review',
-        'Size of the programme and number of speakers',
-        'Number of languages',
-        'Archive after the event',
-      ],
     },
     {
       name: 'E-textbooks & e-learning',
       text: 'Online course material with clear navigation, quizzes and diagrams.',
-      factors: [
-        'Number of chapters and amount of material',
-        'Number of figures and diagrams',
-        'Quizzes and other interactive features',
-        'Moving existing content online',
-      ],
     },
     {
       name: 'Scientific figures & infographics',
       text: 'Diagrams for papers, posters, lectures and textbooks.',
-      factors: ['Number of figures', 'Simple diagram or detailed illustration', 'File formats for print and web'],
     },
     {
       name: 'Graphic design & illustration',
       text: 'Illustrations, ad designs and promotional materials for your organisation or business.',
-      factors: ['Type and number of materials', 'Level of detail', 'File formats for print and web'],
     },
     {
       name: 'Digital advertising',
       text: 'Ad design and campaign management for Facebook and Google Ads.',
-      factors: ['Advertising platforms', 'Number of campaigns and ad designs', 'Campaign duration'],
     },
     {
       name: 'Social media management',
       text: 'Day-to-day management of your social media accounts.',
-      factors: ['Number of accounts', 'Scope of account management', 'Duration of support'],
     },
   ],
   afterHeading: 'After launch',
@@ -218,48 +199,30 @@ const hr: PricesContent = {
   scopedHeading: 'Projekti s individualnom ponudom',
   scopedIntro:
     'Nakon informativnog sastanka poslat ću vam ponudu prilagođenu vašem projektu.',
-  dependsOn: 'Cijena ovisi o',
   scoped: [
     {
       name: 'Web stranice konferencija i kongresa',
       text: 'Program, predavači, registracija i prijava sažetaka.',
-      factors: [
-        'Registraciji i online plaćanju',
-        'Prijavi i recenziji sažetaka',
-        'Opsegu programa i broju predavača',
-        'Broju jezika',
-        'Arhivi nakon događanja',
-      ],
     },
     {
       name: 'E-udžbenici i e-učenje',
       text: 'Online nastavni materijali s jasnom navigacijom, kvizovima i dijagramima.',
-      factors: [
-        'Broju poglavlja i količini materijala',
-        'Broju slika i dijagrama',
-        'Kvizovima i drugim interaktivnim mogućnostima',
-        'Prebacivanju postojećeg sadržaja online',
-      ],
     },
     {
       name: 'Znanstveni prikazi i infografike',
       text: 'Dijagrami za radove, postere, predavanja i udžbenike.',
-      factors: ['Broju prikaza', 'Jednostavnom dijagramu ili detaljnoj ilustraciji', 'Formatima datoteka za tisak i web'],
     },
     {
       name: 'Grafički dizajn i ilustracija',
       text: 'Ilustracije, dizajn oglasa i promotivni materijali za vašu organizaciju ili tvrtku.',
-      factors: ['Vrsti i broju materijala', 'Razini detalja', 'Formatima datoteka za tisak i web'],
     },
     {
       name: 'Digitalno oglašavanje',
       text: 'Dizajn oglasa i vođenje kampanja za Facebook i Google Ads.',
-      factors: ['Platformama za oglašavanje', 'Broju kampanja i dizajna oglasa', 'Trajanju kampanje'],
     },
     {
       name: 'Upravljanje društvenim mrežama',
       text: 'Svakodnevno upravljanje vašim profilima na društvenim mrežama.',
-      factors: ['Broju profila', 'Opsegu upravljanja profilima', 'Trajanju podrške'],
     },
   ],
   afterHeading: 'Nakon objave',

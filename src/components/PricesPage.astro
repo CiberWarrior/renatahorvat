@@ -125,12 +125,6 @@ const packages = c.packages.map((pkg, i) => ({ ...pkg, ...packageMeta[i] }));
           <div class={`grid min-w-0 content-start gap-3 border-b border-rule py-6 md:border-b-0 ${i % 3 > 0 ? 'md:border-l md:border-rule md:pl-8' : ''} ${i % 3 < 2 ? 'md:pr-8' : ''}`}>
             <h3 class="font-serif text-xl font-medium text-ink">{item.name}</h3>
             <p class="text-[15px] leading-relaxed text-ink-soft">{item.text}</p>
-            <div>
-              <p class="mb-1.5 font-mono text-[11px] uppercase tracking-[.08em] text-ink-soft">{c.dependsOn}</p>
-              <ul class="list-disc space-y-1 pl-5 text-[15px] text-ink marker:text-sci">
-                {item.factors.map((f) => <li>{f}</li>)}
-              </ul>
-            </div>
           </div>
         ))}
       </div>
