@@ -286,7 +286,7 @@ const hr: PricesContent = {
     },
   ],
   ctaHeading: 'Niste sigurni koja je opcija prava za vas?',
-  ctaButton: 'Ispunite kviz',
+  ctaButton: 'Riješite kviz',
 };
 
 export const pricesContent: Record<Locale, PricesContent> = { en, hr };
