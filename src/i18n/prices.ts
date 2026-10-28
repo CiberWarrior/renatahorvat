@@ -88,7 +88,7 @@ const en: PricesContent = {
   ],
   scopedHeading: 'Projects quoted individually',
   scopedIntro:
-    'The price depends on the factors below. Once I understand your requirements, I will send you a tailored quote.',
+    'After an introductory meeting I will send you a quote tailored to your project.',
   dependsOn: 'The price depends on',
   scoped: [
     {
@@ -217,7 +217,7 @@ const hr: PricesContent = {
   ],
   scopedHeading: 'Projekti s individualnom ponudom',
   scopedIntro:
-    'Cijena ovisi o čimbenicima u nastavku. Kad upoznam vaše potrebe, poslat ću vam ponudu prilagođenu vašem projektu.',
+    'Nakon informativnog sastanka poslat ću vam ponudu prilagođenu vašem projektu.',
   dependsOn: 'Cijena ovisi o',
   scoped: [
     {
