@@ -2,12 +2,14 @@
 import DiatomLong from './DiatomLong.astro';
 import { getLocale, pageHref, useTranslations } from '../i18n/utils';
 
-interface Props { heading?: string; text?: string; location: string; illustration?: boolean; }
+interface Props { heading?: string; text?: string; button?: string; href?: string; location: string; illustration?: boolean; }
 const locale = getLocale(Astro.url);
 const t = useTranslations(locale);
 const {
   heading = t('cta.heading'),
   text = t('cta.text'),
+  button = t('cta.button'),
+  href = pageHref('/contact', locale),
   location,
   illustration = false,
 } = Astro.props as Props;
@@ -19,14 +21,14 @@ const {
       <h2 id={`cta-heading-${location}`} class="max-w-3xl font-serif text-4xl font-medium leading-tight text-balance sm:text-5xl">
         {heading}
       </h2>
-      <p class="max-w-xl text-[15px] leading-relaxed text-pretty text-paper/75">{text}</p>
+      {text && <p class="max-w-xl text-[15px] leading-relaxed text-pretty text-paper/75">{text}</p>}
       <div>
         <a
-          href={pageHref('/contact', locale)}
+          href={href}
           class="group inline-flex items-center gap-2 rounded-md bg-paper px-6 py-3 font-medium text-ink transition-colors hover:bg-sci-soft"
           onclick={`if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: 'get_in_touch', cta_location: '${location}' })`}
         >
-          {t('cta.button')} <span class="inline-block transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true">→</span>
+          {button} <span class="inline-block transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true">→</span>
         </a>
       </div>
     </div>

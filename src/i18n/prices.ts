@@ -29,7 +29,7 @@ export interface PricesContent {
   step: string;
   steps: { title: string; text: string }[];
   ctaHeading: string;
-  ctaText: string;
+  ctaButton: string;
 }
 
 const en: PricesContent = {
@@ -157,7 +157,7 @@ const en: PricesContent = {
     },
   ],
   ctaHeading: 'Not sure which option is right for you?',
-  ctaText: 'Tell me a few words about your project and we will work out together what makes sense.',
+  ctaButton: 'Take the quiz',
 };
 
 // Croatian draft. Amounts are the same as in English; only the number format is Croatian (1.000 €).
@@ -286,7 +286,7 @@ const hr: PricesContent = {
     },
   ],
   ctaHeading: 'Niste sigurni koja je opcija prava za vas?',
-  ctaText: 'Napišite mi nekoliko riječi o svom projektu, a zajedno ćemo vidjeti što ima smisla.',
+  ctaButton: 'Ispunite kviz',
 };
 
 export const pricesContent: Record<Locale, PricesContent> = { en, hr };
