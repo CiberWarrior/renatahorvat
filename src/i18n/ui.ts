@@ -32,7 +32,7 @@ const en = {
 
   'footer.location': 'Zagreb',
   'footer.privacy': 'Privacy Policy',
-  'footer.legal': 'Business Details',
+  'footer.legal': 'Terms of Use',
   'footer.cookies': 'Cookie Settings',
 
   'meta.etextbook': 'E-textbook · Faculty of Science',
@@ -160,7 +160,7 @@ const hr: Record<UiKey, string> = {
 
   'footer.location': 'Zagreb',
   'footer.privacy': 'Politika privatnosti',
-  'footer.legal': 'Podaci o obrtu',
+  'footer.legal': 'Uvjeti korištenja',
   'footer.cookies': 'Postavke kolačića',
 
   'meta.etextbook': 'E-udžbenik · PMF',
