@@ -46,7 +46,7 @@ const packages = c.packages.map((pkg, i) => ({ ...pkg, ...packageMeta[i] }));
       <h2 id="packages-heading" class="sr-only">{c.packagesHeading}</h2>
       <div class="grid gap-8 md:grid-cols-3 md:gap-6">
         {packages.map((pkg) => (
-          <article class={`relative flex min-w-0 flex-col gap-4 rounded-2xl border p-6 sm:p-7 ${pkg.common ? 'border-sci bg-surface shadow-[0_24px_40px_-30px_rgb(21_33_30/.55)] ring-1 ring-sci/25' : 'border-rule bg-surface'}`}>
+          <article class={`relative flex min-w-0 flex-col gap-4 rounded-2xl border p-6 sm:p-7 ${pkg.common ? 'border-sci bg-surface/70 shadow-[0_24px_40px_-30px_rgb(21_33_30/.55)] ring-1 ring-sci/25' : 'border-rule bg-surface/50'}`}>
             {pkg.common && (
               <span class="absolute -top-3 left-6 rounded-full bg-sci px-3 py-1 font-mono text-[11px] uppercase tracking-[.06em] text-white">{c.mostCommon}</span>
             )}
