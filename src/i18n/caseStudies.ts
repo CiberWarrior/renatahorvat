@@ -7,7 +7,6 @@ export interface CaseStudy {
   eyebrow: string;
   lead: string;
   imageAlt?: string;
-  imageCredit?: string;
   facts: { label: string; value: string }[];
   coversHeading: string;
   covers: string[];
