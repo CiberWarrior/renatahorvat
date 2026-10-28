@@ -162,7 +162,7 @@ const hr: Record<UiKey, string> = {
   'footer.legal': 'Podaci o obrtu',
   'footer.cookies': 'Postavke kolačića',
 
-  'meta.etextbook': 'E-udžbenik · Prirodoslovno-matematički fakultet',
+  'meta.etextbook': 'E-udžbenik · PMF',
   'meta.congress': 'Kongres · Međunarodni',
   'meta.society': 'Društvo · Europa',
 
