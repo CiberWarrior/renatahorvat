@@ -41,7 +41,7 @@ const en: PricesContent = {
   eyebrow: 'Pricing',
   heading: 'Prices and packages',
   intro:
-    'Every project is different. These three packages give a rough overview of what is possible and what it costs, so you can plan your budget. For other websites and projects I prepare an individual quote after a short conversation.',
+    'Every project is different. See the packages I offer below, and for other websites and projects I prepare an individual quote after a short conversation.',
   packagesHeading: 'Website packages',
   mostCommon: 'Most common',
   from: 'from ',
@@ -170,7 +170,7 @@ const hr: PricesContent = {
   eyebrow: 'Cjenik',
   heading: 'Cijene i paketi',
   intro:
-    'Svaki projekt je drugačiji. Ova tri paketa daju okvirni pregled mogućnosti i troškova kako biste lakše planirali budžet. Za ostale web stranice i projekte pripremam individualnu ponudu nakon kratkog razgovora.',
+    'Svaki projekt je drugačiji. U nastavku pogledajte pakete koje nudim, a za ostale web stranice i projekte pripremam individualnu ponudu nakon kratkog razgovora.',
   packagesHeading: 'Paketi web stranica',
   mostCommon: 'Najčešći izbor',
   from: 'od ',
