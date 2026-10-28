@@ -25,16 +25,8 @@ const t = useTranslations(locale);
     
     if (footerCookieBtn) {
       footerCookieBtn.addEventListener('click', function() {
-        // Trigger the cookie settings banner
-        const cookieBanner = document.getElementById('cookie-consent-banner');
-        const settingsTrigger = document.getElementById('cookie-settings-trigger');
-        
-        if (cookieBanner && settingsTrigger) {
-          cookieBanner.classList.remove('hidden');
-          settingsTrigger.classList.add('hidden');
-          
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+        // Reuse the floating button: it opens the banner and loads the saved choice
+        document.getElementById('cookie-settings-trigger')?.click();
       });
     }
   });

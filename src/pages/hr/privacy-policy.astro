@@ -8,7 +8,7 @@ import { getLocale, pageHref } from '../../i18n/utils';
 const locale = getLocale(Astro.url);
 const pageTitle = 'Politika privatnosti | Renata Horvat';
 const pageDescription = 'Politika privatnosti za renatahorvat.com – saznajte kako prikupljam, koristim i štitim vaše osobne podatke.';
-const lastUpdated = '26. listopada 2026.';
+const lastUpdated = '28. listopada 2026.';
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
@@ -41,18 +41,10 @@ const lastUpdated = '26. listopada 2026.';
           </h2>
           <div class="bg-surface border border-rule rounded-xl p-6">
             <p class="text-ink-soft leading-relaxed mb-4">
-              Za obradu osobnih podataka odgovorna je <strong class="text-ink">Renata Horvat, vlasnica obrta CreativeStar, obrt za računalne usluge</strong>.
+              Za obradu osobnih podataka odgovorna je <strong class="text-ink">Renata Horvat, vlasnica obrta CreativeStar, obrt za računalne usluge</strong>. Adresa, OIB i e-pošta navedeni su u poglavlju <a href="#podaci-o-obrtu" class="text-sci underline underline-offset-2 hover:text-sci-dark">12. Podaci o obrtu</a>.
             </p>
-            <div class="space-y-2 text-ink-soft mb-4">
-              <p><strong class="text-ink">Adresa:</strong> Josipa Pupačića 4, 10090 Zagreb, Hrvatska</p>
-              <p><strong class="text-ink">OIB:</strong> 04904111520</p>
-              <p>
-                <strong class="text-ink">E-pošta:</strong>
-                <a href="mailto:screatives.info@gmail.com" class="text-sci hover:text-sci-dark">screatives.info@gmail.com</a>
-              </p>
-            </div>
             <p class="text-ink-soft leading-relaxed mb-0">
-              Na navedenu adresu e-pošte možete poslati pitanja o privatnosti i zahtjeve povezane sa svojim osobnim podacima.
+              Na adresu e-pošte iz tog poglavlja možete poslati pitanja o privatnosti i zahtjeve povezane sa svojim osobnim podacima.
             </p>
           </div>
         </section>
@@ -435,6 +427,47 @@ const lastUpdated = '26. listopada 2026.';
             <p class="text-ink-soft leading-relaxed mb-0">
               Aktualna verzija i datum posljednjeg ažuriranja dostupni su na ovoj stranici.
             </p>
+          </div>
+        </section>
+
+        <section class="mb-12" id="podaci-o-obrtu">
+          <h2 class="font-serif text-2xl font-medium text-ink mb-4 flex items-baseline gap-3">
+            <span class="font-mono text-sm text-sci">12.</span>
+            Podaci o obrtu
+          </h2>
+          <div class="bg-surface border border-rule rounded-xl p-6">
+            <div class="space-y-4 text-ink-soft">
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-start">
+                <strong class="min-w-[200px] text-ink">Naziv obrta:</strong>
+                <span>CreativeStar obrt za računalne usluge, vl. Renata Horvat, Zagreb, Josipa Pupačića 4</span>
+              </div>
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-start">
+                <strong class="min-w-[200px] text-ink">Vlasnica:</strong>
+                <span>Renata Horvat</span>
+              </div>
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-start">
+                <strong class="min-w-[200px] text-ink">Sjedište:</strong>
+                <span>Josipa Pupačića 4, 10090 Zagreb, Hrvatska</span>
+              </div>
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-start">
+                <strong class="min-w-[200px] text-ink">OIB:</strong>
+                <span>04904111520</span>
+              </div>
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-start">
+                <strong class="min-w-[200px] text-ink">Registar:</strong>
+                <span>Obrtni registar</span>
+              </div>
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-start">
+                <strong class="min-w-[200px] text-ink">Matični broj obrta (MBO):</strong>
+                <span>99173433</span>
+              </div>
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-start">
+                <strong class="min-w-[200px] text-ink">E-pošta:</strong>
+                <a href="mailto:screatives.info@gmail.com" class="text-sci transition-colors duration-300 hover:text-sci-dark">
+                  screatives.info@gmail.com
+                </a>
+              </div>
+            </div>
           </div>
         </section>
 

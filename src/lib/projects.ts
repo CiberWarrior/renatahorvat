@@ -210,6 +210,9 @@ export const projects: Project[] = [
     icon: 'users',
     iconBg: 'sky-blue',
     category: 'society',
+    featured: true,
+    image: '/images/work/hbd-sbc.jpg',
+    role: 'Society website, with congress pages and registration for student competitions.',
   },
   {
     title: 'Healthy Grape Vine - Virus Elimination',

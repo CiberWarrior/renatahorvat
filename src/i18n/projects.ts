@@ -12,6 +12,8 @@ export const projectRolesHr: Record<string, string> = {
     'Web dizajn, izrada u WordPressu i edukativni dijagrami za sveučilišni udžbenik.',
   'ICD11 - XI. International Congress of Dipterology':
     'Web stranica kongresa s programom, registracijom, sažecima i predavačima.',
+  'Croatian Biological Society (HBD-SBC)':
+    'Web stranica društva, uz stranice kongresa i prijave za natjecanja učenika.',
   'Herbarium Croaticum':
     'Pretraživa web stranica koja predstavlja zbirke i rad sveučilišnog herbarija.',
   'FEPS - Federation of European Phycological Societies':

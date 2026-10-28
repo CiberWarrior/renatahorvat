@@ -6,7 +6,7 @@ import Footer from '../components/Footer.astro';
 // English counterpart of src/pages/hr/privacy-policy.astro. When one version changes, update the other.
 const pageTitle = 'Privacy Policy | Renata Horvat';
 const pageDescription = 'Privacy Policy for renatahorvat.com — how I collect, use and protect your personal data.';
-const lastUpdated = '26 October 2026';
+const lastUpdated = '28 October 2026';
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
@@ -39,18 +39,10 @@ const lastUpdated = '26 October 2026';
           </h2>
           <div class="bg-surface border border-rule rounded-xl p-6">
             <p class="text-ink-soft leading-relaxed mb-4">
-              The data controller is <strong class="text-ink">Renata Horvat, owner of CreativeStar, obrt za računalne usluge</strong>, a Croatian sole proprietorship providing computer services.
+              The data controller is <strong class="text-ink">Renata Horvat, owner of CreativeStar, obrt za računalne usluge</strong>, a Croatian sole proprietorship providing computer services. The address, OIB and email are in section <a href="#business-details" class="text-sci underline underline-offset-2 hover:text-sci-dark">12. Business details</a>.
             </p>
-            <div class="space-y-2 text-ink-soft mb-4">
-              <p><strong class="text-ink">Address:</strong> Josipa Pupačića 4, 10090 Zagreb, Croatia</p>
-              <p><strong class="text-ink">Croatian personal identification number (OIB):</strong> 04904111520</p>
-              <p>
-                <strong class="text-ink">Email:</strong>
-                <a href="mailto:screatives.info@gmail.com" class="text-sci hover:text-sci-dark">screatives.info@gmail.com</a>
-              </p>
-            </div>
             <p class="text-ink-soft leading-relaxed mb-0">
-              You can use this email address to ask questions about privacy or submit requests concerning your personal data.
+              You can use the email address in that section to ask questions about privacy or submit requests concerning your personal data.
             </p>
           </div>
         </section>
@@ -417,6 +409,47 @@ const lastUpdated = '26 October 2026';
             <p class="text-ink-soft leading-relaxed mb-0">
               The current version and its last-updated date are available on this page.
             </p>
+          </div>
+        </section>
+
+        <section class="mb-12" id="business-details">
+          <h2 class="font-serif text-2xl font-medium text-ink mb-4 flex items-baseline gap-3">
+            <span class="font-mono text-sm text-sci">12.</span>
+            Business details
+          </h2>
+          <div class="bg-surface border border-rule rounded-xl p-6">
+            <div class="space-y-4 text-ink-soft">
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-start">
+                <strong class="min-w-[200px] text-ink">Business name:</strong>
+                <span>CreativeStar obrt za računalne usluge, vl. Renata Horvat, Zagreb, Josipa Pupačića 4</span>
+              </div>
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-start">
+                <strong class="min-w-[200px] text-ink">Owner:</strong>
+                <span>Renata Horvat</span>
+              </div>
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-start">
+                <strong class="min-w-[200px] text-ink">Registered address:</strong>
+                <span>Josipa Pupačića 4, 10090 Zagreb, Croatia</span>
+              </div>
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-start">
+                <strong class="min-w-[200px] text-ink">Croatian personal identification number (OIB):</strong>
+                <span>04904111520</span>
+              </div>
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-start">
+                <strong class="min-w-[200px] text-ink">Register:</strong>
+                <span>Croatian Crafts Register (Obrtni registar)</span>
+              </div>
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-start">
+                <strong class="min-w-[200px] text-ink">Craft registration number (MBO):</strong>
+                <span>99173433</span>
+              </div>
+              <div class="flex flex-col gap-2 sm:flex-row sm:items-start">
+                <strong class="min-w-[200px] text-ink">Email:</strong>
+                <a href="mailto:screatives.info@gmail.com" class="text-sci transition-colors duration-300 hover:text-sci-dark">
+                  screatives.info@gmail.com
+                </a>
+              </div>
+            </div>
           </div>
         </section>
 
