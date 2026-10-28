@@ -38,6 +38,7 @@ const en = {
   'meta.etextbook': 'E-textbook · Faculty of Science',
   'meta.congress': 'Congress · International',
   'meta.society': 'Society · Europe',
+  'meta.societyCroatia': 'Society · Croatia',
 
   'unit.projects.one': 'project',
   'unit.projects.few': 'projects',
@@ -165,6 +166,7 @@ const hr: Record<UiKey, string> = {
   'meta.etextbook': 'E-udžbenik · PMF',
   'meta.congress': 'Kongres · Međunarodni',
   'meta.society': 'Društvo · Europa',
+  'meta.societyCroatia': 'Društvo · Hrvatska',
 
   'unit.projects.one': 'projekt',
   'unit.projects.few': 'projekta',
