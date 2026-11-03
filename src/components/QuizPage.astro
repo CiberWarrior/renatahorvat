@@ -22,6 +22,17 @@ const celebrationStars = [
   [50, 22, 0.6, 2.9], [59, 12, 0.35, 2.4], [68, 18, 0.95, 2.7], [77, 14, 0.2, 2.5], [85, 20, 0.7, 2.8],
   [93, 13, 0.45, 2.4], [27, 10, 1.1, 2.6], [72, 11, 1.2, 2.6], [47, 10, 1.3, 2.5],
 ];
+// Line icons for the answers to "What do you need?", keyed by the answer's need (or project type).
+const answerIcons: Record<string, string> = {
+  'one-page': '<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8.5 8h7M8.5 12h7M8.5 16h4"/>',
+  'small-site': '<rect x="7" y="3" width="13" height="16" rx="2"/><path d="M4 7v12a2 2 0 0 0 2 2h10"/><path d="M10.5 8h6M10.5 12h6"/>',
+  custom: '<path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M6 18l2-2M16 8l2-2"/><circle cx="12" cy="12" r="2.5"/>',
+  existing: '<circle cx="12" cy="12" r="3"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/>',
+  automation: '<path d="M4 12a8 8 0 0 1 13.7-5.7L20 8.5M20 4v4.5h-4.5"/><path d="M20 12a8 8 0 0 1-13.7 5.7L4 15.5M4 20v-4.5h4.5"/>',
+  'Conference or event': '<rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8M7 12l3-3 2 2 4-4"/>',
+  Other: '<path d="M14.5 4.5 19.5 9.5 9 20H4v-5Z"/><path d="m12.5 6.5 5 5"/>',
+  'Not sure yet': '<circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6v.6M12 17h.01"/>',
+};
 const starPath = 'M0 -11 Q2 -11 4 -4 L11 -3 Q14 -2 10 2 L6 6 L7 12 Q7 14 3 12 L0 10 L-7 13 Q-10 14 -9 9 L-7 3 L-12 -2 Q-14 -5 -9 -5 L-4 -5Z';
 
 ---
@@ -73,7 +84,7 @@ const starPath = 'M0 -11 Q2 -11 4 -4 L11 -3 Q14 -2 10 2 L6 6 L7 12 Q7 14 3 12 L0
 
       <form
         id="quiz-form"
-        class="overflow-hidden rounded-xl border border-rule bg-surface"
+        class="overflow-hidden rounded-2xl border border-rule bg-surface shadow-[0_24px_48px_-36px_rgb(21_33_30/.55)]"
         novalidate
         data-messages={JSON.stringify(c.script)}
         data-step={q.step}
@@ -87,6 +98,9 @@ const starPath = 'M0 -11 Q2 -11 4 -4 L11 -3 Q14 -2 10 2 L6 6 L7 12 Q7 14 3 12 L0
           <p id="quiz-progress" class="font-mono text-xs uppercase tracking-[.08em] text-ink-soft" aria-live="polite">
             {q.step.replace('{current}', '1').replace('{total}', String(q.questions.length))}
           </p>
+          <div class="mt-3 h-1.5 overflow-hidden rounded-full bg-rule/60" aria-hidden="true">
+            <div id="quiz-bar" class="h-full rounded-full bg-gradient-to-r from-sci to-[#00cedf] transition-[width] duration-500 ease-out motion-reduce:transition-none" style={`width:${100 / (q.questions.length + 1)}%`}></div>
+          </div>
         </div>
 
         {q.questions.map((question, index) => (
@@ -97,15 +111,24 @@ const starPath = 'M0 -11 Q2 -11 4 -4 L11 -3 Q14 -2 10 2 L6 6 L7 12 Q7 14 3 12 L0
             </h2>
             <div class="grid gap-2" role="radiogroup" aria-labelledby={`quiz-q-${question.id}`}>
               {question.answers.map((answer) => (
-                <label class="flex cursor-pointer items-center rounded-md border border-rule bg-paper px-4 py-3 text-[15px] text-ink transition-colors hover:border-sci has-[:checked]:border-sci has-[:checked]:bg-sci-soft has-[:checked]:text-sci">
+                <label class="quiz-answer group flex cursor-pointer items-center gap-3 rounded-xl border border-rule bg-paper px-4 py-3 text-[15px] text-ink transition-all hover:-translate-y-px hover:border-sci hover:shadow-[0_10px_24px_-18px_rgb(21_33_30/.6)] has-[:checked]:border-sci has-[:checked]:bg-sci-soft has-[:checked]:text-sci motion-reduce:hover:translate-y-0">
                   <input
                     type="radio"
                     class="sr-only"
                     name={question.id}
                     value={answer.label}
                     data-project-type={answer.projectType ?? ''}
+                    data-need={answer.need}
                   />
-                  {answer.label}
+                  {answerIcons[answer.need ?? answer.projectType ?? ''] && (
+                    <span class="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-sci-soft text-sci transition-colors group-has-[:checked]:bg-surface" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" focusable="false" set:html={answerIcons[answer.need ?? answer.projectType ?? '']} />
+                    </span>
+                  )}
+                  <span class="min-w-0 flex-1">{answer.label}</span>
+                  <span class="grid h-5 w-5 shrink-0 place-items-center rounded-full border border-rule transition-colors group-hover:border-sci group-has-[:checked]:border-sci group-has-[:checked]:bg-sci" aria-hidden="true">
+                    <span class="h-1.5 w-1.5 rounded-full bg-white opacity-0 transition-opacity group-has-[:checked]:opacity-100"></span>
+                  </span>
                 </label>
               ))}
             </div>
@@ -197,6 +220,12 @@ const starPath = 'M0 -11 Q2 -11 4 -4 L11 -3 Q14 -2 10 2 L6 6 L7 12 Q7 14 3 12 L0
         detailsStep?.classList.toggle('hidden', !onDetails);
         backButton?.classList.toggle('hidden', index === 0);
 
+        const bar = document.getElementById('quiz-bar');
+        if (bar) bar.style.width = `${((Math.min(index, questionSteps.length) + 1) / (questionSteps.length + 1)) * 100}%`;
+        const visible = onDetails ? detailsStep : questionSteps[index];
+        visible?.classList.remove('quiz-enter');
+        void visible?.offsetWidth;
+        visible?.classList.add('quiz-enter');
         if (progress) {
           const template = form.dataset.step || '';
           progress.textContent = onDetails
@@ -346,12 +375,29 @@ const starPath = 'M0 -11 Q2 -11 4 -4 L11 -3 Q14 -2 10 2 L6 6 L7 12 Q7 14 3 12 L0
         }
       });
 
-      show(0);
+      // Coming from a package on the pricing page (?need=one-page): that answer is already chosen, so start at question 2.
+      const need = new URLSearchParams(window.location.search).get('need');
+      const preset = need ? questionSteps[0]?.querySelector<HTMLInputElement>(`input[data-need="${CSS.escape(need)}"]`) : null;
+      if (preset) {
+        preset.checked = true;
+        show(1);
+      } else {
+        show(0);
+      }
     });
   </script>
 </Layout>
 
 <style>
+  /* Each question slides in gently */
+  .quiz-enter { animation: quiz-enter .35s ease-out both; }
+  @keyframes quiz-enter {
+    from { opacity: 0; transform: translateX(14px); }
+    to { opacity: 1; transform: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .quiz-enter { animation: none; }
+  }
   .quiz-star { opacity: 0; }
   .quiz-canopy { transform-box: fill-box; transform-origin: 50% 100%; }
 

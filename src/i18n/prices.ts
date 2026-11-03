@@ -1,5 +1,11 @@
 import type { Locale } from './config';
 
+/** Quiz answer id for each offer; the quiz opens with that answer already chosen (see QuizPage.astro). */
+export type QuizNeed = 'one-page' | 'small-site' | 'custom' | 'existing' | 'automation';
+
+/** Small line icons for the other services, drawn in PricesPage.astro. */
+export type ServiceIcon = 'conference' | 'book' | 'chart' | 'pen' | 'megaphone' | 'chat';
+
 export interface PricesContent {
   title: string;
   description: string;
@@ -7,113 +13,141 @@ export interface PricesContent {
   eyebrow: string;
   heading: string;
   intro: string;
-  packagesHeading: string;
-  mostCommon: string;
+  choicesLabel: string;
+  choices: { id: string; title: string; text: string }[];
   from: string;
   quote: string;
-  packages: { name: string; price: string; for: string; pages: string }[];
-  compareHeading: string;
-  featureColumn: string;
-  included: string;
-  notIncluded: string;
-  rows: { label: string; values: (string | boolean)[] }[];
+  includesLabel: string;
+  newHeading: string;
+  newIntro: string;
+  packages: { name: string; price: string; for: string; pages: string; includes: string[]; need: QuizNeed }[];
+  custom: { eyebrow: string; name: string; text: string; priceNote: string; button: string };
   notes: string[];
-  scopedHeading: string;
-  scopedIntro: string;
-  scoped: { name: string; text: string }[];
+  existingHeading: string;
+  existingIntro: string;
+  existing: { name: string; text: string; need: QuizNeed }[];
+  otherHeading: string;
+  otherIntro: string;
+  other: { name: string; text: string; also?: string; icon: ServiceIcon }[];
+  adNote: string;
   afterHeading: string;
   afterText: string;
   afterLaunch: string[];
   stepsHeading: string;
-  step: string;
   steps: { title: string; text: string }[];
   ctaHeading: string;
-  ctaButton: string;
+  ctaText: string;
+  ctaContact: string;
 }
 
 const en: PricesContent = {
   title: 'Website Design Pricing | Renata Horvat',
   description:
-    'Website prices from €500 for research projects, societies and institutions. Other websites, design and advertising are quoted individually. Zagreb, Croatia.',
+    'Website prices from €500. A larger site, optimisation and one automated process are quoted after a short conversation. Zagreb, Croatia.',
   keywords:
     'academic website pricing, scientific society website cost, conference website price, e-learning platform price, research project website, web design pricing Croatia, website cost Zagreb',
   eyebrow: 'Pricing',
   heading: 'Prices and packages',
   intro:
-    'Every project is different. See the packages I offer below, and for other websites and projects I prepare an individual quote after a short conversation.',
-  packagesHeading: 'Website packages',
-  mostCommon: 'Most common',
+    'The price is a starting point. We agree the exact scope in a short conversation, with no obligation.',
+  choicesLabel: 'What do you need?',
+  choices: [
+    { id: 'new', title: 'A new website', text: 'One page or a small website, from €500.' },
+    { id: 'existing', title: 'I already have a website', text: 'Optimisation or automating one process.' },
+    { id: 'other', title: 'Something else', text: 'Conference, e-learning, design, advertising.' },
+  ],
   from: 'from ',
   quote: 'Ask for a quote',
+  includesLabel: 'Included',
+  newHeading: 'A new website',
+  newIntro: 'Choose the package closest to what you need. We can adjust it when we talk.',
   packages: [
     {
-      name: 'Research project website',
+      name: 'One page',
       price: '€500',
-      for: 'A single page for a research project, grant or lab.',
+      for: 'A research project, a trade, a salon or a sole trader.',
       pages: '1 page',
+      includes: [
+        'One page',
+        'Contact form',
+        'Placing your logo',
+        'Connecting your own web address',
+      ],
+      need: 'one-page',
     },
     {
-      name: 'Society or research group website',
+      name: 'Small website',
       price: '€1,000',
-      for: 'A multi-page site for a scientific society or research group.',
+      for: 'A society, a research group, or a trade with several services.',
       pages: 'Up to 5 pages',
-    },
-    {
-      name: 'Institutional website',
-      price: '€1,800',
-      for: 'A larger website serving different audiences.',
-      pages: 'Up to 10 pages',
+      includes: [
+        'Everything in the One page package',
+        'Up to five pages',
+        'News and events, if you need them',
+      ],
+      need: 'small-site',
     },
   ],
-  compareHeading: 'What does a package usually include?',
-  featureColumn: 'Feature',
-  included: 'Included',
-  notIncluded: 'Not included',
-  rows: [
-    { label: 'Pages', values: ['1', 'Up to 5', 'Up to 10'] },
-    { label: 'Contact form', values: [true, true, true] },
-    { label: 'Logos', values: [true, true, true] },
-    { label: 'Connecting your own web address', values: [true, true, true] },
-    { label: 'News and events', values: [false, true, true] },
-    { label: 'Membership information and forms', values: [false, true, true] },
-    { label: 'Publication lists', values: [false, true, true] },
-    { label: 'Sections for different audiences', values: [false, false, true] },
-    { label: 'Visitor statistics, including clicks and downloads', values: [false, false, true] },
-    { label: 'Extra setup to help Google understand the site', values: [false, false, true] },
-  ],
+  custom: {
+    eyebrow: 'Made to measure',
+    name: 'Have an idea but not sure how to make it real?',
+    text: 'Tell me about it and we will go through it together, question by question, until it is clear what needs to be built.',
+    priceNote: 'Larger websites, for example for an institution, start from €1,800.',
+    button: 'Tell me your idea',
+  },
   notes: [
     'The exact scope is agreed for each project. Work outside the package scope is quoted separately. All prices are stated in euros.',
-    'Advertising spend is separate from design and campaign management fees and is agreed before work begins.',
   ],
-  scopedHeading: 'Projects quoted individually',
-  scopedIntro:
-    'After an introductory meeting I will send you a quote tailored to your project.',
-  scoped: [
+  existingHeading: 'Do you already have a website?',
+  existingIntro: 'I will look at what you have and send you a quote after we talk.',
+  existing: [
+    {
+      name: 'Optimising a site you already have',
+      text: 'Clearer, faster, and easier to find. This is not a promise of the top place on Google.',
+      need: 'existing',
+    },
+    {
+      name: 'Automating one process',
+      text: 'One job you keep copying, such as an application or an enquiry, goes to your inbox or a table on its own.',
+      need: 'automation',
+    },
+  ],
+  otherHeading: 'Other services',
+  otherIntro: 'After an introductory meeting I will send you a quote tailored to your project.',
+  other: [
     {
       name: 'Conference & congress websites',
       text: 'Programme, speakers, registration and abstract submission.',
+      icon: 'conference',
     },
     {
       name: 'E-textbooks & e-learning',
       text: 'Online course material with clear navigation, quizzes and diagrams.',
+      icon: 'book',
     },
     {
       name: 'Scientific figures & infographics',
       text: 'Diagrams for papers, posters, lectures and textbooks.',
+      icon: 'chart',
     },
     {
       name: 'Graphic design & illustration',
-      text: 'Illustrations, ad designs and promotional materials for your organisation or business.',
+      text: 'Illustration and ad design, promotional material for your organisation or company.',
+      icon: 'pen',
+      also: 'Logo design.',
     },
     {
       name: 'Digital advertising',
       text: 'Ad design and campaign management for Facebook and Google Ads.',
+      icon: 'megaphone',
     },
     {
       name: 'Social media management',
       text: 'Day-to-day management of your social media accounts.',
+      icon: 'chat',
     },
   ],
+  adNote: 'Advertising spend is separate from design and campaign management fees and is agreed before work begins.',
   afterHeading: 'After launch',
   afterText: 'Support is agreed and priced separately, either as a one-off service or as ongoing maintenance.',
   afterLaunch: [
@@ -122,7 +156,6 @@ const en: PricesContent = {
     'Design-only work for teams that already have a developer',
   ],
   stepsHeading: 'How do you get a quote?',
-  step: 'Step',
   steps: [
     {
       title: 'Initial conversation',
@@ -138,93 +171,119 @@ const en: PricesContent = {
     },
   ],
   ctaHeading: 'Not sure which option is right for you?',
-  ctaButton: 'Take the quiz',
+  ctaText: 'Take the short quiz or send me a message. I will get back to you with a suggestion, with no obligation.',
+  ctaContact: 'Send a message',
 };
 
 // Croatian draft. Amounts are the same as in English; only the number format is Croatian (1.000 €).
 const hr: PricesContent = {
   title: 'Cjenik izrade web stranica | Renata Horvat',
   description:
-    'Cijene web stranica od 500 € za istraživačke projekte, društva i ustanove. Za ostale web stranice, dizajn i oglašavanje izrađujem individualnu ponudu. Zagreb, Hrvatska.',
+    'Cijene web stranica od 500 €. Veća stranica, optimizacija i automatizacija jednog procesa dobivaju ponudu nakon kratkog razgovora. Zagreb, Hrvatska.',
   keywords:
     'cijena akademske web stranice, cijena web stranice znanstvenog društva, cijena web stranice konferencije, cijena platforme za e-učenje, web stranica istraživačkog projekta, cijene web dizajna Hrvatska, cijena web stranice Zagreb',
   eyebrow: 'Cjenik',
   heading: 'Cijene i paketi',
   intro:
-    'Svaki projekt je drugačiji. U nastavku pogledajte pakete koje nudim, a za ostale web stranice i projekte pripremam individualnu ponudu nakon kratkog razgovora.',
-  packagesHeading: 'Paketi web stranica',
-  mostCommon: 'Najčešći izbor',
+    'Cijena je početna. Točan opseg dogovaramo u kratkom razgovoru, bez obveze.',
+  choicesLabel: 'Što vam treba?',
+  choices: [
+    { id: 'new', title: 'Nova web stranica', text: 'Jedna stranica ili mala web stranica, od 500 €.' },
+    { id: 'existing', title: 'Već imam web stranicu', text: 'Optimizacija ili automatizacija jednog procesa.' },
+    { id: 'other', title: 'Nešto drugo', text: 'Konferencija, e-učenje, dizajn, oglašavanje.' },
+  ],
   from: 'od ',
   quote: 'Zatražite ponudu',
+  includesLabel: 'Uključuje',
+  newHeading: 'Nova web stranica',
+  newIntro: 'Odaberite paket koji je najbliži onome što trebate. Prilagodit ćemo ga u razgovoru.',
   packages: [
     {
-      name: 'Web stranica istraživačkog projekta',
+      name: 'Jedna stranica',
       price: '500 €',
-      for: 'Jedna stranica za istraživački projekt, grant ili laboratorij.',
+      for: 'Istraživački projekt, obrt, frizer ili paušalac.',
       pages: '1 stranica',
+      includes: [
+        'Jedna stranica',
+        'Kontaktni obrazac',
+        'Postavljanje vašeg logotipa',
+        'Povezivanje vlastite web adrese',
+      ],
+      need: 'one-page',
     },
     {
-      name: 'Web stranica društva ili istraživačke skupine',
+      name: 'Mala web stranica',
       price: '1.000 €',
-      for: 'Višestranična web stranica za znanstveno društvo ili istraživačku skupinu.',
+      for: 'Društvo, istraživačka skupina ili obrt s više usluga.',
       pages: 'Do 5 stranica',
-    },
-    {
-      name: 'Web stranica ustanove',
-      price: '1.800 €',
-      for: 'Veća web stranica za različite skupine posjetitelja.',
-      pages: 'Do 10 stranica',
+      includes: [
+        'Sve iz paketa Jedna stranica',
+        'Do pet stranica',
+        'Novosti i događanja, ako ih treba',
+      ],
+      need: 'small-site',
     },
   ],
-  compareHeading: 'Što paket obično uključuje?',
-  featureColumn: 'Značajka',
-  included: 'Uključeno',
-  notIncluded: 'Nije uključeno',
-  rows: [
-    { label: 'Stranice', values: ['1', 'Do 5', 'Do 10'] },
-    { label: 'Kontaktni obrazac', values: [true, true, true] },
-    { label: 'Logotipi', values: [true, true, true] },
-    { label: 'Povezivanje vaše web adrese', values: [true, true, true] },
-    { label: 'Novosti i događanja', values: [false, true, true] },
-    { label: 'Informacije o članstvu i obrasci', values: [false, true, true] },
-    { label: 'Popisi publikacija', values: [false, true, true] },
-    { label: 'Odjeljci za različite skupine posjetitelja', values: [false, false, true] },
-    { label: 'Statistika posjeta, uključujući klikove i preuzimanja', values: [false, false, true] },
-    { label: 'Dodatna podešavanja kako bi Google lakše razumio stranicu', values: [false, false, true] },
-  ],
+  custom: {
+    eyebrow: 'Po mjeri',
+    name: 'Imate ideju, ali niste sigurni kako je ostvariti?',
+    text: 'Ispričajte mi je i proći ćemo je zajedno, pitanje po pitanje, dok ne bude jasno što treba napraviti.',
+    priceNote: 'Veće web stranice, na primjer za ustanovu, počinju od 1.800 €.',
+    button: 'Ispričajte mi ideju',
+  },
   notes: [
     'Točan opseg dogovaramo za svaki projekt. Za rad izvan opsega paketa izrađuje se zasebna ponuda. Sve cijene izražene su u eurima.',
-    'Budžet za oglašavanje odvojen je od naknade za dizajn i vođenje kampanja te se dogovara prije početka rada.',
   ],
-  scopedHeading: 'Projekti s individualnom ponudom',
-  scopedIntro:
-    'Nakon informativnog sastanka poslat ću vam ponudu prilagođenu vašem projektu.',
-  scoped: [
+  existingHeading: 'Već imate web stranicu?',
+  existingIntro: 'Pogledat ću što imate i nakon razgovora poslati vam ponudu.',
+  existing: [
+    {
+      name: 'Optimizacija postojeće stranice',
+      text: 'Da je jasnija, brža i da je se lakše nađe. To nije obećanje prvog mjesta na Googleu.',
+      need: 'existing',
+    },
+    {
+      name: 'Automatizacija jednog procesa',
+      text: 'Jedan posao koji se stalno prepisuje, na primjer prijava ili upit, neka sam ide u poštu ili tablicu.',
+      need: 'automation',
+    },
+  ],
+  otherHeading: 'Ostale usluge',
+  otherIntro: 'Nakon informativnog sastanka poslat ću vam ponudu prilagođenu vašem projektu.',
+  other: [
     {
       name: 'Web stranice konferencija i kongresa',
       text: 'Program, predavači, registracija i prijava sažetaka.',
+      icon: 'conference',
     },
     {
       name: 'E-udžbenici i e-učenje',
       text: 'Online nastavni materijali s jasnom navigacijom, kvizovima i dijagramima.',
+      icon: 'book',
     },
     {
       name: 'Znanstveni prikazi i infografike',
       text: 'Dijagrami za radove, postere, predavanja i udžbenike.',
+      icon: 'chart',
     },
     {
       name: 'Grafički dizajn i ilustracija',
-      text: 'Ilustracije, dizajn oglasa i promotivni materijali za vašu organizaciju ili tvrtku.',
+      text: 'Ilustracija i dizajn oglasa, promotivni materijal za vašu organizaciju ili tvrtku.',
+      icon: 'pen',
+      also: 'Izrada logotipa.',
     },
     {
       name: 'Digitalno oglašavanje',
       text: 'Dizajn oglasa i vođenje kampanja za Facebook i Google Ads.',
+      icon: 'megaphone',
     },
     {
       name: 'Upravljanje društvenim mrežama',
       text: 'Svakodnevno upravljanje vašim profilima na društvenim mrežama.',
+      icon: 'chat',
     },
   ],
+  adNote: 'Budžet za oglašavanje odvojen je od naknade za dizajn i vođenje kampanja te se dogovara prije početka rada.',
   afterHeading: 'Nakon objave',
   afterText: 'Podrška se dogovara i naplaćuje zasebno, kao jednokratna usluga ili kontinuirano održavanje.',
   afterLaunch: [
@@ -233,7 +292,6 @@ const hr: PricesContent = {
     'Samo dizajn za timove koji već imaju programera',
   ],
   stepsHeading: 'Kako do ponude?',
-  step: 'Korak',
   steps: [
     {
       title: 'Početni razgovor',
@@ -249,7 +307,8 @@ const hr: PricesContent = {
     },
   ],
   ctaHeading: 'Niste sigurni koja je opcija prava za vas?',
-  ctaButton: 'Riješite kviz',
+  ctaText: 'Riješite kratki kviz ili mi pošaljite poruku. Javit ću vam se s prijedlogom, bez obveze.',
+  ctaContact: 'Pošaljite poruku',
 };
 
 export const pricesContent: Record<Locale, PricesContent> = { en, hr };

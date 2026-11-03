@@ -84,12 +84,14 @@ const en = {
   'home.services.web.item1': 'Business, conference and society websites',
   'home.services.web.item2': 'Online textbooks and learning resources',
   'home.services.web.item3': 'Searchable collections and research tools',
+  'home.services.web.item4': 'Optimising an existing site and automating a process',
   'home.services.graphic.title': 'Graphic design & illustration',
   'home.services.graphic.text':
     'Visuals that make your ideas clear and give your project its own character.',
   'home.services.graphic.item1': 'Promotional materials and ad design',
   'home.services.graphic.item2': 'Illustrations and infographics',
   'home.services.graphic.item3': 'Scientific figures and educational diagrams',
+  'home.services.graphic.item4': 'Logo design',
   'home.services.ads.title': 'Digital advertising & social media',
   'home.services.ads.text':
     'Ad design, campaign management and day-to-day social media account management.',
@@ -214,12 +216,14 @@ const hr: Record<UiKey, string> = {
   'home.services.web.item1': 'Web stranice tvrtki, konferencija i društava',
   'home.services.web.item2': 'Mrežni udžbenici i obrazovni sadržaji',
   'home.services.web.item3': 'Pretražive zbirke i istraživački alati',
+  'home.services.web.item4': 'Optimizacija postojeće stranice i automatizacija procesa',
   'home.services.graphic.title': 'Grafički dizajn i ilustracija',
   'home.services.graphic.text':
     'Vizuali koji jasno prenose vaše ideje i daju projektu vlastiti karakter.',
   'home.services.graphic.item1': 'Promotivni materijali i dizajn oglasa',
   'home.services.graphic.item2': 'Ilustracije i infografike',
   'home.services.graphic.item3': 'Znanstveni prikazi i edukativni dijagrami',
+  'home.services.graphic.item4': 'Izrada logotipa',
   'home.services.ads.title': 'Digitalno oglašavanje i društvene mreže',
   'home.services.ads.text':
     'Dizajn oglasa, vođenje kampanja i svakodnevno upravljanje profilima na društvenim mrežama.',

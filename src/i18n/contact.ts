@@ -36,7 +36,7 @@ export interface ContactContent {
   typeLabel: string;
   optional: string;
   /** value is sent to the server and stays in English; label is what visitors see */
-  types: { value: string; label: string }[];
+  types: { label: string }[];
   messageLabel: string;
   messagePlaceholder: string;
   consentBefore: string;
@@ -48,6 +48,8 @@ export interface ContactContent {
   whatsapp: string;
   email: string;
   firstHeading: string;
+  quizAsideHeading: string;
+  quizAsideText: string;
   firstText: string;
   quiz: {
     title: string;
@@ -71,7 +73,8 @@ export interface ContactContent {
     questions: {
       id: string;
       question: string;
-      answers: { label: string; projectType?: string }[];
+      /** `need` matches the ?need= link from the pricing page (QuizNeed in prices.ts), which preselects that answer. */
+      answers: { label: string; projectType?: string; need?: string }[];
     }[];
   };
   script: ContactScriptMessages;
@@ -86,7 +89,7 @@ const en: ContactContent = {
   schemaName: 'Contact Renata Horvat',
   schemaJobTitle: 'Web & Graphic Designer',
   eyebrow: 'Contact',
-  heading: "Let's talk about your project",
+  heading: 'Find out what is missing from your website',
   intro:
     'You do not need a detailed brief. Whether you have a project in mind or an early idea, send me a message and we can talk it through.',
   formLabel: 'Contact form',
@@ -100,14 +103,14 @@ const en: ContactContent = {
   typeLabel: 'What kind of project is it?',
   optional: '(optional)',
   types: [
-    { value: 'Website', label: 'Website' },
-    { value: 'Conference or event', label: 'Conference or event' },
-    { value: 'E-textbook or e-learning', label: 'E-textbook or e-learning' },
-    { value: 'Graphic design', label: 'Graphic design' },
-    { value: 'Illustration', label: 'Illustration' },
-    { value: 'Advertising', label: 'Advertising' },
-    { value: 'Social media', label: 'Social media' },
-    { value: 'Not sure yet', label: 'Not sure yet' },
+    { label: 'One page' },
+    { label: 'Small website' },
+    { label: 'Made to measure' },
+    { label: 'My current website' },
+    { label: 'Automating a process' },
+    { label: 'Conference or event' },
+    { label: 'Design, e-learning, ads' },
+    { label: 'Not sure yet' },
   ],
   messageLabel: 'Message',
   messagePlaceholder: "Tell me what you're thinking about, even if it's just an idea.",
@@ -121,6 +124,8 @@ const en: ContactContent = {
   whatsapp: 'Message me on WhatsApp',
   email: 'Email',
   firstHeading: 'First conversation',
+  quizAsideHeading: 'Not sure what to write?',
+  quizAsideText: 'Answer four short questions instead.',
   firstText: 'With no commitment.',
   quiz: {
     title: 'Project quiz | Renata Horvat',
@@ -146,15 +151,14 @@ const en: ContactContent = {
         id: 'need',
         question: 'What do you need?',
         answers: [
-          { label: 'Website', projectType: 'Website' },
-          { label: 'Website redesign', projectType: 'Website' },
-          { label: 'Conference or event', projectType: 'Conference or event' },
-          { label: 'E-textbook or e-learning', projectType: 'E-textbook or e-learning' },
-          { label: 'Graphic design', projectType: 'Graphic design' },
-          { label: 'Illustration', projectType: 'Illustration' },
-          { label: 'Advertising', projectType: 'Advertising' },
-          { label: 'Social media', projectType: 'Social media' },
-          { label: 'Help choosing the right option', projectType: 'Not sure yet' },
+          { label: 'A website', projectType: 'Website', need: 'one-page' },
+          { label: 'A website with several pages', projectType: 'Website', need: 'small-site' },
+          { label: 'Made to measure: I have an idea', projectType: 'Website', need: 'custom' },
+          { label: 'My current website needs improving or speeding up', projectType: 'Website', need: 'existing' },
+          { label: 'Applications or enquiries that sort themselves out', projectType: 'Automation', need: 'automation' },
+          { label: 'A conference or event website', projectType: 'Conference or event' },
+          { label: 'Something else: design, logo, e-learning, ads', projectType: 'Other' },
+          { label: 'I do not know yet, help me choose', projectType: 'Not sure yet' },
         ],
       },
       {
@@ -217,7 +221,7 @@ const hr: ContactContent = {
   schemaName: 'Kontaktirajte Renatu Horvat',
   schemaJobTitle: 'Web i grafička dizajnerica',
   eyebrow: 'Kontakt',
-  heading: 'Razgovarajmo o vašem projektu',
+  heading: 'Saznajte što nedostaje vašoj web stranici',
   intro:
     'Ne treba vam detaljan opis projekta. Napišite mi što zamišljate, što vam treba ili oko čega se još dvoumite. Zajedno ćemo vidjeti što ima smisla.',
   formLabel: 'Kontaktni obrazac',
@@ -231,14 +235,14 @@ const hr: ContactContent = {
   typeLabel: 'O kakvom je projektu riječ?',
   optional: '(neobavezno)',
   types: [
-    { value: 'Website', label: 'Web stranica' },
-    { value: 'Conference or event', label: 'Konferencija ili skup' },
-    { value: 'E-textbook or e-learning', label: 'E-udžbenik ili e-učenje' },
-    { value: 'Graphic design', label: 'Grafički dizajn' },
-    { value: 'Illustration', label: 'Ilustracija' },
-    { value: 'Advertising', label: 'Oglašavanje' },
-    { value: 'Social media', label: 'Društvene mreže' },
-    { value: 'Not sure yet', label: 'Još ne znam' },
+    { label: 'Jedna stranica' },
+    { label: 'Mala web stranica' },
+    { label: 'Po mjeri' },
+    { label: 'Postojeća stranica' },
+    { label: 'Automatizacija procesa' },
+    { label: 'Konferencija ili skup' },
+    { label: 'Dizajn, e-učenje, oglasi' },
+    { label: 'Još ne znam' },
   ],
   messageLabel: 'Poruka',
   messagePlaceholder: 'Napišite mi što imate na umu, čak i ako je to tek ideja.',
@@ -252,6 +256,8 @@ const hr: ContactContent = {
   whatsapp: 'Pošaljite mi poruku na WhatsAppu',
   email: 'E-pošta',
   firstHeading: 'Prvi razgovor',
+  quizAsideHeading: 'Ne znate što napisati?',
+  quizAsideText: 'Odgovorite na četiri kratka pitanja.',
   firstText: 'Bez obveze.',
   quiz: {
     title: 'Kviz o projektu | Renata Horvat',
@@ -277,15 +283,14 @@ const hr: ContactContent = {
         id: 'need',
         question: 'Što vam treba?',
         answers: [
-          { label: 'Web stranica', projectType: 'Website' },
-          { label: 'Redizajn postojeće stranice', projectType: 'Website' },
-          { label: 'Konferencija ili skup', projectType: 'Conference or event' },
-          { label: 'E-udžbenik ili e-učenje', projectType: 'E-textbook or e-learning' },
-          { label: 'Grafički dizajn', projectType: 'Graphic design' },
-          { label: 'Ilustracija', projectType: 'Illustration' },
-          { label: 'Oglašavanje', projectType: 'Advertising' },
-          { label: 'Društvene mreže', projectType: 'Social media' },
-          { label: 'Pomoć pri odabiru', projectType: 'Not sure yet' },
+          { label: 'Web stranica', projectType: 'Website', need: 'one-page' },
+          { label: 'Web stranica s više podstranica', projectType: 'Website', need: 'small-site' },
+          { label: 'Po mjeri: imam ideju', projectType: 'Website', need: 'custom' },
+          { label: 'Postojeću stranicu treba urediti ili ubrzati', projectType: 'Website', need: 'existing' },
+          { label: 'Da se prijave ili upiti sami spremaju', projectType: 'Automation', need: 'automation' },
+          { label: 'Stranica za konferenciju ili skup', projectType: 'Conference or event' },
+          { label: 'Nešto drugo: dizajn, logotip, e-učenje, oglasi', projectType: 'Other' },
+          { label: 'Još ne znam, pomozite mi odabrati', projectType: 'Not sure yet' },
         ],
       },
       {
