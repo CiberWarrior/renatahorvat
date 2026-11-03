@@ -28,7 +28,13 @@ const previewProjects = previews.flatMap(({ title, meta }) => {
 const services = (['web', 'graphic', 'ads'] as const).map((key) => ({
   title: t(`home.services.${key}.title`),
   text: t(`home.services.${key}.text`),
-  items: [t(`home.services.${key}.item1`), t(`home.services.${key}.item2`), t(`home.services.${key}.item3`)],
+  items: [
+    t(`home.services.${key}.item1`),
+    t(`home.services.${key}.item2`),
+    t(`home.services.${key}.item3`),
+    // Web and graphic design have a fourth item that matches the pricing page; advertising has three.
+    ...(key !== 'ads' ? [t(`home.services.${key}.item4`)] : []),
+  ],
 }));
 
 // SEO optimized page data

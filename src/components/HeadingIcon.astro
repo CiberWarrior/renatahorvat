@@ -1,33 +1,174 @@
 ---
-// Small decorative icons from the hero machine drawing (umbrella and rocket), set in a soft frame.
-// Static by default; they move a little when the heading is hovered (parent needs class "group").
-interface Props { name: 'umbrella' | 'rocket'; }
+// Small decorative icons in the style of the hero machine drawing (umbrella, rocket, gears, propeller), set in a soft frame.
+// They move slowly on their own: the umbrella sways and catches a few drops; the rocket floats
+// with a flickering flame. Everything stays still with reduced motion.
+interface Props { name: 'umbrella' | 'rocket' | 'gears' | 'propeller'; }
 const { name } = Astro.props as Props;
 ---
 
-<span class="grid h-14 w-14 shrink-0 place-items-center rounded-2xl border border-sci/30 bg-sci-soft sm:h-16 sm:w-16" aria-hidden="true">
+<span class="heading-icon relative grid h-14 w-14 shrink-0 place-items-center overflow-hidden rounded-2xl border border-sci/25 sm:h-16 sm:w-16" aria-hidden="true">
   {name === 'umbrella' && (
-    <svg viewBox="0 0 120 120" class="h-10 w-10 origin-bottom transition-transform duration-300 sm:h-11 sm:w-11 motion-safe:group-hover:-rotate-6" focusable="false">
+    <svg viewBox="0 0 120 120" class="h-10 w-10 sm:h-11 sm:w-11" focusable="false">
       <defs>
-        <linearGradient id="heading-umbrella-gradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b08cf5" /><stop offset="1" stop-color="#7c56e8" /></linearGradient>
+        <linearGradient id="hi-umbrella-fill" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b08cf5" /><stop offset="1" stop-color="#7c56e8" /></linearGradient>
       </defs>
-      <path d="M60 62 V96 Q60 107 51 107 Q45 107 45 100" fill="none" stroke="#15211e" stroke-width="4.5" stroke-linecap="round" />
-      <path d="M10 62 A50 50 0 0 1 110 62 Q97.5 52 85 62 Q72.5 52 60 62 Q47.5 52 35 62 Q22.5 52 10 62Z" fill="url(#heading-umbrella-gradient)" />
-      <path d="M60 12 Q38 30 35 62 Q47.5 52 60 62 Q72.5 52 85 62 Q82 30 60 12Z" fill="#fff" fill-opacity=".22" />
+      <g fill="#00c9df">
+        <path class="hi-drop" style="--delay:0s" d="M20 2 q3.5 6 0 8 q-3.5 -2 0 -8Z" />
+        <path class="hi-drop" style="--delay:.45s" d="M96 -2 q3.5 6 0 8 q-3.5 -2 0 -8Z" />
+        <path class="hi-drop" style="--delay:.9s" d="M44 -6 q3.5 6 0 8 q-3.5 -2 0 -8Z" />
+      </g>
+      <g class="hi-umbrella">
+      <path d="M60 58 V96 Q60 107 51 107 Q45 107 45 100" fill="none" stroke="#15211e" stroke-width="4.5" stroke-linecap="round" />
+      <g>
+        <path d="M10 62 A50 50 0 0 1 110 62 Q97.5 52 85 62 Q72.5 52 60 62 Q47.5 52 35 62 Q22.5 52 10 62Z" fill="url(#hi-umbrella-fill)" />
+        <path d="M60 12 Q38 30 35 62 Q47.5 52 60 62 Q72.5 52 85 62 Q82 30 60 12Z" fill="#fff" fill-opacity=".22" />
+        <path d="M26 40 Q34 26 48 20" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="3" stroke-linecap="round" />
+      </g>
       <circle cx="60" cy="11" r="3.4" fill="#15211e" />
+      </g>
     </svg>
   )}
   {name === 'rocket' && (
-    <svg viewBox="-30 -44 60 106" class="h-10 w-auto transition-transform duration-300 sm:h-11 motion-safe:group-hover:-translate-y-0.5" focusable="false">
-      <path d="M-8 34 Q-11 46 0 58 Q11 46 8 34Z" fill="#ad8aed" stroke="#1f6b5c" stroke-width="3" stroke-linejoin="round" />
-      <path d="M-4 34 Q-5 43 0 49 Q5 43 4 34Z" fill="#00c9df" />
-      <path d="M-13 8 Q-26 15 -26 33 L-11 25 M13 8 Q26 15 26 33 L11 25" fill="#b9a0ef" stroke="#1f6b5c" stroke-width="3" stroke-linejoin="round" />
-      <path d="M-13 28 V-7 Q-13 -27 0 -40 Q13 -27 13 -7 V28Z" fill="#e4e8f5" stroke="#1f6b5c" stroke-width="3" stroke-linejoin="round" />
-      <path d="M-12.1 -17 Q-8 -30 0 -38 Q8 -30 12.1 -17Z" fill="#ae8bea" />
-      <path d="M-12.1 -17 H12.1" stroke="#1f6b5c" stroke-width="2" />
-      <circle cx="0" cy="0" r="8" fill="#00c9df" stroke="#1f6b5c" stroke-width="3" />
-      <circle cx="0" cy="0" r="3.5" fill="#b7f1ee" />
-      <rect x="-11" y="26" width="22" height="8" rx="3" fill="#b9a0ef" stroke="#1f6b5c" stroke-width="3" />
+    <svg viewBox="-32 -46 64 112" class="hi-rocket h-11 w-auto sm:h-12" focusable="false">
+      <defs>
+        <linearGradient id="hi-rocket-body" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#ffffff" /><stop offset=".55" stop-color="#e9ecf8" /><stop offset="1" stop-color="#c9cdea" /></linearGradient>
+        <linearGradient id="hi-rocket-nose" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#c7a8ff" /><stop offset="1" stop-color="#8b63ea" /></linearGradient>
+        <linearGradient id="hi-rocket-fin" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#c9b2f7" /><stop offset="1" stop-color="#9a78ec" /></linearGradient>
+        <radialGradient id="hi-rocket-window" cx=".35" cy=".35" r=".8"><stop stop-color="#c9fbf7" /><stop offset=".5" stop-color="#3fd9e6" /><stop offset="1" stop-color="#0aa6c0" /></radialGradient>
+        <linearGradient id="hi-rocket-flame" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#7ff3ff" /><stop offset=".55" stop-color="#a98cf5" /><stop offset="1" stop-color="#bd00fa" stop-opacity="0" /></linearGradient>
+      </defs>
+      <g class="hi-flame">
+        <path d="M-9 33 Q-12 47 0 62 Q12 47 9 33Z" fill="url(#hi-rocket-flame)" />
+        <path class="hi-flame-core" d="M-4.5 33 Q-5.5 42 0 50 Q5.5 42 4.5 33Z" fill="#e8fdff" />
+      </g>
+      <path d="M-13 6 Q-28 14 -27 34 L-11 26Z" fill="url(#hi-rocket-fin)" stroke="#1f6b5c" stroke-width="2.6" stroke-linejoin="round" />
+      <path d="M13 6 Q28 14 27 34 L11 26Z" fill="url(#hi-rocket-fin)" stroke="#1f6b5c" stroke-width="2.6" stroke-linejoin="round" />
+      <path d="M-13 28 V-7 Q-13 -28 0 -42 Q13 -28 13 -7 V28Z" fill="url(#hi-rocket-body)" stroke="#1f6b5c" stroke-width="2.6" stroke-linejoin="round" />
+      <path d="M-12.2 -17 Q-8 -31 0 -40 Q8 -31 12.2 -17Z" fill="url(#hi-rocket-nose)" />
+      <path d="M-12.2 -17 H12.2" stroke="#1f6b5c" stroke-width="2" />
+      <path d="M-7.5 22 V-5 Q-7.5 -14 -4 -20" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" />
+      <circle cx="0" cy="0" r="8.5" fill="#fff" stroke="#1f6b5c" stroke-width="2.6" />
+      <circle cx="0" cy="0" r="5.6" fill="url(#hi-rocket-window)" />
+      <circle class="hi-glint" cx="-2.2" cy="-2.4" r="1.6" fill="#fff" />
+      <rect x="-11.5" y="25.5" width="23" height="8" rx="3.5" fill="url(#hi-rocket-fin)" stroke="#1f6b5c" stroke-width="2.6" />
+      <path d="M0 14 V24" stroke="#1f6b5c" stroke-width="2" stroke-linecap="round" />
+      <g class="hi-sparks" fill="#00c9df">
+        <circle class="hi-spark" style="--delay:0s;--x:-6px" cx="-4" cy="58" r="1.6" />
+        <circle class="hi-spark" style="--delay:.6s;--x:5px" cx="4" cy="58" r="1.3" />
+        <circle class="hi-spark" style="--delay:1.2s;--x:-2px" cx="0" cy="60" r="1.1" />
+      </g>
+    </svg>
+  )}
+  {name === 'gears' && (
+    <svg viewBox="0 0 120 120" class="h-10 w-10 sm:h-11 sm:w-11" focusable="false">
+      <defs>
+        <linearGradient id="hi-gear-fill" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#c7a8ff" /><stop offset="1" stop-color="#8b63ea" /></linearGradient>
+        <linearGradient id="hi-gear-small" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7ff3ff" /><stop offset="1" stop-color="#14b8c8" /></linearGradient>
+      </defs>
+      <g transform="translate(48 66)">
+        <g class="hi-gear-big">
+          <path d="M0.0 -24.0 L5.9 -29.4 L11.5 -27.7 L13.3 -20.0 L17.0 -17.0 L24.9 -16.7 L27.7 -11.5 L23.5 -4.7 L24.0 0.0 L29.4 5.9 L27.7 11.5 L20.0 13.3 L17.0 17.0 L16.7 24.9 L11.5 27.7 L4.7 23.5 L0.0 24.0 L-5.9 29.4 L-11.5 27.7 L-13.3 20.0 L-17.0 17.0 L-24.9 16.7 L-27.7 11.5 L-23.5 4.7 L-24.0 0.0 L-29.4 -5.9 L-27.7 -11.5 L-20.0 -13.3 L-17.0 -17.0 L-16.7 -24.9 L-11.5 -27.7 L-4.7 -23.5Z" fill="url(#hi-gear-fill)" stroke="#1f6b5c" stroke-width="3" stroke-linejoin="round" />
+          <circle r="10" fill="#fff" stroke="#1f6b5c" stroke-width="3" />
+          <path d="M-14 -16 Q-6 -22 4 -21" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="3" stroke-linecap="round" />
+        </g>
+      </g>
+      <g transform="translate(83 35)">
+        <g class="hi-gear-small">
+          <path d="M0.0 -13.0 L4.4 -16.4 L8.5 -14.7 L9.2 -9.2 L11.3 -6.5 L16.4 -4.4 L17.0 0.0 L12.6 3.4 L11.3 6.5 L12.0 12.0 L8.5 14.7 L3.4 12.6 L0.0 13.0 L-4.4 16.4 L-8.5 14.7 L-9.2 9.2 L-11.3 6.5 L-16.4 4.4 L-17.0 0.0 L-12.6 -3.4 L-11.3 -6.5 L-12.0 -12.0 L-8.5 -14.7 L-3.4 -12.6Z" fill="url(#hi-gear-small)" stroke="#1f6b5c" stroke-width="3" stroke-linejoin="round" />
+          <circle r="5.5" fill="#fff" stroke="#1f6b5c" stroke-width="3" />
+        </g>
+      </g>
+    </svg>
+  )}
+  {name === 'propeller' && (
+    <svg viewBox="0 0 120 120" class="h-10 w-10 sm:h-11 sm:w-11" focusable="false">
+      <defs>
+        <linearGradient id="hi-blade-a" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#c7a8ff" /><stop offset="1" stop-color="#8b63ea" /></linearGradient>
+        <linearGradient id="hi-blade-b" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#7ff3ff" /><stop offset="1" stop-color="#14b8c8" /></linearGradient>
+        <linearGradient id="hi-blade-c" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#a9a6ff" /><stop offset="1" stop-color="#4338ff" /></linearGradient>
+      </defs>
+      <path d="M60 60 V106" stroke="#1f6b5c" stroke-width="5" stroke-linecap="round" />
+      <path d="M48 106 H72" stroke="#1f6b5c" stroke-width="5" stroke-linecap="round" />
+      <g transform="translate(60 58)">
+        <g class="hi-propeller">
+          <path d="M0 -6 C-9 -14 -12 -34 -2 -44 C8 -40 10 -18 4 -6Z" fill="url(#hi-blade-a)" stroke="#1f6b5c" stroke-width="2.8" stroke-linejoin="round" />
+          <path d="M0 -6 C-9 -14 -12 -34 -2 -44 C8 -40 10 -18 4 -6Z" transform="rotate(120)" fill="url(#hi-blade-b)" stroke="#1f6b5c" stroke-width="2.8" stroke-linejoin="round" />
+          <path d="M0 -6 C-9 -14 -12 -34 -2 -44 C8 -40 10 -18 4 -6Z" transform="rotate(240)" fill="url(#hi-blade-c)" stroke="#1f6b5c" stroke-width="2.8" stroke-linejoin="round" />
+          <path d="M-3 -14 C-6 -22 -6 -30 -2 -36" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="2.5" stroke-linecap="round" />
+        </g>
+        <circle r="8" fill="#fff" stroke="#1f6b5c" stroke-width="3" />
+        <circle r="3" fill="#00c9df" />
+      </g>
     </svg>
   )}
 </span>
+
+<style>
+  /* Soft frame: mint into lavender, with a light shine in the top-left corner */
+  .heading-icon {
+    background:
+      radial-gradient(circle at 25% 20%, #ffffffcc, transparent 45%),
+      linear-gradient(140deg, var(--color-sci-soft, #e3f1ec), #ece6fb);
+    box-shadow: 0 10px 22px -16px rgb(67 56 255 / .55), inset 0 1px 0 #fff;
+  }
+
+  /* Umbrella: stays open and sways slowly left and right; now and then a few drops fall on it */
+  .hi-umbrella {
+    transform-box: view-box;
+    transform-origin: 60px 104px;
+    animation: hi-sway 5s cubic-bezier(.45, 0, .55, 1) infinite;
+  }
+  @keyframes hi-sway {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+  }
+  .hi-drop { opacity: 0; animation: hi-rain 5s linear infinite; animation-delay: var(--delay); }
+  @keyframes hi-rain {
+    0% { opacity: 0; transform: translateY(0); }
+    6% { opacity: 1; }
+    20% { opacity: 1; transform: translateY(24px); }
+    28%, 100% { opacity: 0; transform: translateY(26px); }
+  }
+
+  /* Rocket: a slow, eased float; the flame breathes and a few sparks drift away */
+  .hi-rocket { animation: hi-float 4.5s cubic-bezier(.45, 0, .55, 1) infinite; transition: translate .5s cubic-bezier(.3, 0, .2, 1); }
+  @keyframes hi-float {
+    0%, 100% { transform: translateY(1.5px) rotate(-1.5deg); }
+    50% { transform: translateY(-2.5px) rotate(1.5deg); }
+  }
+  .hi-flame { transform-box: fill-box; transform-origin: 50% 0; animation: hi-flicker 1.2s ease-in-out infinite; }
+  @keyframes hi-flicker {
+    0%, 100% { transform: scale(.94, .86); }
+    50% { transform: scale(1.04, 1.1); }
+  }
+  .hi-flame-core { transform-box: fill-box; transform-origin: 50% 0; animation: hi-flicker .9s ease-in-out infinite reverse; }
+  .hi-spark { opacity: 0; animation: hi-spark 1.8s ease-out infinite; animation-delay: var(--delay); }
+  @keyframes hi-spark {
+    0% { opacity: 0; transform: translate(0, 0); }
+    20% { opacity: 1; }
+    100% { opacity: 0; transform: translate(var(--x), 10px); }
+  }
+  .hi-glint { animation: hi-glint 4.5s ease-in-out infinite; }
+  @keyframes hi-glint {
+    0%, 100% { opacity: .95; }
+    50% { opacity: .45; }
+  }
+  :global(.group:hover) .hi-rocket { translate: 0 -3px; }
+
+  /* Gears: the big one turns slowly, the small one turns the other way */
+  .hi-gear-big { animation: hi-turn 14s linear infinite; }
+  .hi-gear-small { animation: hi-turn 9.3s linear infinite reverse; }
+  @keyframes hi-turn { to { transform: rotate(360deg); } }
+  :global(.group:hover) .hi-gear-big { animation-duration: 5s; }
+  :global(.group:hover) .hi-gear-small { animation-duration: 3.3s; }
+
+  /* Propeller: turns slowly and evenly, a little faster when the heading is hovered */
+  .hi-propeller { animation: hi-turn 6s linear infinite; }
+  :global(.group:hover) .hi-propeller { animation-duration: 2.5s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hi-gear-big, .hi-gear-small, .hi-propeller,
+    .hi-umbrella, .hi-drop, .hi-rocket, .hi-flame, .hi-flame-core, .hi-spark, .hi-glint { animation: none; }
+    .hi-drop, .hi-spark { opacity: 0; }
+  }
+</style>

@@ -68,7 +68,7 @@ const whatsappUrl = getWhatsappUrl(locale);
   </section>
 
   <section class="py-14 sm:py-16" aria-label={c.formLabel}>
-    <div class="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-16">
+    <div class="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-16">
       <div class="min-w-0 max-w-2xl">
         <!-- Success Message (hidden by default) -->
         <div id="success-message" class="mb-6 hidden rounded-md border border-sci/30 bg-sci-soft p-4" role="status">
@@ -90,16 +90,16 @@ const whatsappUrl = getWhatsappUrl(locale);
           <p class="mt-1 text-sm text-red-800" id="error-text">{c.script.tryAgain}</p>
         </div>
 
-        <form id="contact-form" class="space-y-6" novalidate data-messages={JSON.stringify(c.script)}>
+        <form id="contact-form" class="space-y-6 rounded-2xl border border-rule bg-surface p-6 shadow-[0_24px_48px_-36px_rgb(21_33_30/.55)] sm:p-8" novalidate data-messages={JSON.stringify(c.script)} data-type-label={c.typeLabel}>
           <div class="grid gap-6 sm:grid-cols-2">
             <div>
               <label for="name" class="mb-1.5 block text-sm font-medium text-ink">{c.nameLabel} <span class="text-allele">*</span></label>
-              <input type="text" id="name" name="name" autocomplete="name" class="w-full rounded-md border border-rule bg-surface px-4 py-3 text-ink placeholder:text-ink-soft/70 focus:border-sci focus:outline-none focus:ring-2 focus:ring-sci/20" placeholder={c.namePlaceholder} aria-describedby="name-error" />
+              <input type="text" id="name" name="name" autocomplete="name" class="w-full rounded-md border border-rule bg-paper px-4 py-3 text-ink placeholder:text-ink-soft/70 focus:border-sci focus:outline-none focus:ring-2 focus:ring-sci/20" placeholder={c.namePlaceholder} aria-describedby="name-error" />
               <div id="name-error" class="mt-1 hidden text-sm text-red-700" role="alert"></div>
             </div>
             <div>
               <label for="email" class="mb-1.5 block text-sm font-medium text-ink">{c.emailLabel} <span class="text-allele">*</span></label>
-              <input type="email" id="email" name="email" autocomplete="email" class="w-full rounded-md border border-rule bg-surface px-4 py-3 text-ink placeholder:text-ink-soft/70 focus:border-sci focus:outline-none focus:ring-2 focus:ring-sci/20" placeholder={c.emailPlaceholder} aria-describedby="email-error" />
+              <input type="email" id="email" name="email" autocomplete="email" class="w-full rounded-md border border-rule bg-paper px-4 py-3 text-ink placeholder:text-ink-soft/70 focus:border-sci focus:outline-none focus:ring-2 focus:ring-sci/20" placeholder={c.emailPlaceholder} aria-describedby="email-error" />
               <div id="email-error" class="mt-1 hidden text-sm text-red-700" role="alert"></div>
             </div>
           </div>
@@ -109,7 +109,7 @@ const whatsappUrl = getWhatsappUrl(locale);
             <input type="hidden" id="project-type" name="project_type" value="" />
             <div class="flex flex-wrap gap-2" role="group" aria-labelledby="project-type-label">
               {c.types.map((tag) => (
-                <button type="button" class="project-tag rounded-full border border-rule bg-surface px-3.5 py-1.5 text-sm text-ink transition-colors hover:border-sci" data-value={tag.value}>
+                <button type="button" class="project-tag rounded-full border border-rule bg-paper px-3.5 py-1.5 text-sm text-ink transition-colors hover:border-sci" data-value={tag.label}>
                   {tag.label}
                 </button>
               ))}
@@ -121,7 +121,7 @@ const whatsappUrl = getWhatsappUrl(locale);
               <label for="message" class="mb-1.5 block text-sm font-medium text-ink">{c.messageLabel} <span class="text-allele">*</span></label>
               <span id="message-counter" class="text-xs text-ink-soft">0 / 1000</span>
             </div>
-            <textarea id="message" name="message" maxlength="1000" rows="6" class="w-full rounded-md border border-rule bg-surface px-4 py-3 text-ink placeholder:text-ink-soft/70 focus:border-sci focus:outline-none focus:ring-2 focus:ring-sci/20 resize-y" placeholder={c.messagePlaceholder} aria-describedby="message-error"></textarea>
+            <textarea id="message" name="message" maxlength="1000" rows="6" class="w-full rounded-md border border-rule bg-paper px-4 py-3 text-ink placeholder:text-ink-soft/70 focus:border-sci focus:outline-none focus:ring-2 focus:ring-sci/20 resize-y" placeholder={c.messagePlaceholder} aria-describedby="message-error"></textarea>
             <div id="message-error" class="mt-1 hidden text-sm text-red-700" role="alert"></div>
           </div>
 
@@ -149,30 +149,26 @@ const whatsappUrl = getWhatsappUrl(locale);
             </span>
           </button>
         </form>
-        <div class="mt-6">
-          <a
-            href={pageHref('/quiz', locale)}
-            class="group inline-flex min-h-12 items-center justify-center gap-3 rounded-md border border-sci/40 bg-surface py-2 pl-2.5 pr-5 font-medium text-ink transition-colors hover:border-sci hover:bg-sci-soft hover:text-sci"
-          >
-            <span class="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-sci-soft transition-colors group-hover:bg-surface" aria-hidden="true">
-              <svg viewBox="0 0 32 32" class="h-6 w-6 transition-transform duration-300 motion-safe:group-hover:-rotate-6 motion-safe:group-hover:scale-110" focusable="false">
-                <defs>
-                  <linearGradient id="contact-quiz-bulb" x1="0" y1="0" x2=".5" y2="1"><stop stop-color="#bd00fa" /><stop offset=".5" stop-color="#4338ff" /><stop offset="1" stop-color="#00cedf" /></linearGradient>
-                </defs>
-                <path d="M16 3C10.5 3 6.5 7 6.5 12c0 3.2 1.7 5.4 3.3 7 1 1 1.4 1.8 1.4 3v1h9.6v-1c0-1.2.4-2 1.4-3 1.6-1.6 3.3-3.8 3.3-7C25.5 7 21.5 3 16 3Z" fill="url(#contact-quiz-bulb)" />
-                <path d="M11.6 11.2c.3-2.4 2-4 3.9-4.4" fill="none" stroke="#fff" stroke-opacity=".65" stroke-width="1.7" stroke-linecap="round" />
-                <rect x="11.5" y="24.2" width="9" height="2.4" rx="1.2" fill="#15211e" />
-                <rect x="13" y="27.4" width="6" height="2.2" rx="1.1" fill="#15211e" />
-              </svg>
-            </span>
-            {t('nav.start')} <span class="inline-block transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true">→</span>
-          </a>
-        </div>
       </div>
 
-      <aside class="space-y-6 self-start lg:sticky lg:top-24">
-        <div class="rounded-lg border border-sci/40 bg-sci-soft p-5">
-          <h2 class="font-serif text-xl font-medium text-ink">{c.directHeading}</h2>
+      <aside class="space-y-5 self-start lg:sticky lg:top-24">
+        <div class="rounded-2xl border border-sci/40 bg-sci-soft p-5">
+          <div class="flex items-center gap-4">
+            <img
+              src="/images/renatahorvat.jpg"
+              alt={t('home.about.portraitAlt')}
+              width="112"
+              height="112"
+              loading="lazy"
+              decoding="async"
+              class="h-14 w-14 shrink-0 rounded-full object-cover object-[50%_25%] ring-4 ring-surface"
+            />
+            <div class="min-w-0">
+              <p class="font-serif text-lg font-medium leading-tight text-ink">Renata Horvat</p>
+              <p class="text-sm text-ink-soft">{c.schemaJobTitle}</p>
+            </div>
+          </div>
+          <h2 class="mt-5 font-serif text-xl font-medium text-ink">{c.directHeading}</h2>
           <div class="mt-4 space-y-3">
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between gap-3 rounded-md bg-sci px-4 py-3 font-medium text-white transition-colors hover:bg-sci-dark" onclick="if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: 'whatsapp', cta_location: 'contact_aside' })">
               <span>{c.whatsapp}</span>
@@ -183,13 +179,31 @@ const whatsappUrl = getWhatsappUrl(locale);
               screatives.info<wbr />@gmail.com
             </a>
           </div>
+          <p class="mt-4 text-sm text-ink-soft"><span class="font-medium text-ink">{c.firstHeading}:</span> {c.firstText.toLowerCase()}</p>
         </div>
-        <div class="space-y-5 border-l border-rule pl-5 text-[15px]">
-          <div>
-            <h2 class="font-mono text-xs uppercase tracking-[.08em] text-ink-soft">{c.firstHeading}</h2>
-            <p class="mt-1 text-ink">{c.firstText}</p>
-          </div>
-        </div>
+
+        <a
+          href={pageHref('/quiz', locale)}
+          class="group flex items-center gap-4 rounded-2xl border border-rule bg-surface p-5 transition-colors hover:border-sci"
+          onclick="if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: 'quiz', cta_location: 'contact_aside' })"
+        >
+          <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-sci-soft" aria-hidden="true">
+            <svg viewBox="0 0 32 32" class="h-6 w-6 transition-transform duration-300 motion-safe:group-hover:-rotate-6 motion-safe:group-hover:scale-110" focusable="false">
+              <defs>
+                <linearGradient id="contact-quiz-bulb" x1="0" y1="0" x2=".5" y2="1"><stop stop-color="#bd00fa" /><stop offset=".5" stop-color="#4338ff" /><stop offset="1" stop-color="#00cedf" /></linearGradient>
+              </defs>
+              <path d="M16 3C10.5 3 6.5 7 6.5 12c0 3.2 1.7 5.4 3.3 7 1 1 1.4 1.8 1.4 3v1h9.6v-1c0-1.2.4-2 1.4-3 1.6-1.6 3.3-3.8 3.3-7C25.5 7 21.5 3 16 3Z" fill="url(#contact-quiz-bulb)" />
+              <path d="M11.6 11.2c.3-2.4 2-4 3.9-4.4" fill="none" stroke="#fff" stroke-opacity=".65" stroke-width="1.7" stroke-linecap="round" />
+              <rect x="11.5" y="24.2" width="9" height="2.4" rx="1.2" fill="#15211e" />
+              <rect x="13" y="27.4" width="6" height="2.2" rx="1.1" fill="#15211e" />
+            </svg>
+          </span>
+          <span class="min-w-0 flex-1">
+            <span class="block font-serif text-lg font-medium leading-tight text-ink group-hover:text-sci">{c.quizAsideHeading}</span>
+            <span class="mt-0.5 block text-sm text-ink-soft">{c.quizAsideText}</span>
+          </span>
+          <span class="text-ink-soft transition-transform duration-300 group-hover:translate-x-1 group-hover:text-sci motion-reduce:transition-none" aria-hidden="true">→</span>
+        </a>
       </aside>
     </div>
   </section>
@@ -367,7 +381,8 @@ const whatsappUrl = getWhatsappUrl(locale);
               body: JSON.stringify({
                 name,
                 email,
-                message,
+                // The server only forwards the message, so the chosen project type goes in as its first line.
+                message: projectType ? `${(form.dataset.typeLabel || '').replace(/[?:]$/, '')}: ${projectType}\n\n${message}` : message,
                 gdprConsent,
                 projectType,
                 _gotcha: (form.elements.namedItem('_gotcha') as HTMLInputElement | null)?.value ?? '',

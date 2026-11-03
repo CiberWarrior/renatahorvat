@@ -2,22 +2,20 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import ContactCta from '../components/ContactCta.astro';
 import HeadingIcon from '../components/HeadingIcon.astro';
+import ContactCta from '../components/ContactCta.astro';
 import { pricesContent } from '../i18n/prices';
 import { getLocale, pageHref } from '../i18n/utils';
 
 const locale = getLocale(Astro.url);
 const c = pricesContent[locale];
 
-// Each package has a defined scope (pages, rounds of changes), so the price stays predictable.
-// Texts and prices come from src/i18n/prices.ts; analytics names and the highlight stay the same in every language.
-const packageMeta = [
-  { cta: 'pricing_project_page', common: false },
-  { cta: 'pricing_society', common: true },
-  { cta: 'pricing_institutional', common: false },
-];
-const packages = c.packages.map((pkg, i) => ({ ...pkg, ...packageMeta[i] }));
+// Texts and prices come from src/i18n/prices.ts. Every "Ask for a quote" opens the quiz with that offer already chosen.
+const quizHref = (need?: string) => `${pageHref('/quiz', locale)}${need ? `?need=${need}` : ''}`;
+const track = (cta: string) => `if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: '${cta}', cta_location: 'prices_page' })`;
+
+// The hero's logo-coloured star, used on the made-to-measure card.
+const starPath = 'M0 -11 Q2 -11 4 -4 L11 -3 Q14 -2 10 2 L6 6 L7 12 Q7 14 3 12 L0 10 L-7 13 Q-10 14 -9 9 L-7 3 L-12 -2 Q-14 -5 -9 -5 L-4 -5Z';
 ---
 
 <Layout
@@ -26,42 +24,128 @@ const packages = c.packages.map((pkg, i) => ({ ...pkg, ...packageMeta[i] }));
   keywords={c.keywords}
 >
   <Header />
+  <svg width="0" height="0" class="absolute" aria-hidden="true" focusable="false"><defs><linearGradient id="prices-star-gradient" x2=".4" y2="1"><stop stop-color="#bd00fa" /><stop offset=".48" stop-color="#4338ff" /><stop offset="1" stop-color="#00cedf" /></linearGradient></defs></svg>
 
-  <!-- Intro -->
+  <!-- Intro and the three choices -->
   <section class="border-b border-rule py-14 sm:py-16">
-    <div class="mx-auto max-w-6xl space-y-5 px-4 sm:px-6">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
       <p class="font-mono text-xs uppercase tracking-[.08em] text-ink-soft">{c.eyebrow}</p>
-      <h1 class="max-w-3xl font-serif text-4xl font-medium leading-tight text-balance text-ink sm:text-5xl">
+      <h1 class="mt-5 max-w-3xl font-serif text-4xl font-medium leading-tight text-balance text-ink sm:text-5xl">
         {c.heading}
       </h1>
-      <p class="max-w-2xl text-[15px] leading-relaxed text-ink-soft">
-        {c.intro}
-      </p>
+      <p class="mt-5 max-w-2xl text-[15px] leading-relaxed text-ink-soft">{c.intro}</p>
+
+      <nav class="mt-10" aria-labelledby="choices-heading">
+        <h2 id="choices-heading" class="font-mono text-xs uppercase tracking-[.08em] text-ink-soft">{c.choicesLabel}</h2>
+        <ul class="mt-4 grid gap-3 md:grid-cols-3">
+          {c.choices.map((choice, i) => (
+            <li>
+              <a
+                href={`#${choice.id}`}
+                class="group flex h-full items-start justify-between gap-4 rounded-xl border border-rule bg-surface px-5 py-5 transition-colors hover:border-sci"
+              >
+                <span class="min-w-0">
+                  <span class="block font-mono text-xs text-sci">0{i + 1}</span>
+                  <span class="mt-1 block font-serif text-2xl font-medium leading-tight text-ink group-hover:text-sci">{choice.title}</span>
+                  <span class="mt-1.5 block text-[15px] leading-relaxed text-ink-soft">{choice.text}</span>
+                </span>
+                <span class="mt-6 inline-block text-ink-soft transition-transform duration-300 group-hover:translate-y-1 group-hover:text-sci motion-reduce:transition-none" aria-hidden="true">↓</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </div>
   </section>
 
-  <!-- Packages -->
-  <section class="pb-14 pt-12 sm:pb-16 sm:pt-14" aria-labelledby="packages-heading">
+  <!-- 01 A new website -->
+  <section id="new" class="scroll-mt-20 py-14 sm:py-16" aria-labelledby="new-heading">
     <div class="mx-auto max-w-6xl px-4 sm:px-6">
-      <h2 id="packages-heading" class="sr-only">{c.packagesHeading}</h2>
-      <div class="grid gap-8 md:grid-cols-3 md:gap-6">
-        {packages.map((pkg) => (
-          <article class={`relative flex min-w-0 flex-col gap-4 rounded-2xl border p-6 sm:p-7 ${pkg.common ? 'border-sci bg-surface/70 shadow-[0_24px_40px_-30px_rgb(21_33_30/.55)] ring-1 ring-sci/25' : 'border-rule bg-surface/50'}`}>
-            {pkg.common && (
-              <span class="absolute -top-3 left-6 rounded-full bg-sci px-3 py-1 font-mono text-[11px] uppercase tracking-[.06em] text-white">{c.mostCommon}</span>
-            )}
-            <h3 class="font-serif text-2xl font-medium leading-tight text-ink md:min-h-[3.5rem]">{pkg.name}</h3>
-            <p class="text-[15px] leading-relaxed text-ink-soft md:min-h-[4.5rem]">{pkg.for}</p>
-            <div class="border-t border-rule pt-4">
+      <div class="mb-8 max-w-2xl space-y-3">
+        <h2 id="new-heading" class="group flex items-center gap-4 font-serif text-3xl font-medium text-ink sm:text-4xl"><HeadingIcon name="umbrella" />{c.newHeading}</h2>
+        <p class="text-[15px] leading-relaxed text-ink-soft">{c.newIntro}</p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2">
+        {c.packages.map((pkg) => (
+          <article class="flex min-w-0 flex-col gap-5 rounded-2xl border border-rule bg-surface p-6 sm:p-8">
+            <div>
+              <h3 class="font-serif text-3xl font-medium leading-tight text-ink">{pkg.name}</h3>
+              <p class="mt-2 text-[15px] leading-relaxed text-ink-soft">{pkg.for}</p>
+            </div>
+            <div class="flex flex-wrap items-end gap-x-4 gap-y-2 border-t border-rule pt-5">
               <p class="font-serif text-5xl leading-none text-ink">
                 <span class="font-text text-base text-ink-soft">{c.from}</span>{pkg.price}
               </p>
-              <p class="mt-3 inline-block rounded-full bg-sci-soft px-3 py-1 font-mono text-xs uppercase tracking-[.06em] text-sci">{pkg.pages}</p>
+              <p class="rounded-full bg-sci-soft px-3 py-1 font-mono text-xs uppercase tracking-[.06em] text-sci">{pkg.pages}</p>
+            </div>
+            <div>
+              <p class="font-mono text-xs uppercase tracking-[.08em] text-ink-soft">{c.includesLabel}</p>
+              <ul class="mt-3 space-y-2 text-[15px] text-ink">
+                {pkg.includes.map((item) => (
+                  <li class="flex gap-3">
+                    <span class="text-sci" aria-hidden="true">✓</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
             <a
-              href={pageHref('/contact', locale)}
-              class={`group mt-auto inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md px-5 py-3 font-medium transition-colors ${pkg.common ? 'bg-sci text-white hover:bg-sci-dark' : 'border border-rule bg-surface text-ink hover:border-sci hover:text-sci'}`}
-              onclick={`if(typeof window.gtag !== 'undefined') window.gtag('event', 'cta_click', { cta_type: '${pkg.cta}', cta_location: 'prices_page' })`}
+              href={quizHref(pkg.need)}
+              class="group mt-auto inline-flex w-full items-center justify-center gap-2 rounded-md bg-sci px-5 py-3 font-medium text-white transition-colors hover:bg-sci-dark sm:w-fit"
+              onclick={track(`pricing_${pkg.need}`)}
+            >
+              {c.quote} <span class="inline-block transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true">→</span>
+            </a>
+          </article>
+        ))}
+      </div>
+
+      <!-- Made to measure: an idea we work out together, question by question -->
+      <article class="custom-card mt-6 rounded-2xl p-px">
+        <div class="relative flex flex-col gap-5 overflow-hidden rounded-[15px] bg-surface px-6 py-7 sm:px-8 md:flex-row md:items-center md:justify-between md:gap-10">
+          <div class="relative min-w-0 max-w-2xl">
+            <p class="flex items-center gap-2 font-mono text-xs uppercase tracking-[.08em] text-sci">
+              <svg viewBox="-15 -15 30 30" class="custom-star h-4 w-4" aria-hidden="true" focusable="false"><path d={starPath} fill="url(#prices-star-gradient)" /></svg>
+              {c.custom.eyebrow}
+            </p>
+            <h3 class="mt-2 font-serif text-2xl font-medium leading-snug text-ink sm:text-3xl">{c.custom.name}</h3>
+            <p class="mt-2 text-[15px] leading-relaxed text-ink-soft">{c.custom.text}</p>
+            <p class="mt-3 text-sm text-ink-soft">{c.custom.priceNote}</p>
+          </div>
+          <a
+            href={quizHref('custom')}
+            class="group relative inline-flex w-full shrink-0 items-center justify-center gap-2 rounded-md bg-ink px-5 py-3 font-medium text-paper transition-colors hover:bg-sci md:w-auto"
+            onclick={track('pricing_custom')}
+          >
+            {c.custom.button} <span class="inline-block transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </article>
+
+      {c.notes.map((note) => (
+        <p class="mt-6 text-sm text-ink-soft">{note}</p>
+      ))}
+
+    </div>
+  </section>
+
+  <!-- 02 Existing website (tinted, so the page has a rhythm) -->
+  <section id="existing" class="scroll-mt-20 border-y border-rule bg-sci-soft/40 py-14 sm:py-16" aria-labelledby="existing-heading">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="mb-8 max-w-2xl space-y-3">
+        <h2 id="existing-heading" class="group flex items-center gap-4 font-serif text-3xl font-medium text-ink sm:text-4xl"><HeadingIcon name="gears" />{c.existingHeading}</h2>
+        <p class="text-[15px] leading-relaxed text-ink-soft">{c.existingIntro}</p>
+      </div>
+      <div class="grid gap-6 md:grid-cols-2">
+        {c.existing.map((item) => (
+          <article class="flex min-w-0 flex-col gap-3 rounded-2xl border border-rule bg-surface p-6 shadow-[0_18px_36px_-30px_rgb(21_33_30/.5)] sm:p-8">
+            <h3 class="font-serif text-2xl font-medium text-ink">{item.name}</h3>
+            <p class="text-[15px] leading-relaxed text-ink-soft">{item.text}</p>
+            <a
+              href={quizHref(item.need)}
+              class="group mt-auto inline-flex w-fit items-center gap-2 pt-2 font-medium text-sci"
+              onclick={track(`pricing_${item.need}`)}
             >
               {c.quote} <span class="inline-block transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true">→</span>
             </a>
@@ -71,102 +155,81 @@ const packages = c.packages.map((pkg, i) => ({ ...pkg, ...packageMeta[i] }));
     </div>
   </section>
 
-  <!-- Comparison -->
-  <section class="border-t border-rule py-14 sm:py-16" aria-labelledby="compare-heading">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6">
-      <h2 id="compare-heading" class="group mb-8 flex items-center gap-4 font-serif text-3xl font-medium text-ink sm:text-4xl"><HeadingIcon name="umbrella" />{c.compareHeading}</h2>
-      <div class="overflow-x-auto">
-        <table class="w-full min-w-[560px] border-collapse text-left text-[15px]">
-          <thead>
-            <tr class="border-b border-ink">
-              <th scope="col" class="py-3 pr-4 font-mono text-[11px] font-normal uppercase tracking-[.08em] text-ink-soft"><span class="sr-only">{c.featureColumn}</span></th>
-              {packages.map((pkg) => (
-                <th scope="col" class="px-3 py-3 font-serif text-base font-medium text-ink">{pkg.name}<span class="mt-0.5 block font-text text-sm font-normal text-ink-soft">{c.from}{pkg.price}</span></th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {c.rows.map((row) => (
-              <tr class="border-b border-rule">
-                <th scope="row" class="py-3 pr-4 font-normal text-ink">{row.label}</th>
-                {row.values.map((v) => (
-                  <td class="px-3 py-3">
-                    {typeof v === 'string' ? (
-                      <span class="text-ink">{v}</span>
-                    ) : v ? (
-                      <span class="text-sci" aria-label={c.included}>✓</span>
-                    ) : (
-                      <span class="text-ink-soft/50" aria-label={c.notIncluded}>–</span>
-                    )}
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      {c.notes.map((note, i) => (
-        <p class={`${i === 0 ? 'mt-6' : 'mt-3'} text-[15px] text-ink-soft`}>
-          {note}
-        </p>
-      ))}
-    </div>
-  </section>
-
-  <!-- Projects quoted individually -->
-  <section class="border-t border-rule py-14 sm:py-16" aria-labelledby="scoped-heading">
+  <!-- 03 Other services -->
+  <section id="other" class="scroll-mt-20 py-14 sm:py-16" aria-labelledby="other-heading">
     <div class="mx-auto max-w-6xl px-4 sm:px-6">
       <div class="mb-8 max-w-2xl space-y-3">
-        <h2 id="scoped-heading" class="font-serif text-3xl font-medium text-ink sm:text-4xl">{c.scopedHeading}</h2>
-        <p class="text-ink-soft">{c.scopedIntro}</p>
+        <h2 id="other-heading" class="group flex items-center gap-4 font-serif text-3xl font-medium text-ink sm:text-4xl"><HeadingIcon name="propeller" />{c.otherHeading}</h2>
+        <p class="text-[15px] leading-relaxed text-ink-soft">{c.otherIntro}</p>
       </div>
-      <div class="grid border-t border-ink md:grid-cols-3">
-        {c.scoped.map((item, i) => (
-          <div class={`grid min-w-0 content-start gap-3 border-b border-rule py-6 md:border-b-0 ${i % 3 > 0 ? 'md:border-l md:border-rule md:pl-8' : ''} ${i % 3 < 2 ? 'md:pr-8' : ''}`}>
-            <h3 class="font-serif text-xl font-medium text-ink">{item.name}</h3>
-            <p class="text-[15px] leading-relaxed text-ink-soft">{item.text}</p>
-          </div>
+      <ul class="grid gap-x-10 gap-y-8 border-t border-ink pt-8 sm:grid-cols-2 lg:grid-cols-3">
+        {c.other.map((item) => (
+          <li class="flex min-w-0 gap-4">
+            <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-sci-soft text-sci" aria-hidden="true">
+              <svg viewBox="0 0 24 24" class="h-[22px] w-[22px]" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                {item.icon === 'conference' && <><rect x="3" y="4" width="18" height="12" rx="1.5" /><path d="M12 16v4M8 20h8M7 12l3-3 2 2 4-4" /></>}
+                {item.icon === 'book' && <><path d="M4 5.5C4 4.7 4.7 4 5.5 4H11v15H5.5A1.5 1.5 0 0 1 4 17.5Z" /><path d="M20 5.5c0-.8-.7-1.5-1.5-1.5H13v15h5.5c.8 0 1.5-.7 1.5-1.5Z" /></>}
+                {item.icon === 'chart' && <><circle cx="6" cy="17" r="2.5" /><circle cx="12" cy="7" r="2.5" /><circle cx="18" cy="15" r="2.5" /><path d="m7.3 14.8 3.4-5.6M13.6 8.9l3.2 4.2" /></>}
+                {item.icon === 'pen' && <><path d="M14.5 4.5 19.5 9.5 9 20H4v-5Z" /><path d="m12.5 6.5 5 5" /></>}
+                {item.icon === 'megaphone' && <><path d="M4 10v4h3l8 4V6L7 10Z" /><path d="M7 14l1.5 5h2.5L10 15M18.5 9.5a3.5 3.5 0 0 1 0 5" /></>}
+                {item.icon === 'chat' && <><path d="M4 6.5C4 5.1 5.1 4 6.5 4h11C18.9 4 20 5.1 20 6.5v7c0 1.4-1.1 2.5-2.5 2.5H10l-4 4v-4h0A2 2 0 0 1 4 14Z" /><path d="M8.5 10h.01M12 10h.01M15.5 10h.01" /></>}
+              </svg>
+            </span>
+            <div class="min-w-0">
+              <h3 class="font-serif text-xl font-medium leading-snug text-ink">{item.name}</h3>
+              <p class="mt-1.5 text-[15px] leading-relaxed text-ink-soft">{item.text}{item.also && <br />}{item.also}</p>
+            </div>
+          </li>
         ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- After launch -->
-  <section class="border-t border-rule py-14 sm:py-16" aria-labelledby="after-heading">
-    <div class="mx-auto grid max-w-6xl gap-6 px-4 sm:px-6 md:grid-cols-[1fr_1.2fr] md:gap-16">
-      <div class="space-y-3">
-        <h2 id="after-heading" class="font-serif text-3xl font-medium text-ink sm:text-4xl">{c.afterHeading}</h2>
-        <p class="text-ink-soft">{c.afterText}</p>
-      </div>
-      <ul class="list-disc space-y-2 pl-5 text-[15px] text-ink marker:text-sci md:self-center">
-        {c.afterLaunch.map((item) => <li>{item}</li>)}
       </ul>
+      <p class="mt-8 text-sm text-ink-soft">{c.adNote}</p>
     </div>
   </section>
 
-  <!-- How to get a quote -->
-  <section class="border-t border-rule py-14 sm:py-16" aria-labelledby="steps-heading">
+  <!-- How to get a quote, with what happens after launch as a short note (tinted) -->
+  <section class="border-t border-rule bg-sci-soft/40 py-14 sm:py-16" aria-labelledby="steps-heading">
     <div class="mx-auto max-w-6xl px-4 sm:px-6">
       <h2 id="steps-heading" class="group mb-8 flex items-center gap-4 font-serif text-3xl font-medium text-ink sm:text-4xl"><HeadingIcon name="rocket" />{c.stepsHeading}</h2>
-      <ol class="grid gap-8 border-t border-ink pt-6 md:grid-cols-3 md:gap-0">
+      <ol class="grid gap-4 md:grid-cols-3">
         {c.steps.map((step, i) => (
-          <li class={`min-w-0 ${i > 0 ? 'md:border-l md:border-rule md:pl-8' : ''} ${i < c.steps.length - 1 ? 'md:pr-8' : ''}`}>
-            <p class="font-mono text-sm text-sci">{c.step} {i + 1}</p>
-            <h3 class="mt-1 font-serif text-xl font-medium text-ink">{step.title}</h3>
+          <li class="min-w-0 rounded-2xl border border-rule bg-surface p-6">
+            <p class="grid h-9 w-9 place-items-center rounded-full bg-sci font-mono text-sm text-white">{i + 1}</p>
+            <h3 class="mt-4 font-serif text-xl font-medium text-ink">{step.title}</h3>
             <p class="mt-2 text-[15px] leading-relaxed text-ink-soft">{step.text}</p>
           </li>
         ))}
       </ol>
+      <div class="mt-8 grid gap-4 border-t border-rule pt-8 md:grid-cols-[1fr_1.4fr] md:gap-12" aria-labelledby="after-heading">
+        <div>
+          <h3 id="after-heading" class="font-serif text-xl font-medium text-ink">{c.afterHeading}</h3>
+          <p class="mt-1.5 text-[15px] leading-relaxed text-ink-soft">{c.afterText}</p>
+        </div>
+        <ul class="flex flex-wrap content-start gap-2 md:self-center">
+          {c.afterLaunch.map((item) => (
+            <li class="rounded-full border border-rule bg-surface px-3.5 py-1.5 text-sm text-ink">{item}</li>
+          ))}
+        </ul>
+      </div>
     </div>
   </section>
 
-  <ContactCta
-    location="prices_bottom"
-    heading={c.ctaHeading}
-    text=""
-    button={c.ctaButton}
-    href={pageHref('/quiz', locale)}
-  />
+  <ContactCta location="prices_bottom" quizFirst heading={c.ctaHeading} text={c.ctaText} button={c.ctaContact} />
 
   <Footer />
 </Layout>
+
+<style>
+  /* Made-to-measure card: a thin border in the logo gradient */
+  .custom-card {
+    background: linear-gradient(120deg, #bd00fa55, #4338ff40 45%, #00cedf66);
+  }
+  .custom-star { animation: star-twinkle 2.8s ease-in-out infinite; transform-origin: center; }
+  @keyframes star-twinkle {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    50% { transform: scale(.75) rotate(20deg); opacity: .6; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .custom-star { animation: none; }
+  }
+</style>
