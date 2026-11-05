@@ -385,6 +385,7 @@ const whatsappUrl = getWhatsappUrl(locale);
                 message: projectType ? `${(form.dataset.typeLabel || '').replace(/[?:]$/, '')}: ${projectType}\n\n${message}` : message,
                 gdprConsent,
                 projectType,
+                source: 'form',
                 _gotcha: (form.elements.namedItem('_gotcha') as HTMLInputElement | null)?.value ?? '',
               }),
             });
@@ -392,44 +393,17 @@ const whatsappUrl = getWhatsappUrl(locale);
             const data = await response.json();
 
             if (response.ok && data.success) {
+              form.classList.add('hidden');
               if (successMessage) {
                 successMessage.classList.remove('hidden');
-                successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-              }
-
-              form.reset();
-
-              // Reset project type tags
-              projectTypeTags.forEach((t) => {
-                t.classList.remove('tag-active', 'border-sci', 'bg-sci-soft', 'text-sci');
-                t.classList.add('border-rule', 'bg-surface', 'text-ink');
-              });
-              if (projectTypeInput) projectTypeInput.value = '';
-
-              nameError?.classList.add('hidden');
-              nameInput?.classList.remove('border-red-500', 'border-green-500');
-              emailError?.classList.add('hidden');
-              emailInput?.classList.remove('border-red-500', 'border-green-500');
-              messageError?.classList.add('hidden');
-              messageInput?.classList.remove('border-red-500', 'border-green-500');
-
-              if (gdprError) {
-                gdprError.classList.add('hidden');
-                gdprCheckbox?.classList.remove('ring-2', 'ring-red-500');
-              }
-
-              if (messageCounter) {
-                messageCounter.textContent = '0 / 1000';
-                messageCounter.classList.remove('text-allele');
-                messageCounter.classList.add('text-ink-soft');
+                const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                successMessage.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'nearest' });
               }
 
               window.gtag?.('event', 'form_submission', {
                 form_type: 'contact',
                 submission_status: 'success',
               });
-
-              setTimeout(() => successMessage?.classList.add('hidden'), 10000);
             } else {
               throw new Error((m.useServerMessage && data.message) || (m.sendFailed as string));
             }

@@ -108,12 +108,15 @@ export const POST: APIRoute = async ({ request }) => {
   const safeName = escapeHtml(name);
   const safeEmail = escapeHtml(email);
   const safeMessage = escapeHtml(message);
+  const source = body.source === 'quiz' ? 'quiz' : 'form';
+  const mailLabel = source === 'quiz' ? 'Kviz' : 'Forma';
+  const mailHeading = source === 'quiz' ? 'Nova poruka iz kviza' : 'Nova poruka s kontakt forme';
 
   const { data, error } = await resend.emails.send({
     from: 'Kontakt Forma <contact@renatahorvat.com>',
     to: 'screatives.info@gmail.com',
     replyTo: email,
-    subject: `Nova poruka od ${name}`,
+    subject: `${mailLabel}: Nova poruka od ${name}`,
     html: `
         <!DOCTYPE html>
         <html>
@@ -184,7 +187,7 @@ export const POST: APIRoute = async ({ request }) => {
           </head>
           <body>
             <div class="header">
-              <h1>📧 Nova Poruka s Kontakt Forme</h1>
+              <h1>${mailHeading}</h1>
             </div>
             <div class="content">
               <div class="field">
@@ -211,6 +214,7 @@ export const POST: APIRoute = async ({ request }) => {
         </html>
       `,
     text: `
+${mailHeading}
 Nova poruka od: ${name}
 Email: ${email}
 

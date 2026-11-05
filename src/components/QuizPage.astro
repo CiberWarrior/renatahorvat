@@ -346,7 +346,8 @@ const starPath = 'M0 -11 Q2 -11 4 -4 L11 -3 Q14 -2 10 2 L6 6 L7 12 Q7 14 3 12 L0
               message: lines.join('\n'),
               gdprConsent,
               projectType,
-              _gotcha: '',
+              source: 'quiz',
+              _gotcha: (form.elements.namedItem('_gotcha') as HTMLInputElement | null)?.value ?? '',
             }),
           });
           const result = await response.json();
