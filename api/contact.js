@@ -119,13 +119,16 @@ export default async function handler(req, res) {
     const safeName = escapeHtml(name.trim());
     const safeEmail = escapeHtml(email.trim());
     const safeMessage = escapeHtml(message.trim());
+    const source = input.source === 'quiz' ? 'quiz' : 'form';
+    const mailLabel = source === 'quiz' ? 'Kviz' : 'Forma';
+    const mailHeading = source === 'quiz' ? 'Nova poruka iz kviza' : 'Nova poruka s kontakt forme';
 
     // Send email using Resend
     const { data, error } = await resend.emails.send({
       from: 'Kontakt Forma <contact@renatahorvat.com>',
       to: 'screatives.info@gmail.com',
       replyTo: email,
-      subject: `Nova poruka od ${name}`,
+      subject: `${mailLabel}: Nova poruka od ${name}`,
       html: `
         <!DOCTYPE html>
         <html>
@@ -196,7 +199,7 @@ export default async function handler(req, res) {
           </head>
           <body>
             <div class="header">
-              <h1>📧 Nova Poruka s Kontakt Forme</h1>
+              <h1>${mailHeading}</h1>
             </div>
             <div class="content">
               <div class="field">
@@ -226,6 +229,7 @@ export default async function handler(req, res) {
         </html>
       `,
       text: `
+${mailHeading}
 Nova poruka od: ${name}
 Email: ${email}
 
