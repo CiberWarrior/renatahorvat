@@ -21,7 +21,7 @@ export interface PricesContent {
   newHeading: string;
   newIntro: string;
   packages: { name: string; price: string; for: string; pages: string; includes: string[]; need: QuizNeed }[];
-  custom: { eyebrow: string; name: string; text: string; priceNote: string; button: string };
+  custom: { eyebrow: string; name: string; text: string; button: string };
   notes: string[];
   existingHeading: string;
   existingIntro: string;
@@ -45,7 +45,7 @@ const en: PricesContent = {
   description:
     'Website prices from €500. A larger site, optimisation and one automated process are quoted after a short conversation. Zagreb, Croatia.',
   keywords:
-    'academic website pricing, scientific society website cost, conference website price, e-learning platform price, research project website, web design pricing Croatia, website cost Zagreb',
+    'academic website pricing, scientific society website cost, conference website price, e-learning platform price, research project website, small business website cost, sole trader website, web design pricing Croatia, website cost Zagreb',
   eyebrow: 'Pricing',
   heading: 'Prices and packages',
   intro:
@@ -65,7 +65,7 @@ const en: PricesContent = {
     {
       name: 'One page',
       price: '€500',
-      for: 'A research project, a trade, a salon or a sole trader.',
+      for: 'A research project, a trade or a sole trader.',
       pages: '1 page',
       includes: [
         'One page',
@@ -92,23 +92,24 @@ const en: PricesContent = {
     eyebrow: 'Made to measure',
     name: 'Have an idea but not sure how to make it real?',
     text: 'Tell me about it and we will go through it together, question by question, until it is clear what needs to be built.',
-    priceNote: 'Larger websites, for example for an institution, start from €1,800.',
     button: 'Tell me your idea',
   },
   notes: [
-    'The exact scope is agreed for each project. Work outside the package scope is quoted separately. All prices are stated in euros.',
+    'Scope, price and deadlines are agreed for each project and confirmed in a written quotation or contract.',
+    'Work outside the package scope is quoted separately.',
+    'All prices are stated in euros. The business is not registered for VAT and does not charge VAT.',
   ],
   existingHeading: 'Do you already have a website?',
   existingIntro: 'I will look at what you have and send you a quote after we talk.',
   existing: [
     {
       name: 'Optimising a site you already have',
-      text: 'Clearer, faster, and easier to find. This is not a promise of the top place on Google.',
+      text: "Your site becomes clearer, faster and easier to find in search engines. I don't promise the top spot on Google.",
       need: 'existing',
     },
     {
       name: 'Automating one process',
-      text: 'One job you keep copying, such as an application or an enquiry, goes to your inbox or a table on its own.',
+      text: 'One job you keep copying by hand, such as an application or an enquiry, arrives in your inbox or a spreadsheet automatically.',
       need: 'automation',
     },
   ],
@@ -149,7 +150,7 @@ const en: PricesContent = {
   ],
   adNote: 'Advertising spend is separate from design and campaign management fees and is agreed before work begins.',
   afterHeading: 'After launch',
-  afterText: 'Support is agreed and priced separately, either as a one-off service or as ongoing maintenance.',
+  afterText: 'Support is agreed and priced separately, either as a one-off service or as ongoing maintenance. Maintenance is optional.',
   afterLaunch: [
     'Content and software updates',
     'Help with hosting and domain names',
@@ -181,7 +182,7 @@ const hr: PricesContent = {
   description:
     'Cijene web stranica od 500 €. Veća stranica, optimizacija i automatizacija jednog procesa dobivaju ponudu nakon kratkog razgovora. Zagreb, Hrvatska.',
   keywords:
-    'cijena akademske web stranice, cijena web stranice znanstvenog društva, cijena web stranice konferencije, cijena platforme za e-učenje, web stranica istraživačkog projekta, cijene web dizajna Hrvatska, cijena web stranice Zagreb',
+    'cijena akademske web stranice, cijena web stranice znanstvenog društva, cijena web stranice konferencije, cijena platforme za e-učenje, web stranica istraživačkog projekta, cijena web stranice za malu tvrtku, cijena web stranice za obrt, cijene web dizajna Hrvatska, cijena web stranice Zagreb',
   eyebrow: 'Cjenik',
   heading: 'Cijene i paketi',
   intro:
@@ -201,7 +202,7 @@ const hr: PricesContent = {
     {
       name: 'Jedna stranica',
       price: '500 €',
-      for: 'Istraživački projekt, obrt, frizer ili paušalac.',
+      for: 'Istraživački projekt, obrt ili samostalna djelatnost.',
       pages: '1 stranica',
       includes: [
         'Jedna stranica',
@@ -228,23 +229,24 @@ const hr: PricesContent = {
     eyebrow: 'Po mjeri',
     name: 'Imate ideju, ali niste sigurni kako je ostvariti?',
     text: 'Ispričajte mi je i proći ćemo je zajedno, pitanje po pitanje, dok ne bude jasno što treba napraviti.',
-    priceNote: 'Veće web stranice, na primjer za ustanovu, počinju od 1.800 €.',
     button: 'Ispričajte mi ideju',
   },
   notes: [
-    'Točan opseg dogovaramo za svaki projekt. Za rad izvan opsega paketa izrađuje se zasebna ponuda. Sve cijene izražene su u eurima.',
+    'Opseg, cijena i rokovi dogovaraju se za svaki projekt te potvrđuju pisanom ponudom ili ugovorom.',
+    'Za rad izvan opsega paketa izrađuje se zasebna ponuda.',
+    'Sve cijene izražene su u eurima. Obrt nije u sustavu PDV-a te se PDV ne obračunava.',
   ],
   existingHeading: 'Već imate web stranicu?',
   existingIntro: 'Pogledat ću što imate i nakon razgovora poslati vam ponudu.',
   existing: [
     {
       name: 'Optimizacija postojeće stranice',
-      text: 'Da je jasnija, brža i da je se lakše nađe. To nije obećanje prvog mjesta na Googleu.',
+      text: 'Stranica postaje jasnija, brža i lakše se pronalazi na tražilicama. Ne obećavam prvo mjesto na Googleu.',
       need: 'existing',
     },
     {
       name: 'Automatizacija jednog procesa',
-      text: 'Jedan posao koji se stalno prepisuje, na primjer prijava ili upit, neka sam ide u poštu ili tablicu.',
+      text: 'Jedan posao koji stalno prepisujete, na primjer prijava ili upit, automatski stiže u vaš e-mail ili tablicu.',
       need: 'automation',
     },
   ],
@@ -285,7 +287,7 @@ const hr: PricesContent = {
   ],
   adNote: 'Budžet za oglašavanje odvojen je od naknade za dizajn i vođenje kampanja te se dogovara prije početka rada.',
   afterHeading: 'Nakon objave',
-  afterText: 'Podrška se dogovara i naplaćuje zasebno, kao jednokratna usluga ili kontinuirano održavanje.',
+  afterText: 'Podrška se dogovara i naplaćuje zasebno, kao jednokratna usluga ili kontinuirano održavanje. Održavanje nije obavezno.',
   afterLaunch: [
     'Ažuriranje sadržaja i softvera',
     'Pomoć s hostingom i domenama',

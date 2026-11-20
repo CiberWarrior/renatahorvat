@@ -51,12 +51,13 @@ const en = {
     'web designer Zagreb, web design Croatia, conference website, society website, university website, small business website, graphic designer Zagreb, Renata Horvat, portfolio',
   'work.heading': 'Selected work',
   'work.intro':
-    'Websites and online platforms for universities, conferences, scientific societies and organisations.',
+    'Websites and online platforms for universities, conferences, scientific societies, small businesses and independent professionals.',
   'work.featured': 'Featured',
   'work.all': 'Projects by area',
   'work.group.conference': 'Conferences & scientific events',
   'work.group.society': 'Societies & collections',
   'work.group.elearning': 'E-textbooks',
+  'work.group.business': 'Businesses & independent professionals',
   'work.group.other': 'Research projects & institutions',
   'work.cta.heading': 'Have a similar project in mind?',
   'work.cta.text':
@@ -77,12 +78,12 @@ const en = {
   'home.services.heading': 'What do I do?',
   'home.services.pricing': 'Pricing',
   'home.services.intro':
-    'Websites are my main work. Alongside them I also do illustrations and ads, when your project needs them.',
+    'Websites are my core work. When a project needs it, I also create illustrations and ads and manage social media.',
   'home.services.web.title': 'Web design & build',
   'home.services.web.text':
     'Clear, distinctive websites for scientists, educators, institutions and small businesses.',
   'home.services.web.item1': 'Business, conference and society websites',
-  'home.services.web.item2': 'Online textbooks and learning resources',
+  'home.services.web.item2': 'E-textbooks and learning resources',
   'home.services.web.item3': 'Searchable collections and research tools',
   'home.services.web.item4': 'Optimising an existing site and automating a process',
   'home.services.graphic.title': 'Graphic design & illustration',
@@ -183,12 +184,13 @@ const hr: Record<UiKey, string> = {
     'web dizajner Zagreb, web dizajn Hrvatska, web stranica za konferenciju, web stranica za društvo, web stranica za sveučilište, web stranica za malu tvrtku, grafički dizajner Zagreb, Renata Horvat, portfolio',
   'work.heading': 'Odabrani radovi',
   'work.intro':
-    'Web stranice i online platforme za sveučilišta, konferencije, znanstvena društva i organizacije.',
+    'Web stranice i online platforme za sveučilišta, konferencije, znanstvena društva, male tvrtke i obrte.',
   'work.featured': 'Izdvojeno',
   'work.all': 'Projekti po područjima',
   'work.group.conference': 'Konferencije i znanstveni skupovi',
   'work.group.society': 'Društva i zbirke',
   'work.group.elearning': 'E-udžbenici',
+  'work.group.business': 'Tvrtke i obrti',
   'work.group.other': 'Istraživački projekti i ustanove',
   'work.cta.heading': 'Imate sličan projekt na umu?',
   'work.cta.text':
@@ -209,12 +211,12 @@ const hr: Record<UiKey, string> = {
   'home.services.heading': 'Što radim?',
   'home.services.pricing': 'Cjenik',
   'home.services.intro':
-    'Web stranice su moj glavni posao. Uz njih radim ilustracije i oglase, kad vašem projektu zatrebaju.',
+    'Web stranice su moj glavni posao. Kad vašem projektu zatrebaju, radim i ilustracije, oglase i vodim društvene mreže.',
   'home.services.web.title': 'Dizajn i izrada web stranica',
   'home.services.web.text':
     'Jasne, prepoznatljive web stranice za znanstvenike, edukatore, ustanove i male tvrtke.',
   'home.services.web.item1': 'Web stranice tvrtki, konferencija i društava',
-  'home.services.web.item2': 'Mrežni udžbenici i obrazovni sadržaji',
+  'home.services.web.item2': 'E-udžbenici i obrazovni sadržaji',
   'home.services.web.item3': 'Pretražive zbirke i istraživački alati',
   'home.services.web.item4': 'Optimizacija postojeće stranice i automatizacija procesa',
   'home.services.graphic.title': 'Grafički dizajn i ilustracija',

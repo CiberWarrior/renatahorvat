@@ -495,8 +495,9 @@ const fontCssUrl = '/fonts/portfolio.css';
           });
         }, { threshold: 0.6 });
 
+        // Keep the final number in the HTML for SEO, screen readers and no-JS.
+        // The visible aria-hidden span is animated only once the element is in view.
         document.querySelectorAll<HTMLElement>('[data-count]').forEach((el) => {
-          el.textContent = `0${el.dataset.suffix ?? ''}`;
           counter.observe(el);
         });
       }

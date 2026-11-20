@@ -7,10 +7,12 @@ import CaseCard from '../components/CaseCard.astro';
 import ContactCta from '../components/ContactCta.astro';
 import { projects } from '../lib/projects';
 import { projectRolesHr, projectTitlesHr } from '../i18n/projects';
+import { pricesContent } from '../i18n/prices';
 import { getLocale, pageHref, useTranslations } from '../i18n/utils';
 
 const locale = getLocale(Astro.url);
 const t = useTranslations(locale);
+const prices = pricesContent[locale];
 
 const previews = [
   { title: 'IST 2027 - 19th International Symposium on Trichoptera', meta: t('meta.symposium') },
@@ -85,7 +87,8 @@ const pageKeywords = t('home.keywords');
         <h2 id="services-heading" class="font-serif text-4xl font-medium text-ink sm:text-[2.6rem]">{t('home.services.heading')}</h2>
         <a href={pageHref('/prices', locale)} class="group font-medium text-sci hover:text-sci-dark">{t('home.services.pricing')} <span class="inline-block transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none" aria-hidden="true">→</span></a>
       </div>
-      <p class="-mt-4 mb-8 max-w-2xl text-[15px] leading-relaxed text-ink-soft">{t('home.services.intro')}</p>
+      <p class="-mt-4 mb-3 max-w-2xl text-[15px] leading-relaxed text-ink-soft">{t('home.services.intro')}</p>
+      <p class="mb-8 max-w-2xl text-[15px] leading-relaxed text-ink-soft">{prices.intro}</p>
       <div class="grid border-t border-ink md:grid-cols-2">
         {services.map((service, i) => (
           <div class={`grid min-w-0 content-start gap-3 border-b border-rule py-7 ${services.length % 2 === 1 && i === services.length - 1 ? 'md:col-span-2' : i % 2 === 1 ? 'md:border-l md:pl-8' : 'md:pr-8'}`}>
@@ -133,18 +136,42 @@ const pageKeywords = t('home.keywords');
         <dl class="grid grid-cols-3 gap-4 border-t border-rule pt-6">
           <div class="flex flex-col-reverse justify-end">
             <dt class="text-sm text-ink-soft">{t('home.about.years')}</dt>
-            <dd class="font-serif text-3xl font-medium tabular-nums text-sci" data-count="20" data-suffix="+">20+</dd>
+            <dd class="font-serif text-3xl font-medium tabular-nums text-sci">
+              <span class="sr-only">20+</span>
+              <span aria-hidden="true" data-count="20" data-suffix="+">20+</span>
+            </dd>
           </div>
           <div class="flex flex-col-reverse justify-end">
             <dt class="text-sm text-ink-soft">{t('home.about.projects')}</dt>
-            <dd class="font-serif text-3xl font-medium tabular-nums text-sci" data-count="50" data-suffix="+">50+</dd>
+            <dd class="font-serif text-3xl font-medium tabular-nums text-sci">
+              <span class="sr-only">50+</span>
+              <span aria-hidden="true" data-count="50" data-suffix="+">50+</span>
+            </dd>
           </div>
           <div class="flex flex-col-reverse justify-end">
             <dt class="text-sm text-ink-soft">{t('home.about.institutions')}</dt>
-            <dd class="font-serif text-3xl font-medium tabular-nums text-sci" data-count="15" data-suffix="+">15+</dd>
+            <dd class="font-serif text-3xl font-medium tabular-nums text-sci">
+              <span class="sr-only">15+</span>
+              <span aria-hidden="true" data-count="15" data-suffix="+">15+</span>
+            </dd>
           </div>
         </dl>
       </div>
+    </div>
+  </section>
+
+  <section class="border-b border-rule py-16 sm:py-20" aria-labelledby="quote-steps-heading">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <h2 id="quote-steps-heading" class="mb-10 font-serif text-4xl font-medium text-ink sm:text-[2.6rem]">{prices.stepsHeading}</h2>
+      <ol class="grid gap-8 md:grid-cols-3 md:gap-10">
+        {prices.steps.map((step, i) => (
+          <li class="min-w-0">
+            <p class="font-mono text-xs text-sci">{String(i + 1).padStart(2, '0')}</p>
+            <h3 class="mt-2 font-serif text-2xl font-medium text-ink">{step.title}</h3>
+            <p class="mt-2 text-[15px] leading-relaxed text-ink-soft">{step.text}</p>
+          </li>
+        ))}
+      </ol>
     </div>
   </section>
 
