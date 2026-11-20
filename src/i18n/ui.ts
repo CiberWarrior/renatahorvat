@@ -184,7 +184,7 @@ const hr: Record<UiKey, string> = {
     'web dizajner Zagreb, web dizajn Hrvatska, web stranica za konferenciju, web stranica za društvo, web stranica za sveučilište, web stranica za malu tvrtku, grafički dizajner Zagreb, Renata Horvat, portfolio',
   'work.heading': 'Odabrani radovi',
   'work.intro':
-    'Web stranice i online platforme za sveučilišta, konferencije, znanstvena društva, male tvrtke i obrte.',
+    'Web stranice i online platforme za sveučilišta, konferencije, znanstvena društva, male tvrtke i\u00A0obrte.',
   'work.featured': 'Izdvojeno',
   'work.all': 'Projekti po područjima',
   'work.group.conference': 'Konferencije i znanstveni skupovi',
