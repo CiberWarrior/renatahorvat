@@ -18,6 +18,8 @@ export const projectRolesHr: Record<string, string> = {
     'Pretraživa web stranica koja predstavlja zbirke i rad sveučilišnog herbarija.',
   'FEPS - Federation of European Phycological Societies':
     'Web stranica društva s novostima, članstvom i simpozijima diljem Europe.',
+  'Bicikli Palko - Bicycle Service':
+    'Servis i popravak bicikala: sastavljanje trkaćih bicikala, centriranje kotača, dijagnostika i stručni savjeti.',
 };
 
 // Longer descriptions, used in the structured data of the Work page.
@@ -42,6 +44,8 @@ export const projectSummariesHr: Record<string, string> = {
     'Službena web stranica Europske olimpijade eksperimentalnih znanosti 2025., održane u Zagrebu. Sadrži informacije o događaju, registraciju, detalje programa i informacije o lokaciji.',
   'Herbarium Croaticum':
     'Digitalna baza herbarija s hrvatskim biljnim zbirkama i botaničkim primjercima Prirodoslovno-matematičkog fakulteta Sveučilišta u Zagrebu.',
+  'Bicikli Palko - Bicycle Service':
+    'Profesionalni servis i popravak bicikala, osnovan 1990. Sadrži sastavljanje trkaćih bicikala, centriranje kotača, dijagnostiku i stručne savjete za sve vrste bicikala.',
 };
 
 // Croatian display names for projects whose Croatian site uses a different name.

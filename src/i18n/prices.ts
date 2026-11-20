@@ -45,7 +45,7 @@ const en: PricesContent = {
   description:
     'Website prices from €500. A larger site, optimisation and one automated process are quoted after a short conversation. Zagreb, Croatia.',
   keywords:
-    'academic website pricing, scientific society website cost, conference website price, e-learning platform price, research project website, web design pricing Croatia, website cost Zagreb',
+    'academic website pricing, scientific society website cost, conference website price, e-learning platform price, research project website, small business website cost, sole trader website, web design pricing Croatia, website cost Zagreb',
   eyebrow: 'Pricing',
   heading: 'Prices and packages',
   intro:
@@ -65,7 +65,7 @@ const en: PricesContent = {
     {
       name: 'One page',
       price: '€500',
-      for: 'A research project, a trade, a salon or a sole trader.',
+      for: 'A research project, a trade or a sole trader.',
       pages: '1 page',
       includes: [
         'One page',
@@ -104,12 +104,12 @@ const en: PricesContent = {
   existing: [
     {
       name: 'Optimising a site you already have',
-      text: 'Clearer, faster, and easier to find. This is not a promise of the top place on Google.',
+      text: "Your site becomes clearer, faster and easier to find in search engines. I don't promise the top spot on Google.",
       need: 'existing',
     },
     {
       name: 'Automating one process',
-      text: 'One job you keep copying, such as an application or an enquiry, goes to your inbox or a table on its own.',
+      text: 'One job you keep copying by hand, such as an application or an enquiry, arrives in your inbox or a spreadsheet automatically.',
       need: 'automation',
     },
   ],
@@ -182,7 +182,7 @@ const hr: PricesContent = {
   description:
     'Cijene web stranica od 500 €. Veća stranica, optimizacija i automatizacija jednog procesa dobivaju ponudu nakon kratkog razgovora. Zagreb, Hrvatska.',
   keywords:
-    'cijena akademske web stranice, cijena web stranice znanstvenog društva, cijena web stranice konferencije, cijena platforme za e-učenje, web stranica istraživačkog projekta, cijene web dizajna Hrvatska, cijena web stranice Zagreb',
+    'cijena akademske web stranice, cijena web stranice znanstvenog društva, cijena web stranice konferencije, cijena platforme za e-učenje, web stranica istraživačkog projekta, cijena web stranice za malu tvrtku, cijena web stranice za obrt, cijene web dizajna Hrvatska, cijena web stranice Zagreb',
   eyebrow: 'Cjenik',
   heading: 'Cijene i paketi',
   intro:
@@ -202,7 +202,7 @@ const hr: PricesContent = {
     {
       name: 'Jedna stranica',
       price: '500 €',
-      for: 'Istraživački projekt, obrt, frizer ili paušalac.',
+      for: 'Istraživački projekt, obrt ili samostalna djelatnost.',
       pages: '1 stranica',
       includes: [
         'Jedna stranica',
@@ -241,12 +241,12 @@ const hr: PricesContent = {
   existing: [
     {
       name: 'Optimizacija postojeće stranice',
-      text: 'Da je jasnija, brža i da je se lakše nađe. To nije obećanje prvog mjesta na Googleu.',
+      text: 'Stranica postaje jasnija, brža i lakše se pronalazi na tražilicama. Ne obećavam prvo mjesto na Googleu.',
       need: 'existing',
     },
     {
       name: 'Automatizacija jednog procesa',
-      text: 'Jedan posao koji se stalno prepisuje, na primjer prijava ili upit, neka sam ide u poštu ili tablicu.',
+      text: 'Jedan posao koji stalno prepisujete, na primjer prijava ili upit, automatski stiže u vaš e-mail ili tablicu.',
       need: 'automation',
     },
   ],

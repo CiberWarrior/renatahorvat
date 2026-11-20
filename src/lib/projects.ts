@@ -1,4 +1,4 @@
-export type ProjectCategory = 'elearning' | 'society' | 'conference' | 'other';
+export type ProjectCategory = 'elearning' | 'society' | 'conference' | 'business' | 'other';
 
 export interface Project {
   title: string;
@@ -36,7 +36,7 @@ export const projects: Project[] = [
     tags: ['Handbook', 'Education', 'Natural perfumery', 'Bilingual'],
     icon: 'book',
     iconBg: 'purple-pink',
-    category: 'elearning',
+    category: 'business',
     featured: true,
     image: '/images/work/fragrant-signatures.jpg',
     caseStudySlug: 'mirisni-potpisi',
@@ -252,8 +252,7 @@ export const projects: Project[] = [
     tags: ['Bicycle', 'Service', 'Repair', 'Racing', 'Croatia'],
     icon: 'bicycle',
     iconBg: 'pink-red',
-    category: 'other',
-    archived: true,
+    category: 'business',
   },
 
 ];

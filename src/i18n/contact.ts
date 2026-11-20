@@ -89,7 +89,7 @@ const en: ContactContent = {
   schemaName: 'Contact Renata Horvat',
   schemaJobTitle: 'Web & Graphic Designer',
   eyebrow: 'Contact',
-  heading: 'Find out what is missing from your website',
+  heading: 'Tell me about your project',
   intro:
     'You do not need a detailed brief. Whether you have a project in mind or an early idea, send me a message and we can talk it through.',
   formLabel: 'Contact form',
@@ -221,7 +221,7 @@ const hr: ContactContent = {
   schemaName: 'Kontaktirajte Renatu Horvat',
   schemaJobTitle: 'Web i grafička dizajnerica',
   eyebrow: 'Kontakt',
-  heading: 'Saznajte što nedostaje vašoj web stranici',
+  heading: 'Recite mi o svom projektu',
   intro:
     'Ne treba vam detaljan opis projekta. Napišite mi što zamišljate, što vam treba ili oko čega se još dvoumite. Zajedno ćemo vidjeti što ima smisla.',
   formLabel: 'Kontaktni obrazac',
