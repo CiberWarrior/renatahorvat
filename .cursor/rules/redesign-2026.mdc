@@ -1,0 +1,49 @@
+---
+description: Current design system, structure and publishing rules after the October 2026 redesign
+alwaysApply: true
+---
+
+# Redesign 2026: design system, structure and publishing
+
+These rules extend `project-rules.mdc`. "The existing visual identity" now means the light, "textbook plate" design described here.
+
+## Stack and commands
+
+- Astro (static build) with Tailwind CSS v4. No UI framework.
+- Run locally: `npm run dev`. Always run `npm run build` before committing; it must pass.
+- The contact form on `/contact` sends mail through Resend (`src/pages/api/contact.ts`). Do not change the sending logic or environment variables unless asked.
+
+## Structure
+
+- `src/pages`: `index`, `work`, `prices`, `contact`, `privacy-policy`, `legal`, `404`
+- `src/components`: `Header`, `Footer`, `Hero`, `HeroMagic` (Pipe Machine hero animation), `CaseCard` (project card), `ContactCta`, `CookieConsent`
+- `src/lib/projects.ts`: the list of all projects (title, summary, href, category, `featured`, `image`, `role`). Add new projects here. Project screenshots are 1600x771 JPEGs in `public/images/work/`. A project needs `featured: true` and an `image` to appear as a card; the rest appear in the "All projects" list.
+- `src/layouts/Layout.astro`: head, SEO, analytics, cookie banner, scroll reveal and count-up script.
+
+## Design tokens (src/styles/global.css, `@theme`)
+
+- Colours: `paper` (page), `surface` (cards), `ink`, `ink-soft`, `rule`, `sci` (green accent), `sci-dark`, `sci-soft`, `allele`.
+- Fonts: `font-serif` (Newsreader) for headings, `font-text` (Public Sans) for body, `font-mono` (IBM Plex Mono) for small labels.
+- Use these tokens (`bg-paper`, `text-ink`, `text-sci`, `font-serif`, ...). Do not add new colours, gradients, or legacy classes (cyan, purple, gray, glass, neon).
+- Style: simple but modern, light background, serif headings, one green accent, no heavy effects.
+
+## Motion
+
+- Motion is quiet elsewhere on the site: gentle card reveal, number count-up, arrows that nudge on hover.
+- Every animation must respect `prefers-reduced-motion` and must leave content fully visible when it does not run.
+- Do not add parallax or mouse-following effects.
+- **Exception — Pipe Machine (`HeroMagic.astro`):** the hero animation is intentionally playful, colourful and longer than other motion. Keep it. Do not shorten it, desaturate it, simplify it, or “calm it down” to match the quiet motion rule unless Renata explicitly asks.
+
+## Content rules
+
+- Do not change prices, legal text (`privacy-policy`, `legal`) or contact details unless explicitly asked.
+- Never invent facts: client quotes, years, figures, prices, or project details. If something is missing, leave a clearly marked placeholder and ask.
+- Site copy is in English: short, clear, no marketing jargon.
+
+## Working with Git
+
+- `main` is the live site: merging into `main` publishes to renatahorvat.com through Vercel.
+- Work on a separate branch and tell me when it is ready for a pull request. Never push straight to `main`.
+- Do not commit the generated `.astro/` folder, `.claude/`, or `dist/`.
+- Check every change at phone width (375px) and desktop width; there must be no horizontal scrolling.
+- After a change, explain what changed, which files changed, and how to check it locally.

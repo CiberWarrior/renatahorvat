@@ -1,0 +1,56 @@
+---
+description: Project-specific rules for Renata Horvat Astro portfolio
+alwaysApply: true
+---
+
+# Project Rules: Renata Horvat Portfolio
+
+This project is Renata Horvat's personal portfolio website built with Astro.
+
+## Project context
+
+- The project uses Astro.
+- The site is a professional portfolio for web design, science communication, educational websites, conference platforms, and digital learning projects.
+- The site should remain polished, clear, fast, accessible, and professional.
+- Preserve SEO improvements, analytics setup, and existing deployment configuration.
+
+## Working rules
+
+- Preserve the existing Astro project structure.
+- Do not change routes unless explicitly requested.
+- Do not rename files or folders unless explicitly requested.
+- Do not introduce new libraries without asking first.
+- Prefer the smallest safe change.
+- Do not make large refactors unless explicitly requested.
+- Before editing, inspect the relevant files and understand the existing implementation.
+
+## Content and SEO rules
+
+- Preserve SEO metadata unless explicitly asked to change it.
+- Preserve Google Analytics / tracking-related setup unless explicitly asked to change it.
+- Keep copy professional, warm, clear, and outcome-focused.
+- Avoid generic marketing language.
+- Avoid repetitive sentences that start with “I”.
+- Maintain consistency between English/Croatian content if both are present.
+
+## Design and UX rules
+
+- Preserve the existing visual identity of the portfolio.
+- Improve readability, spacing, hierarchy, responsiveness, accessibility, and usability.
+- Keep the design elegant, calm, modern, and professional.
+- Do not redesign the whole site unless explicitly asked.
+- Always consider mobile responsiveness.
+
+## Code quality
+
+- Follow the existing formatting and project conventions.
+- Keep code clean, readable, and maintainable.
+- Avoid unnecessary JavaScript.
+- Prefer simple Astro/static solutions where possible.
+- After making changes, explain what changed, which files changed, and how to test locally.
+
+## Deployment
+
+- Keep the project compatible with Vercel deployment.
+- Do not change deployment-related files unless explicitly requested.
+- Mention if environment variables are required for any change.
