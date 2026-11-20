@@ -40,7 +40,7 @@ export const projects: Project[] = [
     featured: true,
     image: '/images/work/fragrant-signatures.jpg',
     caseStudySlug: 'mirisni-potpisi',
-    role: 'Bilingual website for a handbook and courses on natural perfume making.',
+    role: 'The handbook, courses and ordering, in Croatian and English.',
   },
   {
     title: 'Bacteriology e-book',
@@ -92,7 +92,7 @@ export const projects: Project[] = [
     featured: true,
     image: '/images/work/trichoptera.jpg',
     caseStudySlug: 'ist2027',
-    role: 'Symposium website for the programme, registration, abstracts and venue.',
+    role: 'Programme, registration, abstracts and the venue, on one page for participants.',
   },
   {
     title: 'ICD11 - XI. International Congress of Dipterology',
@@ -198,7 +198,7 @@ export const projects: Project[] = [
     featured: true,
     image: '/images/work/diatoms.jpg',
     caseStudySlug: 'diatoms',
-    role: 'Digital collection of Croatian diatoms: species database, specimens and research materials.',
+    role: 'Species, slides and research materials on one page.',
   },
   {
     title: 'Croatian Biological Society (HBD-SBC)',

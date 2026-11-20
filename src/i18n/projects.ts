@@ -2,11 +2,11 @@
 // Most titles are project names and stay unchanged. A few projects have a Croatian name, see projectTitlesHr. Projects missing here show the English text.
 export const projectRolesHr: Record<string, string> = {
   'IST 2027 - 19th International Symposium on Trichoptera':
-    'Web stranica simpozija s programom, registracijom, sažecima i lokacijom.',
+    'Program, prijava, sažeci i lokacija na jednoj stranici za sudionike.',
   'Mirisni potpisi - Fragrant Signatures':
-    'Dvojezična web stranica za priručnik i tečajeve izrade prirodnih parfema.',
+    'Priručnik, tečajevi i narudžba, na hrvatskom i engleskom.',
   'Croatian National Diatom Collection':
-    'Digitalna zbirka hrvatskih dijatomeja: baza vrsta, primjerci i istraživački materijali.',
+    'Vrste, preparati i istraživački materijali na jednoj stranici.',
   'Bacteriology e-book': 'Online udžbenik i praktikum za sveučilišni kolegij iz bakteriologije.',
   'Genetics e-book':
     'Web dizajn, izrada u WordPressu i edukativni dijagrami za sveučilišni udžbenik.',
