@@ -4,6 +4,10 @@ dist/
 # generated types
 .astro/
 
+# local AI / editor tooling (rules under .cursor/rules are tracked)
+.claude/
+.impeccable/
+
 # dependencies
 node_modules/
 
